@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50022
 File Encoding         : 65001
 
-Date: 2016-09-13 09:13:13
+Date: 2016-09-13 19:48:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,15 +32,11 @@ CREATE TABLE `s_menu` (
 -- ----------------------------
 -- Records of s_menu
 -- ----------------------------
-INSERT INTO `s_menu` VALUES ('0e194817-bb35-1034-b7aa-d1fa71470f76', '娱乐', '0', 'none', '2', '0,1');
-INSERT INTO `s_menu` VALUES ('0fac941e-70e7-11e6-b176-00163e123043', 'VIP账号', '7c783bf5-70e4-11e6-b176-00163e123043', '/vip.html', '0', '0,1');
 INSERT INTO `s_menu` VALUES ('1000', '系统管理', '0', 'none', '3', '1');
 INSERT INTO `s_menu` VALUES ('1200', '菜单管理', '1000', '/Menu.html', '31', '1');
 INSERT INTO `s_menu` VALUES ('1600', '用户管理', '1000', '/User.html', '32', '1');
-INSERT INTO `s_menu` VALUES ('1d33cf82-70f2-11e6-b176-00163e123043', '游戏账号', '7c783bf5-70e4-11e6-b176-00163e123043', '/Game.html', '13', '0,1');
-INSERT INTO `s_menu` VALUES ('22fbe2d7-70e7-11e6-b176-00163e123043', '我的资源', '7c783bf5-70e4-11e6-b176-00163e123043', '/MyResource.html', '14', '0,1');
-INSERT INTO `s_menu` VALUES ('7c783bf5-70e4-11e6-b176-00163e123043', '资源共享', '0', 'none', '1', '0,1');
-INSERT INTO `s_menu` VALUES ('e12625e0-70f1-11e6-b176-00163e123043', '学习资源', '7c783bf5-70e4-11e6-b176-00163e123043', '/Study.html', '12', '0,1');
+INSERT INTO `s_menu` VALUES ('1d33cf82-70f2-11e6-b176-00163e123043', '流域管理', '7c783bf5-70e4-11e6-b176-00163e123043', '/watershedmanage.html', '13', '0,1');
+INSERT INTO `s_menu` VALUES ('7c783bf5-70e4-11e6-b176-00163e123043', '流域管理', '0', 'none', '1', '0,1');
 
 -- ----------------------------
 -- Table structure for s_role
