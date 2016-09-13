@@ -90,11 +90,11 @@ public class UserController extends BaseController {
 	 */
 	@RequestMapping("home")
 	public String home(ModelMap modelMap) {
-		modelMap.addAttribute("menulist", menuService.getMenuByRoles(userService.getUserByAccountNumber(userService.getCurrentUserId()).getRole()));
-		modelMap.addAttribute("userName",
-				userService.getUserByAccountNumber(userService.getCurrentUserId()).getNickName());
-		modelMap.addAttribute("image",
-				SysConst.QNIUYUNURL + userService.getUserByAccountNumber(userService.getCurrentUserId()).getImage());
+		modelMap.addAttribute("menulist", menuService
+				.getMenuByRoles(userService.getUserByAccountNumber(userService.getCurrentUserId()).getRole()));
+		User user = userService.getUserByAccountNumber(userService.getCurrentUserId());
+		user.setImage(SysConst.QNIUYUNURL + user.getImage());
+		modelMap.addAttribute("user", user);
 		return "Home.ftl";
 	}
 
@@ -128,7 +128,7 @@ public class UserController extends BaseController {
 				return new BaseMsg(false, "wrong e-mail");
 			}
 		}
-		if(!StringUtils.isEmpty(image.getOriginalFilename())){
+		if (!StringUtils.isEmpty(image.getOriginalFilename())) {
 			if (!ValidaterUtil.checkImage(image.getOriginalFilename())) {
 				logger.info("上传的不是图片");
 				return new BaseMsg(false, "图片格式只支持png,jpg,bmp,jpeg,gif");
@@ -136,8 +136,7 @@ public class UserController extends BaseController {
 		}
 
 		// 创建user对象,默认头像
-		User user = new User(id, accountNumber, nickName, ShiroUtils.passwdMD5(password), role, new Date(),
-				eMail);
+		User user = new User(id, accountNumber, nickName, ShiroUtils.passwdMD5(password), role, new Date(), eMail);
 
 		User userPo = userService.getUserByAccountNumber(accountNumber);
 
@@ -247,13 +246,12 @@ public class UserController extends BaseController {
 				return new BaseMsg(false, "wrong e-mail");
 			}
 		}
-		if(!StringUtils.isEmpty(image.getOriginalFilename())){
+		if (!StringUtils.isEmpty(image.getOriginalFilename())) {
 			if (!ValidaterUtil.checkImage(image.getOriginalFilename())) {
 				logger.info("上传的不是图片");
 				return new BaseMsg(false, "图片格式只支持png,jpg,bmp,jpeg,gif");
 			}
 		}
-		
 
 		// 用户权限下只允许修改,密码,邮箱,昵称和头像
 		String fileName = null;

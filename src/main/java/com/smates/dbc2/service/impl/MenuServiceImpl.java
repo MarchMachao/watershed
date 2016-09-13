@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smates.dbc2.mapper.MenuDao;
-import com.smates.dbc2.mencache.annotation.CacheClear;
 import com.smates.dbc2.mencache.annotation.CacheKey;
-import com.smates.dbc2.mencache.annotation.CacheRead;
 import com.smates.dbc2.po.Menu;
 import com.smates.dbc2.service.MenuService;
 import com.smates.dbc2.vo.ComboBoxRow;
@@ -22,13 +20,11 @@ public class MenuServiceImpl implements MenuService{
 	private MenuDao menuDao;
 	
 	@Override
-	@CacheRead(nameSpace="menu",cachePrefix="getByRoles")
 	public List<Menu> getMenuByRoles(@CacheKey Integer role) {
 		return menuDao.getMenuByRole(role);
 	}
 
 	@Override
-	@CacheClear(nameSpace="menu")
 	public void addMenu(String menuName, String parentId, String menuUrl,Integer order,String permition) {
 		Menu menu = new Menu();
 		menu.setMenuId("111");
@@ -46,7 +42,6 @@ public class MenuServiceImpl implements MenuService{
 	}
 
 	@Override
-	@CacheRead(nameSpace="menu",cachePrefix="getAll")
 	public List<Menu> getAllMenu(@CacheKey int pageNo,@CacheKey  String menuName,@CacheKey  String permition,@CacheKey  int pageSize) {
 		CostumMenu costumMenu = new CostumMenu();
 		costumMenu.setStartCount((pageNo-1)*pageSize);
@@ -62,7 +57,6 @@ public class MenuServiceImpl implements MenuService{
 	}
 
 	@Override
-	@CacheClear(nameSpace="menu")
 	public void deleteMenuById(String menuId) {
 		menuDao.deleteMenuById(menuId);
 	}
@@ -73,7 +67,6 @@ public class MenuServiceImpl implements MenuService{
 	}
 
 	@Override
-	@CacheClear(nameSpace="menu")
 	public void updateMenu(String menuId, String menuName, String menuUrl, String parentId, Integer order,
 			String permition) {
 		menuDao.updateMenu(new Menu(menuId, menuName, parentId, menuUrl, order, permition, null));
