@@ -64,7 +64,7 @@ public class UserController extends BaseController {
 			subject.login(token);
 		} catch (AuthenticationException ae) {
 			logger.info("账号或密码错误");
-			modelMap.addAttribute("callback", "false");
+			modelMap.addAttribute("callback", "账号或密码错误");
 			return "Login.ftl";
 		}
 		logger.info("登录成功");

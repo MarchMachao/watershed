@@ -14,6 +14,10 @@ body {
 	min-width: 1145px;
 }
 
+#user_rightconer{
+	margin-top:50px;
+}
+
 .layout-boxed html,
 .layout-boxed body {
 	height: 100%
@@ -512,7 +516,7 @@ a:focus {
 
 .sidebar {
 	padding-bottom: 10px;
-	padding-top: 100px;
+	padding-top: 50px;
 }
 
 .sidebar-form input:focus {

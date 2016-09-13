@@ -45,7 +45,7 @@
           	<img src="image/brand_cas_2_2th.png" />
           </li>
           <!-- User Account Menu -->
-          <li class="dropdown user user-menu">
+          <li id="user_rightconer" class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
