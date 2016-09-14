@@ -14,8 +14,16 @@ body {
 	min-width: 1145px;
 }
 
-#user_rightconer{
-	margin-top:50px;
+.para{
+	margin-right: 15px;
+}
+
+.search_btn{
+	margin-left: 10px;
+}
+
+.add_btn{
+	margin-left: 10px;
 }
 
 .layout-boxed html,
@@ -516,7 +524,7 @@ a:focus {
 
 .sidebar {
 	padding-bottom: 10px;
-	padding-top: 50px;
+	padding-top: 100px;
 }
 
 .sidebar-form input:focus {

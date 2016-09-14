@@ -108,7 +108,7 @@
           
           <ul class="treeview-menu">
           	<#list item.submenus as record>
-            <li><a href="#">${record.menuName}</a></li>
+            <li><a href="javascript:void(0)" class="menuUrl" menuUrl="${record.menuUrl}" >${record.menuName}</a></li>
             </#list>
           </ul>
         </li>
@@ -122,7 +122,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
      <!-- Main content -->
-      <iframe id="webcontent" src="index.html"></iframe>
+      <iframe id="webcontent" src="watershedmanage.html"></iframe>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -147,6 +147,11 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
-
+<script>
+	$(".menuUrl").click(function(){
+		var url = this.getAttribute("menuUrl");
+		$("#webcontent").attr("src",url);
+	})
+</script>
 </body>
 </html>
