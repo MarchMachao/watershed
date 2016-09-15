@@ -1,0 +1,33 @@
+
+/*
+	 CSS-Tricks Example
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+
+* { margin: 0; padding: 0; }
+
+article, aside, figure, footer, header, hgroup,
+menu, nav, section { display: block; }
+
+.page-wrap { width: 800px; margin: 0px 0px; }
+
+ul { 
+	font-weight:normal;
+  list-style: none;
+  margin: 5px 20px;
+}
+
+li {
+	font-weight:normal;
+	margin: 0 0 5px 0;
+}
+
+.father_li {
+  margin: 0 0 5px 0;
+}
+
+.sub_li {
+	float:left;
+	margin: 0 0 5px 0;
+}
