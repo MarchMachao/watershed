@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="bootstrap/css/bootstrapmin.css" />
+<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="bootstrap/css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/web.css" />
+<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+</head>
+<body>
+
+	<div class="container-fluid" id="main-container">
+		<div id="page-content" class="clearfix">
+			<!-- 创建项目区域布局 -->
+			<div class="row-fluid">
+				<div class="widget-box">
+					<div class="widget-header">
+						<h3>创建项目</h3>
+					</div>
+					<div class="widget-body">
+						<div class="widget-main no-padding">
+							<form class="form-horizontal" id="form_create" name="form_create"
+								action="project/save.do" method="post">
+								<fieldset>
+									<!-- 基本信息区域布局 -->
+									<h4 class="header smaller lighter blue">基本信息</h4>
+									<div class="control-group">
+										<label class="control-label" for="project_name">项目名称</label>
+										<div class="controls">
+											<input type="text" id="project_name" name="project_name"
+												placeholder="请输入项目名称">
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label" for="project_description">项目描述</label>
+										<div class="controls">
+											<input type="text" id="project_description"
+												name="project_description" placeholder="请输入项目描述信息">
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="basin_id">对应流域</label>
+										<div class="controls">
+											<select id="sltedBasin" name="basin_id">
+												<option value="">请选择流域</option>
+												<c:choose>
+													<c:when test="${not empty basinList}">
+														<c:if test="${QX.cha == 1}">
+															<c:forEach items="${basinList}" var="basins"
+																varStatus="bs">
+																<option value="${basins.basin_id }">${basins.basin_name
+																	}</option>
+															</c:forEach>
+														</c:if>
+													</c:when>
+												</c:choose>
+											</select>
+										</div>
+									</div>
+									<!-- 参数设置区域布局 -->
+									<h4 class="header smaller lighter blue">基本参数设置</h4>
+
+									<div class="control-group">
+										<label class="control-label" for="param_begin_year">基准年</label>
+										<div class="controls">
+											<input type="text" id="param_begin_year"
+												name="param_begin_year"> ——目标年&nbsp;<input
+												type="text" id="param_end_year" name="param_end_year">
+										</div>
+									</div>
+
+									<div class="control-group">
+										<label class="control-label" for="param_step">计算步长</label>
+										<div class="controls">
+											<input type="text" id="param_step" name="param_step">
+											（请输入“年”或者“月”）
+										</div>
+									</div>
+								</fieldset>
+
+								<div class="form-actions center">
+									<div class="row-fluid">
+										<!-- 占位符DIV -->
+										<div class="span4"></div>
+
+										<div class="span4" style="text-align: center">
+											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
+											<button class="btn btn-small btn-success" type="button"
+												id="project_submit">确定</button>
+											&nbsp;
+											<button class="btn btn-small btn-warning" type="reset"
+												id="project_reset">重置</button>
+										</div>
+
+										<div class="span4" style="text-align: right">
+											<button class="btn btn-small btn-primary" type="button"
+												id="project_nextStep">
+												下一步：设定目标体系 <i class="icon-arrow-right  icon-on-right"></i>
+											</button>
+											&nbsp;
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+</body>
+</html>
+

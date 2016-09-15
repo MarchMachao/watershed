@@ -34,7 +34,7 @@
 			<div class="box-header">
 				<label class="para">流域名称</label><input type="text" />
 				<button type="submit" class="btn btn-primary search_btn">查询</button>
-				<button type="submit" class="btn btn-primary search_btn">新增</button>
+				<button type="submit" class="btn btn-primary add_btn">新增</button>
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
@@ -156,5 +156,12 @@
 			<!-- /.box-body -->
 		</div>
 	</body>
+	
+	<script type="text/javascript" src="js/jquery-1.7.2.js" ></script>
+	<script type="text/javascript">
+		$(".add_btn").click(function(){
+			location.href="watershededit.html";
+		})
+	</script>
 
 </html>
