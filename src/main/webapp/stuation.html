@@ -845,6 +845,7 @@
 			</div>
 		</div>
 		<script type="text/javascript">
+		$(function () {
 //			$(top.hangge());
 
 			//设置气候情景中的增加降雨比例slider
@@ -1500,482 +1501,500 @@
 			});
 
 			function showFigure_1() {
-				var Chart = echarts.init(document.getElementById('showArea-1'));
-				var option = {
-					title: {
-						text: '2005-2015年温度变化',
-						x: 'center',
-						y: 'bottom'
-					},
-					tooltip: {
-						trigger: 'axis'
-					},
-					legend: {
-						data: ['平均温度', '最高温度', '最低温度'],
-						x: 'right',
-						padding: [25, 5, 5, 5]
-					},
-					grid: {
-						left: '3%',
-						right: '4%',
-						bottom: '3%',
-						containLabel: true
-					},
-					toolbox: {
-						feature: {
-							saveAsImage: {}
-						}
-					},
-					xAxis: {
-						type: 'category',
-						boundaryGap: false,
-						data: ['2005', '2006', '2007', '2008', '2009', '2010',
-							'2011', '2012', '2013', '2014', '2015'
-						]
-					},
-					yAxis: {
-						type: 'value',
-						axisLabel: {
-							formatter: '{value} °C'
-						}
-					},
-					series: [{
-						name: '平均温度',
-						type: 'line',
-						data: [15, 17, 17, 20, 14, 16, 18, 15, 17, 17, 20]
-					}, {
-						name: '最高温度',
-						type: 'line',
-						data: [27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32]
-					}, {
-						name: '最低温度',
-						type: 'line',
-						data: [-10, -12, -5, -2, -14, -12, -8, -9, -10, -12, -16]
-					}]
-				};
-				Chart.setOption(option);
-			}
-
-			function showFigure_2() {
-				var Chart = echarts.init(document.getElementById('showArea-2'));
-				var option = {
-					title: {
-						text: '2005-2015年降水变化',
-						x: 'center',
-						y: 'bottom'
-					},
-					tooltip: {
-						trigger: 'axis'
-					},
-					legend: {
-						data: ['平均降水', '最大降水', '最小降水'],
-						x: 'right',
-						padding: [25, 5, 5, 5]
-					},
-					grid: {
-						left: '3%',
-						right: '4%',
-						bottom: '3%',
-						containLabel: true
-					},
-					toolbox: {
-						feature: {
-							saveAsImage: {}
-						}
-					},
-					xAxis: {
-						type: 'category',
-						boundaryGap: false,
-						data: ['2005', '2006', '2007', '2008', '2009', '2010',
-							'2011', '2012', '2013', '2014', '2015'
-						]
-					},
-					yAxis: {
-						type: 'value'
-					},
-					series: [{
-						name: '平均降水',
-						type: 'line',
-						data: [25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30]
-					}, {
-						name: '最大降水',
-						type: 'line',
-						data: [27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32]
-					}, {
-						name: '最小降水',
-						type: 'line',
-						data: [10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16]
-					}]
-				};
-				Chart.setOption(option);
-			}
-
-			//非农业人口比例变化
-			function showFigure_3() {
-				var Chart = echarts.init(document.getElementById('showArea-3'));
-				var option = {
-					title: {
-						text: '2010-2016年非农业人口比例变化',
-						x: 'center',
-						y: 'bottom'
-					},
-					tooltip: {
-						trigger: 'axis'
-					},
-					legend: {
-						data: ['平均变化', '最大变化', '最小变化'],
-						x: 'right',
-						padding: [25, 5, 5, 5]
-					},
-					grid: {
-						left: '3%',
-						right: '4%',
-						bottom: '3%',
-						containLabel: true
-					},
-					toolbox: {
-						feature: {
-							saveAsImage: {}
-						}
-					},
-					xAxis: {
-						type: 'category',
-						boundaryGap: false,
-						data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016']
-					},
-					yAxis: {
-						type: 'value'
-					},
-					series: [{
-						name: '平均变化',
-						type: 'line',
-						data: [25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30]
-					}, {
-						name: '最大变化',
-						type: 'line',
-						data: [27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32]
-					}, {
-						name: '最小变化',
-						type: 'line',
-						data: [10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16]
-					}]
-				};
-				Chart.setOption(option);
-			}
-			//三产产值变化
-			function showFigure_4() {
-				var Chart = echarts.init(document.getElementById('showArea-4'));
-				var option = {
-					title: {
-						text: '2010-2016年三产产值变化',
-						x: 'center',
-						y: 'bottom'
-					},
-					tooltip: {
-						trigger: 'axis'
-					},
-					legend: {
-						data: ['平均产值', '最高产值', '最低产值'],
-						x: 'right',
-						padding: [25, 5, 5, 5]
-					},
-					grid: {
-						left: '3%',
-						right: '4%',
-						bottom: '3%',
-						containLabel: true
-					},
-					toolbox: {
-						feature: {
-							saveAsImage: {}
-						}
-					},
-					xAxis: {
-						type: 'category',
-						boundaryGap: false,
-						data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016']
-					},
-					yAxis: {
-						type: 'value'
-					},
-					series: [{
-						name: '平均产值',
-						type: 'line',
-						data: [25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30]
-					}, {
-						name: '最高产值',
-						type: 'line',
-						data: [27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32]
-					}, {
-						name: '最低产值',
-						type: 'line',
-						data: [10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16]
-					}]
-				};
-				Chart.setOption(option);
-			}
-			//人均GDP变化图表
-			function showFigure_5() {
-				var Chart = echarts.init(document.getElementById('economy-showArea-1'));
-				var option = {
-					title: {
-						text: '2010-2016年人均GDP变化',
-						x: 'center',
-						y: 'bottom'
-					},
-					tooltip: {
-						trigger: 'axis'
-					},
-					legend: {
-						data: ['平均GDP', '最高GDP', '最低GDP'],
-						x: 'right',
-						padding: [25, 5, 5, 5]
-					},
-					grid: {
-						left: '3%',
-						right: '4%',
-						bottom: '3%',
-						containLabel: true
-					},
-					toolbox: {
-						feature: {
-							saveAsImage: {}
-						}
-					},
-					xAxis: {
-						type: 'category',
-						boundaryGap: false,
-						data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016']
-					},
-					yAxis: {
-						type: 'value'
-					},
-					series: [{
-						name: '平均GDP',
-						type: 'line',
-						data: [5, 7, 7, 12, 4, 6, 8]
-					}, {
-						name: '最高GDP',
-						type: 'line',
-						data: [17, 12, 13, 16, 13, 12, 19]
-					}, {
-						name: '最低GDP',
-						type: 'line',
-						data: [0, 2, 6, 8, 4, 2, 8]
-					}]
-				};
-				Chart.setOption(option);
-			}
-
-			//各级渠道长度与水利用率变化
-			function showFigure_6() {
-				var Chart = echarts.init(document.getElementById('economy-showArea-2'));
-				var option = {
-					title: {
-						text: '2010-2016年各级渠道长度和水利用率变化',
-						x: 'center',
-						y: 'bottom'
-					},
-					tooltip: {
-						trigger: 'axis'
-					},
-					legend: {
-						data: ['平均变化', '最高变化', '最低变化'],
-						x: 'right',
-						padding: [25, 5, 5, 5]
-					},
-					grid: {
-						left: '3%',
-						right: '4%',
-						bottom: '3%',
-						containLabel: true
-					},
-					toolbox: {
-						feature: {
-							saveAsImage: {}
-						}
-					},
-					xAxis: {
-						type: 'category',
-						boundaryGap: false,
-						data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016']
-					},
-					yAxis: {
-						type: 'value'
-					},
-					series: [{
-						name: '平均变化',
-						type: 'line',
-						data: [5, 7, 7, 12, 4, 6, 8]
-					}, {
-						name: '最高变化',
-						type: 'line',
-						data: [17, 12, 13, 16, 13, 12, 19]
-					}, {
-						name: '最低变化',
-						type: 'line',
-						data: [0, 2, 6, 8, 4, 2, 8]
-					}]
-				};
-				Chart.setOption(option);
-			}
-			//土地利用情景中的耕地面积变化图表
-			function land_show_1() {
-				var Chart = echarts.init(document.getElementById('land_show_1'));
-				var option = {
-					title: {
-						text: '2010-2016年甘州区耕地面积变化',
-						x: 'center',
-						y: 'bottom'
-					},
-					tooltip: {
-						trigger: 'axis'
-					},
-					legend: {
-						data: ['平均变化', '最大变化', '最小变化'],
-						x: 'right',
-						padding: [25, 5, 5, 5]
-					},
-					grid: {
-						left: '3%',
-						right: '4%',
-						bottom: '3%',
-						containLabel: true
-					},
-					toolbox: {
-						feature: {
-							saveAsImage: {}
-						}
-					},
-					xAxis: {
-						type: 'category',
-						boundaryGap: false,
-						data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016']
-					},
-					yAxis: {
-						type: 'value'
-					},
-					series: [{
-						name: '平均变化',
-						type: 'line',
-						data: [25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30]
-					}, {
-						name: '最大变化',
-						type: 'line',
-						data: [27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32]
-					}, {
-						name: '最小变化',
-						type: 'line',
-						data: [10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16]
-					}]
-				};
-				Chart.setOption(option);
-			}
-			//土地利用情景中的不同作物种植面积变化
-			function land_show_2() {
-				var Chart = echarts.init(document.getElementById('land_show_2'));
-				var option = {
-					title: {
-						text: '2010-2016年甘州区不同作物种植面积变化',
-						x: 'center',
-						y: 'bottom'
-					},
-					tooltip: {
-						trigger: 'axis'
-					},
-					legend: {
-						data: ['平均变化', '最大变化', '最小变化'],
-						x: 'right',
-						padding: [25, 5, 5, 5]
-					},
-					grid: {
-						left: '3%',
-						right: '4%',
-						bottom: '3%',
-						containLabel: true
-					},
-					toolbox: {
-						feature: {
-							saveAsImage: {}
-						}
-					},
-					xAxis: {
-						type: 'category',
-						boundaryGap: false,
-						data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016']
-					},
-					yAxis: {
-						type: 'value'
-					},
-					series: [{
-						name: '平均变化',
-						type: 'line',
-						data: [25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30]
-					}, {
-						name: '最大变化',
-						type: 'line',
-						data: [27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32]
-					}, {
-						name: '最小变化',
-						type: 'line',
-						data: [10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16]
-					}]
-				};
-				Chart.setOption(option);
-			}
-
-			//水资源管理情景中的用水量变化
-			function showArea_usingng_water() {
-				var Chart = echarts.init(document.getElementById('using-water'));
-				var option = {
-					title: {
-						text: '2010-2016年流域中游与下游用水量变化',
-						x: 'center',
-						y: 'bottom'
-					},
-					tooltip: {
-						trigger: 'axis'
-					},
-					legend: {
-						data: ['平均变化', '最大变化', '最小变化'],
-						x: 'right',
-						padding: [25, 5, 5, 5]
-					},
-					grid: {
-						left: '3%',
-						right: '4%',
-						bottom: '3%',
-						containLabel: true
-					},
-					toolbox: {
-						feature: {
-							saveAsImage: {}
-						}
-					},
-					xAxis: {
-						type: 'category',
-						boundaryGap: false,
-						data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016']
-					},
-					yAxis: {
-						type: 'value'
-					},
-					series: [{
-						name: '平均变化',
-						type: 'line',
-						data: [25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30]
-					}, {
-						name: '最大变化',
-						type: 'line',
-						data: [27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32]
-					}, {
-						name: '最小变化',
-						type: 'line',
-						data: [10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16]
-					}]
-				};
-				Chart.setOption(option);
-			}
+			var Chart = echarts.init(document.getElementById('showArea-1'));
+			var option = {
+				title : {
+					text : '2005-2015年温度变化',
+					x: 'center',
+					y: 'bottom'
+				},
+				tooltip : {
+					trigger : 'axis',
+				},
+				legend : {
+					data : [ '平均温度', '最高温度', '最低温度' ],
+					x: 'right',
+					padding: [25,5,5,5]
+				},
+				grid : {
+					left : '3%',
+					right : '4%',
+					bottom : '3%',
+					containLabel : true
+				},
+				toolbox : {
+					feature : {
+						saveAsImage : {}
+					}
+				},
+				xAxis : {
+					type : 'category',
+					boundaryGap : false,
+					data : [ '2005', '2006', '2007', '2008', '2009', '2010',
+							'2011', '2012', '2013', '2014', '2015' ],
+					name : '年份'
+				},
+				yAxis : {
+					type : 'value',
+//					axisLabel : {
+//              		formatter: '{value} °C'
+//          	},
+					name : '温度(℃)'
+				},
+				series : [ {
+					name : '平均温度',
+					type : 'line',
+					data : [ 15, 17, 17, 20, 14, 16, 18, 15, 17, 17, 20 ]
+				}, {
+					name : '最高温度',
+					type : 'line',
+					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+				}, {
+					name : '最低温度',
+					type : 'line',
+					data : [ -10, -12, -5, -2, -14, -12, -8, -9, -10, -12, -16 ]
+				} ]
+			};
+			Chart.setOption(option);
+		}
+		
+		
+		function showFigure_2() {
+			var Chart = echarts.init(document.getElementById('showArea-2'));
+			var option = {
+				title : {
+					text : '2005-2015年降水变化',
+					x: 'center',
+					y: 'bottom'
+				},
+				tooltip : {
+					trigger : 'axis'
+				},
+				legend : {
+					data : [ '平均降水', '最大降水', '最小降水' ],
+					x: 'right',
+					padding: [25,5,5,5]
+				},
+				grid : {
+					left : '3%',
+					right : '4%',
+					bottom : '3%',
+					containLabel : true
+				},
+				toolbox : {
+					feature : {
+						saveAsImage : {}
+					}
+				},
+				xAxis : {
+					type : 'category',
+					boundaryGap : false,
+					name : '年份',
+					data : [ '2005', '2006', '2007', '2008', '2009', '2010',
+							'2011', '2012', '2013', '2014', '2015' ]
+				},
+				yAxis : {
+					type : 'value',
+					name : '降水量(mm)'
+				},
+				series : [ {
+					name : '平均降水',
+					type : 'line',
+					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+				}, {
+					name : '最大降水',
+					type : 'line',
+					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+				}, {
+					name : '最小降水',
+					type : 'line',
+					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+				} ]
+			};
+			Chart.setOption(option);
+		}
+		
+		//非农业人口比例变化
+		function showFigure_3() {
+			var Chart = echarts.init(document.getElementById('showArea-3'));
+			var option = {
+				title : {
+					text : '2010-2016年非农业人口比例变化',
+					x: 'center',
+					y: 'bottom'
+				},
+				tooltip : {
+					trigger : 'axis'
+				},
+				legend : {
+					data : [ '平均变化', '最大变化', '最小变化' ],
+					x: 'right',
+					padding: [25,5,5,5]
+				},
+				grid : {
+					left : '3%',
+					right : '4%',
+					bottom : '3%',
+					containLabel : true
+				},
+				toolbox : {
+					feature : {
+						saveAsImage : {}
+					}
+				},
+				xAxis : {
+					type : 'category',
+					boundaryGap : false,
+					name : '年份',
+					data : ['2010','2011', '2012', '2013', '2014', '2015','2016' ]
+				},
+				yAxis : {
+					type : 'value',
+					name : '比例(%)',
+				},
+				series : [ {
+					name : '平均变化',
+					type : 'line',
+					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+				}, {
+					name : '最大变化',
+					type : 'line',
+					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+				}, {
+					name : '最小变化',
+					type : 'line',
+					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+				} ]
+			};
+			Chart.setOption(option);
+		}
+		//三产产值变化
+		function showFigure_4() {
+			var Chart = echarts.init(document.getElementById('showArea-4'));
+			var option = {
+				title : {
+					text : '2010-2016年三产产值变化',
+					x: 'center',
+					y: 'bottom'
+				},
+				tooltip : {
+					trigger : 'axis'
+				},
+				legend : {
+					data : [ '平均产值', '最高产值', '最低产值' ],
+					x: 'right',
+					padding: [25,5,5,5]
+				},
+				grid : {
+					left : '3%',
+					right : '4%',
+					bottom : '3%',
+					containLabel : true
+				},
+				toolbox : {
+					feature : {
+						saveAsImage : {}
+					}
+				},
+				xAxis : {
+					type : 'category',
+					boundaryGap : false,
+					name : '年份',
+					data : ['2010','2011', '2012', '2013', '2014', '2015','2016' ]
+				},
+				yAxis : {
+					type : 'value',
+					name : '产值(亿元)'
+				},
+				series : [ {
+					name : '平均产值',
+					type : 'line',
+					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+				}, {
+					name : '最高产值',
+					type : 'line',
+					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+				}, {
+					name : '最低产值',
+					type : 'line',
+					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+				} ]
+			};
+			Chart.setOption(option);
+		}
+		//人均GDP变化图表
+		function showFigure_5() {
+			var Chart = echarts.init(document.getElementById('economy-showArea-1'));
+			var option = {
+				title : {
+					text : '2010-2016年人均GDP变化',
+					x: 'center',
+					y: 'bottom'
+				},
+				tooltip : {
+					trigger : 'axis'
+				},
+				legend : {
+					data : [ '平均GDP', '最高GDP', '最低GDP' ],
+					x: 'right',
+					padding: [25,5,5,5]
+				},
+				grid : {
+					left : '3%',
+					right : '4%',
+					bottom : '3%',
+					containLabel : true
+				},
+				toolbox : {
+					feature : {
+						saveAsImage : {}
+					}
+				},
+				xAxis : {
+					type : 'category',
+					boundaryGap : false,
+					name : '年份',
+					data : ['2010', '2011', '2012', '2013', '2014', '2015','2016' ]
+				},
+				yAxis : {
+					type : 'value',
+					name : '增长率(%)',
+				},
+				series : [ {
+					name : '平均GDP',
+					type : 'line',
+					data : [ 5, 7, 7, 12, 4, 6, 8 ]
+				}, {
+					name : '最高GDP',
+					type : 'line',
+					data : [ 17, 12, 13, 16, 13, 12, 19 ]
+				}, {
+					name : '最低GDP',
+					type : 'line',
+					data : [ 0, 2, 6, 8, 4, 2, 8 ]
+				} ]
+			};
+			Chart.setOption(option);
+		}
+		
+		//各级渠道长度与水利用率变化
+		function showFigure_6() {
+			var Chart = echarts.init(document.getElementById('economy-showArea-2'));
+			var option = {
+				title : {
+					text : '2010-2016年各级渠道长度和水利用率变化',
+					x: 'center',
+					y: 'bottom'
+				},
+				tooltip : {
+					trigger : 'axis'
+				},
+				legend : {
+					data : [ '平均变化', '最高变化', '最低变化' ],
+					x: 'right',
+					padding: [25,5,5,5]
+				},
+				grid : {
+					left : '3%',
+					right : '4%',
+					bottom : '3%',
+					containLabel : true
+				},
+				toolbox : {
+					feature : {
+						saveAsImage : {}
+					}
+				},
+				xAxis : {
+					type : 'category',
+					boundaryGap : false,
+					name : '年份',
+					data : ['2010', '2011', '2012', '2013', '2014', '2015','2016' ]
+				},
+				yAxis : {
+					type : 'value',
+					name : '利用率(%)',
+				},
+				series : [ {
+					name : '平均变化',
+					type : 'line',
+					data : [ 5, 7, 7, 12, 4, 6, 8 ]
+				}, {
+					name : '最高变化',
+					type : 'line',
+					data : [ 17, 12, 13, 16, 13, 12, 19 ]
+				}, {
+					name : '最低变化',
+					type : 'line',
+					data : [ 0, 2, 6, 8, 4, 2, 8 ]
+				} ]
+			};
+			Chart.setOption(option);
+		}
+		//土地利用情景中的耕地面积变化图表
+		function land_show_1() {
+			var Chart = echarts.init(document.getElementById('land_show_1'));
+			var option = {
+				title : {
+					text : '2010-2016年甘州区耕地面积变化',
+					x: 'center',
+					y: 'bottom'
+				},
+				tooltip : {
+					trigger : 'axis'
+				},
+				legend : {
+					data : [ '平均变化', '最大变化', '最小变化' ],
+					x: 'right',
+					padding: [25,5,5,5]
+				},
+				grid : {
+					left : '3%',
+					right : '4%',
+					bottom : '3%',
+					containLabel : true
+				},
+				toolbox : {
+					feature : {
+						saveAsImage : {}
+					}
+				},
+				xAxis : {
+					type : 'category',
+					boundaryGap : false,
+					name : '年份',
+					data : ['2010','2011', '2012', '2013', '2014', '2015','2016' ]
+				},
+				yAxis : {
+					type : 'value',
+					name : '变化率(%)',
+				},
+				series : [ {
+					name : '平均变化',
+					type : 'line',
+					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+				}, {
+					name : '最大变化',
+					type : 'line',
+					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+				}, {
+					name : '最小变化',
+					type : 'line',
+					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+				} ]
+			};
+			Chart.setOption(option);
+		}
+		//土地利用情景中的不同作物种植面积变化
+		function land_show_2() {
+			var Chart = echarts.init(document.getElementById('land_show_2'));
+			var option = {
+				title : {
+					text : '2010-2016年甘州区不同作物种植面积变化',
+					x: 'center',
+					y: 'bottom'
+				},
+				tooltip : {
+					trigger : 'axis'
+				},
+				legend : {
+					data : [ '平均变化', '最大变化', '最小变化' ],
+					x: 'right',
+					padding: [25,5,5,5]
+				},
+				grid : {
+					left : '3%',
+					right : '4%',
+					bottom : '3%',
+					containLabel : true
+				},
+				toolbox : {
+					feature : {
+						saveAsImage : {}
+					}
+				},
+				xAxis : {
+					type : 'category',
+					boundaryGap : false,
+					name : '年份',
+					data : ['2010','2011', '2012', '2013', '2014', '2015','2016' ]
+				},
+				yAxis : {
+					type : 'value',
+					name : '变化率(%)',
+				},
+				series : [ {
+					name : '平均变化',
+					type : 'line',
+					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+				}, {
+					name : '最大变化',
+					type : 'line',
+					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+				}, {
+					name : '最小变化',
+					type : 'line',
+					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+				} ]
+			};
+			Chart.setOption(option);
+		}
+		
+		//水资源管理情景中的用水量变化
+		function showArea_usingng_water() {
+			var Chart = echarts.init(document.getElementById('using-water'));
+			var option = {
+				title : {
+					text : '2010-2016年流域中游与下游用水量变化',
+					x: 'center',
+					y: 'bottom'
+				},
+				tooltip : {
+					trigger : 'axis'
+				},
+				legend : {
+					data : [ '平均变化', '最大变化', '最小变化' ],
+					x: 'right',
+					padding: [25,5,5,5]
+				},
+				grid : {
+					left : '3%',
+					right : '4%',
+					bottom : '3%',
+					containLabel : true
+				},
+				toolbox : {
+					feature : {
+						saveAsImage : {}
+					}
+				},
+				xAxis : {
+					type : 'category',
+					boundaryGap : false,
+					name : '年份',
+					data : ['2010','2011', '2012', '2013', '2014', '2015','2016' ]
+				},
+				yAxis : {
+					type : 'value',
+					name : '变化率(%)',
+				},
+				series : [ {
+					name : '平均变化',
+					type : 'line',
+					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+				}, {
+					name : '最大变化',
+					type : 'line',
+					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+				}, {
+					name : '最小变化',
+					type : 'line',
+					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+				} ]
+			};
+			Chart.setOption(option);
+		};
+		});
 		</script>
 	</body>
 
