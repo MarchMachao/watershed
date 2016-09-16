@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>智慧服饰</title>
+    <title>流域可持续发展决策支持系统</title>
     <meta name="author" content="SIRMly">
     <meta name="renderer" content="webkit" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />

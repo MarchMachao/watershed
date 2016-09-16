@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>XXX控制台</title>
+  <title>流域可持续发展决策支持系统</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -45,9 +45,9 @@
           	<img src="image/brand_cas_2_2th.png" />
           </li>
           <!-- User Account Menu -->
-          <li id="user_rightconer" class="dropdown user user-menu">
+          <li id="user_rightconer" class="dropdown user-menu">
             <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle user" data-toggle="dropdown">
               <!-- The user image in the navbar-->
               <img src="${user.image}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the nickName on small devices so only the image appears. -->
@@ -119,13 +119,9 @@
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-     <!-- Main content -->
-      <iframe id="webcontent" src="http://115.29.175.47:19001/wk/main.htm"></iframe>
-    <!-- /.content -->
+      <iframe id="webcontent" src="http://210.77.67.251/map/index.jsp"></iframe>
   </div>
-  <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
   <footer class="main-footer">
@@ -134,7 +130,7 @@
       Anything you want
     </div>-->
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Lab516</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2016 <a href="#">中国科学院寒区旱区环境与工程研究所</a>.</strong> All rights reserved.
   </footer>
 
 <!-- REQUIRED JS SCRIPTS -->
