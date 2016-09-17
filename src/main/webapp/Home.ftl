@@ -119,8 +119,8 @@
     <!-- /.sidebar -->
   </aside>
 
-  <div class="content-wrapper">
-      <iframe id="webcontent" src="http://210.77.67.251/map/index.jsp"></iframe>
+  <div id="content-wrapper" class="content-wrapper">
+      <iframe id="webcontent" src="GIS.html"></iframe>
   </div>
 
   <!-- Main Footer -->

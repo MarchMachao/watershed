@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>流域可持续发展决策支持系统</title>
+		<meta name="description" content="overview & stats" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="static/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="static/css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="static/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="static/css/jquery-ui-1.10.2.custom.min.css" />
+		<link rel="stylesheet" href="static/css/ace.min.css" />
+		<script type="text/javascript" src="static/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="static/js/jquery-ui-1.10.2.custom.min.js"></script>
+	</head>
+
+	<body>
+		<iframe id="mapframe" style="width:100%;border: 0;min-height: 800px;" src="http://210.77.67.251/map/index.jsp"></iframe>
+		<div class="widget-box" style="width:400px;position:absolute;right:0;top:50px;z-index:10;">
+			<div class="widget-header">
+				<h4>情景控制</h4>
+			</div>
+			<div class="widget-body">
+				<div class="widget-main">
+					<div class="row-fluid">
+						上游耕地面积：
+						<input type="text" id="situation-1" value="10" style="width:30px;height:10px">万亩
+						<div id="slider-1" style="float:right;display:inline;"></div>
+						<hr style="margin:0px;height:4px">
+					</div>
+					<div class="row-fluid">
+						<span style="visibility:hidden">中下游分水：</span> 中游&nbsp;下游
+					</div>
+					<div class="row-fluid">
+						中下游分水：
+						<input type="text" id="situation-2-1" value="9" style="width:25px;height:10px">
+						<input type="text" id="situation-2-2" value="7" style="width:25px;height:10px">亿m^3
+						<div id="slider-2" style="float:right;display:inline;"></div>
+					</div>
+					<div class="row-fluid">
+						中游耕地面积：
+						<input type="text" id="situation-3" value="568" style="width:30px;height:10px">万亩
+						<div id="slider-3" style="float:right;display:inline;"></div>
+					</div>
+					<div class="row-fluid">
+						中游湿地面积：
+						<input type="text" id="situation-4" value="24.4" style="width:30px;height:10px">万亩
+						<div id="slider-4" style="float:right;display:inline;"></div>
+					</div>
+					<div class="row-fluid">
+						中游滴灌面积：
+						<input type="text" id="situation-5" value="10" style="width:30px;height:10px">万亩
+						<div id="slider-5" style="float:right;display:inline;"></div>
+						<hr style="margin:0px;height:4px">
+					</div>
+					<div class="row-fluid">
+						下游耕地面积：
+						<input type="text" id="situation-6" value="10" style="width:30px;height:10px">万亩
+						<div id="slider-6" style="float:right;display:inline;"></div>
+						<hr style="margin:0px;height:4px">
+					</div>
+					<div class="row-fluid" style="text-align:center;">
+						<button class="btn btn-mini btn-success" type="button" id="btn_eval">评价分析</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- 情景控制slider模块显示及控制 -->
+		<script type="text/javascript">
+			
+			$(function() {
+				
+				$("#mapframe").attr("height",$(document).height());
+				$("#slider-1").css({
+					width: '42%',
+					margin: '5px 5px 15px 5px'
+				}).slider({
+					value: 10,
+					range: "min",
+					min: 0,
+					max: 50,
+					step: 1,
+					slide: function(event, ui) {
+						var val = parseInt(ui.value);
+						$("#situation-1").val(val);
+					}
+				});
+
+				$("#slider-2").css({
+					width: '42%',
+					margin: '5px 5px 15px 5px'
+				}).slider({
+					value: 9,
+					range: "min",
+					min: 0,
+					max: 16,
+					step: 1,
+					slide: function(event, ui) {
+						var val = parseInt(ui.value);
+						$("#situation-2-1").val(val);
+						$("#situation-2-2").val(16 - val);
+					}
+				});
+
+				$("#slider-3").css({
+					width: '42%',
+					margin: '5px 5px 15px 5px'
+				}).slider({
+					value: 568,
+					range: "min",
+					min: 0,
+					max: 700,
+					step: 10,
+					slide: function(event, ui) {
+						var val = parseInt(ui.value);
+						$("#situation-3").val(val);
+					}
+				});
+
+				$("#slider-4").css({
+					width: '42%',
+					margin: '5px 5px 15px 5px'
+				}).slider({
+					value: 24.4,
+					range: "min",
+					min: 0,
+					max: 60,
+					step: 1,
+					slide: function(event, ui) {
+						var val = parseInt(ui.value);
+						$("#situation-4").val(val);
+					}
+				});
+
+				$("#slider-5").css({
+					width: '42%',
+					margin: '5px 5px 15px 5px'
+				}).slider({
+					value: 10,
+					range: "min",
+					min: 0,
+					max: 100,
+					step: 5,
+					slide: function(event, ui) {
+						var val = parseInt(ui.value);
+						$("#situation-5").val(val);
+					}
+				});
+
+				$("#slider-6").css({
+					width: '42%',
+					margin: '5px 5px 15px 5px'
+				}).slider({
+					value: 10,
+					range: "min",
+					min: 0,
+					max: 100,
+					step: 5,
+					slide: function(event, ui) {
+						var val = parseInt(ui.value);
+						$("#situation-6").val(val);
+					}
+				});
+
+			});
+			//绑定btn_eval按钮的点击事件
+			$("#btn_eval").bind("click", function() {
+
+				var json = {};
+				json["#situation-1"] = $("#situation-1").val();
+				json["#situation-2-1"] = $("#situation-2-1").val();
+				json["#situation-2-1"] = $("#situation-2-1").val();
+				json["#situation-3"] = $("#situation-3").val();
+				json["#situation-4"] = $("#situation-4").val();
+				json["#situation-5"] = $("#situation-5").val();
+				json["#situation-6"] = $("#situation-6").val();
+				//使用ajax将数据发送到服务端
+				$.ajax({
+					url: '<%=basePath%>admin/indexcompute.do',
+					type: "POST",
+					dataType: "json",
+					data: json,
+					/*error:function(){
+						alert("保存指标失败，请重试！");
+					},
+					success:function(){
+						alert("保存成功！");
+						//将显示目标体系的show按钮设置为可用状态
+						//$("#show").attr("disable",false);
+						
+					}	*/
+				});
+
+			});
+		</script>
+	</body>
+
+</html>
