@@ -33,11 +33,6 @@ body {
 
 #webcontent{
 	width: 100%;
-	padding: 15px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-left: 15px;
-	padding-right: 15px;
 	min-height: 768px;
 }
 

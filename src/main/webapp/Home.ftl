@@ -144,6 +144,7 @@
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 <script>
+	$("#webcontent").attr("height",$(window).height()-150);
 	$(".menuUrl").click(function(){
 		var url = this.getAttribute("menuUrl");
 		$("#webcontent").attr("src",url);
