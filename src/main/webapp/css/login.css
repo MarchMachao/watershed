@@ -68,4 +68,4 @@
             background: repeating-linear-gradient(-45deg,rgba(247,247,247,1),rgba(247,247,247,1) 20px,rgba(36,113,140,0.2) 20px,rgba(36,113,140,0.2) 40px,rgba(247,247,247,1) 40px);
         }
         .login-bottom{position: absolute; bottom: 25px; font-size: 14px; right: 30px; }
-.danger-error{font-size: 14px; color: #ff1300; font-weight: 700; margin-top: -14px; }
+.danger-error{font-size: 14px; color: #ff1300; font-weight: 700; margin-top: -25px; }
