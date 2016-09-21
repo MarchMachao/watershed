@@ -20,7 +20,6 @@ public class MenuTest {
 
 	@Test
 	public void testMenuController(){
-		System.out.println(menuController.getAllMenu(1, null, null,10));
 	}
 	
 }
