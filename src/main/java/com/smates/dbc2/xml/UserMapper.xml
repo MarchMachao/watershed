@@ -22,7 +22,7 @@
 		parameterType="java.lang.String">
 		select *
 		from s_user
-		where accountNumber = #{accountNumber}
+		where s_user."accountNumber" = #{accountNumber}
 	</select>
 
 	<!-- des: 根据id查user example sql： select * from s_user where id = 8 -->

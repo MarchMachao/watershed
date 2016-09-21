@@ -36,17 +36,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		NULL OR (b.PERMITION LIKE 'admin') ) ORDER BY a.ORDER_NO, b.ORDER_NO -->
 	<select id="getMenuByRole" resultMap="getAllmenuQueryMap"
 		parameterType="String">
-		select a.*,b.MENU_ID sub_menu_id,b.MENU_NAME
-		sub_menu_name,b.MENU_URL sub_menu_url,b.ORDER_NO
-		sub_menu_order,b.PARENT_ID
-		sub_menu_parent_id
-		from s_menu a left join
-		s_menu b
-		on a.MENU_ID = b.PARENT_ID
-		where a.parent_id = '0' and
-		a.permition like '%${value}%' and (b.PERMITION
-		is null or (b.PERMITION
-		like '%${value}%')) order by a.ORDER_NO,b.ORDER_NO
+		SELECT
+		A."MENU_ID",A."MENU_NAME",A."MENU_URL",A."ORDER_NO",A."PARENT_ID",A."PERMITION",
+		b."MENU_ID" sub_menu_id,
+		b."MENU_NAME" sub_menu_name,
+		b."MENU_URL" sub_menu_url,
+		b."ORDER_NO" sub_menu_order,
+		b."PARENT_ID" sub_menu_parent_id
+		FROM
+		s_menu A
+		LEFT JOIN s_menu b ON A ."MENU_ID" = b."PARENT_ID"
+		WHERE
+		A ."PARENT_ID" = '0'
+		AND A ."PERMITION" LIKE '%${value}%'
+		AND (
+		b."PERMITION" IS NULL
+		OR (b."PERMITION" LIKE '%${value}%')
+		)
+		ORDER BY
+		A ."ORDER_NO",
+		b."ORDER_NO"
 
 	</select>
 

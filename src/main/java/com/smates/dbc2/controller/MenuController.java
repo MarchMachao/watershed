@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.smates.dbc2.aop.PersonalLog;
 import com.smates.dbc2.po.Menu;
 import com.smates.dbc2.utils.StringUtils;
 import com.smates.dbc2.vo.BaseMsg;
@@ -43,7 +42,6 @@ public class MenuController extends BaseController {
 	 */
 	@RequestMapping(value = "saveMenu", method = RequestMethod.POST)
 	@ResponseBody
-	@PersonalLog("addMenu")
 	public BaseMsg addMenu(String menuId, String menuName, String menuUrl, String parentId, Integer order, String permition) {
 		if(StringUtils.isEmpty(menuId)){
 			logger.info("添加菜单项");
