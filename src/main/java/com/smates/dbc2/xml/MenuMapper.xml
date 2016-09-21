@@ -59,83 +59,83 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 
-	<!-- des: 向数据库中添加一条menu记录 example sql: insert into s_menu(menu_id,menu_name,parent_id,menu_url,order_no,permition) 
-		value('7f68d8c4-c5ff-4221-a534-ca645ebf4eec1','个人中心','0','none',1,'admin') -->
-	<insert id="addMenu" parameterType="menu">
-		<selectKey keyProperty="menuId" order="BEFORE" resultType="String">
-			select UUID()
-		</selectKey>
-		insert
-		into
-		s_menu(menu_id,menu_name,parent_id,menu_url,order_no,permition)
-		value(#{menuId},#{menuName},#{parentId},#{menuUrl},#{order},#{permition})
-	</insert>
+<!-- 	<!-- des: 向数据库中添加一条menu记录 example sql: insert into s_menu(menu_id,menu_name,parent_id,menu_url,order_no,permition)  -->
+<!-- 		value('7f68d8c4-c5ff-4221-a534-ca645ebf4eec1','个人中心','0','none',1,'admin') --> -->
+<!-- 	<insert id="addMenu" parameterType="menu"> -->
+<!-- 		<selectKey keyProperty="menuId" order="BEFORE" resultType="String"> -->
+<!-- 			select UUID() -->
+<!-- 		</selectKey> -->
+<!-- 		insert -->
+<!-- 		into -->
+<!-- 		s_menu(menu_id,menu_name,parent_id,menu_url,order_no,permition) -->
+<!-- 		value(#{menuId},#{menuName},#{parentId},#{menuUrl},#{order},#{permition}) -->
+<!-- 	</insert> -->
 
-	<!-- des: 查找所有的一级菜单 example sql: select menu_id,menu_name from s_menu a 
-		where a.PARENT_ID = '0' -->
-	<select id="getParentMenu" resultMap="ComboBoxRowMap">
-		select menu_id,menu_name
-		from s_menu a
-		where a.PARENT_ID = '0'
-	</select>
+<!-- 	<!-- des: 查找所有的一级菜单 example sql: select menu_id,menu_name from s_menu a  -->
+<!-- 		where a.PARENT_ID = '0' --> -->
+<!-- 	<select id="getParentMenu" resultMap="ComboBoxRowMap"> -->
+<!-- 		select menu_id,menu_name -->
+<!-- 		from s_menu a -->
+<!-- 		where a.PARENT_ID = '0' -->
+<!-- 	</select> -->
 
-	<!-- desc: 根据条件查询菜单列表 example sql: SELECT * FROM s_menu WHERE menu_name 
-		LIKE '%管理%' AND permition = 'admin' LIMIT 0, 5 -->
-	<select id="getAllMenu" resultMap="getAllmenuQueryMap"
-		parameterType="com.smates.dbc2.vo.CostumMenu">
-		select * from s_menu
-		<where>
-			<if test="menuName != null">
-				and menu_name like '%${menuName}%'
-			</if>
-			<if test="permition != null">
-				and permition = #{permition}
-			</if>
-		</where>
-		limit #{startCount}, #{pageSize}
-	</select>
+<!-- 	<!-- desc: 根据条件查询菜单列表 example sql: SELECT * FROM s_menu WHERE menu_name  -->
+<!-- 		LIKE '%管理%' AND permition = 'admin' LIMIT 0, 5 --> -->
+<!-- 	<select id="getAllMenu" resultMap="getAllmenuQueryMap" -->
+<!-- 		parameterType="com.smates.dbc2.vo.CostumMenu"> -->
+<!-- 		select * from s_menu -->
+<!-- 		<where> -->
+<!-- 			<if test="menuName != null"> -->
+<!-- 				and menu_name like '%${menuName}%' -->
+<!-- 			</if> -->
+<!-- 			<if test="permition != null"> -->
+<!-- 				and permition = #{permition} -->
+<!-- 			</if> -->
+<!-- 		</where> -->
+<!-- 		limit #{startCount}, #{pageSize} -->
+<!-- 	</select> -->
 
-	<!-- desc:统计s_menu表的总记录数 example sql: select count(*) from s_menu -->
-	<select id="countSum" resultType="int">
-		select count(*)
-		from s_menu
-	</select>
+<!-- 	<!-- desc:统计s_menu表的总记录数 example sql: select count(*) from s_menu --> -->
+<!-- 	<select id="countSum" resultType="int"> -->
+<!-- 		select count(*) -->
+<!-- 		from s_menu -->
+<!-- 	</select> -->
 
-	<!-- desc:删除s_menu表中的一个记录 example sql:delete from s_menu where menu_id = 
-		#{value} -->
-	<delete id="deleteMenuById" parameterType="String">
-		delete from s_menu
-		where menu_id = #{value}
-	</delete>
+<!-- 	<!-- desc:删除s_menu表中的一个记录 example sql:delete from s_menu where menu_id =  -->
+<!-- 		#{value} --> -->
+<!-- 	<delete id="deleteMenuById" parameterType="String"> -->
+<!-- 		delete from s_menu -->
+<!-- 		where menu_id = #{value} -->
+<!-- 	</delete> -->
 
-	<!-- desc:查找s_menu中一条记录 example sql:select * from s_menu where menu_id = 
-		'1000' -->
-	<select id="getMenuById" parameterType="string" resultMap="getAllmenuQueryMap">
-		select * from s_menu where menu_id = #{value}
-	</select>
+<!-- 	<!-- desc:查找s_menu中一条记录 example sql:select * from s_menu where menu_id =  -->
+<!-- 		'1000' --> -->
+<!-- 	<select id="getMenuById" parameterType="string" resultMap="getAllmenuQueryMap"> -->
+<!-- 		select * from s_menu where menu_id = #{value} -->
+<!-- 	</select> -->
 
-	<!-- desc更新s_menu记录 example sql: UPDATE s_menu SET MENU_NAME = "测试修改" WHERE 
-		MENU_ID = "2f248162-b0e8-1034-8831-320ba20b5071" -->
-	<update id="updateMenu" parameterType="menu">
-		update s_menu
-		<set>
-			<if test="menuName != null">
-				menu_name = #{menuName},
-			</if>
-			<if test="menuUrl != null">
-				menu_url = #{menuUrl},
-			</if>
-			<if test="parentId != null">
-				parent_id = #{parentId},
-			</if>
-			<if test="order != null">
-				order_no = #{order},
-			</if>
-			<if test="permition != null">
-				permition = #{permition},
-			</if>
-		</set>
-		where menu_id = #{menuId}
-	</update>
+<!-- 	<!-- desc更新s_menu记录 example sql: UPDATE s_menu SET MENU_NAME = "测试修改" WHERE  -->
+<!-- 		MENU_ID = "2f248162-b0e8-1034-8831-320ba20b5071" --> -->
+<!-- 	<update id="updateMenu" parameterType="menu"> -->
+<!-- 		update s_menu -->
+<!-- 		<set> -->
+<!-- 			<if test="menuName != null"> -->
+<!-- 				menu_name = #{menuName}, -->
+<!-- 			</if> -->
+<!-- 			<if test="menuUrl != null"> -->
+<!-- 				menu_url = #{menuUrl}, -->
+<!-- 			</if> -->
+<!-- 			<if test="parentId != null"> -->
+<!-- 				parent_id = #{parentId}, -->
+<!-- 			</if> -->
+<!-- 			<if test="order != null"> -->
+<!-- 				order_no = #{order}, -->
+<!-- 			</if> -->
+<!-- 			<if test="permition != null"> -->
+<!-- 				permition = #{permition}, -->
+<!-- 			</if> -->
+<!-- 		</set> -->
+<!-- 		where menu_id = #{menuId} -->
+<!-- 	</update> -->
 
 </mapper>

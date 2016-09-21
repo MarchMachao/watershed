@@ -25,85 +25,85 @@
 		where s_user."accountNumber" = #{accountNumber}
 	</select>
 
-	<!-- des: 根据id查user example sql： select * from s_user where id = 8 -->
-	<select id="getUserById" parameterType="int" resultMap="BaseResultMap">
-		select *
-		from s_user
-		where id = #{value}
-	</select>
+<!-- 	<!-- des: 根据id查user example sql： select * from s_user where id = 8 --> -->
+<!-- 	<select id="getUserById" parameterType="int" resultMap="BaseResultMap"> -->
+<!-- 		select * -->
+<!-- 		from s_user -->
+<!-- 		where id = #{value} -->
+<!-- 	</select> -->
 
 
 
 
-	<!-- des: 像s_user表中插入数据 example sql: insert into s_user (accountNumber,nickName, 
-		password, role, createDate, e_mail) values ("tangshilong","汤士龙",123456,1,2016-07-18,"834848102@qq.com") -->
-	<insert id="insertUser" parameterType="user" useGeneratedKeys="true"
-		keyProperty="id">
-		insert into s_user
-		(accountNumber,nickName, password, role, createDate, e_mail, image)
-		values
-		(#{accountNumber},#{nickName},#{password},#{role},#{createDate},#{eMail},#{image})
-	</insert>
+<!-- 	<!-- des: 像s_user表中插入数据 example sql: insert into s_user (accountNumber,nickName,  -->
+<!-- 		password, role, createDate, e_mail) values ("tangshilong","汤士龙",123456,1,2016-07-18,"834848102@qq.com") --> -->
+<!-- 	<insert id="insertUser" parameterType="user" useGeneratedKeys="true" -->
+<!-- 		keyProperty="id"> -->
+<!-- 		insert into s_user -->
+<!-- 		(accountNumber,nickName, password, role, createDate, e_mail, image) -->
+<!-- 		values -->
+<!-- 		(#{accountNumber},#{nickName},#{password},#{role},#{createDate},#{eMail},#{image}) -->
+<!-- 	</insert> -->
 
-	<!-- des: 根据accountNumber和nickName获取所用用户信息 example sql: select * from s_user 
-		a where a.accountNumber like '%tangshi%' and and a.nickName like '%汤%' limit 
-		0,10 -->
-	<select id="getAllUser" resultMap="BaseResultMap"
-		parameterType="com.smates.dbc2.vo.CostumUser">
-		select *
-		from s_user a
-		<where>
-			<if test="accountNumber!=null">
-				a.accountNumber like '%${accountNumber}%'
-			</if>
-			<if test="nickName!=null">
-				and a.nickName like '%${nickName}%'
-			</if>
-		</where>
-		limit #{startCount},#{rows}
-	</select>
+<!-- 	<!-- des: 根据accountNumber和nickName获取所用用户信息 example sql: select * from s_user  -->
+<!-- 		a where a.accountNumber like '%tangshi%' and and a.nickName like '%汤%' limit  -->
+<!-- 		0,10 --> -->
+<!-- 	<select id="getAllUser" resultMap="BaseResultMap" -->
+<!-- 		parameterType="com.smates.dbc2.vo.CostumUser"> -->
+<!-- 		select * -->
+<!-- 		from s_user a -->
+<!-- 		<where> -->
+<!-- 			<if test="accountNumber!=null"> -->
+<!-- 				a.accountNumber like '%${accountNumber}%' -->
+<!-- 			</if> -->
+<!-- 			<if test="nickName!=null"> -->
+<!-- 				and a.nickName like '%${nickName}%' -->
+<!-- 			</if> -->
+<!-- 		</where> -->
+<!-- 		limit #{startCount},#{rows} -->
+<!-- 	</select> -->
 
-	<!-- des: 获取用户数量 example sql： select count(*) from s_user -->
-	<select id="getUserCount" resultType="Int">
-		select count(*)
-		from s_user
-	</select>
+<!-- 	<!-- des: 获取用户数量 example sql： select count(*) from s_user --> -->
+<!-- 	<select id="getUserCount" resultType="Int"> -->
+<!-- 		select count(*) -->
+<!-- 		from s_user -->
+<!-- 	</select> -->
 
 
-	<!-- des: 根据accountNumber删除user examp sql： delete from s_user where accountNumber 
-		= 'tangs' -->
-	<delete id="deleteUser" parameterType="String">
-		delete
-		from s_user
-		where accountNumber = #{value}
-	</delete>
+<!-- 	<!-- des: 根据accountNumber删除user examp sql： delete from s_user where accountNumber  -->
+<!-- 		= 'tangs' --> -->
+<!-- 	<delete id="deleteUser" parameterType="String"> -->
+<!-- 		delete -->
+<!-- 		from s_user -->
+<!-- 		where accountNumber = #{value} -->
+<!-- 	</delete> -->
 
-	<!-- des: 根据用户id更新用户信息 examp sql： UPDATE s_user SET accountNumber = "xiaohua", 
-		nickName = "小花", PASSWORD = "123456", role = 1, e_mail = "834848102@qq.com" 
-		WHERE id = 8 -->
-	<update id="updateUser" parameterType="user">
-		update s_user
-		<set>
-			<if test="accountNumber!=null">
-				accountNumber = #{accountNumber},
-			</if>
-			<if test="nickName!=null">
-				nickName = #{nickName},
-			</if>
-			<if test="password!=null">
-				password = #{password},
-			</if>
-			<if test="role!=null">
-				role = #{role},
-			</if>
-			<if test="eMail!=null">
-				e_mail = #{eMail},
-			</if>
-			<if test="image!=null">
-				image = #{image},
-			</if>
-		</set>
-		where id=#{id}
-	</update>
+<!-- 	<!-- des: 根据用户id更新用户信息 examp sql： UPDATE s_user SET accountNumber = "xiaohua",  -->
+<!-- 		nickName = "小花", PASSWORD = "123456", role = 1, e_mail = "834848102@qq.com"  -->
+<!-- 		WHERE id = 8 --> -->
+<!-- 	<update id="updateUser" parameterType="user"> -->
+<!-- 		update s_user -->
+<!-- 		<set> -->
+<!-- 			<if test="accountNumber!=null"> -->
+<!-- 				accountNumber = #{accountNumber}, -->
+<!-- 			</if> -->
+<!-- 			<if test="nickName!=null"> -->
+<!-- 				nickName = #{nickName}, -->
+<!-- 			</if> -->
+<!-- 			<if test="password!=null"> -->
+<!-- 				password = #{password}, -->
+<!-- 			</if> -->
+<!-- 			<if test="role!=null"> -->
+<!-- 				role = #{role}, -->
+<!-- 			</if> -->
+<!-- 			<if test="eMail!=null"> -->
+<!-- 				e_mail = #{eMail}, -->
+<!-- 			</if> -->
+<!-- 			<if test="image!=null"> -->
+<!-- 				image = #{image}, -->
+<!-- 			</if> -->
+<!-- 		</set> -->
+<!-- 		where id=#{id} -->
+<!-- 	</update> -->
 
 </mapper>
