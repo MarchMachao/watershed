@@ -27,7 +27,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" style="overflow-y: hidden">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -118,11 +118,9 @@
     </section>
     <!-- /.sidebar -->
   </aside>
-
-  <div id="content-wrapper" class="content-wrapper">
-      <iframe id="webcontent" src="GIS.html"></iframe>
-  </div>
-
+	<div class="content-wrapper">
+      <iframe id="webcontent" src="GIS.html" ></iframe>
+	</div>
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->

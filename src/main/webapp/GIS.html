@@ -15,8 +15,8 @@
 		<script type="text/javascript" src="static/js/jquery-ui-1.10.2.custom.min.js"></script>
 	</head>
 
-	<body>
-		<iframe id="mapframe" style="width:100%;border: 0;min-height: 800px;" src="http://210.77.67.251:19001/map/index.jsp"></iframe>
+	<body style="overflow-y: hidden">
+		<iframe id="mapframe" style="width:100%;border: 0;" src="http://210.77.67.251:19001/map/index.jsp" scrolling="no"></iframe>
 		<div class="widget-box" style="width:400px;position:absolute;right:0;top:50px;z-index:10;">
 			<div class="widget-header">
 				<h4>情景控制</h4>
@@ -73,7 +73,7 @@
 			
 			$(function() {
 				
-				$("#mapframe").attr("height",$(document).height());
+				$("#mapframe").attr("height",$(window).height());
 				$("#slider-1").css({
 					width: '42%',
 					margin: '5px 5px 15px 5px'

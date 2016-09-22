@@ -19,6 +19,8 @@
   -->
 	<link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
 
+	<link rel="stylesheet" href="static/css/ace.min.css" />
+
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -28,57 +30,138 @@
 
 	<body>
 		<form class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-1 control-label">流域名称</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="请输入流域名称">
-                  </div>
-                </div>
-                
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-1 control-label">流域描述</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control" id="describe" name="describe" placeholder="请输入流域描述">
-                  </div>
-                </div>
-                
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-1 control-label">经济社会发展数据</label>
-                  <div class="col-sm-3">
-                    <input type="file" class="form-control" id="describe" name="describe" placeholder="请输入流域描述">
-                  </div>
-                </div>
-                
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-1 control-label">资源减量投入数据</label>
-                  <div class="col-sm-3">
-                    <input type="file" class="form-control" id="describe" name="describe" placeholder="请输入流域描述">
-                  </div>
-                </div>
-                
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-1 control-label">资源循环利用数据</label>
-                  <div class="col-sm-3">
-                    <input type="file" class="form-control" id="describe" name="describe" placeholder="请输入流域描述">
-                  </div>
-                </div>
-                
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-1 control-label">生态环境数据</label>
-                  <div class="col-sm-3">
-                    <input type="file" class="form-control" id="describe" name="describe" placeholder="请输入流域描述">
-                  </div>
-                </div>
-                
-                
-                
-              <div class="box-footer" style="padding-left: 100px;">
-                <button type="submit" class="btn btn-primary">提交</button>
-                <button type="reset" class="btn btn-primary">重置</button>
-              </div>
-              <!-- /.box-footer -->
-            </form>
+			<div class="box-body">
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">流域名称</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" id="name" name="name" placeholder="请输入流域名称">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">流域描述</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" id="describe" name="describe" placeholder="请输入流域描述">
+					</div>
+				</div>
+
+				<h4 class="header smaller lighter blue">
+					<span>气候情景</span>
+				</h4>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">气候情景数据表(年)</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblClimateScenarioYear" name="tblClimateScenarioYear" >
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">气候情景数据表(月)</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblClimateScenarioMonth" name="tblClimateScenarioMonth" >
+					</div>
+				</div>
+				
+				<h4 class="header smaller lighter blue">
+					<span>产业与城市发展情景</span>
+				</h4>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">产业与城市发展数据表</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblIndustyUrbanSce" name="tblIndustyUrbanSce" >
+					</div>
+				</div>
+				
+				<h4 class="header smaller lighter blue">
+					<span>土地利用情景</span>
+				</h4>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">土地种类</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblLandUseSce" name="tblLandUseSce" >
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">种植结构数据表</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblCropPattern" name="tblCropPattern" >
+					</div>
+				</div>
+				
+				<h4 class="header smaller lighter blue">
+					<span>社会经济发展情景</span>
+				</h4>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">GDP数据</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblSocioEconSce" name="tblSocioEconSce" >
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">优惠政策表</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblPrefPolicy" name="tblPrefPolicy" >
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">水利工程数据</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblHydrEngineering" name="tblHydrEngineering" >
+					</div>
+				</div>
+				
+				<h4 class="header smaller lighter blue">
+					<span>水资源管理情景</span>
+				</h4>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">水资源面积</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblWaterResManSce" name="tblWaterResManSce" >
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">县区三产用水量</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblWaterUseCounty" name="tblWaterUseCounty" >
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">县区水权分配</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblWaterRightCounty" name="tblWaterRightCounty" >
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">流域中下游水分配</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblMidDownWaterAllo" name="tblMidDownWaterAllo" >
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputEmail3" class="col-sm-1 control-label">县区用水量</label>
+					<div class="col-sm-3">
+						<input type="file" class="form-control" id="tblWaterAlloCounty" name="tblWaterAlloCounty" >
+					</div>
+				</div>
+
+				<div class="box-footer" style="padding-left: 100px;">
+					<button type="submit" class="btn btn-primary">提交</button>
+					<button type="reset" class="btn btn-primary">重置</button>
+				</div>
+				<!-- /.box-footer -->
+		</form>
 	</body>
 
 </html>
