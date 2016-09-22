@@ -32,7 +32,5 @@ public class StringUtils {
 		String[] fileExtendName = fileName.split("\\.");
 		return UUID.randomUUID().toString()+"."+fileExtendName[fileExtendName.length-1];
 	}
-	
-	
 
 }
