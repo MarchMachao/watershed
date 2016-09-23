@@ -1,19 +1,18 @@
 package com.smates.dbc2.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.io.IOException;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.smates.dbc2.mapper.WatershedDao;
-import com.smates.dbc2.po.Watershed;
+import com.smates.dbc2.po.TblClimateScenarioYear;
 
 @Controller
-public class WatershedController {
-	
-	@Autowired
-	private WatershedDao watershedDao;
+public class WatershedController extends BaseController{
 	
 	/**
 	 * 添加流域信息
@@ -33,11 +32,26 @@ public class WatershedController {
 	 * @param tblMidDownWaterAllo 流域中下游水分配
 	 * @param tblWaterAlloCounty 县区用水量
 	 * @return
+	 * @throws IOException 
 	 */
 	@RequestMapping(value="addWatershed",method=RequestMethod.POST)
-	public String addWatershed(String name, String describe, MultipartFile tblClimateScenarioYear, MultipartFile tblClimateScenarioMonth, MultipartFile tblIndustyUrbanSce, MultipartFile tblLandUseSce, MultipartFile tblCropPattern, MultipartFile tblSocioEconSce, MultipartFile tblPrefPolicy, MultipartFile tblHydrEngineering, MultipartFile tblWaterResManSce, MultipartFile tblWaterUseCounty, MultipartFile tblWaterRightCounty, MultipartFile tblMidDownWaterAllo, MultipartFile tblWaterAlloCounty){
-		watershedDao.addWatershed(new Watershed(name, describe));
+	public String addWatershed(String name, String describe, MultipartFile tblClimateScenarioYear, MultipartFile tblClimateScenarioMonth, MultipartFile tblIndustyUrbanSce, MultipartFile tblLandUseSce, MultipartFile tblCropPattern, MultipartFile tblSocioEconSce, MultipartFile tblPrefPolicy, MultipartFile tblHydrEngineering, MultipartFile tblWaterResManSce, MultipartFile tblWaterUseCounty, MultipartFile tblWaterRightCounty, MultipartFile tblMidDownWaterAllo, MultipartFile tblWaterAlloCounty) throws IOException{
+		watershedService.addWatershedInfo(name,describe);
+		List<TblClimateScenarioYear> tblClimateScenarioYears = jxlService.getAllContent(tblClimateScenarioYear.getInputStream());
+		for(int i=0;i<tblClimateScenarioYears.size();i++){
+			watershedService.addTblClimateScenarioYear(tblClimateScenarioYears.get(i));
+		}
 		return "";
+	}
+
+	/**
+	 * 根据用户输入的气候情景排放类型返回List<TblClimateScenarioYear>
+	 * @return List<TblClimateScenarioYear>的json格式数据
+	 */
+	@ResponseBody
+	@RequestMapping(value="geTblClimateScenarioYearsByfldCRPType",method=RequestMethod.GET)
+	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(String fldCRPType){
+		return watershedService.getTblClimateScenarioYearsByfldCRPType(fldCRPType);
 	}
 	
 }

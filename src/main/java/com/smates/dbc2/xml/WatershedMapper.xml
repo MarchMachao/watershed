@@ -3,10 +3,46 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smates.dbc2.mapper.WatershedDao">
-
+	
+	<!-- 
+		desc:保存流域基本信息
+		example sql:
+			INSERT into a_watershed
+			VALUES("1","黑河","黑河在哪里呢")
+	 -->
 	<insert id="addWatershed" parameterType="Watershed">
 		INSERT into a_watershed
 		VALUES(#{id},#{name},#{describe})
 	</insert>
+
+	<!-- 
+		desc:存储气候情景数据表(年)数据
+		example sql:
+				INSERT INTO "a_tblClimateScenarioYear" 
+				VALUES ('235434', '45', '345', '45', '345', 345, 345, 345, 45);
+	 -->
+	<insert id="addTblClimateScenarioYear" parameterType="TblClimateScenarioYear">
+		INSERT INTO "a_tblClimateScenarioYear"
+		VALUES(#{id},#{fldWatershedCode},#{fldCountyCode},#{fldCRPType},#{fldDate},#{fldPrecipitation},#{fldAvgTemperature},#{fldMaxTemp},#{fldMinTemp})
+	</insert>
+	
+	<!-- 
+		desc:根据气候情景排放类型查找气候情景数据表
+		example sql:
+			SELECT
+				*
+			FROM
+				"a_tblClimateScenarioYear"
+			WHERE
+				"a_tblClimateScenarioYear"."fldCRPType" = '3'
+	 -->
+	<select id="geTblClimateScenarioYearsByfldCRPType" parameterType="String" resultType="TblClimateScenarioYear">
+		SELECT
+			*
+		FROM
+			"a_tblClimateScenarioYear"
+		WHERE
+			"a_tblClimateScenarioYear"."fldCRPType" = #{value}
+	</select>
 
 </mapper>
