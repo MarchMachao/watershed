@@ -3,7 +3,9 @@ package com.smates.dbc2.service;
 import java.io.InputStream;
 import java.util.List;
 
+import com.smates.dbc2.po.TblClimateScenarioMonth;
 import com.smates.dbc2.po.TblClimateScenarioYear;
+import com.smates.dbc2.po.TblIndustyUrbanSce;
 
 
 public interface JxlService {
@@ -22,6 +24,20 @@ public interface JxlService {
 	 * @param fis 文件输入流
 	 * @return
 	 */
-	public List<TblClimateScenarioYear> getAllContent(InputStream fis);
+	public List<TblClimateScenarioYear> getAllContenttblClimateScenarioYear(InputStream fis);
+	
+	/**
+	 * 一次得到文件所有内容(气候情景数据表(月))
+	 * @param fis 文件输入流
+	 * @return
+	 */
+	public List<TblClimateScenarioMonth> getAllContenttblClimateScenarioMonth(InputStream fis);
+	
+	/**
+	 * 一次得到文件所有内容(产业与城市发展情景)
+	 * @param fis
+	 * @return
+	 */
+	public List<TblIndustyUrbanSce> getAllContenttTblIndustyUrbanSces(InputStream fis);
 
 }

@@ -27,6 +27,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<!-- 
+		desc:存储气候情景数据表(月)数据
+		example sql:
+				INSERT INTO "a_tblClimateScenarioMonth" 
+				VALUES ('235434', '45', '345', '45', '345', 345, 345, 345, 45);
+	 -->
+	<insert id="addTblClimateScenarioMonth" parameterType="TblClimateScenarioMonth">
+		INSERT INTO "a_tblClimateScenarioMonth"
+		VALUES(#{id},#{fldWatershedCode},#{fldCountyCode},#{fldCRPType},#{fldDate},#{fldPrecipitation},#{fldAvgTemperature},#{fldMaxTemp},#{fldMinTemp})
+	</insert>
+	
+	<!-- 
+		desc:存储产业与城市发展情景
+	 -->
+	<insert id="addTblIndustyUrbanSce" parameterType="TblIndustyUrbanSce">
+		insert into "a_tblIndustyUrbanSce"
+		VALUES(#{id},#{fldWatershedCode},#{fldCountyCode},#{fldDate},#{fldFarmPop},#{fldNonFarmPop},#{fldIndOutput},#{fldAgrOutput},#{fldSerOutput},#{fldTourOutput},#{fldTechProgRatio})
+	</insert>
+	
+	<!-- 
 		desc:根据气候情景排放类型查找气候情景数据表
 		example sql:
 			SELECT

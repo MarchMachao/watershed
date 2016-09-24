@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smates.dbc2.mapper.WatershedDao;
+import com.smates.dbc2.po.TblClimateScenarioMonth;
 import com.smates.dbc2.po.TblClimateScenarioYear;
+import com.smates.dbc2.po.TblIndustyUrbanSce;
 import com.smates.dbc2.po.Watershed;
 import com.smates.dbc2.service.WatershedService;
 
@@ -25,10 +27,22 @@ public class WatershedServiceImpl implements WatershedService {
 	public void addTblClimateScenarioYear(TblClimateScenarioYear tblClimateScenarioYear) {
 		watershedDao.addTblClimateScenarioYear(tblClimateScenarioYear);
 	}
+	
+	@Override
+	public void addTblClimateScenarioMonth(TblClimateScenarioMonth tblClimateScenarioMonth) {
+		watershedDao.addTblClimateScenarioMonth(tblClimateScenarioMonth);
+	}
 
 	@Override
 	public List<TblClimateScenarioYear> getTblClimateScenarioYearsByfldCRPType(String fldCRPType) {
 		return watershedDao.geTblClimateScenarioYearsByfldCRPType(fldCRPType);
 	}
+
+	@Override
+	public void addTblIndustyUrbanSce(TblIndustyUrbanSce tblIndustyUrbanSce) {
+		watershedDao.addTblIndustyUrbanSce(tblIndustyUrbanSce);
+	}
+
+	
 
 }
