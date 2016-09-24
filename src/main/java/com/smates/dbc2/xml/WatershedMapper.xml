@@ -50,7 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 -->
 	<insert id="addtblLandUseSce" parameterType="TblLandUseSce">
 		INSERT into "a_tblLandUseSce"
-		VALUES(#{ id }, #{ fldWatershedCode }, #{ fldCountyCode }, #{ fldDate }, #{ fldFarmArea }, #{ fldWetlandArea }, # { fldForestArea }, #{ fldGrassArea }, #{ fldHuYangArea }, #{ idfldWaterArea })
+		VALUES(#{ id }, #{ fldWatershedCode }, #{ fldCountyCode }, #{ fldDate }, #{ fldFarmArea }, #{ fldWetlandArea }, #{ fldForestArea }, #{ fldGrassArea }, #{ fldHuYangArea }, #{ idfldWaterArea })
 	</insert>
 	
 	<!-- 

@@ -549,7 +549,7 @@ public class JxlServiceImpl implements JxlService {
 		String fldCityCode;
 		String fldCountyCode;
 		String fldDate;
-		String fldWaterRightRatio;
+		double fldWaterRightRatio;
 		List<TblWaterRightCounty> datas = new ArrayList<TblWaterRightCounty>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
@@ -561,7 +561,7 @@ public class JxlServiceImpl implements JxlService {
 				fldCountyCode = cells[2].getContents();
 				fldCountyCode = cells[3].getContents();
 				fldDate = cells[4].getContents();
-				fldWaterRightRatio = cells[5].getContents();
+				fldWaterRightRatio = Double.parseDouble(cells[5].getContents());
 				datas.add(new TblWaterRightCounty(fldWatershedCode, fldCityCode, fldCountyCode, fldDate,
 						fldWaterRightRatio));
 			}

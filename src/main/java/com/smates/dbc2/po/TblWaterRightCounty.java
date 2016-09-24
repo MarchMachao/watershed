@@ -15,13 +15,13 @@ public class TblWaterRightCounty {
 	private String fldCityCode;
 	private String fldCountyCode;
 	private String fldDate;
-	private String fldWaterRightRatio;
+	private double fldWaterRightRatio;
 
 	public TblWaterRightCounty() {
 	}
 
 	public TblWaterRightCounty(String fldWatershedCode, String fldCityCode, String fldCountyCode,
-			String fldDate, String fldWaterRightRatio) {
+			String fldDate, double fldWaterRightRatio) {
 		this.id = UUID.randomUUID().toString();
 		this.fldWatershedCode = fldWatershedCode;
 		this.fldCityCode = fldCityCode;
@@ -70,12 +70,12 @@ public class TblWaterRightCounty {
 		this.fldDate = fldDate;
 	}
 
-	public String getFldWaterRightRatio() {
+	public double getFldWaterRightRatio() {
 		return fldWaterRightRatio;
 	}
 
-	public void setFldWaterRightRatio(String fldWaterRightRatio) {
+	public void setFldWaterRightRatio(double fldWaterRightRatio) {
 		this.fldWaterRightRatio = fldWaterRightRatio;
 	}
-	
+
 }

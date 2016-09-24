@@ -3,22 +3,21 @@ package com.smates.dbc2.controller;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.smates.dbc2.po.TblClimateScenarioMonth;
 import com.smates.dbc2.po.TblClimateScenarioYear;
-import com.smates.dbc2.po.TblIndustyUrbanSce;
-import com.smates.dbc2.po.TblLandUseSce;
 
+/**
+ * 流域相关controller
+ * @author baijw
+ *
+ */
 @Controller
 public class WatershedController extends BaseController{
-	
-	private Logger logger = Logger.getLogger(WatershedController.class);
 	
 	/**
 	 * 添加流域信息
@@ -42,36 +41,11 @@ public class WatershedController extends BaseController{
 	 */
 	@RequestMapping(value="addWatershed",method=RequestMethod.POST)
 	public String addWatershed(String name, String describe, MultipartFile tblClimateScenarioYear, MultipartFile tblClimateScenarioMonth, MultipartFile tblIndustyUrbanSce, MultipartFile tblLandUseSce, MultipartFile tblCropPattern, MultipartFile tblSocioEconSce, MultipartFile tblPrefPolicy, MultipartFile tblHydrEngineering, MultipartFile tblWaterResManSce, MultipartFile tblWaterUseCounty, MultipartFile tblWaterRightCounty, MultipartFile tblMidDownWaterAllo, MultipartFile tblWaterAlloCounty) throws IOException{
+		//保存流域基本信息(流域名,流域描述)
 		watershedService.addWatershedInfo(name,describe);
-		
-		
-		List<TblClimateScenarioMonth> tblClimateScenarioMonths = jxlService.getAllContenttblClimateScenarioMonth(tblClimateScenarioMonth.getInputStream());
-		logger.info(tblClimateScenarioMonths.size()+"month");
-		for(int i=0;i<tblClimateScenarioMonths.size();i++){
-			watershedService.addTblClimateScenarioMonth(tblClimateScenarioMonths.get(i));
-		}
-		
-		
-		List<TblClimateScenarioYear> tblClimateScenarioYears = jxlService.getAllContenttblClimateScenarioYear(tblClimateScenarioYear.getInputStream());
-		logger.info(tblClimateScenarioYears.size()+"year");
-		for(int i=0;i<tblClimateScenarioYears.size();i++){
-			watershedService.addTblClimateScenarioYear(tblClimateScenarioYears.get(i));
-		}
-		
-		List<TblIndustyUrbanSce> TblIndustyUrbanSces = jxlService.getAllContenttTblIndustyUrbanSces(tblIndustyUrbanSce.getInputStream());
-		logger.info(TblIndustyUrbanSces.size()+"产业与城市发展情景");
-		for(int i=0;i<TblIndustyUrbanSces.size();i++){
-			watershedService.addTblIndustyUrbanSce(TblIndustyUrbanSces.get(i));
-		}
-		
-		List<TblLandUseSce> TblLandUseSces = jxlService.getAllContentTblLandUseSce(tblLandUseSce.getInputStream());
-		logger.info(TblLandUseSces.size()+"土地种类");
-		for(int i=0;i<TblLandUseSces.size();i++){
-			watershedService.addTblLandUseSce(TblLandUseSces.get(i));
-		}
-		
-		
-		
+		//解析excel表格并存储
+		StoreExcelData(tblClimateScenarioYear, tblClimateScenarioMonth, tblIndustyUrbanSce, tblLandUseSce,
+				tblCropPattern);
 		return "";
 	}
 
