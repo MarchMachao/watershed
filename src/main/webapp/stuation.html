@@ -85,11 +85,11 @@
 										<label>
 									<span>选择气候情景(IPCC)</span>
 									<select id="IPCC" name="IPCC" style="margin:0px">
-										<option value="">情景选择</option>
-										<option value="slt-IPCC-1">高排放情景，2100年地表接收稳定辐射强度大于8.5 W/m2</option>
-										<option value="slt-IPCC-2">较高排放情景，2100年地表接收稳定辐射强度控制在6 W/m2</option>
-										<option value="slt-IPCC-3">中等排放情景，2100年地表接收稳定辐射强度控制在4.5 W/m2</option>
-										<option value="slt-IPCC-4">低排放情景，2100年地表接收稳定辐射强度小于3 W/m2</option>
+										
+										<option value="1">高排放情景，2100年地表接收稳定辐射强度大于8.5 W/m2</option>
+										<option value="2">较高排放情景，2100年地表接收稳定辐射强度控制在6 W/m2</option>
+										<option value="3">中等排放情景，2100年地表接收稳定辐射强度控制在4.5 W/m2</option>
+										<option value="4">低排放情景，2100年地表接收稳定辐射强度小于3 W/m2</option>
 									</select>
 									</label>
 									</div>
@@ -517,7 +517,7 @@
 												<div class="span5" style="text-align:center">
 													选择县区
 													<select id="land_selectCounty" name="land_selectCountry" style="width:80px">
-														<option value="">甘州</option>
+														<option value="ganzhou">甘州</option>
 														<option value="LinZe">临泽</option>
 														<option value="GaoTai">高台</option>
 													</select>
@@ -1479,6 +1479,19 @@
 					$("#water-saving").val(val);
 				}
 			});
+			$("#IPCC").on("change", function() {
+				showFigure_1();
+				//气候情景：降水变化图
+				showFigure_2();
+				//非农业人口比例变化
+			});
+			
+			$("#land_selectCounty").on("change",function(){
+				//土地利用情景中的耕地面积变化图表
+				land_show_1();
+				//土地利用情景中的不同作物种植面积变化
+				land_show_2();
+			})
 			$(function() {
 				//页面初始化以后加载图表：气候情景温度变化图
 				showFigure_1();
@@ -1499,12 +1512,24 @@
 				//水资源管理情景中的用水量变化
 				showArea_usingng_water()
 			});
-
+			
 			function showFigure_1() {
-			var Chart = echarts.init(document.getElementById('showArea-1'));
-			var option = {
+			$.get("geTblClimateScenarioYearsByfldCRPType.do",
+				{fldCRPType:$("#IPCC").val()},
+				function(data){
+				var xdata=[],averageTemp=[],maxTemp=[],minTemp=[];
+				for(var i=0; i<data.length; i++)
+					{
+					xdata[i]=data[i].fldDate;
+					averageTemp[i]=data[i].fldAvgTemperature;
+					maxTemp[i]=data[i].fldMaxTemp;
+					minTemp[i]=data[i].fldMinTemp;
+					}
+				var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年温度变化'
+				var Chart = echarts.init(document.getElementById('showArea-1'));
+				var option = {
 				title : {
-					text : '2005-2015年温度变化',
+					text : titletext,
 					x: 'center',
 					y: 'bottom'
 				},
@@ -1530,8 +1555,7 @@
 				xAxis : {
 					type : 'category',
 					boundaryGap : false,
-					data : [ '2005', '2006', '2007', '2008', '2009', '2010',
-							'2011', '2012', '2013', '2014', '2015' ],
+					data : xdata,
 					name : '年份'
 				},
 				yAxis : {
@@ -1544,26 +1568,38 @@
 				series : [ {
 					name : '平均温度',
 					type : 'line',
-					data : [ 15, 17, 17, 20, 14, 16, 18, 15, 17, 17, 20 ]
+					data : averageTemp
 				}, {
 					name : '最高温度',
 					type : 'line',
-					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+					data : maxTemp
 				}, {
 					name : '最低温度',
 					type : 'line',
-					data : [ -10, -12, -5, -2, -14, -12, -8, -9, -10, -12, -16 ]
+					data : minTemp
 				} ]
 			};
 			Chart.setOption(option);
-		}
+					})}
 		
 		
 		function showFigure_2() {
-			var Chart = echarts.init(document.getElementById('showArea-2'));
-			var option = {
+			$.get("geTblClimateScenarioYearsByfldCRPType.do",
+					{fldCRPType:$("#IPCC").val()},
+					function(data){
+					var xdata=[],averagePrecip=[];
+					for(var i=0; i<data.length; i++)
+						{
+						xdata[i]=data[i].fldDate;
+						averagePrecip[i]=data[i].fldPrecipitation;
+// 						maxTemp[i]=data[i].fldMaxTemp;
+// 						minTemp[i]=data[i].fldMinTemp;
+						}
+				var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年降水变化'
+				var Chart = echarts.init(document.getElementById('showArea-2'));
+				var option = {
 				title : {
-					text : '2005-2015年降水变化',
+					text : titletext,
 					x: 'center',
 					y: 'bottom'
 				},
@@ -1590,8 +1626,7 @@
 					type : 'category',
 					boundaryGap : false,
 					name : '年份',
-					data : [ '2005', '2006', '2007', '2008', '2009', '2010',
-							'2011', '2012', '2013', '2014', '2015' ]
+					data : xdata
 				},
 				yAxis : {
 					type : 'value',
@@ -1600,7 +1635,7 @@
 				series : [ {
 					name : '平均降水',
 					type : 'line',
-					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+					data : averagePrecip
 				}, {
 					name : '最大降水',
 					type : 'line',
@@ -1612,14 +1647,27 @@
 				} ]
 			};
 			Chart.setOption(option);
-		}
+					})}
 		
 		//非农业人口比例变化
 		function showFigure_3() {
+			$.get('tmp.json',
+					[],
+					function(data){
+				var xdata=[], average=[], max=[], min=[];
+				for(var i=0; i<data.length; i++)
+				{
+					xdata[i]=data[i].fldDate;
+					average[i]=data[i].fldAvgTemperature;
+					max[i]=data[i].fldMaxTemp;
+					min[i]=data[i].fldMinTemp;
+				}
+			var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'非农业人口比例变化';						
+			
 			var Chart = echarts.init(document.getElementById('showArea-3'));
 			var option = {
 				title : {
-					text : '2010-2016年非农业人口比例变化',
+					text : titletext,
 					x: 'center',
 					y: 'bottom'
 				},
@@ -1646,7 +1694,7 @@
 					type : 'category',
 					boundaryGap : false,
 					name : '年份',
-					data : ['2010','2011', '2012', '2013', '2014', '2015','2016' ]
+					data : xdata
 				},
 				yAxis : {
 					type : 'value',
@@ -1655,25 +1703,38 @@
 				series : [ {
 					name : '平均变化',
 					type : 'line',
-					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+					data : average
 				}, {
 					name : '最大变化',
 					type : 'line',
-					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+					data : max
 				}, {
 					name : '最小变化',
 					type : 'line',
-					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+					data : min
 				} ]
 			};
 			Chart.setOption(option);
+			})
 		}
 		//三产产值变化
 		function showFigure_4() {
+			$.get('tmp.json',
+					[],
+					function(data){
+				var xdata=[], average=[], max=[], min=[];
+				for(var i=0; i<data.length; i++)
+				{
+					xdata[i]=data[i].fldDate;
+					average[i]=data[i].fldAvgTemperature;
+					max[i]=data[i].fldMaxTemp;
+					min[i]=data[i].fldMinTemp;
+				}
+			var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年三产产值变化';	
 			var Chart = echarts.init(document.getElementById('showArea-4'));
 			var option = {
 				title : {
-					text : '2010-2016年三产产值变化',
+					text : titletext,
 					x: 'center',
 					y: 'bottom'
 				},
@@ -1700,7 +1761,7 @@
 					type : 'category',
 					boundaryGap : false,
 					name : '年份',
-					data : ['2010','2011', '2012', '2013', '2014', '2015','2016' ]
+					data : xdata
 				},
 				yAxis : {
 					type : 'value',
@@ -1709,25 +1770,37 @@
 				series : [ {
 					name : '平均产值',
 					type : 'line',
-					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+					data : average
 				}, {
 					name : '最高产值',
 					type : 'line',
-					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+					data : max
 				}, {
 					name : '最低产值',
 					type : 'line',
-					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+					data : min
 				} ]
 			};
 			Chart.setOption(option);
-		}
+			})}
 		//人均GDP变化图表
 		function showFigure_5() {
+			$.get('tmp.json',
+					[],
+					function(data){
+				var xdata=[], average=[], max=[], min=[];
+				for(var i=0; i<data.length; i++)
+				{
+					xdata[i]=data[i].fldDate;
+					average[i]=data[i].fldAvgTemperature;
+					max[i]=data[i].fldMaxTemp;
+					min[i]=data[i].fldMinTemp;
+				}
+			var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年人均GDP变化';	
 			var Chart = echarts.init(document.getElementById('economy-showArea-1'));
 			var option = {
 				title : {
-					text : '2010-2016年人均GDP变化',
+					text : titletext,
 					x: 'center',
 					y: 'bottom'
 				},
@@ -1754,7 +1827,7 @@
 					type : 'category',
 					boundaryGap : false,
 					name : '年份',
-					data : ['2010', '2011', '2012', '2013', '2014', '2015','2016' ]
+					data : xdata
 				},
 				yAxis : {
 					type : 'value',
@@ -1763,26 +1836,38 @@
 				series : [ {
 					name : '平均GDP',
 					type : 'line',
-					data : [ 5, 7, 7, 12, 4, 6, 8 ]
+					data : average
 				}, {
 					name : '最高GDP',
 					type : 'line',
-					data : [ 17, 12, 13, 16, 13, 12, 19 ]
+					data : max
 				}, {
 					name : '最低GDP',
 					type : 'line',
-					data : [ 0, 2, 6, 8, 4, 2, 8 ]
+					data : min
 				} ]
 			};
 			Chart.setOption(option);
-		}
+			})}
 		
 		//各级渠道长度与水利用率变化
 		function showFigure_6() {
+			$.get('tmp.json',
+					[],
+					function(data){
+				var xdata=[], average=[], max=[], min=[];
+				for(var i=0; i<data.length; i++)
+				{
+					xdata[i]=data[i].fldDate;
+					average[i]=data[i].fldAvgTemperature;
+					max[i]=data[i].fldMaxTemp;
+					min[i]=data[i].fldMinTemp;
+				}
+			var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年各级渠道长度与水利用率变化';	
 			var Chart = echarts.init(document.getElementById('economy-showArea-2'));
 			var option = {
 				title : {
-					text : '2010-2016年各级渠道长度和水利用率变化',
+					text : titletext,
 					x: 'center',
 					y: 'bottom'
 				},
@@ -1809,7 +1894,7 @@
 					type : 'category',
 					boundaryGap : false,
 					name : '年份',
-					data : ['2010', '2011', '2012', '2013', '2014', '2015','2016' ]
+					data : xdata
 				},
 				yAxis : {
 					type : 'value',
@@ -1818,25 +1903,37 @@
 				series : [ {
 					name : '平均变化',
 					type : 'line',
-					data : [ 5, 7, 7, 12, 4, 6, 8 ]
+					data : average
 				}, {
 					name : '最高变化',
 					type : 'line',
-					data : [ 17, 12, 13, 16, 13, 12, 19 ]
+					data : max
 				}, {
 					name : '最低变化',
 					type : 'line',
-					data : [ 0, 2, 6, 8, 4, 2, 8 ]
+					data : min
 				} ]
 			};
 			Chart.setOption(option);
-		}
+			})}
 		//土地利用情景中的耕地面积变化图表
 		function land_show_1() {
+			$.get('tmp.json',
+					[],
+					function(data){
+				var xdata=[], average=[], max=[], min=[];
+				for(var i=0; i<data.length; i++)
+				{
+					xdata[i]=data[i].fldDate;
+					average[i]=data[i].fldAvgTemperature;
+					max[i]=data[i].fldMaxTemp;
+					min[i]=data[i].fldMinTemp;
+				}
+			var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年'+$("#land_selectCounty").find("option:selected").text()+'耕地面积变化';
 			var Chart = echarts.init(document.getElementById('land_show_1'));
 			var option = {
 				title : {
-					text : '2010-2016年甘州区耕地面积变化',
+					text : titletext,
 					x: 'center',
 					y: 'bottom'
 				},
@@ -1863,7 +1960,7 @@
 					type : 'category',
 					boundaryGap : false,
 					name : '年份',
-					data : ['2010','2011', '2012', '2013', '2014', '2015','2016' ]
+					data : xdata
 				},
 				yAxis : {
 					type : 'value',
@@ -1872,25 +1969,37 @@
 				series : [ {
 					name : '平均变化',
 					type : 'line',
-					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+					data : average
 				}, {
 					name : '最大变化',
 					type : 'line',
-					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+					data : max
 				}, {
 					name : '最小变化',
 					type : 'line',
-					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+					data : min
 				} ]
 			};
 			Chart.setOption(option);
-		}
+			})}
 		//土地利用情景中的不同作物种植面积变化
 		function land_show_2() {
+			$.get('tmp.json',
+					[],
+					function(data){
+				var xdata=[], average=[], max=[], min=[];
+				for(var i=0; i<data.length; i++)
+				{
+					xdata[i]=data[i].fldDate;
+					average[i]=data[i].fldAvgTemperature;
+					max[i]=data[i].fldMaxTemp;
+					min[i]=data[i].fldMinTemp;
+				}
+			var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年'+$("#land_selectCounty").find("option:selected").text()+'不同作物种植面积变化';
 			var Chart = echarts.init(document.getElementById('land_show_2'));
 			var option = {
 				title : {
-					text : '2010-2016年甘州区不同作物种植面积变化',
+					text : titletext,
 					x: 'center',
 					y: 'bottom'
 				},
@@ -1917,7 +2026,7 @@
 					type : 'category',
 					boundaryGap : false,
 					name : '年份',
-					data : ['2010','2011', '2012', '2013', '2014', '2015','2016' ]
+					data : xdata
 				},
 				yAxis : {
 					type : 'value',
@@ -1926,26 +2035,38 @@
 				series : [ {
 					name : '平均变化',
 					type : 'line',
-					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+					data : average
 				}, {
 					name : '最大变化',
 					type : 'line',
-					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+					data : max
 				}, {
 					name : '最小变化',
 					type : 'line',
-					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+					data : min
 				} ]
 			};
 			Chart.setOption(option);
-		}
+			})}
 		
 		//水资源管理情景中的用水量变化
 		function showArea_usingng_water() {
+			$.get('tmp.json',
+					[],
+					function(data){
+				var xdata=[], average=[], max=[], min=[];
+				for(var i=0; i<data.length; i++)
+				{
+					xdata[i]=data[i].fldDate;
+					average[i]=data[i].fldAvgTemperature;
+					max[i]=data[i].fldMaxTemp;
+					min[i]=data[i].fldMinTemp;
+				}
+			var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年流域中游与下游用水量变化';
 			var Chart = echarts.init(document.getElementById('using-water'));
 			var option = {
 				title : {
-					text : '2010-2016年流域中游与下游用水量变化',
+					text : titletext,
 					x: 'center',
 					y: 'bottom'
 				},
@@ -1972,7 +2093,7 @@
 					type : 'category',
 					boundaryGap : false,
 					name : '年份',
-					data : ['2010','2011', '2012', '2013', '2014', '2015','2016' ]
+					data : xdata
 				},
 				yAxis : {
 					type : 'value',
@@ -1981,19 +2102,19 @@
 				series : [ {
 					name : '平均变化',
 					type : 'line',
-					data : [ 25, 27, 27, 30, 24, 26, 28, 25, 27, 27, 30 ]
+					data : average
 				}, {
 					name : '最大变化',
 					type : 'line',
-					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+					data : max
 				}, {
 					name : '最小变化',
 					type : 'line',
-					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+					data : min
 				} ]
 			};
 			Chart.setOption(option);
-		};
+			})};
 		});
 		</script>
 	</body>
