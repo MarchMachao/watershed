@@ -6,6 +6,7 @@ import java.util.List;
 import com.smates.dbc2.po.TblClimateScenarioMonth;
 import com.smates.dbc2.po.TblClimateScenarioYear;
 import com.smates.dbc2.po.TblIndustyUrbanSce;
+import com.smates.dbc2.po.TblLandUseSce;
 
 
 public interface JxlService {
@@ -39,5 +40,12 @@ public interface JxlService {
 	 * @return
 	 */
 	public List<TblIndustyUrbanSce> getAllContenttTblIndustyUrbanSces(InputStream fis);
+	
+	/**
+	 * 一次得到文件所有内容(土地种类)
+	 * @param fis
+	 * @return
+	 */
+	public List<TblLandUseSce> getAllContentTblLandUseSce(InputStream fis);
 
 }

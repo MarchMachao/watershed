@@ -46,6 +46,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<!-- 
+		desc:添加土地类型
+	 -->
+	<insert id="addtblLandUseSce" parameterType="TblLandUseSce">
+		INSERT into "a_tblLandUseSce"
+		VALUES(#{ id }, #{ fldWatershedCode }, #{ fldCountyCode }, #{ fldDate }, #{ fldFarmArea }, #{ fldWetlandArea }, # fldForestArea }, #{ fldGrassArea }, #{ fldHuYangArea }, #{ idfldWaterArea })
+	</insert>
+	
+	<!-- 
 		desc:根据气候情景排放类型查找气候情景数据表
 		example sql:
 			SELECT

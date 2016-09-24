@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.smates.dbc2.po.TblClimateScenarioMonth;
 import com.smates.dbc2.po.TblClimateScenarioYear;
 import com.smates.dbc2.po.TblIndustyUrbanSce;
+import com.smates.dbc2.po.TblLandUseSce;
 
 @Controller
 public class WatershedController extends BaseController{
@@ -57,12 +58,19 @@ public class WatershedController extends BaseController{
 			watershedService.addTblClimateScenarioYear(tblClimateScenarioYears.get(i));
 		}
 		
-		
 		List<TblIndustyUrbanSce> TblIndustyUrbanSces = jxlService.getAllContenttTblIndustyUrbanSces(tblIndustyUrbanSce.getInputStream());
 		logger.info(TblIndustyUrbanSces.size()+"产业与城市发展情景");
 		for(int i=0;i<TblIndustyUrbanSces.size();i++){
 			watershedService.addTblIndustyUrbanSce(TblIndustyUrbanSces.get(i));
 		}
+		
+		List<TblLandUseSce> TblLandUseSces = jxlService.getAllContentTblLandUseSce(tblLandUseSce.getInputStream());
+		logger.info(TblLandUseSces.size()+"土地种类");
+		for(int i=0;i<TblLandUseSces.size();i++){
+			watershedService.addTblLandUseSce(TblLandUseSces.get(i));
+		}
+		
+		
 		
 		return "";
 	}

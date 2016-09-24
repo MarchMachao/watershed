@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.smates.dbc2.po.TblClimateScenarioMonth;
 import com.smates.dbc2.po.TblClimateScenarioYear;
 import com.smates.dbc2.po.TblIndustyUrbanSce;
+import com.smates.dbc2.po.TblLandUseSce;
 import com.smates.dbc2.service.JxlService;
 
 import jxl.Cell;
@@ -172,7 +173,57 @@ public class JxlServiceImpl implements JxlService {
 				fldSerOutput = Double.parseDouble(cells[7].getContents());
 				fldTourOutput = Double.parseDouble(cells[8].getContents());
 				fldTechProgRatio = Double.parseDouble(cells[9].getContents());
-				datas.add(new TblIndustyUrbanSce(fldWatershedCode, fldCountyCode, fldDate, fldFarmPop, fldNonFarmPop, fldIndOutput, fldAgrOutput, fldSerOutput, fldTourOutput, fldTechProgRatio));
+				datas.add(new TblIndustyUrbanSce(fldWatershedCode, fldCountyCode, fldDate, fldFarmPop, fldNonFarmPop,
+						fldIndOutput, fldAgrOutput, fldSerOutput, fldTourOutput, fldTechProgRatio));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fis != null) {
+					fis.close();
+				}
+			} catch (Exception e) {
+			}
+
+			try {
+				if (rwb != null) {
+					rwb.close();
+				}
+			} catch (Exception e) {
+			}
+		}
+		return datas;
+	}
+
+	@Override
+	public List<TblLandUseSce> getAllContentTblLandUseSce(InputStream fis) {
+		jxl.Workbook rwb = null;
+		String fldWatershedCode;
+		String fldCountyCode;
+		String fldDate;
+		double fldFarmArea;
+		double fldWetlandArea;
+		double fldForestArea;
+		double fldGrassArea;
+		double fldHuYangArea;
+		double idfldWaterArea;
+		List<TblLandUseSce> datas = new ArrayList<TblLandUseSce>();
+		try {
+			rwb = Workbook.getWorkbook(fis);
+			Sheet sheet = rwb.getSheet(0);
+			for (int row = 0; row < sheet.getRows(); row++) {
+				Cell[] cells = sheet.getRow(row);
+				fldWatershedCode = cells[0].getContents();
+				fldCountyCode = cells[1].getContents();
+				fldDate = cells[2].getContents();
+				fldFarmArea = Double.parseDouble(cells[3].getContents());
+				fldWetlandArea = Double.parseDouble(cells[4].getContents());
+				fldForestArea = Double.parseDouble(cells[5].getContents());
+				fldGrassArea = Double.parseDouble(cells[6].getContents());
+				fldHuYangArea = Double.parseDouble(cells[7].getContents());
+				idfldWaterArea = Double.parseDouble(cells[8].getContents());
+				datas.add(new TblLandUseSce(fldWatershedCode, fldCountyCode, fldDate, fldFarmArea, fldWetlandArea, fldForestArea, fldGrassArea, fldHuYangArea, idfldWaterArea));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

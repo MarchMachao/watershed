@@ -5,6 +5,7 @@ import java.util.List;
 import com.smates.dbc2.po.TblClimateScenarioMonth;
 import com.smates.dbc2.po.TblClimateScenarioYear;
 import com.smates.dbc2.po.TblIndustyUrbanSce;
+import com.smates.dbc2.po.TblLandUseSce;
 
 /**
  * 流域相关业务
@@ -33,6 +34,16 @@ public interface WatershedService {
 	 * 气候情景数据表(月)
 	 */
 	public void addTblClimateScenarioMonth(TblClimateScenarioMonth tblClimateScenarioMonth);
+	
+	/**
+	 * 添加产业与城市发展情景
+	 */
+	public void addTblIndustyUrbanSce(TblIndustyUrbanSce tblIndustyUrbanSce);
+	
+	/**
+	 * 添加种植结构数据表
+	 */
+	public void addTblLandUseSce(TblLandUseSce tblLandUseSce);
 
 	/**
 	 * 根据气候情景排放类型
@@ -43,9 +54,6 @@ public interface WatershedService {
 	 */
 	public List<TblClimateScenarioYear> getTblClimateScenarioYearsByfldCRPType(String fldCRPType);
 
-	/**
-	 * 添加产业与城市发展情景
-	 */
-	public void addTblIndustyUrbanSce(TblIndustyUrbanSce tblIndustyUrbanSce);
+	
 
 }

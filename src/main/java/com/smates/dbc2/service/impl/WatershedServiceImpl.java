@@ -9,6 +9,7 @@ import com.smates.dbc2.mapper.WatershedDao;
 import com.smates.dbc2.po.TblClimateScenarioMonth;
 import com.smates.dbc2.po.TblClimateScenarioYear;
 import com.smates.dbc2.po.TblIndustyUrbanSce;
+import com.smates.dbc2.po.TblLandUseSce;
 import com.smates.dbc2.po.Watershed;
 import com.smates.dbc2.service.WatershedService;
 
@@ -43,6 +44,9 @@ public class WatershedServiceImpl implements WatershedService {
 		watershedDao.addTblIndustyUrbanSce(tblIndustyUrbanSce);
 	}
 
-	
+	@Override
+	public void addTblLandUseSce(TblLandUseSce tblLandUseSce) {
+		watershedDao.addtblLandUseSce(tblLandUseSce);
+	}
 
 }
