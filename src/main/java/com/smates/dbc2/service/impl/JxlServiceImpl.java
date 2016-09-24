@@ -8,8 +8,17 @@ import org.springframework.stereotype.Service;
 
 import com.smates.dbc2.po.TblClimateScenarioMonth;
 import com.smates.dbc2.po.TblClimateScenarioYear;
+import com.smates.dbc2.po.TblCropPattern;
+import com.smates.dbc2.po.TblHydrEngineering;
 import com.smates.dbc2.po.TblIndustyUrbanSce;
 import com.smates.dbc2.po.TblLandUseSce;
+import com.smates.dbc2.po.TblMidDownWaterAllo;
+import com.smates.dbc2.po.TblPrefPolicy;
+import com.smates.dbc2.po.TblSocioEconSce;
+import com.smates.dbc2.po.TblWaterAlloCounty;
+import com.smates.dbc2.po.TblWaterResManSce;
+import com.smates.dbc2.po.TblWaterRightCounty;
+import com.smates.dbc2.po.TblWaterUseCounty;
 import com.smates.dbc2.service.JxlService;
 
 import jxl.Cell;
@@ -223,7 +232,418 @@ public class JxlServiceImpl implements JxlService {
 				fldGrassArea = Double.parseDouble(cells[6].getContents());
 				fldHuYangArea = Double.parseDouble(cells[7].getContents());
 				idfldWaterArea = Double.parseDouble(cells[8].getContents());
-				datas.add(new TblLandUseSce(fldWatershedCode, fldCountyCode, fldDate, fldFarmArea, fldWetlandArea, fldForestArea, fldGrassArea, fldHuYangArea, idfldWaterArea));
+				datas.add(new TblLandUseSce(fldWatershedCode, fldCountyCode, fldDate, fldFarmArea, fldWetlandArea,
+						fldForestArea, fldGrassArea, fldHuYangArea, idfldWaterArea));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fis != null) {
+					fis.close();
+				}
+			} catch (Exception e) {
+			}
+
+			try {
+				if (rwb != null) {
+					rwb.close();
+				}
+			} catch (Exception e) {
+			}
+		}
+		return datas;
+	}
+
+	@Override
+	public List<TblCropPattern> getAllContentTblCropPattern(InputStream fis) {
+		jxl.Workbook rwb = null;
+		String fldWatershedCode;
+		String fldCountyCode;
+		String fldDate;
+		String fldCropType;
+		double fldCropArea;
+		double fldIrrQuota;
+		double fldFertilizer;
+		double fldYieldPer;
+		double fldCropPrice;
+		List<TblCropPattern> datas = new ArrayList<TblCropPattern>();
+		try {
+			rwb = Workbook.getWorkbook(fis);
+			Sheet sheet = rwb.getSheet(0);
+			for (int row = 0; row < sheet.getRows(); row++) {
+				Cell[] cells = sheet.getRow(row);
+				fldWatershedCode = cells[0].getContents();
+				fldCountyCode = cells[1].getContents();
+				fldDate = cells[2].getContents();
+				fldCropType = cells[3].getContents();
+				fldCropArea = Double.parseDouble(cells[4].getContents());
+				fldIrrQuota = Double.parseDouble(cells[5].getContents());
+				fldFertilizer = Double.parseDouble(cells[6].getContents());
+				fldYieldPer = Double.parseDouble(cells[7].getContents());
+				fldCropPrice = Double.parseDouble(cells[8].getContents());
+				datas.add(new TblCropPattern(fldWatershedCode, fldCountyCode, fldDate, fldCropType, fldCropArea,
+						fldIrrQuota, fldFertilizer, fldYieldPer, fldCropPrice));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fis != null) {
+					fis.close();
+				}
+			} catch (Exception e) {
+			}
+
+			try {
+				if (rwb != null) {
+					rwb.close();
+				}
+			} catch (Exception e) {
+			}
+		}
+		return datas;
+	}
+
+	@Override
+	public List<TblSocioEconSce> getAllContentTblSocioEconSce(InputStream fis) {
+		jxl.Workbook rwb = null;
+		String fldWatershedCode;
+		String fldCountyCode;
+		String fldDate;
+		double fldPerCapGDP;
+		double fldGDP;
+		double fldPop;
+		List<TblSocioEconSce> datas = new ArrayList<TblSocioEconSce>();
+		try {
+			rwb = Workbook.getWorkbook(fis);
+			Sheet sheet = rwb.getSheet(0);
+			for (int row = 0; row < sheet.getRows(); row++) {
+				Cell[] cells = sheet.getRow(row);
+				fldWatershedCode = cells[0].getContents();
+				fldCountyCode = cells[1].getContents();
+				fldDate = cells[2].getContents();
+				fldPerCapGDP = Double.parseDouble(cells[3].getContents());
+				fldGDP = Double.parseDouble(cells[4].getContents());
+				fldPop = Double.parseDouble(cells[5].getContents());
+				datas.add(new TblSocioEconSce(fldWatershedCode, fldCountyCode, fldDate, fldPerCapGDP, fldGDP, fldPop));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fis != null) {
+					fis.close();
+				}
+			} catch (Exception e) {
+			}
+
+			try {
+				if (rwb != null) {
+					rwb.close();
+				}
+			} catch (Exception e) {
+			}
+		}
+		return datas;
+	}
+
+	@Override
+	public List<TblPrefPolicy> getAllContentTblPrefPolicy(InputStream fis) {
+		jxl.Workbook rwb = null;
+		String fldWatershedCode;
+		String fldCountyCode;
+		String fldDate;
+		String fldPrefPolicyType;
+		double fldAllowance;
+		List<TblPrefPolicy> datas = new ArrayList<TblPrefPolicy>();
+		try {
+			rwb = Workbook.getWorkbook(fis);
+			Sheet sheet = rwb.getSheet(0);
+			for (int row = 0; row < sheet.getRows(); row++) {
+				Cell[] cells = sheet.getRow(row);
+				fldWatershedCode = cells[0].getContents();
+				fldCountyCode = cells[1].getContents();
+				fldDate = cells[2].getContents();
+				fldPrefPolicyType = cells[3].getContents();
+				fldAllowance = Double.parseDouble(cells[4].getContents());
+				datas.add(new TblPrefPolicy(fldWatershedCode, fldCountyCode, fldDate, fldPrefPolicyType, fldAllowance));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fis != null) {
+					fis.close();
+				}
+			} catch (Exception e) {
+			}
+
+			try {
+				if (rwb != null) {
+					rwb.close();
+				}
+			} catch (Exception e) {
+			}
+		}
+		return datas;
+	}
+
+	@Override
+	public List<TblHydrEngineering> getAllContentTblHydrEngineering(InputStream fis) {
+		jxl.Workbook rwb = null;
+		String fldWatershedCode;
+		String fldCountyCode;
+		String fldDate;
+		double fldMainCannelLeng;
+		double fldMainCanWUE;
+		double fldBranCannelLeng;
+		double fldBranCanWUE;
+		double fldDouLeng;
+		double fldDouWUE;
+		double fldNongLeng;
+		double fldNongWUE;
+		double fldMaoLeng;
+		double fldMaoWUE;
+		double fldSprinkingArea;
+		double fldSprWUE;
+		double fldDropIrrArea;
+		double fldDropWUE;
+		List<TblHydrEngineering> datas = new ArrayList<TblHydrEngineering>();
+		try {
+			rwb = Workbook.getWorkbook(fis);
+			Sheet sheet = rwb.getSheet(0);
+			for (int row = 0; row < sheet.getRows(); row++) {
+				Cell[] cells = sheet.getRow(row);
+				fldWatershedCode = cells[0].getContents();
+				fldCountyCode = cells[1].getContents();
+				fldDate = cells[2].getContents();
+				fldMainCannelLeng = Double.parseDouble(cells[3].getContents());
+				fldMainCanWUE = Double.parseDouble(cells[4].getContents());
+				fldBranCannelLeng = Double.parseDouble(cells[5].getContents());
+				fldBranCanWUE = Double.parseDouble(cells[6].getContents());
+				fldDouLeng = Double.parseDouble(cells[7].getContents());
+				fldDouWUE = Double.parseDouble(cells[8].getContents());
+				fldNongLeng = Double.parseDouble(cells[9].getContents());
+				fldNongWUE = Double.parseDouble(cells[10].getContents());
+				fldMaoLeng = Double.parseDouble(cells[11].getContents());
+				fldMaoWUE = Double.parseDouble(cells[12].getContents());
+				fldSprinkingArea = Double.parseDouble(cells[13].getContents());
+				fldSprWUE = Double.parseDouble(cells[14].getContents());
+				fldDropIrrArea = Double.parseDouble(cells[15].getContents());
+				fldDropWUE = Double.parseDouble(cells[16].getContents());
+				datas.add(new TblHydrEngineering(fldWatershedCode, fldCountyCode, fldDate, fldMainCannelLeng,
+						fldMainCanWUE, fldBranCannelLeng, fldBranCanWUE, fldDouLeng, fldDouWUE, fldNongLeng, fldNongWUE,
+						fldMaoLeng, fldMaoWUE, fldSprinkingArea, fldSprWUE, fldDropIrrArea, fldDropWUE));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fis != null) {
+					fis.close();
+				}
+			} catch (Exception e) {
+			}
+
+			try {
+				if (rwb != null) {
+					rwb.close();
+				}
+			} catch (Exception e) {
+			}
+		}
+		return datas;
+	}
+
+	@Override
+	public List<TblWaterResManSce> getAllContentTblWaterResManSce(InputStream fis) {
+		jxl.Workbook rwb = null;
+		String fldWatershedCode;
+		String fldCountyCode;
+		String fldDate;
+		double fldWaterManArea;
+		double fldTransCoopArea;
+		List<TblWaterResManSce> datas = new ArrayList<TblWaterResManSce>();
+		try {
+			rwb = Workbook.getWorkbook(fis);
+			Sheet sheet = rwb.getSheet(0);
+			for (int row = 0; row < sheet.getRows(); row++) {
+				Cell[] cells = sheet.getRow(row);
+				fldWatershedCode = cells[0].getContents();
+				fldCountyCode = cells[1].getContents();
+				fldDate = cells[2].getContents();
+				fldWaterManArea = Double.parseDouble(cells[3].getContents());
+				fldTransCoopArea = Double.parseDouble(cells[4].getContents());
+				datas.add(new TblWaterResManSce(fldWatershedCode, fldCountyCode, fldDate, fldWaterManArea,
+						fldTransCoopArea));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fis != null) {
+					fis.close();
+				}
+			} catch (Exception e) {
+			}
+
+			try {
+				if (rwb != null) {
+					rwb.close();
+				}
+			} catch (Exception e) {
+			}
+		}
+		return datas;
+	}
+
+	@Override
+	public List<TblWaterUseCounty> getAllContentTblWaterUseCounty(InputStream fis) {
+		jxl.Workbook rwb = null;
+		String fldWatershedCode;
+		String fldCountyCode;
+		String fldDate;
+		double fldWaterUseAgr;
+		double fldWaterUseInd;
+		double fldWaterUseSer;
+		List<TblWaterUseCounty> datas = new ArrayList<TblWaterUseCounty>();
+		try {
+			rwb = Workbook.getWorkbook(fis);
+			Sheet sheet = rwb.getSheet(0);
+			for (int row = 0; row < sheet.getRows(); row++) {
+				Cell[] cells = sheet.getRow(row);
+				fldWatershedCode = cells[0].getContents();
+				fldCountyCode = cells[1].getContents();
+				fldDate = cells[2].getContents();
+				fldWaterUseAgr = Double.parseDouble(cells[3].getContents());
+				fldWaterUseInd = Double.parseDouble(cells[4].getContents());
+				fldWaterUseSer = Double.parseDouble(cells[5].getContents());
+				datas.add(new TblWaterUseCounty(fldWatershedCode, fldCountyCode, fldDate, fldWaterUseAgr,
+						fldWaterUseInd, fldWaterUseSer));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fis != null) {
+					fis.close();
+				}
+			} catch (Exception e) {
+			}
+
+			try {
+				if (rwb != null) {
+					rwb.close();
+				}
+			} catch (Exception e) {
+			}
+		}
+		return datas;
+	}
+
+	@Override
+	public List<TblWaterRightCounty> getAllContentTblWaterRightCounty(InputStream fis) {
+		jxl.Workbook rwb = null;
+		String fldWatershedCode;
+		String fldCityCode;
+		String fldCountyCode;
+		String fldDate;
+		String fldWaterRightRatio;
+		List<TblWaterRightCounty> datas = new ArrayList<TblWaterRightCounty>();
+		try {
+			rwb = Workbook.getWorkbook(fis);
+			Sheet sheet = rwb.getSheet(0);
+			for (int row = 0; row < sheet.getRows(); row++) {
+				Cell[] cells = sheet.getRow(row);
+				fldWatershedCode = cells[0].getContents();
+				fldCityCode = cells[1].getContents();
+				fldCountyCode = cells[2].getContents();
+				fldCountyCode = cells[3].getContents();
+				fldDate = cells[4].getContents();
+				fldWaterRightRatio = cells[5].getContents();
+				datas.add(new TblWaterRightCounty(fldWatershedCode, fldCityCode, fldCountyCode, fldDate,
+						fldWaterRightRatio));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fis != null) {
+					fis.close();
+				}
+			} catch (Exception e) {
+			}
+
+			try {
+				if (rwb != null) {
+					rwb.close();
+				}
+			} catch (Exception e) {
+			}
+		}
+		return datas;
+	}
+
+	@Override
+	public List<TblMidDownWaterAllo> getAllContentTblMidDownWaterAllo(InputStream fis) {
+		jxl.Workbook rwb = null;
+		String fldWatershedCode;
+		String fldDate;
+		double fldWaterUseMid;
+		double fldWaterUseDown;
+		List<TblMidDownWaterAllo> datas = new ArrayList<TblMidDownWaterAllo>();
+		try {
+			rwb = Workbook.getWorkbook(fis);
+			Sheet sheet = rwb.getSheet(0);
+			for (int row = 0; row < sheet.getRows(); row++) {
+				Cell[] cells = sheet.getRow(row);
+				fldWatershedCode = cells[0].getContents();
+				fldDate = cells[1].getContents();
+				fldWaterUseMid = Double.parseDouble(cells[2].getContents());
+				fldWaterUseDown = Double.parseDouble(cells[3].getContents());
+				datas.add(new TblMidDownWaterAllo(fldWatershedCode, fldDate, fldWaterUseMid, fldWaterUseDown));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fis != null) {
+					fis.close();
+				}
+			} catch (Exception e) {
+			}
+
+			try {
+				if (rwb != null) {
+					rwb.close();
+				}
+			} catch (Exception e) {
+			}
+		}
+		return datas;
+	}
+
+	@Override
+	public List<TblWaterAlloCounty> getAllContentTblWaterAlloCounty(InputStream fis) {
+		jxl.Workbook rwb = null;
+		String fldWatershedCode;
+		String fldCountyCode;
+		String fldDate;
+		double fldSurfaceWater;
+		double fldGroundWater;
+		List<TblWaterAlloCounty> datas = new ArrayList<TblWaterAlloCounty>();
+		try {
+			rwb = Workbook.getWorkbook(fis);
+			Sheet sheet = rwb.getSheet(0);
+			for (int row = 0; row < sheet.getRows(); row++) {
+				Cell[] cells = sheet.getRow(row);
+				fldWatershedCode = cells[0].getContents();
+				fldCountyCode = cells[1].getContents();
+				fldDate = cells[2].getContents();
+				fldSurfaceWater = Double.parseDouble(cells[3].getContents());
+				fldGroundWater = Double.parseDouble(cells[4].getContents());
+				datas.add(new TblWaterAlloCounty(fldWatershedCode, fldCountyCode, fldDate, fldSurfaceWater, fldGroundWater));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

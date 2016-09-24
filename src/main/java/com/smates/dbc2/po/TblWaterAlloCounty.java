@@ -1,5 +1,7 @@
 package com.smates.dbc2.po;
 
+import java.util.UUID;
+
 /**
  * 县区用水量
  * 
@@ -18,9 +20,9 @@ public class TblWaterAlloCounty {
 	public TblWaterAlloCounty() {
 	}
 
-	public TblWaterAlloCounty(String id, String fldWatershedCode, String fldCountyCode, String fldDate,
+	public TblWaterAlloCounty(String fldWatershedCode, String fldCountyCode, String fldDate,
 			double fldSurfaceWater, double fldGroundWater) {
-		this.id = id;
+		this.id = UUID.randomUUID().toString();
 		this.fldWatershedCode = fldWatershedCode;
 		this.fldCountyCode = fldCountyCode;
 		this.fldDate = fldDate;

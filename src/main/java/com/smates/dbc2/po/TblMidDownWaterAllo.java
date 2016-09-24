@@ -1,5 +1,7 @@
 package com.smates.dbc2.po;
 
+import java.util.UUID;
+
 /**
  * 流域中下游水分配
  * 
@@ -17,9 +19,9 @@ public class TblMidDownWaterAllo {
 	public TblMidDownWaterAllo() {
 	}
 
-	public TblMidDownWaterAllo(String id, String fldWatershedCode, String fldDate, double fldWaterUseMid,
+	public TblMidDownWaterAllo(String fldWatershedCode, String fldDate, double fldWaterUseMid,
 			double fldWaterUseDown) {
-		this.id = id;
+		this.id = UUID.randomUUID().toString();
 		this.fldWatershedCode = fldWatershedCode;
 		this.fldDate = fldDate;
 		this.fldWaterUseMid = fldWaterUseMid;

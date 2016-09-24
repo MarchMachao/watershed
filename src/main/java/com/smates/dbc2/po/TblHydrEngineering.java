@@ -1,5 +1,7 @@
 package com.smates.dbc2.po;
 
+import java.util.UUID;
+
 /**
  * 水利工程数据
  * 
@@ -30,11 +32,11 @@ public class TblHydrEngineering {
 	public TblHydrEngineering() {
 	}
 
-	public TblHydrEngineering(String id, String fldWatershedCode, String fldCountyCode, String fldDate,
+	public TblHydrEngineering(String fldWatershedCode, String fldCountyCode, String fldDate,
 			double fldMainCannelLeng, double fldMainCanWUE, double fldBranCannelLeng, double fldBranCanWUE,
 			double fldDouLeng, double fldDouWUE, double fldNongLeng, double fldNongWUE, double fldMaoLeng,
 			double fldMaoWUE, double fldSprinkingArea, double fldSprWUE, double fldDropIrrArea, double fldDropWUE) {
-		this.id = id;
+		this.id = UUID.randomUUID().toString();
 		this.fldWatershedCode = fldWatershedCode;
 		this.fldCountyCode = fldCountyCode;
 		this.fldDate = fldDate;

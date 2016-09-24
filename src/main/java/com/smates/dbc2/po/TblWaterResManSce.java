@@ -1,5 +1,7 @@
 package com.smates.dbc2.po;
 
+import java.util.UUID;
+
 /**
  * 水资源面积
  * 
@@ -18,9 +20,9 @@ public class TblWaterResManSce {
 	public TblWaterResManSce() {
 	}
 
-	public TblWaterResManSce(String id, String fldWatershedCode, String fldCountyCode, String fldDate,
+	public TblWaterResManSce(String fldWatershedCode, String fldCountyCode, String fldDate,
 			double fldWaterManArea, double fldTransCoopArea) {
-		this.id = id;
+		this.id = UUID.randomUUID().toString();
 		this.fldWatershedCode = fldWatershedCode;
 		this.fldCountyCode = fldCountyCode;
 		this.fldDate = fldDate;
