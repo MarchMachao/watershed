@@ -160,7 +160,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<!-- 
-		desc:根据气候情景排放类型查找气候情景数据表
+		desc:根据气候情景排放类型查找气候情景数据表（年）
 		example sql:
 			SELECT
 				*
@@ -176,6 +176,161 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			"a_tblClimateScenarioYear"
 		WHERE
 			"a_tblClimateScenarioYear"."fldCRPType" = #{value}
+	</select>
+	
+	<!-- 
+		desc:根据气候情景排放类型查找气候情景数据表（月）
+		
+	 -->
+	<select id="getTblClimateScenarioMonthByfldCRPType" parameterType="String" resultType="TblClimateScenarioYear">
+		SELECT
+			*
+		FROM
+			"a_tblClimateScenarioMonth"
+		WHERE
+			"a_tblClimateScenarioMonth"."fldCRPType" = #{value}
+	</select>
+	
+	<!-- 
+		desc:根据县区代码查找产业与城市发展情景数据表
+		
+	 -->
+	<select id="getTblIndustyUrbanSceByfldCountyCode" parameterType="String" resultType="TblIndustyUrbanSce">
+		SELECT
+			*
+		FROM
+			"a_tblIndustyUrbanSce"
+		WHERE
+			"a_tblIndustyUrbanSce"."fldCountyCode" = #{value}
+	</select>
+	
+	<!-- 
+		desc:根据县区代码查找GDP发展数据表
+		
+	 -->
+	<select id="getTblSocioEconSceByfldCountyCode" parameterType="String" resultType="TblSocioEconSce">
+		SELECT
+			*
+		FROM
+			"a_tblSocioEconSce"
+		WHERE
+			"a_tblSocioEconSce"."fldCountyCode" = #{value}
+	</select>
+	
+	<!-- 
+		desc:根据县区代码查找优惠政策表
+		
+	 -->
+	<select id="getTblPrefPolicyByfldCountyCode" parameterType="String" resultType="TblPrefPolicy">
+		SELECT
+			*
+		FROM
+			"a_tblPrefPolicy"
+		WHERE
+			"a_tblPrefPolicy"."fldCountyCode" = #{value}
+	</select>
+	
+	<!-- 
+		desc:根据县区代码查找水利工程数据表
+		
+	 -->
+	<select id="getTblHydrEngineeringByfldCountyCode" parameterType="String" resultType="TblHydrEngineering">
+		SELECT
+			*
+		FROM
+			"a_tblHydrEngineering"
+		WHERE
+			"a_tblHydrEngineering"."fldCountyCode" = #{value}
+	</select>
+	
+	<!-- 
+		desc:根据县区代码查找土地类型数据表
+		
+	 -->
+	<select id="getTblLandUseSceByfldCountyCode" parameterType="String" resultType="TblLandUseSce">
+		SELECT
+			*
+		FROM
+			"a_tblLandUseSce"
+		WHERE
+			"a_tblLandUseSce"."fldCountyCode" = #{value}
+	</select>
+	
+	<!-- 
+		desc:根据县区代码查找种植结构数据表
+		
+	 -->
+	<select id="getTblCropPatternByfldCountyCode" parameterType="String" resultType="TblCropPattern">
+		SELECT
+			*
+		FROM
+			"a_tblCropPattern"
+		WHERE
+			"a_tblCropPattern"."fldCountyCode" = #{value}
+	</select>
+	
+	<!-- 
+		desc:根据县区代码查找水资源面积数据表
+		
+	 -->
+	<select id="getTblWaterResManSceByfldCountyCode" parameterType="String" resultType="TblWaterResManSce">
+		SELECT
+			*
+		FROM
+			"a_tblWaterResManSce"
+		WHERE
+			"a_tblWaterResManSce"."fldCountyCode" = #{value}
+	</select>
+	
+	<!-- 
+		desc:根据县区代码查找三产用水量数据表
+		
+	 -->
+	<select id="getTblWaterUseCountyByfldCountyCode" parameterType="String" resultType="TblWaterUseCounty">
+		SELECT
+			*
+		FROM
+			"a_tblWaterUseCounty"
+		WHERE
+			"a_tblWaterUseCounty"."fldCountyCode" = #{value}
+	</select>
+	
+	<!-- 
+		desc:根据县区代码查找水权分配数据表
+		
+		！！！！！！！！！！！后期需要增加市级代码！！！！！！！！！！
+	 -->
+	<select id="getTblWaterRightCountyByfldCountyCode" parameterType="String" resultType="TblWaterRightCounty">
+		SELECT
+			*
+		FROM
+			"a_tblWaterRightCounty"
+		WHERE
+			"a_tblWaterRightCounty"."fldCountyCode" = #{value}
+	</select>
+	
+	<!-- 
+		desc:查找流域中下游水分配表
+		
+	 -->
+	<select id="getTblMidDownWaterAllo" resultType="TblMidDownWaterAllo">
+		SELECT
+			*
+		FROM
+			"a_tblMidDownWaterAllo"
+	</select>
+	
+	<!-- 
+		desc:根据县区代码查找县区用水量数据表
+		
+	 -->
+	<select id="getTblWaterAlloCountyByfldCountyCode" parameterType="String" resultType="TblWaterAlloCounty">
+		SELECT
+			*
+		FROM
+			"a_tblWaterAlloCounty"
+		WHERE
+			"a_tblWaterAlloCounty"."fldCountyCode" = #{value}
 	</select>
 
 </mapper>

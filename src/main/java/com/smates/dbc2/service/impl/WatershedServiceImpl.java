@@ -116,4 +116,76 @@ public class WatershedServiceImpl implements WatershedService {
 		watershedDao.addWatershed(new Watershed(id, name, describe));
 	}
 
+	@Override
+	public List<TblClimateScenarioMonth> getTblClimateScenarioMonthByfldCRPType(String fldCRPType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TblIndustyUrbanSce> getTblIndustyUrbanSceByfldCountyCode(String fldCountyCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TblSocioEconSce> getTblSocioEconSceByfldCountyCode(String fldCountyCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TblPrefPolicy> getTblPrefPolicyByfldCountyCode(String fldCountyCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TblHydrEngineering> getTblHydrEngineeringByfldCountyCode(String fldCountyCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TblLandUseSce> getTblLandUseSceByfldCountyCode(String fldCountyCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TblCropPattern> getTblCropPatternByfldCountyCode(String fldCountyCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TblWaterResManSce> getTblWaterResManSceByfldCountyCode(String fldCountyCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TblWaterUseCounty> getTblWaterUseCountyByfldCountyCode(String fldCountyCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TblWaterRightCounty> getTblWaterRightCountyByfldCountyCode(String fldCountyCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TblMidDownWaterAllo> getTblMidDownWaterAlloByfldCountyCode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TblWaterAlloCounty> getTblWaterAlloCountyByfldCountyCode(String fldCountyCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
