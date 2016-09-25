@@ -13,8 +13,8 @@ public class Watershed {
 	private String name;
 	private String describe;
 
-	public Watershed(String name, String describe) {
-		this.id = UUID.randomUUID().toString();
+	public Watershed(String id, String name, String describe) {
+		this.id = id;
 		this.name = name;
 		this.describe = describe;
 	}

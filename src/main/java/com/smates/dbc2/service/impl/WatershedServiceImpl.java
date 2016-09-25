@@ -29,15 +29,10 @@ public class WatershedServiceImpl implements WatershedService {
 	private WatershedDao watershedDao;
 
 	@Override
-	public void addWatershedInfo(String name, String describe) {
-		watershedDao.addWatershed(new Watershed(name, describe));
-	}
-
-	@Override
 	public void addTblClimateScenarioYear(TblClimateScenarioYear tblClimateScenarioYear) {
 		watershedDao.addTblClimateScenarioYear(tblClimateScenarioYear);
 	}
-	
+
 	@Override
 	public void addTblClimateScenarioMonth(TblClimateScenarioMonth tblClimateScenarioMonth) {
 		watershedDao.addTblClimateScenarioMonth(tblClimateScenarioMonth);
@@ -66,54 +61,59 @@ public class WatershedServiceImpl implements WatershedService {
 	@Override
 	public void addtblSocioEconSce(TblSocioEconSce tblSocioEconSce) {
 		watershedDao.addtblSocioEconSce(tblSocioEconSce);
-		
+
 	}
 
 	@Override
 	public void addtblPrefPolicy(TblPrefPolicy tblPrefPolicy) {
 		watershedDao.addtblPrefPolicy(tblPrefPolicy);
-		
+
 	}
 
 	@Override
 	public void addtblHydrEngineering(TblHydrEngineering tblHydrEngineering) {
 		watershedDao.addtblHydrEngineering(tblHydrEngineering);
-		
+
 	}
 
 	@Override
 	public void addtblWaterResManSce(TblWaterResManSce tblWaterResManSce) {
 		watershedDao.addtblWaterResManSce(tblWaterResManSce);
-		
+
 	}
 
 	@Override
 	public void addtblWaterUseCounty(TblWaterUseCounty tblWaterUseCounty) {
 		watershedDao.addtblWaterUseCounty(tblWaterUseCounty);
-		
+
 	}
 
 	@Override
 	public void addtblWaterRightCounty(TblWaterRightCounty tblWaterRightCounty) {
 		watershedDao.addtblWaterRightCounty(tblWaterRightCounty);
-		
+
 	}
 
 	@Override
 	public void addtblMidDownWaterAllo(TblMidDownWaterAllo tblMidDownWaterAllo) {
 		watershedDao.addtblMidDownWaterAllo(tblMidDownWaterAllo);
-		
+
 	}
 
 	@Override
 	public void addtblWaterAlloCounty(TblWaterAlloCounty tblWaterAlloCounty) {
 		watershedDao.addtblWaterAlloCounty(tblWaterAlloCounty);
-		
+
 	}
 
 	@Override
 	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(String fldCRPType) {
 		return watershedDao.geTblClimateScenarioYearsByfldCRPType(fldCRPType);
+	}
+
+	@Override
+	public void addWatershedInfo(String id, String name, String describe) {
+		watershedDao.addWatershed(new Watershed(id, name, describe));
 	}
 
 }

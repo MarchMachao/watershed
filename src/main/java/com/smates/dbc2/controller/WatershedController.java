@@ -40,9 +40,9 @@ public class WatershedController extends BaseController{
 	 * @throws IOException 
 	 */
 	@RequestMapping(value="addWatershed",method=RequestMethod.POST)
-	public String addWatershed(String name, String describe, MultipartFile tblClimateScenarioYear, MultipartFile tblClimateScenarioMonth, MultipartFile tblIndustyUrbanSce, MultipartFile tblLandUseSce, MultipartFile tblCropPattern, MultipartFile tblSocioEconSce, MultipartFile tblPrefPolicy, MultipartFile tblHydrEngineering, MultipartFile tblWaterResManSce, MultipartFile tblWaterUseCounty, MultipartFile tblWaterRightCounty, MultipartFile tblMidDownWaterAllo, MultipartFile tblWaterAlloCounty) throws IOException{
+	public String addWatershed(String id, String name, String describe, MultipartFile tblClimateScenarioYear, MultipartFile tblClimateScenarioMonth, MultipartFile tblIndustyUrbanSce, MultipartFile tblLandUseSce, MultipartFile tblCropPattern, MultipartFile tblSocioEconSce, MultipartFile tblPrefPolicy, MultipartFile tblHydrEngineering, MultipartFile tblWaterResManSce, MultipartFile tblWaterUseCounty, MultipartFile tblWaterRightCounty, MultipartFile tblMidDownWaterAllo, MultipartFile tblWaterAlloCounty) throws IOException{
 		//保存流域基本信息(流域名,流域描述)
-		watershedService.addWatershedInfo(name,describe);
+		watershedService.addWatershedInfo(id, name,describe);
 		//解析excel表格并存储
 		StoreExcelData(tblClimateScenarioYear, tblClimateScenarioMonth, tblIndustyUrbanSce, tblLandUseSce,
 				tblCropPattern);
@@ -59,5 +59,15 @@ public class WatershedController extends BaseController{
 	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(String fldCRPType){
 		return watershedService.getTblClimateScenarioYearsByfldCRPType(fldCRPType);
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+//	@ResponseBody
+//	@RequestMapping()
+//	public List<TblIndustyUrbanSce> getTblIndustyUrbanSceBy(){
+//		
+//	}
 	
 }

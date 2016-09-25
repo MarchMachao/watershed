@@ -27,12 +27,14 @@ public interface WatershedService {
 	/**
 	 * 添加流域基本信息
 	 * 
+	 * @param id
+	 *            流域ID
 	 * @param name
 	 *            流域名称
 	 * @param describe
 	 *            流域描述
 	 */
-	public void addWatershedInfo(String name, String describe);
+	public void addWatershedInfo(String id, String name, String describe);
 
 	/**
 	 * 气候情景数据表(年)
