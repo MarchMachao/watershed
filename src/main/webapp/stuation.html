@@ -163,7 +163,7 @@
 													<div class="span1"></div>
 													<div class="span9">
 														选择县区：
-														<select id="selectCounty">
+														<select id="industry-selectCounty">
 															<option value="GanZhou">甘州</option>
 															<option value="LinZe">临泽</option>
 															<option value="GaoTai">高台</option>
@@ -347,8 +347,7 @@
 										<div class="row-fluid">
 											<label>
 										<span>选择区县</span>
-										<select id="selectCounty">
-											<option value=""></option>
+										<select id="water-selectCounty">
 											<option value="GanZhou">甘州</option>
 											<option value="LinZe">临泽</option>
 											<option value="GaoTai">高台</option>
@@ -785,7 +784,7 @@
 													<div class="span1"></div>
 													<div class="span9">
 														选择县区：
-														<select id="selectCounty">
+														<select id="technology-selectCounty">
 															<option value="GanZhou">甘州</option>
 															<option value="LinZe">临泽</option>
 															<option value="GaoTai">高台</option>
@@ -818,7 +817,7 @@
 												<div class="row-fluid">
 													<div class="span1"></div>
 													<div class="span9">
-														<select id="selectCounty">
+														<select id="distribution-selectCounty">
 															<option value="PinJun">平均分配</option>
 															<option value="ShuiQuan">水权分配</option>
 															<option value="YouHua">优化分配</option>
@@ -845,7 +844,6 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-		$(function () {
 //			$(top.hangge());
 
 			//设置气候情景中的增加降雨比例slider
@@ -1480,18 +1478,33 @@
 				}
 			});
 			$("#IPCC").on("change", function() {
+				//气候情景温度变化图
 				showFigure_1();
 				//气候情景：降水变化图
 				showFigure_2();
-				//非农业人口比例变化
 			});
+			
+			$("#industry-selectCounty").on("change",function(){
+				//非农业人口比例变化
+				showFigure_3();
+				//三产产值变化
+				showFigure_4();
+			});
+			
+			$("#water-selectCounty").on("change", function(){
+				//人均GDP变化
+				showFigure_5();
+				//各级渠道长度与水利用率变化
+				showFigure_6();
+			})
 			
 			$("#land_selectCounty").on("change",function(){
 				//土地利用情景中的耕地面积变化图表
 				land_show_1();
 				//土地利用情景中的不同作物种植面积变化
 				land_show_2();
-			})
+			});
+			
 			$(function() {
 				//页面初始化以后加载图表：气候情景温度变化图
 				showFigure_1();
@@ -1607,7 +1620,9 @@
 					trigger : 'axis'
 				},
 				legend : {
-					data : [ '平均降水', '最大降水', '最小降水' ],
+					data : [ '平均降水', 
+// 					         '最大降水', '最小降水' 
+					         ],
 					x: 'right',
 					padding: [25,5,5,5]
 				},
@@ -1636,14 +1651,14 @@
 					name : '平均降水',
 					type : 'line',
 					data : averagePrecip
-				}, {
-					name : '最大降水',
-					type : 'line',
-					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
-				}, {
-					name : '最小降水',
-					type : 'line',
-					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
+// 				}, {
+// 					name : '最大降水',
+// 					type : 'line',
+// 					data : [ 27, 30, 33, 36, 34, 32, 29, 29, 32, 36, 32 ]
+// 				}, {
+// 					name : '最小降水',
+// 					type : 'line',
+// 					data : [ 10, 12, 6, 8, 14, 12, 8, 9, 10, 12, 16 ]
 				} ]
 			};
 			Chart.setOption(option);
@@ -2115,7 +2130,7 @@
 			};
 			Chart.setOption(option);
 			})};
-		});
+		
 		</script>
 	</body>
 
