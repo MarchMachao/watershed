@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,6 +17,9 @@ import com.smates.dbc2.po.TblIndustyUrbanSce;
 import com.smates.dbc2.po.TblLandUseSce;
 import com.smates.dbc2.po.TblMidDownWaterAllo;
 import com.smates.dbc2.po.TblSocioEconSce;
+import com.smates.dbc2.po.Watershed;
+import com.smates.dbc2.vo.BaseMsg;
+import com.smates.dbc2.vo.DataGrideRow;
 
 /**
  * 流域相关controller
@@ -25,6 +29,7 @@ import com.smates.dbc2.po.TblSocioEconSce;
  */
 @Controller
 public class WatershedController extends BaseController{
+	
 	
 	/**
 	 * 添加流域信息
@@ -69,8 +74,43 @@ public class WatershedController extends BaseController{
 		// 解析excel表格并存储
 		StoreExcelData(tblClimateScenarioYear, tblClimateScenarioMonth, tblIndustyUrbanSce, tblLandUseSce,
 				tblCropPattern);
-		return "";
+		return "watershedlist.ftl";
 	}
+	
+	/**
+	 * 加载流域信息页面
+	 * @return
+	 */
+	@RequestMapping(value="watershedlist",method=RequestMethod.GET)
+	public String watershedlist(){
+		return "watershedlist.ftl";
+	}
+	
+	/**
+	 * 根据用户输入的流域名称返回查找的结果
+	 * @param page 显示的页码
+	 * @param name 流域名称
+	 * @param rows 每页显示的个数
+	 * @return 格式化后的流域信息
+	 */
+	@ResponseBody
+	@RequestMapping(value="getWatershedByName",method=RequestMethod.GET)
+	public DataGrideRow<Watershed> getWatershedByName(@RequestParam(defaultValue = "1") int page, String name, int rows){
+		logger.info(page+","+rows+","+name);
+		return watershedService.getWatershedFormateDataGride(name,page,rows);
+	}
+	
+	/**
+	 * 删除一条流域信息
+	 * @param id 流域id
+	 */
+	@ResponseBody
+	@RequestMapping(value="deleteWatershed",method=RequestMethod.GET)
+	public BaseMsg deleteWatershed(String id){
+		watershedService.deleteWatershed(id);
+		return new BaseMsg(true, "删除成功");
+	}
+
 
 	/**
 	 * 根据用户输入的气候情景排放类型返回List<TblClimateScenarioYear>
