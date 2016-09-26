@@ -21,7 +21,7 @@ import com.smates.dbc2.vo.DataGrideRow;
 /**
  * 流域相关业务
  * 
- * @author baijw
+ * @author baijw and March
  *
  */
 public interface WatershedService {
@@ -238,7 +238,7 @@ public interface WatershedService {
 	 * 
 	 * @return 中下游水分配表list
 	 */
-	public List<TblMidDownWaterAllo> getTblMidDownWaterAlloByfldCountyCode();
+	public List<TblMidDownWaterAllo> getTblMidDownWaterAllo();
 
 	/**
 	 * 根据县区代码查找县区用水量数据表

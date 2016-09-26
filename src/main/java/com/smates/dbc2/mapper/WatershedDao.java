@@ -151,9 +151,120 @@ public interface WatershedDao {
 	public void deleteWatershed(String id);
 	
 	/**
-	 * 获取所有的流域信息
-	 * @return
+	 * 根据气候情景排放类型查找气候情景数据表（年）
+	 * 
+	 * @param fldCRPType
+	 *            气候情景排放类型
+	 * @return 气候情景数据表(年)list
 	 */
-//	public List<Watershed> getAllWatershed();
-	
+	public List<TblClimateScenarioYear> getTblClimateScenarioYearsByfldCRPType(String fldCRPType);
+
+	/**
+	 * 根据气候情景排放类型查找气候情景数据表（月）
+	 * 
+	 * @param fldCRPType
+	 *            气候情景排放类型
+	 * @return 气候情景数据表(月)list
+	 */
+	public List<TblClimateScenarioMonth> getTblClimateScenarioMonthByfldCRPType(String fldCRPType);
+
+	/**
+	 * 根据县区代码查找产业与城市发展情景数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return 产业与城市发展情景数据表list
+	 */
+	public List<TblIndustyUrbanSce> getTblIndustyUrbanSceByfldCountyCode(String fldCountyCode);
+
+	/**
+	 * 根据县区代码查找GDP发展数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return GDP发展数据表list
+	 */
+	public List<TblSocioEconSce> getTblSocioEconSceByfldCountyCode(String fldCountyCode);
+
+	/**
+	 * 根据县区代码查找优惠政策表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return 优惠政策表list
+	 */
+	public List<TblPrefPolicy> getTblPrefPolicyByfldCountyCode(String fldCountyCode);
+
+	/**
+	 * 根据县区代码查找水利工程数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return 水利工程数据表list
+	 */
+	public List<TblHydrEngineering> getTblHydrEngineeringByfldCountyCode(String fldCountyCode);
+
+	/**
+	 * 根据县区代码查找土地类型数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return 土地类型数据表list
+	 */
+	public List<TblLandUseSce> getTblLandUseSceByfldCountyCode(String fldCountyCode);
+
+	/**
+	 * 根据县区代码查找种植结构数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return 种植结构数据表list
+	 */
+	public List<TblCropPattern> getTblCropPatternByfldCountyCode(String fldCountyCode);
+
+	/**
+	 * 根据县区代码查找水资源面积数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return 水资源面积数据表list
+	 */
+	public List<TblWaterResManSce> getTblWaterResManSceByfldCountyCode(String fldCountyCode);
+
+	/**
+	 * 根据县区代码查找三产用水量数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return 三产用水量数据表list
+	 */
+	public List<TblWaterUseCounty> getTblWaterUseCountyByfldCountyCode(String fldCountyCode);
+
+	/**
+	 * 根据县区代码查找水权分配数据表 ！！！！！！！！！！！后期需要增加市级代码！！！！！！！！！！
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return 水权分配数据表list
+	 */
+	public List<TblWaterRightCounty> getTblWaterRightCountyByfldCountyCode(String fldCountyCode);
+
+	/**
+	 * 查找流域中下游水分配表
+	 * 
+	 * @param
+	 * 
+	 * @return 中下游水分配表list
+	 */
+	public List<TblMidDownWaterAllo> getTblMidDownWaterAllo();
+
+	/**
+	 * 根据县区代码查找县区用水量数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return 县区用水量数据表list
+	 */
+	public List<TblWaterAlloCounty> getTblWaterAlloCountyByfldCountyCode(String fldCountyCode);
+
 }
