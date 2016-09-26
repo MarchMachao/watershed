@@ -1,5 +1,5 @@
 @charset "utf-8";
-        body{background: url("../image/bg.jpg") repeat; }
+        body{background-size:100%;background: url("../image/bg.jpg") no-repeat; }
         .wrapper{min-width: 700px; position:relative; min-height: 600px; height: 100%; background: url("img/bg.jpg") repeat; }
         .login-container{width: 460px; background-color: #f7f7f7;  position: absolute; left: 50%; margin-left: -230px; top: 50%; margin-top: -290px;
             border: 1px solid rgba(70, 102, 138, 0.5);
@@ -20,7 +20,7 @@
         }
         #logo{width: 450px;margin-left: -25px;}
         #logo-word{height: 40px; }
-        #login-form{width: 95%; height: 270px; margin-top: 30px; padding: 0 40px 30px;}
+        #login-form{width: 95%; height: 270px; margin-top: 30px; margin-left:10px; padding: 0 40px 30px;}
         #login-form input{width: 100%; text-indent: 18px;  border: 1px solid #b2b2b2;  outline: none; background-color: #fff; padding:0 20px;  height: 38px; line-height: 38px;  font-size: 14px;
             -webkit-border-radius: 3px;
             -moz-border-radius: 3px;

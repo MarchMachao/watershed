@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/login.css">
+    <script src="js/jquery.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -33,7 +34,11 @@
             	${callback}
             </div>
             <div class="btn-group">
+            	<button class="pull-left" type="button" id="login-btn">注 册</button>
                 <button type="submit" id="login-btn">登 录</button>
+                <div style="margin-top:5px ;">
+            		<a href="#" id="login-guest" class="pull-right">游客登录</a>
+            	</div>
             </div>
         </form>
         <p id="form-bottom"></p>
@@ -41,4 +46,14 @@
     <p class="login-bottom">Copyright © 2015 中国科学院寒区旱区环境与工程研究所</p>
 </div>
 </body>
+<script>
+	$("#login-guest").on("click",function(){
+		$.ajax({
+			type:"post",
+			url:"login.do",
+			data:{accountNumber:'guest356246547',userpwd:'123456'},
+			success:function(){window.location.href='home.do'}
+		});
+	})
+</script>
 </html>
