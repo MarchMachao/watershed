@@ -21,41 +21,30 @@
 					<div class="widget-body">
 						<div class="widget-main no-padding">
 							<form class="form-horizontal" id="form_create" name="form_create"
-								action="project/save.do" method="post">
+								action="addProject.do" method="post">
 								<fieldset>
 									<!-- 基本信息区域布局 -->
 									<h4 class="header smaller lighter blue">基本信息</h4>
 									<div class="control-group">
-										<label class="control-label" for="project_name">项目名称</label>
+										<label class="control-label" for="name">项目名称</label>
 										<div class="controls">
-											<input type="text" id="project_name" name="project_name"
+											<input type="text" id="name" name="name"
 												placeholder="请输入项目名称">
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="project_description">项目描述</label>
+										<label class="control-label" for="describe">项目描述</label>
 										<div class="controls">
-											<input type="text" id="project_description"
-												name="project_description" placeholder="请输入项目描述信息">
+											<input type="text" id="describe" name="describe"
+												placeholder="请输入项目描述信息">
 										</div>
 									</div>
 
 									<div class="control-group">
-										<label class="control-label" for="basin_id">对应流域</label>
+										<label class="control-label" for="watershedId">对应流域</label>
 										<div class="controls">
-											<select id="sltedBasin" name="basin_id">
-												<option value="">请选择流域</option>
-												<c:choose>
-													<c:when test="${not empty basinList}">
-														<c:if test="${QX.cha == 1}">
-															<c:forEach items="${basinList}" var="basins"
-																varStatus="bs">
-																<option value="${basins.basin_id }">${basins.basin_name
-																	}</option>
-															</c:forEach>
-														</c:if>
-													</c:when>
-												</c:choose>
+											<select id="watershedId" name="watershedId">
+												<option value="12">${basins.basin_name}</option>
 											</select>
 										</div>
 									</div>
@@ -63,18 +52,17 @@
 									<h4 class="header smaller lighter blue">基本参数设置</h4>
 
 									<div class="control-group">
-										<label class="control-label" for="param_begin_year">基准年</label>
+										<label class="control-label" for="baseYear">基准年</label>
 										<div class="controls">
-											<input type="text" id="param_begin_year"
-												name="param_begin_year"> ——目标年&nbsp;<input
-												type="text" id="param_end_year" name="param_end_year">
+											<input type="text" id="baseYear" name="baseYear">
+											——目标年&nbsp;<input type="text" id="goalYear" name="goalYear">
 										</div>
 									</div>
 
 									<div class="control-group">
-										<label class="control-label" for="param_step">计算步长</label>
+										<label class="control-label" for="step">计算步长</label>
 										<div class="controls">
-											<input type="text" id="param_step" name="param_step">
+											<input type="text" id="step" name="step">
 											（请输入“年”或者“月”）
 										</div>
 									</div>
@@ -87,7 +75,7 @@
 
 										<div class="span4" style="text-align: center">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
-											<button class="btn btn-small btn-success" type="button"
+											<button class="btn btn-small btn-success" type="submit"
 												id="project_submit">确定</button>
 											&nbsp;
 											<button class="btn btn-small btn-warning" type="reset"

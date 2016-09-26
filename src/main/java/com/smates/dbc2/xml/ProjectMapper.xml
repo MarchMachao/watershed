@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smates.dbc2.mapper.ProjectDao">
+
+	<!-- 新增一个项目记录 -->
+	<insert id="addProject" parameterType="project">
+		INSERT INTO
+		a_project
+		VALUES(#{id},#{name},#{watershedId},#{createTime},#{describe},#{baseYear},#{goalYear},#{step})
+	</insert>
+
+	<!-- 统计符合条件的项目总数 -->
+	<select id="getProjectSumByName" parameterType="String"
+		resultType="int">
+		SELECT
+		"count"(*)
+		from a_project
+		where a_project."name" like
+		'%${value}%'
+	</select>
+
+	<!-- 根据项目名称查找项目 -->
+	<select id="getProjectByName" parameterType="com.smates.dbc2.vo.ProjectParaVo"
+		resultType="project">
+		SELECT
+		*
+		from a_project
+		where a_project."name" like '%${name}%'
+		LIMIT #{rows}
+		OFFSET #{startNum}
+	</select>
+
+	<!-- 根据id删除一个项目记录 -->
+	<delete id="deleteProjectById" parameterType="string">
+		DELETE FROM
+		a_project
+		where a_project."id" = #{value}
+	</delete>
+
+</mapper>

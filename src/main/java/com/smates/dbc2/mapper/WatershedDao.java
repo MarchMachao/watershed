@@ -150,4 +150,10 @@ public interface WatershedDao {
 	 */
 	public void deleteWatershed(String id);
 	
+	/**
+	 * 获取所有的流域信息
+	 * @return
+	 */
+//	public List<Watershed> getAllWatershed();
+	
 }
