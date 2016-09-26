@@ -16,6 +16,7 @@ import com.smates.dbc2.po.TblWaterResManSce;
 import com.smates.dbc2.po.TblWaterRightCounty;
 import com.smates.dbc2.po.TblWaterUseCounty;
 import com.smates.dbc2.po.Watershed;
+import com.smates.dbc2.vo.WatershedParaVo;
 
 public interface WatershedDao {
 	
@@ -129,5 +130,18 @@ public interface WatershedDao {
 	 * @return 气候情景数据表(年)lsit
 	 */
 	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(String fldCRPType);
+
+	/**
+	 * 查找流域信息
+	 * @param watershed 
+	 * @return
+	 */
+	public List<Watershed> getWatershedByName(WatershedParaVo watershedParaVo);
+	
+	/**
+	 * 查询符合条件的流域总数
+	 * @return 流域总个数
+	 */
+	public Integer getWatershedSum(String name);
 	
 }

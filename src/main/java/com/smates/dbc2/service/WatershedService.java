@@ -15,6 +15,8 @@ import com.smates.dbc2.po.TblWaterAlloCounty;
 import com.smates.dbc2.po.TblWaterResManSce;
 import com.smates.dbc2.po.TblWaterRightCounty;
 import com.smates.dbc2.po.TblWaterUseCounty;
+import com.smates.dbc2.po.Watershed;
+import com.smates.dbc2.vo.DataGrideRow;
 
 /**
  * 流域相关业务
@@ -246,5 +248,14 @@ public interface WatershedService {
 	 * @return 县区用水量数据表list
 	 */
 	public List<TblWaterAlloCounty> getTblWaterAlloCountyByfldCountyCode(String fldCountyCode);
+	
+	/**
+	 * 根据用户输入的流域名称模糊查找流域信息
+	 * @param name 流域名称
+	 * @param page 当前显示的页数
+	 * @param rows 每页显示的个数
+	 * @return
+	 */
+	public DataGrideRow<Watershed> getWatershedFormateDataGride(String name,int page,int rows);	
 
 }

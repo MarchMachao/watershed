@@ -14,16 +14,16 @@
 	<body>
 		<div>
 			<div style="margin-bottom: 20px; display: inline;">
-				<span class="paraName">流域名称:</span> <input class="easyui-textbox" id="menuName" name="menuName" style="width: 150px; height: 32px">
+				<span class="paraName">流域名称:</span> <input class="easyui-textbox" id="name" name="name" style="width: 150px; height: 32px">
 			</div>
-			<a href="#" id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width: 70px;height: 30px;">查找</a>
+			<a href="javascript:void(0)" id="search_btn" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width: 70px;height: 30px;">查找</a>
 		</div>
 		<div class="hr"></div>
-		<table id="dg" style="width:auto;height:auto;" data-options="rownumbers:true,singleSelect:true,pagination:true,url:'datagrid_data1.json',method:'get'" toolbar="#tb">
+		<table id="dg" style="width:auto;height:auto;" data-options="rownumbers:true,singleSelect:true,pagination:true,url:'getWatershedByName.do',method:'get'" toolbar="#tb">
 			<thead>
 				<tr>
-					<th data-options="field:'itemid',width:200">流域名称</th>
-					<th data-options="field:'productid',width:200">创建时间</th>
+					<th data-options="field:'name',width:200">流域名称</th>
+					<th data-options="field:'describe',width:200">流域描述</th>
 				</tr>
 			</thead>
 		</table>
@@ -38,5 +38,14 @@
 		$(function() {
 			var pager = $('#dg').datagrid().datagrid('getPager');
 		})
+		
+				
+		$("#search_btn").click(function(){
+			var name = $("#name").val();
+			$('#dg').datagrid('load',{
+				name: name
+			});
+		})
 	</script>
+	
 </html>

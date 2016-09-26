@@ -21,6 +21,8 @@ import com.smates.dbc2.po.TblWaterRightCounty;
 import com.smates.dbc2.po.TblWaterUseCounty;
 import com.smates.dbc2.po.Watershed;
 import com.smates.dbc2.service.WatershedService;
+import com.smates.dbc2.vo.DataGrideRow;
+import com.smates.dbc2.vo.WatershedParaVo;
 
 @Service
 public class WatershedServiceImpl implements WatershedService {
@@ -186,6 +188,13 @@ public class WatershedServiceImpl implements WatershedService {
 	public List<TblWaterAlloCounty> getTblWaterAlloCountyByfldCountyCode(String fldCountyCode) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public DataGrideRow<Watershed> getWatershedFormateDataGride(String name, int page, int rows) {
+		int sum = watershedDao.getWatershedSum(name);
+		List<Watershed> watersheds = watershedDao.getWatershedByName(new WatershedParaVo(name, rows, (page-1)*rows));
+		return new DataGrideRow<Watershed>(sum, watersheds);
 	}
 
 }

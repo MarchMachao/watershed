@@ -1,7 +1,5 @@
 package com.smates.dbc2.po;
 
-import java.util.UUID;
-
 /**
  * 流域
  * @author baijw
