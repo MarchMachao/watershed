@@ -257,5 +257,11 @@ public interface WatershedService {
 	 * @return
 	 */
 	public DataGrideRow<Watershed> getWatershedFormateDataGride(String name,int page,int rows);	
+	
+	/**
+	 * 删除一条流域信息
+	 * @param id 流域id
+	 */
+	public void deleteWatershed(String id);
 
 }

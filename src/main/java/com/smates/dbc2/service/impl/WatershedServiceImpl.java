@@ -196,4 +196,9 @@ public class WatershedServiceImpl implements WatershedService {
 		return new DataGrideRow<Watershed>(watershedDao.getWatershedSum(name), watersheds);
 	}
 
+	@Override
+	public void deleteWatershed(String id) {
+		watershedDao.deleteWatershed(id);
+	}
+
 }

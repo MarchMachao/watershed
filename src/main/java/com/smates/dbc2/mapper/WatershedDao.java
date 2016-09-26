@@ -144,4 +144,10 @@ public interface WatershedDao {
 	 */
 	public Integer getWatershedSum(String name);
 	
+	/**
+	 * 删除一个流域信息
+	 * @param id 流域id
+	 */
+	public void deleteWatershed(String id);
+	
 }

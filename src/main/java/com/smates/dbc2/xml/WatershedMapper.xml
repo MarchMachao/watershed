@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- desc:保存流域基本信息 example sql: INSERT into a_watershed VALUES("1","黑河","黑河在哪里呢") -->
 	<insert id="addWatershed" parameterType="Watershed">
-	INSERT into a_watershed
-	VALUES(#{id},#{name},#{describe})
+		INSERT into a_watershed
+		VALUES(#{id},#{name},#{describe})
 	</insert>
 
 	<!-- desc:存储气候情景数据表(年)数据 example sql: INSERT INTO "a_tblClimateScenarioYear" 
@@ -160,7 +160,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<!-- desc:根据流域名称模糊查找流域数据 -->
-	<select id="getWatershedByName" parameterType="com.smates.dbc2.vo.WatershedParaVo" resultType="Watershed">
+	<select id="getWatershedByName" parameterType="com.smates.dbc2.vo.WatershedParaVo"
+		resultType="Watershed">
 		SELECT
 		a_watershed."id",
 		a_watershed."name",
@@ -168,10 +169,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM
 		a_watershed
 		WHERE
-		a_watershed."name" LIKE '%${name}%'
+		a_watershed."name" LIKE
+		'%${name}%'
 		LIMIT #{rows} OFFSET
 		#{startNum}
 	</select>
+
+	<!-- 删除一个流域信息 -->
+	<delete id="deleteWatershed" parameterType="String">
+		DELETE
+		from a_watershed
+		where a_watershed."id" = #{value}
+	</delete>
 
 	<!-- 查询流域总数 -->
 	<select id="getWatershedSum" parameterType="String" resultType="int">

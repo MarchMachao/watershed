@@ -30,7 +30,7 @@
 		</table>
 		<div id="tb">
 		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:location.href = 'watershededit.html';">新增</a>
-		<a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true" onclick="javascript:alert('Cut')">删除</a>
+		<a href="javascript:void(0)" id="easyui-linkbutton" class="easyui-linkbutton" iconCls="icon-cut" plain="true" >删除</a>
 	</div>
 
 	</body>
@@ -47,6 +47,28 @@
 				name: name
 			});
 		})
+		
+		$("#easyui-linkbutton").click(function(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row) {
+				$.messager.confirm("操作提示", "您确定要删除这条记录吗？", function(data) {
+					if (data) {
+						$.get('deleteWatershed.do', {
+							id : row.id
+						}, function(data) {
+							$.messager.alert('提示', data.content, 'info');
+							$(".pagination-load").trigger("click");
+						})
+					} else {
+						
+					}
+				});
+			} else {
+				$.messager.alert('提示', "请选中要删除的行", 'info');
+			}
+		})
+		
+		
 	</script>
 	
 </html>
