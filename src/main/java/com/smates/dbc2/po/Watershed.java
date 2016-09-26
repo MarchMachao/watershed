@@ -10,6 +10,9 @@ public class Watershed {
 	private String id;
 	private String name;
 	private String describe;
+	
+	public Watershed() {
+	}
 
 	public Watershed(String id, String name, String describe) {
 		this.id = id;
@@ -41,4 +44,9 @@ public class Watershed {
 		this.describe = describe;
 	}
 
+	@Override
+	public String toString() {
+		return "Watershed [id=" + id + ", name=" + name + ", describe=" + describe + "]";
+	}
+	
 }

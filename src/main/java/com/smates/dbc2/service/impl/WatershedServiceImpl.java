@@ -192,9 +192,8 @@ public class WatershedServiceImpl implements WatershedService {
 
 	@Override
 	public DataGrideRow<Watershed> getWatershedFormateDataGride(String name, int page, int rows) {
-		int sum = watershedDao.getWatershedSum(name);
 		List<Watershed> watersheds = watershedDao.getWatershedByName(new WatershedParaVo(name, rows, (page-1)*rows));
-		return new DataGrideRow<Watershed>(sum, watersheds);
+		return new DataGrideRow<Watershed>(watershedDao.getWatershedSum(name), watersheds);
 	}
 
 }
