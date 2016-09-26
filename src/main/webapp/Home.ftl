@@ -44,36 +44,6 @@
           <li>
           	<img src="image/brand_cas_2_2th.png" />
           </li>
-          <!-- User Account Menu -->
-          <li id="user_rightconer" class="dropdown user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle user" data-toggle="dropdown">
-              <!-- The user image in the navbar-->
-              <img src="${user.image}" class="user-image" alt="User Image">
-              <!-- hidden-xs hides the nickName on small devices so only the image appears. -->
-              <span class="hidden-xs">${user.nickName}</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- The user image in the menu -->
-              <li class="user-header">
-                <img src="${user.image}" class="img-circle" alt="User Image">
-
-                <p>
-                  ${user.nickName} - ${user.role}
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">信息维护</a>
-                </div>
-                <div class="pull-right">
-                  <a href="logout.do" class="btn btn-default btn-flat">注销</a>
-                </div>
-              </li>
-            </ul>
-          </li>
         </ul>
       </div>
     </nav>

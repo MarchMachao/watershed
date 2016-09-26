@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.smates.dbc2.po.TblClimateScenarioYear;
+import com.smates.dbc2.po.TblCropPattern;
+import com.smates.dbc2.po.TblHydrEngineering;
+import com.smates.dbc2.po.TblIndustyUrbanSce;
+import com.smates.dbc2.po.TblLandUseSce;
+import com.smates.dbc2.po.TblMidDownWaterAllo;
+import com.smates.dbc2.po.TblSocioEconSce;
 import com.smates.dbc2.po.Watershed;
 import com.smates.dbc2.vo.BaseMsg;
 import com.smates.dbc2.vo.DataGrideRow;
@@ -18,7 +24,7 @@ import com.smates.dbc2.vo.DataGrideRow;
 /**
  * 流域相关controller
  * 
- * @author baijw
+ * @author baijw and March
  *
  */
 @Controller
@@ -119,5 +125,82 @@ public class WatershedController extends BaseController{
 		return watershedService.getTblClimateScenarioYearsByfldCRPType(fldCRPType);
 	}
 	
+	/**
+	 * 根据县区代码查找产业与城市发展情景 返回List<TblIndustyUrbanSce>
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return List<TblIndustyUrbanSce>的json格式数据
+	 */
+	@ResponseBody
+	@RequestMapping(value = "getTblIndustyUrbanSceByfldCountyCode", method = RequestMethod.GET)
+	public List<TblIndustyUrbanSce> getTblIndustyUrbanSceByfldCountyCode(String fldCountyCode) {
+		return watershedService.getTblIndustyUrbanSceByfldCountyCode(fldCountyCode);
+	}
+
+	/**
+	 * 根据县区代码查找GDP发展数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return List<TblSocioEconSce>的json格式数据
+	 */
+	@ResponseBody
+	@RequestMapping(value = "getTblSocioEconSceByfldCountyCode", method = RequestMethod.GET)
+	public List<TblSocioEconSce> getTblSocioEconSceByfldCountyCode(String fldCountyCode) {
+		return watershedService.getTblSocioEconSceByfldCountyCode(fldCountyCode);
+	}
+
+	/**
+	 * 根据县区代码查找水利工程数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return List<TblHydrEngineering>的json格式数据
+	 */
+	@ResponseBody
+	@RequestMapping(value = "getTblHydrEngineeringByfldCountyCode", method = RequestMethod.GET)
+	public List<TblHydrEngineering> getTblHydrEngineeringByfldCountyCode(String fldCountyCode) {
+		return watershedService.getTblHydrEngineeringByfldCountyCode(fldCountyCode);
+	}
+
+	/**
+	 * 根据县区代码查找土地类型数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return List<TblLandUseSce>的json格式数据
+	 */
+	@ResponseBody
+	@RequestMapping(value = "getTblLandUseSceByfldCountyCode", method = RequestMethod.GET)
+	public List<TblLandUseSce> getTblLandUseSceByfldCountyCode(String fldCountyCode) {
+		return watershedService.getTblLandUseSceByfldCountyCode(fldCountyCode);
+	}
+
+	/**
+	 * 根据县区代码查找种植结构数据表
+	 * 
+	 * @param fldCountyCode
+	 *            县区代码
+	 * @return List<TblCropPattern>的json格式数据
+	 */
+	@ResponseBody
+	@RequestMapping(value = "getTblCropPatternByfldCountyCode", method = RequestMethod.GET)
+	public List<TblCropPattern> getTblCropPatternByfldCountyCode(String fldCountyCode) {
+		return watershedService.getTblCropPatternByfldCountyCode(fldCountyCode);
+	}
+
+	/**
+	 * 查找流域中下游水分配表
+	 * 
+	 * @param
+	 * 
+	 * @return List<TblMidDownWaterAllo>的json格式数据
+	 */
+	@ResponseBody
+	@RequestMapping(value = "getTblMidDownWaterAllo", method = RequestMethod.GET)
+	public List<TblMidDownWaterAllo> getTblMidDownWaterAllo() {
+		return watershedService.getTblMidDownWaterAllo();
+	}
 
 }
