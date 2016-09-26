@@ -118,74 +118,62 @@ public class WatershedServiceImpl implements WatershedService {
 
 	@Override
 	public List<TblClimateScenarioMonth> getTblClimateScenarioMonthByfldCRPType(String fldCRPType) {
-		// TODO Auto-generated method stub
-		return null;
+		return watershedDao.getTblClimateScenarioMonthByfldCRPType(fldCRPType);
 	}
 
 	@Override
 	public List<TblIndustyUrbanSce> getTblIndustyUrbanSceByfldCountyCode(String fldCountyCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return watershedDao.getTblIndustyUrbanSceByfldCountyCode(fldCountyCode);
 	}
 
 	@Override
 	public List<TblSocioEconSce> getTblSocioEconSceByfldCountyCode(String fldCountyCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return watershedDao.getTblSocioEconSceByfldCountyCode(fldCountyCode);
 	}
 
 	@Override
 	public List<TblPrefPolicy> getTblPrefPolicyByfldCountyCode(String fldCountyCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return watershedDao.getTblPrefPolicyByfldCountyCode(fldCountyCode);
 	}
 
 	@Override
 	public List<TblHydrEngineering> getTblHydrEngineeringByfldCountyCode(String fldCountyCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return watershedDao.getTblHydrEngineeringByfldCountyCode(fldCountyCode);
 	}
 
 	@Override
 	public List<TblLandUseSce> getTblLandUseSceByfldCountyCode(String fldCountyCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return watershedDao.getTblLandUseSceByfldCountyCode(fldCountyCode);
 	}
 
 	@Override
 	public List<TblCropPattern> getTblCropPatternByfldCountyCode(String fldCountyCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return watershedDao.getTblCropPatternByfldCountyCode(fldCountyCode);
 	}
 
 	@Override
 	public List<TblWaterResManSce> getTblWaterResManSceByfldCountyCode(String fldCountyCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return watershedDao.getTblWaterResManSceByfldCountyCode(fldCountyCode);
 	}
 
 	@Override
 	public List<TblWaterUseCounty> getTblWaterUseCountyByfldCountyCode(String fldCountyCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return watershedDao.getTblWaterUseCountyByfldCountyCode(fldCountyCode);
 	}
 
 	@Override
 	public List<TblWaterRightCounty> getTblWaterRightCountyByfldCountyCode(String fldCountyCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return watershedDao.getTblWaterRightCountyByfldCountyCode(fldCountyCode);
 	}
 
 	@Override
-	public List<TblMidDownWaterAllo> getTblMidDownWaterAlloByfldCountyCode() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<TblMidDownWaterAllo> getTblMidDownWaterAllo() {
+		return watershedDao.getTblMidDownWaterAllo();
 	}
 
 	@Override
 	public List<TblWaterAlloCounty> getTblWaterAlloCountyByfldCountyCode(String fldCountyCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return watershedDao.getTblWaterAlloCountyByfldCountyCode(fldCountyCode);
 	}
 
 }
