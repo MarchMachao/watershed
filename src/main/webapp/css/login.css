@@ -1,6 +1,6 @@
 @charset "utf-8";
-        body{background-size:100%;background: url("../image/bg.jpg") no-repeat; }
-        .wrapper{min-width: 700px; position:relative; min-height: 600px; height: 100%; background: url("img/bg.jpg") repeat; }
+        body{background: url("../image/bg.jpg") no-repeat; background-size:100% 100%; -webkit-background-size:100% 100%; -moz-background-size:100% 100%; -ms-background-size:100% 100%; -o-background-size:100% 100%;}
+        .wrapper{min-width: 700px; position:relative; min-height: 600px; height: 100%; }
         .login-container{width: 460px; background-color: #f7f7f7;  position: absolute; left: 50%; margin-left: -230px; top: 50%; margin-top: -290px;
             border: 1px solid rgba(70, 102, 138, 0.5);
             -webkit-border-radius: 5px;

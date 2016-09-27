@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/login.css">
     <script src="js/jquery.min.js"></script>
 </head>
-<body>
+<body scroll="no">
 <div class="wrapper">
     <div class="login-container">
         <div class="logo-container">
@@ -36,10 +36,10 @@
             <div class="btn-group">
             	<button class="pull-left" type="button" id="login-btn">注 册</button>
                 <button type="submit" id="login-btn">登 录</button>
-                <div style="margin-top:5px ;">
+            </div>
+            <div style="margin-top:7px ;">
             		<a href="#" id="login-guest" class="pull-right">游客登录</a>
             	</div>
-            </div>
         </form>
         <p id="form-bottom"></p>
     </div>
