@@ -73,9 +73,16 @@
 											<label style="margin-top: 10px;">
 										<span>选择区县</span>
 										<select id="IPCC-selectCounty">
-											<option value="GanZhou">甘州</option>
-											<option value="LinZe">临泽</option>
-											<option value="GaoTai">高台</option>
+											<option value="620702">甘州</option>
+											<option value="620723">临泽</option>
+											<option value="620724">高台</option>
+											<option value="152923">额济纳旗</option>
+											<option value="620921">金塔</option>
+											<option value="620722">民乐</option>
+											<option value="620721">肃南</option>
+											<option value="620902">肃州</option>
+											<option value="620200">嘉峪关市</option>
+											<option value="632222">祁连</option>
 										</select>
 									</label>
 									<div class="span1" style="margin-left: 0px;"></div>
@@ -152,9 +159,16 @@
 											<label style="margin-top: 10px;">
 										<span>选择区县</span>
 										<select id="industry-selectCounty">
-											<option value="GanZhou">甘州</option>
-											<option value="LinZe">临泽</option>
-											<option value="GaoTai">高台</option>
+											<option value="620702">甘州</option>
+											<option value="620723">临泽</option>
+											<option value="620724">高台</option>
+											<option value="152923">额济纳旗</option>
+											<option value="620921">金塔</option>
+											<option value="620722">民乐</option>
+											<option value="620721">肃南</option>
+											<option value="620902">肃州</option>
+											<option value="620200">嘉峪关市</option>
+											<option value="632222">祁连</option>
 										</select>
 									</label>
 									<div class="span1" style="margin-left: 0px;"></div>
@@ -294,9 +308,16 @@
 											<label style="margin-top: 10px;">
 										<span>选择区县</span>
 										<select id="water-selectCounty">
-											<option value="GanZhou">甘州</option>
-											<option value="LinZe">临泽</option>
-											<option value="GaoTai">高台</option>
+											<option value="620702">甘州</option>
+											<option value="620723">临泽</option>
+											<option value="620724">高台</option>
+											<option value="152923">额济纳旗</option>
+											<option value="620921">金塔</option>
+											<option value="620722">民乐</option>
+											<option value="620721">肃南</option>
+											<option value="620902">肃州</option>
+											<option value="620200">嘉峪关市</option>
+											<option value="632222">祁连</option>
 										</select>
 									</label>
 										
@@ -536,9 +557,16 @@
 											<label style="margin-top: 10px;">
 										<span>选择区县</span>
 										<select id="land_selectCounty">
-											<option value="GanZhou">甘州</option>
-											<option value="LinZe">临泽</option>
-											<option value="GaoTai">高台</option>
+											<option value="620702">甘州</option>
+											<option value="620723">临泽</option>
+											<option value="620724">高台</option>
+											<option value="152923">额济纳旗</option>
+											<option value="620921">金塔</option>
+											<option value="620722">民乐</option>
+											<option value="620721">肃南</option>
+											<option value="620902">肃州</option>
+											<option value="620200">嘉峪关市</option>
+											<option value="632222">祁连</option>
 										</select>
 									</label>
 											<h4 class="header smaller lighter blue"><i class="icon-credit-card"></i>耕地面积变化</h4>
@@ -824,9 +852,16 @@
 													<div class="span9">
 														选择县区：
 														<select id="technology-selectCounty">
-															<option value="GanZhou">甘州</option>
-															<option value="LinZe">临泽</option>
-															<option value="GaoTai">高台</option>
+															<option value="620702">甘州</option>
+															<option value="620723">临泽</option>
+															<option value="620724">高台</option>
+															<option value="152923">额济纳旗</option>
+															<option value="620921">金塔</option>
+															<option value="620722">民乐</option>
+															<option value="620721">肃南</option>
+															<option value="620902">肃州</option>
+															<option value="620200">嘉峪关市</option>
+															<option value="632222">祁连</option>
 														</select>
 													</div>
 													<div class="span1"></div>
@@ -1436,16 +1471,22 @@
 			})}
 		//土地利用情景中的不同作物种植面积变化
 		function land_show_2() {
-			$.get('tmp.json',
-					[],
+			$.get('getTblCropPatternByfldCountyCode.do',
+					{fldCountyCode:$("#land_selectCounty").val},
 					function(data){
-				var xdata=[], average=[], max=[], min=[];
+				var cropdata=new Object();
+				var xdata=[];
 				for(var i=0; i<data.length; i++)
 				{
 					xdata[i]=data[i].fldDate;
-					average[i]=data[i].fldAvgTemperature;
-					max[i]=data[i].fldMaxTemp;
-					min[i]=data[i].fldMinTemp;
+					switch(data[i].fldCropType){
+					case('粮食作物'):
+						cropdata.foodCropArea[i]=data[i].fldCropArea;
+						break;
+					case('经济作物'):
+						cropdata.economiCropArea[i]=data[i].fldCropArea;
+						break;
+					}
 				}
 				if (data.length>=1){
 				var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年'+$("#land_selectCounty").find("option:selected").text()+'不同作物种植面积变化';
@@ -1461,7 +1502,7 @@
 					trigger : 'axis'
 				},
 				legend : {
-					data : [ '平均变化', '最大变化', '最小变化' ],
+					data : [ '粮食作物', '经济作物' ],
 					x: 'right',
 					padding: [25,5,5,5]
 				},
@@ -1484,20 +1525,16 @@
 				},
 				yAxis : {
 					type : 'value',
-					name : '变化率(%)',
+					name : '种植面积(亩)',
 				},
 				series : [ {
-					name : '平均变化',
+					name : '粮食作物',
 					type : 'line',
-					data : average
+					data : cropdata.foodCropArea
 				}, {
-					name : '最大变化',
+					name : '经济作物',
 					type : 'line',
-					data : max
-				}, {
-					name : '最小变化',
-					type : 'line',
-					data : min
+					data : cropdata.economiCropArea
 				} ]
 			};
 			Chart.setOption(option);
