@@ -279,9 +279,9 @@
 				width: '100%',
 				margin: '5px 1px 15px 5px'
 			}).slider({
-				value: -5,
+				value: 0,
 				range: "min",
-				min: -100,
+				min: 0,
 				max: 100,
 				step: 1,
 				slide: function(event, ui) {
@@ -298,9 +298,9 @@
 				width: '100%',
 				margin: '5px 5px 15px 5px'
 			}).slider({
-				value: 6,
+				value: 0,
 				range: "min",
-				min: -100,
+				min: 0,
 				max: 100,
 				step: 1,
 				slide: function(event, ui) {
@@ -316,9 +316,9 @@
 				width: '100%',
 				margin: '5px 5px 15px 5px'
 			}).slider({
-				value: 1,
+				value: 0,
 				range: "min",
-				min: -100,
+				min: 0,
 				max: 100,
 				step: 1,
 				slide: function(event, ui) {
@@ -335,7 +335,7 @@
 			}).slider({
 				value: 0,
 				range: "min",
-				min: -100,
+				min: 0,
 				max: 100,
 				step: 1,
 				slide: function(event, ui) {
@@ -353,7 +353,7 @@
 			}).slider({
 				value: 0,
 				range: "min",
-				min: -100,
+				min: 0,
 				max: 100,
 				step: 1,
 				slide: function(event, ui) {
@@ -367,9 +367,9 @@
 				width: '100%',
 				margin: '5px 5px 15px 5px'
 			}).slider({
-				value: 2,
+				value: 0,
 				range: "min",
-				min: -100,
+				min: 0,
 				max: 100,
 				step: 1,
 				slide: function(event, ui) {
