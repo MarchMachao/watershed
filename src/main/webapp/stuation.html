@@ -1175,10 +1175,10 @@
 				for(var i=0; i<data.length; i++)
 				{
 					xdata[i]=data[i].fldDate;
-					indoutput[i]=data[i].fldIndOutput;
-					agroutput[i]=data[i].fldAgrOutput;
-					seroutput[i]=data[i].fldSerOutput;
-					touroutput[i]=data[i].fldTourOutput;
+					indoutput[i]=(data[i].fldIndOutput)/1000000000;
+					agroutput[i]=(data[i].fldAgrOutput)/1000000000;
+					seroutput[i]=(data[i].fldSerOutput)/1000000000;
+					touroutput[i]=(data[i].fldTourOutput)/1000000000;
 				}
 			if (data.length>=1){
 			var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年三产产值变化';	
@@ -1248,7 +1248,7 @@
 				for(var i=0; i<data.length; i++)
 				{
 					xdata[i]=data[i].fldDate;
-					percapGDP[i]=data[i].PerCapGDP;
+					percapGDP[i]=data[i].fldPerCapGDP;
 				}
 			if (data.length>=1){
 			var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年人均GDP变化';}	
