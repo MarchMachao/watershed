@@ -7,20 +7,10 @@ package com.smates.dbc2.model;
  * @version 
  * @date 
  * @note
- *  WPa = Ya / QTot
- *  其中，Ya为流域总产值，元；QTot为流域总用水量，m3.
+ *  Wpa = Ya / Qtot
+ *  其中，Ya为流域总产值，元；Qtot为流域总用水量，m3.
  *    Ya=工业产值+农业产值+服务业产值
  *    Qtot=工业需水量+农业需水量+服务业需水量
- * 
- *    表名 tblIndustyUrbanSce :
- *		工业产值	fldIndOutput
- *      农业产值    fldAgrOutput
- *      服务业产值    fldSerOutput
-
- *    tblWaterUseCounty:
- *    	工业需水量	fldWaterUseAgr
- *		农业需水量	fldWaterUseInd
- *		服务业需水量	fldWaterUseSer
  *
  */
 public class ModelWaterProductivity {
@@ -31,16 +21,25 @@ public class ModelWaterProductivity {
 	
 	/**
 	 * 
-	 * @param fldWatershedCode
-	 * @param fldCountyCode
-	 * @param fldDate
-	 * @return waterProductivity double 
+	 * @param outputInd	double	工业产值
+	 * @param outputAgr	double	农业产值
+	 * @param outputSer	double	服务业产值
+	 * @param waterUseAgr	double	工业需水量
+	 * @param waterUseInd	double	农业需水量
+	 * @param waterUseSer	double	服务业需水量
+	 * @return waterProductivity	double	 水生产力
 	 * @exception 
+     * @note
+     *     水生产力 = (工业产值+农业产值+服务业产值)/(工业需水量+农业需水量+服务业需水量)
 	 */
-	public double calc(String fldWatershedCode, String fldCountyCode, String fldDate){
-		
-		
-		return 0;
+	public double calc(double outputInd, double outputAgr, double outputSer, 
+			           double waterUseAgr, double waterUseInd, double waterUseSer){
+
+		double wpa = 0;
+		double qtot = waterUseAgr + waterUseInd + waterUseSer;
+		if(qtot!=0)
+			wpa = (outputInd + outputAgr + outputSer)/qtot;
+		return wpa;
 	}
 	
 
@@ -48,14 +47,4 @@ public class ModelWaterProductivity {
 	public void init(){
 	}
 
-	/**
-	 * 
-	 * @param p1
-	 * @param p2
-	 * @return
-	 * @exception 
-	 */
-	public int run(){
-		return 0;
-	}
 }
