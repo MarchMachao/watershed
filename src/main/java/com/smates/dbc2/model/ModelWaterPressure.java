@@ -29,7 +29,7 @@ public class ModelWaterPressure {
      * @note
      *     水压力 = (工业需水量+农业需水量+服务业需水量)/地表径流量
 	 */
-	public double calc( double waterUseAgr, double waterUseInd, double waterUseSer
+	public double calc( double waterUseAgr, double waterUseInd, double waterUseSer,
                         double surfaceRunoff ){
 
 		double wpr = 0;
