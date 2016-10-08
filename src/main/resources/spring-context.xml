@@ -91,7 +91,7 @@
 				/admin/*.do = roles[1]
 				/logout.do = anon
 				/submit.do = anon
-				/getMyResourceById.do = anon
+				/addGoal.do = anon
 				/*.do= authc
 			</value>
 		</property>
