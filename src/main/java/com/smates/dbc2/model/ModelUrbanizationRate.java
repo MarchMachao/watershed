@@ -4,8 +4,8 @@ package com.smates.dbc2.model;
  * @class 
  * @brief 城镇化率 
  * @author Bob, Ge Yingchun
- * @version 
- * @date 
+ * @version 1.0
+ * @date 2016.10.8
  * @note
  *  城镇化率=城镇化人口/人口总数
  */

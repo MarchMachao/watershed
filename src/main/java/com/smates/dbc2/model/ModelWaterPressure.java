@@ -4,8 +4,8 @@ package com.smates.dbc2.model;
  * @class 
  * @brief 计算水压力 
  * @author Bob, Ge Yingchun
- * @version 
- * @date 
+ * @version 1.0
+ * @date 2016.10.8
  * @note
  *  WPr = Qtot/Qsr  
  *  其中，WPr水压力，

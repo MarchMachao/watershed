@@ -4,8 +4,8 @@ package com.smates.dbc2.model;
  * @class 
  * @brief 旅游业在GDP中的比例 
  * @author Bob, Ge Yingchun
- * @version 
- * @date 
+ * @version 1.0
+ * @date 2016.10.8
  * @note
  *  旅游业GDP比例=旅游业产值/GDP
  */

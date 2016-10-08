@@ -4,8 +4,8 @@ package com.smates.dbc2.model;
  * @class 
  * @brief  森林覆盖率
  * @author Bob, Ge Yingchun
- * @version 
- * @date 
+ * @version 1.0
+ * @date 2016.10.8
  * @note
  *  Rfc = Af/Aw  
  *  其中，Rfc为森林覆盖率，

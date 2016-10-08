@@ -4,8 +4,8 @@ package com.smates.dbc2.model;
  * @class 
  * @brief 可持续森林管理覆盖 
  * @author Bob, Ge Yingchun
- * @version 
- * @date 
+ * @version 1.0
+ * @date 2016.10.8
  * @note
  *  Rsf = Asf/Af  
  *  其中，Asf为执行森林管理规划的森林总面积，

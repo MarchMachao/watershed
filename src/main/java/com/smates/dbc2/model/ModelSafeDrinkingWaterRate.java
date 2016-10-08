@@ -4,8 +4,8 @@ package com.smates.dbc2.model;
  * @class 
  * @brief 社会安全饮用水比例 
  * @author Bob, Ge Yingchun
- * @version 
- * @date 
+ * @version 1.0
+ * @date 2016.10.8
  * @note
  *  Rsd = POPs/POP  
  *  其中，Rsd 社会安全饮用水比例，

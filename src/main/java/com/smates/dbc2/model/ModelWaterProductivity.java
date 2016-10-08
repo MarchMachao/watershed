@@ -4,8 +4,8 @@ package com.smates.dbc2.model;
  * @class 
  * @brief 计算水生产力 
  * @author Bob, Ge Yingchun
- * @version 
- * @date 
+ * @version 1.0
+ * @date 2016.10.8
  * @note
  *  Wpa = Ya / Qtot
  *  其中，Ya为流域总产值，元；Qtot为流域总用水量，m3.

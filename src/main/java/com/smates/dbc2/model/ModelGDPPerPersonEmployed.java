@@ -4,8 +4,8 @@ package com.smates.dbc2.model;
  * @class 
  * @brief 就业人口人均GDP 
  * @author Bob, Ge Yingchun
- * @version 
- * @date 
+ * @version 1.0
+ * @date 2016.10.8
  * @note
  *  就业人口人均GDP=（GDP-农业产值）/就业人口数量
  */

@@ -4,8 +4,8 @@ package com.smates.dbc2.model;
  * @class 
  * @brief 农业水生产力 
  * @author Bob, Ge Yingchun
- * @version 
- * @date 
+ * @version 1.0
+ * @date 2016.10.8
  * @note
  *  WPa = Ya/Qa  
  *  其中，WPa 农业水生产力，

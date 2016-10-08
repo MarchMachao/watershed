@@ -4,8 +4,8 @@ package com.smates.dbc2.model;
  * @class 
  * @brief 农业水利用效率 
  * @author Bob, Ge Yingchun
- * @version 
- * @date 
+ * @version 1.0
+ * @date 2016.10.8
  * @note
  *  WuE = Ea/Qa  
  *  其中，WuE 为农业水利用效率，
