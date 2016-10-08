@@ -9,9 +9,9 @@ package com.smates.dbc2.model;
  * @note
  *  旅游业GDP比例=旅游业产值/GDP
  */
-public class ModelGDPTourismRatio {
+public class ModelGDPTourismRate {
 
-	public ModelGDPTourismRatio(){
+	public ModelGDPTourismRate(){
 		
 	}
 	

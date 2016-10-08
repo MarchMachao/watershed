@@ -12,9 +12,9 @@ package com.smates.dbc2.model;
  *        POPs：饮用卫生达标水的人口数量
  *        Pop：区域总人口数量
  */
-public class ModelSafeDrinkingWater {
+public class ModelSafeDrinkingWaterRate {
 
-	public ModelSafeDrinkingWater(){
+	public ModelSafeDrinkingWaterRate(){
 		
 	}
 	
