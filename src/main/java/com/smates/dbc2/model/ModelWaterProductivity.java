@@ -24,8 +24,8 @@ public class ModelWaterProductivity {
 	 * @param outputInd	double	工业产值
 	 * @param outputAgr	double	农业产值
 	 * @param outputSer	double	服务业产值
-	 * @param waterUseAgr	double	工业需水量
-	 * @param waterUseInd	double	农业需水量
+	 * @param waterUseInd	double	工业需水量
+	 * @param waterUseAgr	double	农业需水量
 	 * @param waterUseSer	double	服务业需水量
 	 * @return waterProductivity	double	 水生产力
 	 * @exception 
@@ -33,7 +33,7 @@ public class ModelWaterProductivity {
      *     水生产力 = (工业产值+农业产值+服务业产值)/(工业需水量+农业需水量+服务业需水量)
 	 */
 	public double calc(double outputInd, double outputAgr, double outputSer, 
-			           double waterUseAgr, double waterUseInd, double waterUseSer){
+			           double waterUseInd, double waterUseAgr, double waterUseSer){
 
 		double wpa = 0;
 		double qtot = waterUseAgr + waterUseInd + waterUseSer;
