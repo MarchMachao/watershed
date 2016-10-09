@@ -36,5 +36,9 @@ public class ModelUrbanizationRate {
 	/** @brief brief description  */
 	public void init(){
 	}
-
+//	
+//	public static void main(String[] args){
+//		
+//		System.out.println(calc(4, 2));
+//	}
 }

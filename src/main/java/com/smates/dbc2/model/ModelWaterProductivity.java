@@ -46,5 +46,9 @@ public class ModelWaterProductivity {
 	/** @brief brief description  */
 	public void init(){
 	}
-
+//	
+//	public static void main(String[] args){
+//		
+//		System.out.println(calc(2,2,2,1,1,1));
+//	}
 }

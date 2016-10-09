@@ -37,5 +37,9 @@ public class ModelGDPPerPersonEmployed {
 	/** @brief brief description  */
 	public void init(){
 	}
-
+//	
+//	public static void main(String[] args){
+//		
+//		System.out.println(calc(8, 4, 2));
+//	}
 }
