@@ -42,5 +42,9 @@ public class ModelWaterPressure {
 	/** @brief brief description  */
 	public void init(){
 	}
-
+//	
+//	public static void main(String[] args){
+//		
+//		System.out.println(calc(1,1,1, 2));
+//	}
 }
