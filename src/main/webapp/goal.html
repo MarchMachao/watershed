@@ -313,91 +313,72 @@
 		<script type="text/javascript" src="static/js/echarts-all.js"></script>
 		<script>
 			$(function() {
-				drawtree();
 
-				function drawtree() {
-					var myChart = echarts.init(document.getElementById('chart'));
-					var option = {
-						title: {
-							text: '目标体系设定',
-							x: 'center'
-						},
-						tooltip: {
-							trigger: 'item',
-							formatter: "{b}"
-						},
-						toolbox: {
-							show: true,
-							feature: {
-								saveAsImage: {
-									show: true
+				$.get("getGoalTree.do", {
+					id: "34d4a7bf-a2bc-438a-91f2-a49462d3922e"
+				}, function(data) {
+					alert(JSON.stringify(data,null,"\t"));  
+					drawtree();
+
+					function drawtree() {
+						var myChart = echarts.init(document.getElementById('chart'));
+						var option = {
+							title: {
+								text: '目标体系设定',
+								x: 'center'
+							},
+							tooltip: {
+								trigger: 'item',
+								formatter: "{b}"
+							},
+							toolbox: {
+								show: true,
+								feature: {
+									saveAsImage: {
+										show: true
+									}
 								}
-							}
-						},
-						calculable: false,
+							},
+							calculable: false,
 
-						series: [{
-							name: '树图',
-							type: 'tree',
-							orient: 'horizontal', // vertical horizontal
-							rootLocation: {
-								x: '10%',
-								y: '50%'
-							}, // 根节点位置  {x: 'center',y: 10}
-							layerPadding: 350,
-							nodePadding: 40,
-							symbol: 'circle',
-							symbolSize: 20,
+							series: [{
+								name: '树图',
+								type: 'tree',
+								orient: 'horizontal', // vertical horizontal
+								rootLocation: {
+									x: '10%',
+									y: '50%'
+								}, // 根节点位置  {x: 'center',y: 10}
+								layerPadding: 350,
+								nodePadding: 40,
+								symbol: 'circle',
+								symbolSize: 20,
 
-							itemStyle: {
-								normal: {
-									color: '#337ab7',
-									label: {
-										show: true,
-										position: 'bottom',
-										textStyle: {
-											color: '#cc9999',
-											fontSize: 15,
-											fontWeight: 'bolder'
+								itemStyle: {
+									normal: {
+										color: '#337ab7',
+										label: {
+											show: true,
+											position: 'bottom',
+											textStyle: {
+												color: '#cc9999',
+												fontSize: 15,
+												fontWeight: 'bolder'
+											}
+										},
+										lineStyle: {
+											color: '#000',
+											width: 2,
+											type: 'broken' // 'curve'|'broken'|'solid'|'dotted'|'dashed'
 										}
 									},
-									lineStyle: {
-										color: '#000',
-										width: 2,
-										type: 'broken' // 'curve'|'broken'|'solid'|'dotted'|'dashed'
-									}
 								},
-							},
-							data: [{
-								name: '目标体系设定',
-								children: [{
-									name: '小米',
-									children: [{
-										name: '小米1',
-
-										children: [{
-											name: 'baijiangwei',
-
-										}]
-									}, {
-										name: '小米2',
-
-									}, {
-										name: '小米3',
-
-									}]
-								}, {
-									name: '苹果',
-								}, {
-									name: '华为',
-								}, {
-									name: '联想',
-								}]
+								data: "["+JSON.stringify(data,null,"\t")+"]"
 							}]
-						}]
-					};
-					myChart.setOption(option);
-				}
+						};
+						myChart.setOption(option);
+					}
+				})
 
 			});
 		</script>
@@ -407,11 +388,12 @@
 				var text = $(this).parent().find($("input[type='text']"));
 				var checbox = $(this).parent().find($("input[type='checkbox']"));
 				if($(this).attr("checked") == "checked") {
-					$(text).attr("readonly", true).css('background-color', '#CFCFCF').attr("value", 0);
+					$(text).attr("readonly", true).css('background-color', '#CFCFCF').val("0");
 					$(this).removeAttr("checked");
 					$(checbox).removeAttr("checked");
+
 				} else {
-					$(text).attr("readonly", false).css('background-color', '#FFFFFF').attr("value", 0);
+					$(text).attr("readonly", false).css('background-color', '#FFFFFF').val("0");
 					$(this).prop("checked", "checked");
 					$(checbox).prop("checked", "checked");
 					$(this).attr("checked", "checked");
@@ -421,43 +403,47 @@
 		</script>
 
 		<script type="text/javascript">
+			$("#index_1_2,#index_1_3,#index_2_2,#index_2_3,#index_3_2,#index_3_3,#index_3_4_2,#index_3_6,#index_3_7,#index_3_8").trigger("click");
+			$("#index_1_2,#index_1_3,#index_2_2,#index_2_3,#index_3_2,#index_3_3,#index_3_4_2,#index_3_6,#index_3_7,#index_3_8").trigger("click");
+		</script>
+
+		<script type="text/javascript">
 			$("#submit").click(function() {
-				$.get("http://localhost:8080/hhs/addGoal.do", 
-				{
-					"goal_1":document.getElementById("goal_1").value,
-					"goal_2":document.getElementById("goal_2").value,
-					"goal_3":document.getElementById("goal_3").value,
-					"index_111":document.getElementById("index_111").value,
-					"index_112":document.getElementById("index_112").value,
-					"index_121":document.getElementById("index_121").value,
-					"index_131":document.getElementById("index_131").value,
-					"index_132":document.getElementById("index_132").value,
-					"index_141":document.getElementById("index_141").value,
-					"index_142":document.getElementById("index_142").value,
-					"index_143":document.getElementById("index_143").value,
-					"index_144":document.getElementById("index_144").value,
-					"index_211":document.getElementById("index_211").value,
-					"index_221":document.getElementById("index_221").value,
-					"index_231":document.getElementById("index_231").value,
-					"index_311":document.getElementById("index_311").value,
-					"index_321":document.getElementById("index_321").value,
-					"index_331":document.getElementById("index_331").value,
-					"index_332":document.getElementById("index_332").value,
-					"index_341":document.getElementById("index_341").value,
-					"index_342":document.getElementById("index_342").value,
-					"index_351":document.getElementById("index_351").value,
-					"index_352":document.getElementById("index_352").value,
-					"index_361":document.getElementById("index_361").value,
-					"index_371":document.getElementById("index_371").value,
-					"index_372":document.getElementById("index_372").value,
-					"index_373":document.getElementById("index_373").value,
-					"index_381":document.getElementById("index_381").value,
-					"index_382":document.getElementById("index_382").value
-				
-				},
-				function(data) {
-					alert(data.content);
-				})
+				$.get("addGoal.do", {
+						"goal_1": document.getElementById("goal_1").value,
+						"goal_2": document.getElementById("goal_2").value,
+						"goal_3": document.getElementById("goal_3").value,
+						"index_111": document.getElementById("index_111").value,
+						"index_112": document.getElementById("index_112").value,
+						"index_121": document.getElementById("index_121").value,
+						"index_131": document.getElementById("index_131").value,
+						"index_132": document.getElementById("index_132").value,
+						"index_141": document.getElementById("index_141").value,
+						"index_142": document.getElementById("index_142").value,
+						"index_143": document.getElementById("index_143").value,
+						"index_144": document.getElementById("index_144").value,
+						"index_211": document.getElementById("index_211").value,
+						"index_221": document.getElementById("index_221").value,
+						"index_231": document.getElementById("index_231").value,
+						"index_311": document.getElementById("index_311").value,
+						"index_321": document.getElementById("index_321").value,
+						"index_331": document.getElementById("index_331").value,
+						"index_332": document.getElementById("index_332").value,
+						"index_341": document.getElementById("index_341").value,
+						"index_342": document.getElementById("index_342").value,
+						"index_351": document.getElementById("index_351").value,
+						"index_352": document.getElementById("index_352").value,
+						"index_361": document.getElementById("index_361").value,
+						"index_371": document.getElementById("index_371").value,
+						"index_372": document.getElementById("index_372").value,
+						"index_373": document.getElementById("index_373").value,
+						"index_381": document.getElementById("index_381").value,
+						"index_382": document.getElementById("index_382").value
+
+					},
+					function(data) {
+						alert(data.content);
+					})
 			})
 		</script>
 
