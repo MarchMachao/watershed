@@ -1,5 +1,7 @@
 package com.smates.dbc2.service;
 
+import com.smates.dbc2.vo.Node;
+
 /**
  * 
  * @author baijw
@@ -16,5 +18,7 @@ public interface GoalService {
 			String index_211, String index_221, String index_231, String index_311, String index_321, String index_331,
 			String index_332, String index_341, String index_342, String index_351, String index_352, String index_361,
 			String index_371, String index_372, String index_373, String index_381, String index_382);
+	
+	public Node getGoalTreeById(String id);
 	
 }

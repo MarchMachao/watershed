@@ -14,5 +14,11 @@ public interface GoalDao {
 	 * @param goal
 	 */
 	public void addGoal(Goal goal);
+
+	/**
+	 * 根据id查找goal
+	 * @param id 
+	 */
+	public Goal getGoalById(String id);
 	
 }

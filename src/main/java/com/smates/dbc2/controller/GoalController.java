@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.smates.dbc2.po.Goal;
 import com.smates.dbc2.service.GoalService;
 import com.smates.dbc2.vo.BaseMsg;
+import com.smates.dbc2.vo.Node;
 
 /**
  * 
@@ -62,6 +64,12 @@ public class GoalController {
 			String index_371, String index_372, String index_373, String index_381, String index_382){
 		goalService.addGoal(goal_1, goal_2, goal_3, index_111, index_112, index_121, index_131, index_132, index_141, index_142, index_143, index_144, index_211, index_221, index_231, index_311, index_321, index_331, index_332, index_341, index_342, index_351, index_352, index_361, index_371, index_372, index_373, index_381, index_382);
 		return new BaseMsg(true, "目标体系保存成功");
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="getGoalTree.do",method=RequestMethod.GET)
+	public Node getGoalTree(String id){
+		return goalService.getGoalTreeById(id);
 	}
 	
 }
