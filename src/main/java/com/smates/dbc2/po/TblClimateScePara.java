@@ -3,6 +3,7 @@ package com.smates.dbc2.po;
 import java.util.UUID;
 
 /**
+ * 
  * @author machao march.machao@gmail.com
  * @version 创建时间：2016年9月29日 上午10:31:13
  */

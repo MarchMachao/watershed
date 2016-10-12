@@ -24,7 +24,6 @@
 					<div class="col-sm-12">
 						<ul>
 							<li>
-								<input type="hidden" name="projectId" value="${projectId}" />
 								<input type="checkbox" name="index_1" id="index_1" checked="checked">
 								<label for="index_1" style="font-weight:bold;">目标1:为所有人提供水和环境卫生，为所有用水部门提供可持续的供水和取水，并进行流域水资源的可持续管理</label>
 								<input type="text" id="goal_1" name="goal_1" value="20" style="width:30px; height:20px; ime-mode:disabled" />%
@@ -313,10 +312,6 @@
 		<script src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="static/js/echarts-all.js"></script>
 		<script>
-			$(function() {
-				$.get("getGoalTree.do", {
-					id: "${projectId}"
-				}, function(data) {
 					drawtree();
 					function drawtree() {
 						var myChart = echarts.init(document.getElementById('chart'));
@@ -371,14 +366,26 @@
 										}
 									},
 								},
-								data: "["+JSON.stringify(data,null,"\t")+"]"
+								data: (function(){
+                                    	var arr=[];
+                                        $.ajax({
+                                        type : "get",
+                                        async : false, //同步执行
+                                        url : "getGoalTree.do?id=${projectId}",
+                                        data : {},
+                                        dataType : "json", //返回数据形式为json
+                                        success : function(result) {
+                                        if (result) {
+                                            arr.push(result);
+                                        }
+                                    }
+                                   })
+                                   return arr;
+                                })() 
 							}]
 						};
 						myChart.setOption(option);
 					}
-				})
-
-			});
 		</script>
 
 		<script type="text/javascript">
@@ -408,6 +415,7 @@
 		<script type="text/javascript">
 			$("#submit").click(function() {
 				$.get("addGoal.do", {
+						"projectId":"${projectId}",
 						"goal_1": document.getElementById("goal_1").value,
 						"goal_2": document.getElementById("goal_2").value,
 						"goal_3": document.getElementById("goal_3").value,
