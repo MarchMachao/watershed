@@ -40,6 +40,7 @@
 	</head>
 
 	<body>
+		<input type="hidden" name="projectId" value="${projectId}" />
 		<div class="container-fluid" id="main-container">
 			<div id="page-content" class="clearfix">
 				<div class="row-fluid">

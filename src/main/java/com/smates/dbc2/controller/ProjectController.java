@@ -2,6 +2,7 @@ package com.smates.dbc2.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,6 +65,12 @@ public class ProjectController {
 	public BaseMsg deleteProjectById(String id){
 		projectService.deleteProjectById(id);
 		return new BaseMsg(true, "删除成功");
+	}
+	
+	@RequestMapping(value="assess.do",method=RequestMethod.GET)
+	public String assess(String id, ModelMap modelMap){
+		modelMap.addAttribute("projectId", id);
+		return "goal.ftl";
 	}
 
 }

@@ -34,9 +34,10 @@
 			</thead>
 		</table>
 		<div id="tb">
-		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:location.href = 'projectedit.html';">新增</a>
-		<a href="javascript:void(0)" id="deleteBtn" class="easyui-linkbutton" iconCls="icon-cut" plain="true">删除</a>
-	</div>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:location.href = 'projectedit.html';">新增</a>
+			<a href="javascript:void(0)" id="deleteBtn" class="easyui-linkbutton" iconCls="icon-cut" plain="true">删除</a>
+			<a href="javascript:void(0)" id="okBtn" class="easyui-linkbutton" iconCls="icon-ok" plain="true">评价</a>
+		</div>
 
 	</body>
 
@@ -44,31 +45,40 @@
 		$(function() {
 			var pager = $('#dg').datagrid().datagrid('getPager'); // get the pager of datagrid
 		})
-		
-		$("#search_btn").click(function(){
+
+		$("#search_btn").click(function() {
 			var name = $("#name").val();
-			$('#dg').datagrid('load',{
+			$('#dg').datagrid('load', {
 				name: name
 			});
 		})
-		
-		$("#deleteBtn").click(function(){
+
+		$("#deleteBtn").click(function() {
 			var row = $('#dg').datagrid('getSelected');
-			if (row) {
+			if(row) {
 				$.messager.confirm("操作提示", "您确定要删除这条记录吗？", function(data) {
-					if (data) {
+					if(data) {
 						$.post('deleteProjectById.do', {
-							id : row.id
+							id: row.id
 						}, function(data) {
 							$.messager.alert('提示', data.content, 'info');
 							$(".pagination-load").trigger("click");
 						})
 					} else {
-						
+
 					}
 				});
 			} else {
 				$.messager.alert('提示', "请选中要删除的行", 'info');
+			}
+		})
+
+		$("#okBtn").click(function() {
+			var row = $('#dg').datagrid('getSelected');
+			if(row) {
+				location.href = 'assess.do?id='+row.id;
+			} else {
+				$.messager.alert('提示', "请选中要评价的项目", 'info');
 			}
 		})
 	</script>

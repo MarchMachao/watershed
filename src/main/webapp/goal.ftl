@@ -24,6 +24,7 @@
 					<div class="col-sm-12">
 						<ul>
 							<li>
+								<input type="hidden" name="projectId" value="${projectId}" />
 								<input type="checkbox" name="index_1" id="index_1" checked="checked">
 								<label for="index_1" style="font-weight:bold;">目标1:为所有人提供水和环境卫生，为所有用水部门提供可持续的供水和取水，并进行流域水资源的可持续管理</label>
 								<input type="text" id="goal_1" name="goal_1" value="20" style="width:30px; height:20px; ime-mode:disabled" />%
@@ -300,7 +301,7 @@
 				<div class="row" style="margin-top:5px">
 					<div class="col-sm-6 col-sm-offset-3"></div>
 					<div class="col-sm-3" style="text-align:right">
-						<button class="btn btn-primary" type="button" id="nextStep">
+						<button class="btn btn-primary" type="button" id="nextStep" onclick="javascript:location.href = 'toStuation.do?id=${projectId}'">
         下一步：情景设置</button>
 					</div>
 				</div> 
@@ -313,13 +314,10 @@
 		<script type="text/javascript" src="static/js/echarts-all.js"></script>
 		<script>
 			$(function() {
-
 				$.get("getGoalTree.do", {
-					id: "34d4a7bf-a2bc-438a-91f2-a49462d3922e"
+					id: "${projectId}"
 				}, function(data) {
-					alert(JSON.stringify(data,null,"\t"));  
 					drawtree();
-
 					function drawtree() {
 						var myChart = echarts.init(document.getElementById('chart'));
 						var option = {
