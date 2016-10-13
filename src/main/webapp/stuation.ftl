@@ -19,13 +19,13 @@
 <link rel="stylesheet" href="static/css/ace.min.css" />
 
 <!-- 引入 -->
-
+<script src="js/jquery.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <script src="static/js/ace-elements.min.js"></script>
 <script src="static/js/ace.min.js"></script>
 <!-- 引入 -->
 
-<script src="js/jquery.min.js"></script>
+
 <script type="text/javascript"
 	src="static/js/jquery-ui-1.10.2.custom.min.js"></script>
 <script type="text/javascript"
@@ -1727,21 +1727,28 @@
 			})
 		};
 	</script>
-	
-	
+
+
 
 	<script type="text/javascript">
-		$("#climate_submit").click(function() {
-			$.get("saveClimatePara.do", {
-				"projectId":"${projectId}",
-				"countryId": document.getElementById("IPCC-selectCounty").value,
-				"rainInc": document.getElementById("rain_inc_ratio").value,
-				"tempInc": document.getElementById("temp_inc_ratio").value
-			},
-			function(data) {
-				alert(data.content);
-			})
-		})
+		$("#climate_submit")
+				.click(
+						function() {
+							$
+									.get(
+											"saveClimatePara.do",
+											{
+												"projectId" : "${projectId}",
+												"countryId" : document
+														.getElementById("IPCC-selectCounty").value,
+												"rainInc" : document
+														.getElementById("rain_inc_ratio").value,
+												"tempInc" : document
+														.getElementById("temp_inc_ratio").value
+											}, function(data) {
+												alert(data.content);
+											})
+						})
 	</script>
 
 
