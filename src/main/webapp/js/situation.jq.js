@@ -8,12 +8,28 @@
 			}).slider({
 				value: 2,
 				range: "min",
-				min: 0,
-				max: 100,
+				min: -20,
+				max: 20,
 				step: 1,
 				slide: function(event, ui) {
 					var val = parseInt(ui.value);
 					$("#rain_inc_ratio").val(val);
+				}
+			});
+			
+			//温度增加比例
+			$("#slider-1-2").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 2,
+				range: "min",
+				min: -20,
+				max: 20,
+				step: 1,
+				slide: function(event, ui) {
+					var val = parseInt(ui.value);
+					$("#temp_inc_ratio").val(val);
 				}
 			});
 
