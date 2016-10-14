@@ -8,22 +8,37 @@
 			}).slider({
 				value: 2,
 				range: "min",
-				min: 0,
-				max: 100,
-				step: 1,
+				min: -20,
+				max: 20,
+				step: 0.1,
 				slide: function(event, ui) {
-					var val = parseInt(ui.value);
+					var val = parseFloat(ui.value);
 					$("#rain_inc_ratio").val(val);
+				}
+			});
+			
+			$("#slider-1-2").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 2,
+				range: "min",
+				min: -20,
+				max: 20,
+				step: 0.1,
+				slide: function(event, ui) {
+					var val = parseFloat(ui.value);
+					$("#temp_inc_ratio").val(val);
 				}
 			});
 
 			//设置产业与城市发展情景中的spinner
 			//设置产业与城市发展情景中的非农业人口比例的spinner
 			$('#population_proportation_spinner').ace_spinner({
-					value: 37,
-					min: 0,
-					max: 100,
-					step: 1,
+					value: 37.0,
+					min: 0.0,
+					max: 70.0,
+					step: 1, //改成0.1会有问题，原因不明
 					icon_up: 'icon-caret-up',
 					icon_down: 'icon-caret-down'
 				})
@@ -109,9 +124,9 @@
 				range: "min",
 				min: 0,
 				max: 100,
-				step: 1,
+				step: 0.1,
 				slide: function(event, ui) {
-					var val = parseInt(ui.value);
+					var val = parseFloat(ui.value);
 					$("#situation-4").val(val);
 				}
 			});
@@ -123,11 +138,11 @@
 			}).slider({
 				value: 5,
 				range: "min",
-				min: 0,
+				min: -100,
 				max: 100,
-				step: 1,
+				step: 0.1,
 				slide: function(event, ui) {
-					var val = parseInt(ui.value);
+					var val = parseFloat(ui.value);
 					$("#situation-5").val(val);
 				}
 			});
@@ -256,12 +271,59 @@
 				}
 			});
 
+			//设置社会经济发展情景中工业优惠政策的slider
+			$("#economy-slider-2").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 50,
+				range: "min",
+				min: 0,
+				max: 100,
+				step: 1,
+				slide: function(event, ui) {
+					var val = parseInt(ui.value);
+					$("#economy-industry").val(val);
+				}
+			});
+			
+			//设置社会经济发展情景中农业优惠政策的slider
+			$("#economy-slider-3").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 50,
+				range: "min",
+				min: 0,
+				max: 100,
+				step: 1,
+				slide: function(event, ui) {
+					var val = parseInt(ui.value);
+					$("#economy-farm").val(val);
+				}
+			});
+			
+			//设置社会经济发展情景中服务业政策的slider
+			$("#economy-slider-4").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 50,
+				range: "min",
+				min: 0,
+				max: 100,
+				step: 1,
+				slide: function(event, ui) {
+					var val = parseInt(ui.value);
+					$("#economy-service").val(val);
+				}
+			});
 			//设置土地利用中耕地面积变化率的spinner
 			$('#area_rateofchange_spinner').ace_spinner({
-					value: 37,
-					min: 0,
-					max: 100,
-					step: 1,
+					value: 1,
+					min: -10,
+					max: 10,
+					step: 0.1,
 					icon_up: 'icon-caret-up',
 					icon_down: 'icon-caret-down'
 				})
@@ -281,11 +343,11 @@
 			}).slider({
 				value: 0,
 				range: "min",
-				min: 0,
+				min: -100,
 				max: 100,
-				step: 1,
+				step: 0.1,
 				slide: function(event, ui) {
-					var val = parseInt(ui.value);
+					var val = parseFloat(ui.value);
 					var val2 = val3 = (100 - val) / 2;
 					$("#land_situation_1").val(val);
 					$("#land_situation_1_2").val(val * 10);
@@ -300,11 +362,11 @@
 			}).slider({
 				value: 0,
 				range: "min",
-				min: 0,
+				min: -100,
 				max: 100,
-				step: 1,
+				step: 0.1,
 				slide: function(event, ui) {
-					var val2 = parseInt(ui.value);
+					var val2 = parseFloat(ui.value);
 					$("#land_situation_2").val(val2);
 					$("#land_situation_2_2").val(val2 * 10);
 
@@ -318,11 +380,11 @@
 			}).slider({
 				value: 0,
 				range: "min",
-				min: 0,
+				min: -100,
 				max: 100,
-				step: 1,
+				step: 0.1,
 				slide: function(event, ui) {
-					var val = parseInt(ui.value);
+					var val = parseFloat(ui.value);
 					$("#land_situation_3").val(val);
 					$("#land_situation_3_2").val(val * 10);
 				}
@@ -335,11 +397,11 @@
 			}).slider({
 				value: 0,
 				range: "min",
-				min: 0,
+				min: -100,
 				max: 100,
-				step: 1,
+				step: 0.1,
 				slide: function(event, ui) {
-					var val = parseInt(ui.value);
+					var val = parseFloat(ui.value);
 					$("#land_situation_4").val(val);
 					$("#land_situation_4_2").val(val * 10);
 
@@ -353,11 +415,11 @@
 			}).slider({
 				value: 0,
 				range: "min",
-				min: 0,
+				min: -100,
 				max: 100,
-				step: 1,
+				step: 0.1,
 				slide: function(event, ui) {
-					var val = parseInt(ui.value);
+					var val = parseFloat(ui.value);
 					$("#land_situation_5").val(val);
 					$("#land_situation_5_2").val(val * 10);
 				}
@@ -369,16 +431,79 @@
 			}).slider({
 				value: 0,
 				range: "min",
-				min: 0,
+				min: -100,
 				max: 100,
-				step: 1,
+				step: 0.1,
 				slide: function(event, ui) {
-					var val = parseInt(ui.value);
+					var val = parseFloat(ui.value);
 					$("#land_situation_6").val(val);
 					$("#land_situation_6_2").val(val * 10);
 				}
 			});
-
+			//设置土地利用中湿地面积的slider
+			$("#landuse_slider_1").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 0,
+				range: "min",
+				min: 0,
+				max: 100,
+				step: 0.1,
+				slide: function(event, ui) {
+					var val = parseFloat(ui.value);
+					$("#landuse_situation_1").val(val);
+//					$("#land_situation_6_2").val(val * 10);
+				}
+			});
+			//设置土地利用中林地面积的slider
+			$("#landuse_slider_2").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 0,
+				range: "min",
+				min: 0,
+				max: 100,
+				step: 0.1,
+				slide: function(event, ui) {
+					var val = parseFloat(ui.value);
+					$("#landuse_situation_2").val(val);
+//					$("#land_situation_6_2").val(val * 10);
+				}
+			});
+			//设置土地利用中草地面积的slider
+			$("#landuse_slider_3").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 0,
+				range: "min",
+				min: 0,
+				max: 100,
+				step: 0.1,
+				slide: function(event, ui) {
+					var val = parseFloat(ui.value);
+					$("#landuse_situation_3").val(val);
+//					$("#land_situation_6_2").val(val * 10);
+				}
+			});
+			//设置土地利用中水域面积的slider
+			$("#landuse_slider_4").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 0,
+				range: "min",
+				min: 0,
+				max: 100,
+				step: 0.1,
+				slide: function(event, ui) {
+					var val = parseFloat(ui.value);
+					$("#landuse_situation_4").val(val);
+//					$("#land_situation_6_2").val(val * 10);
+				}
+			});
 			//设置水资源管理情景中的可供地表水silder
 			$("#slider-available-water").css({
 				width: '100%',

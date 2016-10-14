@@ -126,7 +126,7 @@
 										<hr style="height:1px" color="#c2daee">
 										<h4 class="header smaller lighter blue">
 										<i class="icon-bolt"></i>
-										<span >降雨增加比例</span>
+										<span >自定义气候情景</span>
 									</h4>
 									</div>
 									<div class="span1"></div>
@@ -144,6 +144,20 @@
 									</div>
 									<div class="span2">
 										<input type="text" class="input-mini" id="rain_inc_ratio" value="2" />%
+									</div>
+								</div>
+								<div class="row-fluid">
+									<div class="span2"></div>
+									<div class="span2">
+										<label>
+										<span >温度增加比例</span>
+									</label>
+									</div>
+									<div class="span6">
+										<div id="slider-1-2" style="float:right;display:inline;"></div>
+									</div>
+									<div class="span2">
+										<input type="text" class="input-mini" id="temp_inc_ratio" value="2" />%
 									</div>
 								</div>
 								<div class="form-actions" align="center">
@@ -182,7 +196,7 @@
 												<div class="span1"></div>
 												<div class="span10">
 													非农业人口比例：
-													<input type="text" class="input-mini" id="population_proportation_spinner" />%
+													<input type="text" class="input-mini" id="population_proportation_spinner"/>%
 												</div>
 											</div>
 											<div class="row-fluid">
@@ -541,11 +555,68 @@
 									</div>
 									<div class="span2"></div>
 								</div>
+								
+								<div class="row-fluid">
+									<div class="span1"></div>
+									<div class="span10">
+										<hr style="height:1px" color="#c2daee">
+										<h4 class="header smaller lighter blue">
+										<span ><i class="icon-exchange"></i> 优惠政策补贴</span>
+									</h4>
+									</div>
+									<div class="span1"></div>
+								</div>
+								<div class="row-fluid">
+									<div class="span2"></div>
+									<div class="span8">
+										<div class="row-fluid">
+											<div class="span2">工业</div>
+											<div class="span8">
+												<div id="economy-slider-2" style="float:right;display:inline;"></div>
+											</div>
+											<div class="span2">
+												<input type="text" id="economy-industry" class="input-mini" value="50">元
+											</div>
+										</div>
+									</div>
+									<div class="span2"></div>
+								</div>
+								<div class="row-fluid">
+									<div class="span2"></div>
+									<div class="span8">
+										<div class="row-fluid">
+											<div class="span2">农业</div>
+											<div class="span8">
+												<div id="economy-slider-3" style="float:right;display:inline;"></div>
+											</div>
+											<div class="span2">
+												<input type="text" id="economy-farm" class="input-mini" value="50">元
+											</div>
+										</div>
+									</div>
+									<div class="span2"></div>
+								</div>
+								<div class="row-fluid">
+									<div class="span2"></div>
+									<div class="span8">
+										<div class="row-fluid">
+											<div class="span2">服务业</div>
+											<div class="span8">
+												<div id="economy-slider-5" style="float:right;display:inline;"></div>
+											</div>
+											<div class="span2">
+												<input type="text" id="economy-service" class="input-mini" value="50">元
+											</div>
+										</div>
+									</div>
+									<div class="span2"></div>
+								</div>
+								
 								<div class="form-actions" align="center">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
 											<button class="btn btn-small btn-success" type="button" id="climate_submit">确定</button> &nbsp;
 											<button class="btn btn-small btn-warning" type="reset" id="climate_reset">重置</button>
-										</div>
+								</div>
 							</div>
 
 							<!-- 设置土地利用情景 -->
@@ -678,7 +749,56 @@
 												<!-- ECharts图表显示 -->
 											</div>
 										</div>
-									</div>
+										<hr style="height:1px" color="#c2daee">
+										<div>
+											<h4 class="header smaller lighter blue"><i class="icon-glass"></i>土地流转</h4>
+												<div style="width:100%">
+													<div class="span4" style="float:right">面积</div>
+												</div>
+													</br>
+														<div class="span1" style="margin-left:0px"></div>
+														<div class="span1">湿地面积</div>
+														<div class="span6">
+															<div id="landuse_slider_1" style="float:left;display:inline;"></div>
+														</div>
+														<div class=span4>
+															<input type="text" id="landuse_situation_1" value="0" style="width:60px;height:20px">万亩
+														</div>
+														</br>
+														<div class="span1" style="margin-left:0px"></div>
+														<div class="span1">林地面积</div>
+														<div class="span6">
+															<div id="landuse_slider_2" style="float:left;display:inline;"></div>
+														</div>
+														<div class=span4>
+															<input type="text" id="landuse_situation_2" value="0" style="width:60px;height:20px">万亩
+														</div>
+														</br>
+														<div class="span1" style="margin-left:0px"></div>
+														<div class="span1">草地面积</div>
+														<div class="span6">
+															<div id="landuse_slider_3" style="float:left;display:inline;"></div>
+														</div>
+														<div class=span4>
+															<input type="text" id="landuse_situation_3" value="0" style="width:60px;height:20px">万亩
+														</div>
+														</br>
+														<div class="span1" style="margin-left:0px"></div>
+														<div class="span1">水域面积</div>
+														<div class="span6">
+															<div id="landuse_slider_4" style="float:left;display:inline;"></div>
+														</div>
+														<div class=span4>
+															<input type="text" id="landuse_situation_4" value="0" style="width:60px;height:20px">万亩
+														</div>
+														</br>
+													</div>
+													<div class="row-fluid">
+														<div class="span12" id="land_show_3" style="height:300px;width:800px">
+														<!-- ECharts图表显示 -->
+													</div>
+										</div>
+												</div>
 									<div class="span1"></div>
 								</div>
 								<div class="form-actions" align="center">
@@ -948,6 +1068,8 @@
 				land_show_1();
 				//土地利用情景中的不同作物种植面积变化
 				land_show_2();
+				//土地利用情景中的不同土地类型面积变化
+				land_show_3();
 			});
 			
 			$(function() {
@@ -967,6 +1089,8 @@
 				land_show_1();
 				//土地利用情景中的不同作物种植面积变化
 				land_show_2();
+				//土地利用情景中的不同土地类型面积变化
+				land_show_3();
 				//水资源管理情景中的用水量变化
 				showArea_usingng_water()
 			});
@@ -1392,16 +1516,12 @@
 			$.get('getTblLandUseSceByfldCountyCode.do',
 					{fldCountyCode:$("#land_selectCounty").val},
 					function(data){
-				var xdata=[], fldFarmArea=[], fldWetlandArea=[], fldForestArea=[], fldGrassArea=[], fldHuYangArea=[], fldWaterArea=[];
+				var xdata=[], fldFarmArea=[];
 				for(var i=0; i<data.length; i++)
 				{
 					xdata[i]=data[i].fldDate;
 					fldFarmArea[i]=data[i].fldFarmArea;
-					fldWetlandArea[i]=data[i].fldWetlandArea;
-					fldForestArea[i]=data[i].fldForestArea;
-					fldGrassArea[i]=data[i].fldGrassArea;
-					fldHuYangArea[i]=data[i].fldHuYangArea;
-					fldFarmArea[i]=data[i].fldWaterArea;
+					
 				}
 				if (data.length>=1){
 				var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年'+$("#land_selectCounty").find("option:selected").text()+'耕地面积变化';
@@ -1417,7 +1537,7 @@
 					trigger : 'axis'
 				},
 				legend : {
-					data : [ '耕地面积', '湿地面积', '森林面积','草地面积','胡杨面积','水域面积' ],
+					data : [ '耕地面积' ],
 					x: 'right',
 					padding: [25,5,5,5]
 				},
@@ -1446,27 +1566,7 @@
 					name : '耕地面积',
 					type : 'line',
 					data : fldFarmArea
-				}, {
-					name : '湿地面积',
-					type : 'line',
-					data : fldWetlandArea
-				}, {
-					name : '森林面积',
-					type : 'line',
-					data : fldForestArea
-				}, {
-					name : '草地面积',
-					type : 'line',
-					data : fldGrassArea
-				}, {
-					name : '胡杨面积',
-					type : 'line',
-					data : fldHuYangArea
-				}, {
-					name : '水域面积',
-					type : 'line',
-					data : fldWaterArea
-				} ]
+				}, ]
 			};
 			Chart.setOption(option);
 			})}
@@ -1536,6 +1636,84 @@
 					name : '经济作物',
 					type : 'line',
 					data : cropdata.economiCropArea
+				} ]
+			};
+			Chart.setOption(option);
+			})}
+		//土地类型中不同土地类型面积变化
+		function land_show_3() {
+			$.get('getTblLandUseSceByfldCountyCode.do',
+					{fldCountyCode:$("#land_selectCounty").val},
+					function(data){
+				var xdata=[], fldWetlandArea=[], fldForestArea=[], fldGrassArea=[], fldHuYangArea=[], fldWaterArea=[];
+				for(var i=0; i<data.length; i++)
+				{
+					xdata[i]=data[i].fldDate;
+					fldWetlandArea[i]=data[i].fldWetlandArea;
+					fldForestArea[i]=data[i].fldForestArea;
+					fldGrassArea[i]=data[i].fldGrassArea;
+					fldHuYangArea[i]=data[i].fldHuYangArea;
+					fldFarmArea[i]=data[i].fldWaterArea;
+				}
+				if (data.length>=1){
+				var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年'+$("#land_selectCounty").find("option:selected").text()+'不同土地类型面积变化';
+				}
+			var Chart = echarts.init(document.getElementById('land_show_1'));
+			var option = {
+				title : {
+					text : titletext,
+					x: 'center',
+					y: 'bottom'
+				},
+				tooltip : {
+					trigger : 'axis'
+				},
+				legend : {
+					data : [ '湿地面积', '森林面积','草地面积','胡杨面积','水域面积' ],
+					x: 'right',
+					padding: [25,5,5,5]
+				},
+				grid : {
+					left : '3%',
+					right : '4%',
+					bottom : '3%',
+					containLabel : true
+				},
+				toolbox : {
+					feature : {
+						saveAsImage : {}
+					}
+				},
+				xAxis : {
+					type : 'category',
+					boundaryGap : false,
+					name : '年份',
+					data : xdata
+				},
+				yAxis : {
+					type : 'value',
+					name : '面积(亩)',
+				},
+				series : [  {
+					name : '湿地面积',
+					type : 'line',
+					data : fldWetlandArea
+				}, {
+					name : '森林面积',
+					type : 'line',
+					data : fldForestArea
+				}, {
+					name : '草地面积',
+					type : 'line',
+					data : fldGrassArea
+				}, {
+					name : '胡杨面积',
+					type : 'line',
+					data : fldHuYangArea
+				}, {
+					name : '水域面积',
+					type : 'line',
+					data : fldWaterArea
 				} ]
 			};
 			Chart.setOption(option);

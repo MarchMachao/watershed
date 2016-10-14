@@ -2,7 +2,6 @@ package com.smates.dbc2.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,7 +52,7 @@ public class GoalServiceImpl implements GoalService {
 		Node node37 = null;
 		Node node38 = null;
 		Goal goal = goalDao.getGoalById(id);
-		node1.setName("为所有人提供水和环境卫生，为所有用水部门提供可持续的供水和取水，并进行流域水资源的可持续管理"+goal.getGoal_1()+"%");
+		node1.setName("进行流域水资源的可持续管理" + goal.getGoal_1() + "%");
 		List<Node> node1child = new ArrayList<Node>();
 		
 		String index_111 = goal.getIndex_111();
@@ -63,10 +62,10 @@ public class GoalServiceImpl implements GoalService {
 			node11.setName("提高水资源利用率");
 			List<Node> children = new ArrayList<Node>();
 			if (!StringUtils.isEmpty(index_111)) {
-				children.add(new Node("提高水生产力到"+index_111+"%", null));
+				children.add(new Node("提高水生产力到" + index_111 + "%", null));
 			}
 			if (!StringUtils.isEmpty(index_112)) {
-				children.add(new Node("提高水生产力到"+index_112+"%", null));
+				children.add(new Node("提高水生产力到" + index_112 + "%", null));
 			}
 			node11.setChildren(children);
 			node1child.add(node11);
@@ -77,7 +76,7 @@ public class GoalServiceImpl implements GoalService {
 			node12 = new Node();
 			node12.setName("人人可以公平享受负担得起的安全饮用水");
 			List<Node> children = new ArrayList<Node>();
-			children.add(new Node(" 提高流域社会安全饮用水比例到"+index_121+"%", null));
+			children.add(new Node(" 提高流域社会安全饮用水比例到" + index_121 + "%", null));
 			node12.setChildren(children);
 			node1child.add(node12);
 		}
@@ -86,13 +85,13 @@ public class GoalServiceImpl implements GoalService {
 		String index_132 = goal.getIndex_132();
 		if (!StringUtils.isEmpty(index_131) || !StringUtils.isEmpty(index_132)) {
 			node13 = new Node();
-			node13.setName("在所有层次上实现集成水资源管理，包括跨边界合作");
+			node13.setName("在所有层次上实现集成水资源管理");
 			List<Node> children = new ArrayList<Node>();
 			if (!StringUtils.isEmpty(index_131)) {
-				children.add(new Node("集成水资源管理执行度"+index_131+"%", null));
+				children.add(new Node("集成水资源管理执行度" + index_131 + "%", null));
 			}
 			if (!StringUtils.isEmpty(index_132)) {
-				children.add(new Node("跨边界流域可操作合约有效性"+index_132+"%", null));
+				children.add(new Node("跨边界流域可操作合约有效性" + index_132 + "%", null));
 			}
 			node13.setChildren(children);
 			node1child.add(node13);
@@ -104,19 +103,19 @@ public class GoalServiceImpl implements GoalService {
 		String index_144 = goal.getIndex_144();
 		if (!StringUtils.isEmpty(index_141) || !StringUtils.isEmpty(index_142) || !StringUtils.isEmpty(index_143) || !StringUtils.isEmpty(index_144)) {
 			node14 = new Node();
-			node14.setName("保护和恢复与水相关的生态系统，包括湿地，森林，草地，湖泊和地下蓄水层");
+			node14.setName("保护和恢复与水相关的生态系统");
 			List<Node> children = new ArrayList<Node>();
 			if (!StringUtils.isEmpty(index_141)) {
-				children.add(new Node("维持可持续中游湿地面积"+index_141+"万亩", null));
+				children.add(new Node("维持可持续中游湿地面积" + index_141 + "万亩", null));
 			}
 			if (!StringUtils.isEmpty(index_142)) {
-				children.add(new Node("中游地下水最大开采量"+index_142+"亿m3", null));
+				children.add(new Node("中游地下水最大开采量" + index_142 + "亿m3", null));
 			}
 			if (!StringUtils.isEmpty(index_143)) {
-				children.add(new Node("中游生态系统最小供水量"+index_143+"亿m3", null));
+				children.add(new Node("中游生态系统最小供水量" + index_143 + "亿m3", null));
 			}
 			if (!StringUtils.isEmpty(index_144)) {
-				children.add(new Node("维持下游可持续生态系统发展所需最小分水量"+index_144+"亿m3", null));
+				children.add(new Node("维持下游可持续生态系统发展所需最小分水量" + index_144 + "亿m3", null));
 			}
 			node14.setChildren(children);
 			node1child.add(node14);
@@ -125,14 +124,14 @@ public class GoalServiceImpl implements GoalService {
 		
 		
 		Node node2 = new Node();
-		node2.setName("保护、恢复和促进流域可持续利用陆地生态系统健康发展，可持续管理森林，防治荒漠化"+goal.getGoal_2()+"%");
+		node2.setName("可持续管理森林，防治荒漠化" + goal.getGoal_2() + "%");
 		List<Node> node2child = new ArrayList<Node>();
 		String index_211 = goal.getIndex_211();
 		if (!StringUtils.isEmpty(index_211)) {
 			node21 = new Node();
 			node21.setName(" 提高水资源利用率");
 			List<Node> children = new ArrayList<Node>();
-			children.add(new Node("森林覆盖率"+index_211+"%", null));
+			children.add(new Node("森林覆盖率" + index_211 + "%", null));
 			node21.setChildren(children);
 			node2child.add(node21);
 		}
@@ -141,7 +140,7 @@ public class GoalServiceImpl implements GoalService {
 			node22 = new Node();
 			node22.setName("促进所有类型森林可持续管理的实施");
 			List<Node> children = new ArrayList<Node>();
-			children.add(new Node("可持续森林管理覆盖"+index_221+"%", null));
+			children.add(new Node("可持续森林管理覆盖" + index_221 + "%", null));
 			node22.setChildren(children);
 			node2child.add(node22);
 		}
@@ -150,7 +149,7 @@ public class GoalServiceImpl implements GoalService {
 			node23 = new Node();
 			node23.setName("确保山地生态系统的可持续发展");
 			List<Node> children = new ArrayList<Node>();
-			children.add(new Node("山地绿色覆盖指数"+index_231+"%", null));
+			children.add(new Node("山地绿色覆盖指数" + index_231 + "%", null));
 			node23.setChildren(children);
 			node2child.add(node23);
 		}
@@ -159,23 +158,23 @@ public class GoalServiceImpl implements GoalService {
 		
 		
 		Node node3 = new Node();
-		node3.setName("促进持久、包容性和可持续经济增长、促进实现充分和生产性就业"+goal.getGoal_3()+"%");
+		node3.setName("促进可持续经济增长、促进实现充分和生产性就业" + goal.getGoal_3() + "%");
 		List<Node> node3child = new ArrayList<Node>();
 		String index_311 = goal.getIndex_311();
 		if (!StringUtils.isEmpty(index_311)) {
 			node31 = new Node();
-			node31.setName(" 可持续与自然环境相一致的人均经济增长");
+			node31.setName("可持续与自然环境相一致的人均经济增长");
 			List<Node> children = new ArrayList<Node>();
-			children.add(new Node("人均GDP"+index_311+"元", null));
+			children.add(new Node("人均GDP" + index_311 + "元", null));
 			node31.setChildren(children);
 			node3child.add(node31);
 		}
 		String index_321 = goal.getIndex_321();
 		if (!StringUtils.isEmpty(index_321)) {
 			node32 = new Node();
-			node32.setName(" 得到经济生产力的高水平");
+			node32.setName("得到经济生产力的高水平");
 			List<Node> children = new ArrayList<Node>();
-			children.add(new Node("就业人口人均GDP增长率"+index_321+"%", null));
+			children.add(new Node("就业人口人均GDP增长率" + index_321 + "%", null));
 			node32.setChildren(children);
 			node3child.add(node32);
 		}
@@ -186,10 +185,10 @@ public class GoalServiceImpl implements GoalService {
 			node33.setName("实质性降低年轻人就业率");
 			List<Node> children = new ArrayList<Node>();
 			if (!StringUtils.isEmpty(index_331)) {
-				children.add(new Node(" 年轻人（15-24）就业率"+index_331+"%", null));
+				children.add(new Node("年轻人就业率" + index_331 + "%", null));
 			}
 			if (!StringUtils.isEmpty(index_332)) {
-				children.add(new Node("年轻人（15-24）接受教育、培训和就业人口比例"+index_332+"%", null));
+				children.add(new Node("年轻人接受教育、培训和就业人口比例" + index_332 + "%", null));
 			}
 			node33.setChildren(children);
 			node3child.add(node33);
@@ -201,10 +200,10 @@ public class GoalServiceImpl implements GoalService {
 			node34.setName("促进可持续旅游业发展，创造就业机会和提升当地文化");
 			List<Node> children = new ArrayList<Node>();
 			if (!StringUtils.isEmpty(index_341)) {
-				children.add(new Node(" 旅游业在GDP中的比例"+index_341+"%", null));
+				children.add(new Node("旅游业在GDP中的比例" + index_341 + "%", null));
 			}
 			if (!StringUtils.isEmpty(index_342)) {
-				children.add(new Node(" 旅游消费（环境压力指数）"+index_342, null));
+				children.add(new Node("旅游消费（环境压力指数）" + index_342, null));
 			}
 			node34.setChildren(children);
 			node3child.add(node34);
@@ -216,10 +215,10 @@ public class GoalServiceImpl implements GoalService {
 			node35.setName("确保可持续城市化发展和人人参与能力");
 			List<Node> children = new ArrayList<Node>();
 			if (!StringUtils.isEmpty(index_351)) {
-				children.add(new Node("土地利用率"+index_351+"%", null));
+				children.add(new Node("土地利用率" + index_351 + "%", null));
 			}
 			if (!StringUtils.isEmpty(index_352)) {
-				children.add(new Node(" 城镇化率"+index_352+"%", null));
+				children.add(new Node("城镇化率" + index_352 + "%", null));
 			}
 			node35.setChildren(children);
 			node3child.add(node35);
@@ -229,7 +228,7 @@ public class GoalServiceImpl implements GoalService {
 			node36 = new Node();
 			node36.setName("社会福利的提高");
 			List<Node> children = new ArrayList<Node>();
-			children.add(new Node("人均社会福利（查用什么指标衡量）"+index_361+"%", null));
+			children.add(new Node("人均社会福利" + index_361 + "%", null));
 			node36.setChildren(children);
 			node3child.add(node36);
 		}
@@ -241,13 +240,13 @@ public class GoalServiceImpl implements GoalService {
 			node37.setName("提高农业水生产力");
 			List<Node> children = new ArrayList<Node>();
 			if (!StringUtils.isEmpty(index_371)) {
-				children.add(new Node("提高农业水生产力到"+index_371+"%", null));
+				children.add(new Node("提高农业水生产力到" + index_371 + "%", null));
 			}
 			if (!StringUtils.isEmpty(index_372)) {
-				children.add(new Node("提高农业水利用效率到"+index_372+"%", null));
+				children.add(new Node("提高农业水利用效率到" + index_372 + "%", null));
 			}
 			if (!StringUtils.isEmpty(index_373)) {
-				children.add(new Node("提高每公顷农产品产值"+index_373+"元", null));
+				children.add(new Node("提高每公顷农产品产值" + index_373 + "元", null));
 			}
 			node37.setChildren(children);
 			node3child.add(node37);
@@ -259,10 +258,10 @@ public class GoalServiceImpl implements GoalService {
 			node38.setName("确保可持续粮食生产");
 			List<Node> children = new ArrayList<Node>();
 			if (!StringUtils.isEmpty(index_381)) {
-				children.add(new Node("维持可持续发展的中游耕地面积在"+index_381+"万亩", null));
+				children.add(new Node("维持可持续发展的中游耕地面积在" + index_381 + "万亩", null));
 			}
 			if (!StringUtils.isEmpty(index_382)) {
-				children.add(new Node("农业温室气体排放"+index_382, null));
+				children.add(new Node("农业温室气体排放" + index_382, null));
 			}
 			node38.setChildren(children);
 			node3child.add(node38);
