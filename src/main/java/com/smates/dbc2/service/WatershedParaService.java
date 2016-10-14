@@ -22,7 +22,7 @@ public interface WatershedParaService {
 	 * 
 	 * @param tblClimateScePara
 	 */
-	public void addTblClimateScePara(TblClimateScePara tblClimateScePara);
+	public void addTblClimateScePara(String projectId,String countryId,String rainInc,String tempInc);
 
 	/**
 	 * 添加土地利用情景参数
