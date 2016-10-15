@@ -1,5 +1,5 @@
 /**
- * 
+ * stuation.ftl的自定义js文件，注意在jq后引入
  */
 //设置气候情景中的增加降雨比例slider
 			$("#slider-1-1").css({
@@ -34,22 +34,27 @@
 
 			//设置产业与城市发展情景中的spinner
 			//设置产业与城市发展情景中的非农业人口比例的spinner
-			$('#population_proportation_spinner').ace_spinner({
-					value: 37.0,
-					min: 0.0,
-					max: 70.0,
-					step: 1, //改成0.1会有问题，原因不明
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
-				})
-				.css({
-					height: '28px',
-					width: '60px',
-					margin: '0px'
-				})
-				.on('change', function() {
-
-				});
+			$("#population_proportation_spinner").spinner({
+				min: 0.0,
+				max: 70.0,
+				step: 0.1,
+			});
+//			$('#population_proportation_spinner').ace_spinner({
+//					value: 37.0,
+//					min: 0.0,
+//					max: 70.0,
+//					step: 0.1, //改成0.1会有问题，原因不明
+////					icon_up: 'icon-caret-up',
+////					icon_down: 'icon-caret-down',
+//				})
+//				.css({
+//					height: '28px',
+//					width: '60px',
+//					margin: '0px'
+//				})
+//				.on('change', function() {
+//
+//				});
 
 			//设置产业与城市发展情景中的农业的slider
 			$("#slider-1").css({
@@ -148,106 +153,87 @@
 			});
 
 			//设置社会经济发展情景中的人均GDP增长率spinner
-			$('#GDPInc_spinner1').ace_spinner({
-					value: 9,
-					min: 1,
-					max: 20,
-					step: 1,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
+			$('#GDPInc_spinner1').spinner({
+					min: -1,
+					max: 1,
+					step: 0.1,
+					
 				})
 				.css({
-					height: '28px',
+					height: '20px',
 					width: '60px',
-					margin: '0px'
 				}) //设置输入框的高度
 				.on('change', function() {});
 
 			//设置社会经济发展情景中的灌溉输水网络水利用率snipper
-			$('#ganQu_spinner').ace_spinner({
-					value: 40,
+			$('#ganQu_spinner').spinner({
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px',
-					margin: '0px'
+					height: '20px',
+					width: '60px',
 				})
 				.on('change', function() {
 					$("#ganQuBar").css({
 						width: this.value + "%"
 					});
 				});
-			$('#zhiQu_spinner').ace_spinner({
+			$('#zhiQu_spinner').spinner({
 					value: 45,
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px',
-					margin: '0px'
+					height: '20px',
+					width: '60px',
 				})
 				.on('change', function() {
 					$("#zhiQuBar").css({
 						width: this.value + "%"
 					});
 				});
-			$('#douQu_spinner').ace_spinner({
+			$('#douQu_spinner').spinner({
 					value: 90,
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px',
-					margin: '0px'
+					height: '20px',
+					width: '60px',
 				})
 				.on('change', function() {
 					$("#douQuBar").css({
 						width: this.value + "%"
 					});
 				});
-			$('#nongQu_spinner').ace_spinner({
+			$('#nongQu_spinner').spinner({
 					value: 0,
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px',
-					margin: '0px'
+					height: '20px',
+					width: '60px',
 				})
 				.on('change', function() {
 					$("#nongQuBar").css({
 						width: this.value + "%"
 					});
 				});
-			$('#maoQu_spinner').ace_spinner({
+			$('#maoQu_spinner').spinner({
 					value: 0,
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px',
-					margin: '0px'
+					height: '20px',
+					width: '60px',
 				})
 				.on('change', function() {
 					$("#maoQuBar").css({
@@ -319,18 +305,15 @@
 				}
 			});
 			//设置土地利用中耕地面积变化率的spinner
-			$('#area_rateofchange_spinner').ace_spinner({
+			$('#area_rateofchange_spinner').spinner({
 					value: 1,
 					min: -10,
 					max: 10,
 					step: 0.1,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
+					height: '20px',
 					width: '60px',
-					margin: '0px'
 				})
 				.on('change', function() {
 
@@ -525,16 +508,14 @@
 			});
 
 			//设置水资源管理情景中流域中下游可供地表水设为固定
-			$('#water_province_total').ace_spinner({
+			$('#water_province_total').spinner({
 					value: 15880,
 					min: 15880,
 					max: 15880,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
+					height: '20px',
 					width: '60px'
 				});
 
@@ -558,17 +539,15 @@
 			});
 
 			//设置水资源管理情景中的县区水分配spinner
-			$('#water_county_ratio_1').ace_spinner({
+			$('#water_county_ratio_1').spinner({
 					value: 95,
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px'
+					height: '20px',
+					width: '60px'
 				})
 				.on('change', function() {
 					var ratio_1 = this.value;
@@ -581,17 +560,15 @@
 					$("#water_county_distribution3").val((ratio_3 / 100) * totalWater);
 
 				});
-			$('#water_county_ratio_2').ace_spinner({
+			$('#water_county_ratio_2').spinner({
 					value: 5,
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px'
+					height: '20px',
+					width: '60px'
 				})
 				.on('change', function() {
 					var ratio_2 = this.value;
@@ -604,58 +581,50 @@
 					$("#water_county_distribution3").val((ratio_3 / 100) * totalWater);
 
 				});
-			$('#water_county_ratio_3').ace_spinner({
+			$('#water_county_ratio_3').spinner({
 					value: 0,
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px'
+					height: '20px',
+					width: '60px'
 				});
-			$('#water_county_total').ace_spinner({
+			$('#water_county_total').spinner({
 					value: 12000,
 					min: 12000,
 					max: 12000,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
+					height: '20px',
 					width: '60px'
 				});
 
 			//复制
 			//设置水资源管理情景中的县区水分配总量
-			$('#water_county_total2').ace_spinner({
+			$('#water_county_total2').spinner({
 					value: 12000,
 					min: 12000,
 					max: 12000,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
+					height: '20px',
 					width: '60px'
 				});
 
 			//设置水资源管理情景中的县区水分配spinner
-			$('#water_county_ratio_2_1').ace_spinner({
+			$('#water_county_ratio_2_1').spinner({
 					value: 95,
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px'
+					height: '20px',
+					width: '60px'
 				})
 				.on('change', function() {
 					var ratio_1 = this.value;
@@ -669,17 +638,15 @@
 					$("#water_county_distribution2_3").val((ratio_3 / 100) * totalWater);
 					$("#water_county_distribution2_4").val((ratio_4 / 100) * totalWater);
 				});
-			$('#water_county_ratio_2_2').ace_spinner({
+			$('#water_county_ratio_2_2').spinner({
 					value: 5,
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px'
+					height: '20px',
+					width: '60px'
 				})
 				.on('change', function() {
 					var ratio_2 = this.value;
@@ -693,17 +660,15 @@
 					$("#water_county_distribution2_3").val((ratio_3 / 100) * totalWater);
 					$("#water_county_distribution2_4").val((ratio_4 / 100) * totalWater);
 				});
-			$('#water_county_ratio_2_3').ace_spinner({
+			$('#water_county_ratio_2_3').spinner({
 					value: 0,
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px'
+					height: '20px',
+					width: '60px'
 				})
 				.on('change', function() {
 					var ratio_3 = this.value;
@@ -718,17 +683,15 @@
 					$("#water_county_distribution2_4").val((ratio_4 / 100) * totalWater);
 				});
 
-			$('#water_county_ratio_2_4').ace_spinner({
+			$('#water_county_ratio_2_4').spinner({
 					value: 0,
 					min: 0,
 					max: 100,
 					step: 5,
-					icon_up: 'icon-caret-up',
-					icon_down: 'icon-caret-down'
 				})
 				.css({
-					height: '28px',
-					width: '40px'
+					height: '20px',
+					width: '60px'
 				})
 				.on('change', function() {
 					var ratio_4 = this.value;

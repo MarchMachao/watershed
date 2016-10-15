@@ -13,11 +13,11 @@
 		<link rel="stylesheet" href="static/css/font-awesome.min.css" />
 
 		<!-- page specific plugin styles -->
-		<link rel="stylesheet" href="static/css/jquery-ui-1.10.2.custom.min.css" />
-
+		<!--<link rel="stylesheet" href="static/css/jquery-ui-1.10.2.custom.min.css" />-->
+		<link rel="stylesheet" href="css/jquery-ui.css">
 		<!-- ace styles -->
 		<link rel="stylesheet" href="static/css/ace.min.css" />
-
+		
 		<!-- 引入 -->
 		<script src="static/1.9.1/jquery.min.js"></script>
 		<script src="static/js/bootstrap.min.js"></script>
@@ -25,10 +25,10 @@
 		<script src="static/js/ace.min.js"></script>
 		<!-- 引入 -->
 
-		<script type="text/javascript" src="static/js/jquery-ui-1.10.2.custom.min.js"></script>
-		<script type="text/javascript" src="static/js/jquery.ui.touch-punch.min.js"></script>
+		<!--<script type="text/javascript" src="static/js/jquery-ui-1.10.2.custom.min.js"></script>-->
+		<!--<script type="text/javascript" src="static/js/jquery.ui.touch-punch.min.js"></script>-->
 		<script type="text/javascript" src="static/js/chosen.jquery.min.js"></script>
-		<script type="text/javascript" src="static/js/fuelux.spinner.js"></script>
+		<!--<script type="text/javascript" src="static/js/fuelux.spinner.js"></script>-->
 		<script type="text/javascript" src="static/js/jquery.knob.min.js"></script>
 		<script type="text/javascript" src="static/js/jquery.autosize-min.js"></script>
 		<script type="text/javascript" src="static/js/jquery.inputlimiter.1.3.1.min.js"></script>
@@ -36,6 +36,8 @@
 
 		<!-- 引入Echart -->
 		<script type="text/javascript" src="static/js/echarts-all.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.js"></script>
+		
 
 	</head>
 
@@ -196,7 +198,7 @@
 												<div class="span1"></div>
 												<div class="span10">
 													非农业人口比例：
-													<input type="text" class="input-mini" id="population_proportation_spinner"/>%
+													<input type="spinner" value="37.0" class="input-mini" id="population_proportation_spinner"/>%
 												</div>
 											</div>
 											<div class="row-fluid">
@@ -349,8 +351,8 @@
 								<div class="row-fluid">
 									<div class="span2"></div>
 									<div class="span8">
-										<span>人均GDP增长率</span>
-										<input type="text" class="input" id="GDPInc_spinner1" />%
+										<span>人均GDP增长率：</span>
+										<input type="spinner" class="input" id="GDPInc_spinner1" value= "9"/>%
 									</div>
 
 								</div>
@@ -433,7 +435,7 @@
 											<div class="span4">
 												<span>943.08(km)</span>
 												<span style="margin-bottom:8px;margin-top:0px;float:right">
-												<input type="text" class="input" id="ganQu_spinner" />%
+												<input type="spinner" class="input" id="ganQu_spinner" value="40"/>%
 											</span>
 											</div>
 
@@ -454,7 +456,7 @@
 											<div class="span4">
 												<span>1033.63(km)</span>
 												<span style="float:right">
-												<input type="text" class="input" id="zhiQu_spinner" />%
+												<input type="spinner" class="input" id="zhiQu_spinner" value="45"/>%
 											</span>
 											</div>
 
@@ -476,7 +478,7 @@
 
 												<span>2318.42(km)</span>
 												<span style="float:right">
-												<input type="text" class="input" id="douQu_spinner" />%
+												<input type="spinner" class="input" id="douQu_spinner" value="90"/>%
 											</span>
 
 											</div>
@@ -498,7 +500,7 @@
 											<div class="span4">
 												<span>2.42(km)</span>
 												<span style="float:right">
-													<input type="text" class="input" id="nongQu_spinner" />%
+													<input type="spinner" class="input" id="nongQu_spinner" value="0"/>%
 												</span>
 											</div>
 
@@ -519,7 +521,7 @@
 											<div class="span4">
 												<span>0(km)</span>
 												<span style="float:right">
-												<input type="text" class="input" id="maoQu_spinner" />%
+												<input type="spinner" class="input" id="maoQu_spinner" value="0"/>%
 											</span>
 											</div>
 
@@ -602,7 +604,7 @@
 										<div class="row-fluid">
 											<div class="span2">服务业</div>
 											<div class="span8">
-												<div id="economy-slider-5" style="float:right;display:inline;"></div>
+												<div id="economy-slider-4" style="float:right;display:inline;"></div>
 											</div>
 											<div class="span2">
 												<input type="text" id="economy-service" class="input-mini" value="50">元
@@ -645,7 +647,7 @@
 											<div>
 												<div class="span1"></div>
 												<div class="span5" style="text-align:center">
-													耕地面积变化率： <input type="text" class="input-mini" id="area_rateofchange_spinner" />%
+													耕地面积变化率： <input type="spinner" class="input-mini" id="area_rateofchange_spinner" value="1"/>%
 												</div>
 												<!--<div class="span5" style="text-align:center">
 													选择县区
@@ -819,7 +821,7 @@
 											<div class="row-fluid" style="margin-top:15px">
 												<div class="span3" style="text-align:center">
 													<span class="lbl">可供地表水</span>
-													<input type="text" class="input" id="water_province_total" />
+													<input type="spinner" class="input" id="water_province_total" value="15880" />
 													<span class="lbl">万m^3</span>
 												</div>
 												<div class="span1"></div>
@@ -894,21 +896,21 @@
 												<div class="row-fluid" style="margin-top:15px">
 													<div class="span3" style="text-align:center">水权分配比例</div>
 													<div class="span2">
-														<input type="text" class="input" id="water_county_ratio_1" />
+														<input type="spinner" class="input" id="water_county_ratio_1" value="95"/>
 														<span class="lbl">%</span>
 													</div>
 													<div class="span2">
-														<input type="text" class="input" id="water_county_ratio_2" />
+														<input type="spinner" class="input" id="water_county_ratio_2" value="5"/>
 														<span class="lbl">%</span>
 													</div>
 													<div class="span2">
-														<input type="text" class="input" id="water_county_ratio_3" />
+														<input type="spinner" class="input" id="water_county_ratio_3" value="0"/>
 														<span class="lbl">%</span>
 													</div>
 												</div>
 												<div class="row-fluid" style="margin-top:15px">
 													<div class="span3" style="text-align:center">
-														<span class="lbl">总可用水量</span> <input type="text" class="input" id="water_county_total" /> <span class="lbl">万m^3</span>
+														<span class="lbl">总可用水量</span> <input type="spinner" class="input" id="water_county_total" value="12000"/> <span class="lbl">万m^3</span>
 													</div>
 													<div class="span2">
 														<input type="text" id="water_county_distribution1" style="width:60px;height:28px" value="11400" /> <span class="lbl">万m^3</span>
@@ -932,21 +934,21 @@
 												<div class="row-fluid" style="margin-top:15px">
 													<div class="span3" style="text-align:center">水权分配比例</div>
 													<div class="span2">
-														<input type="text" class="input" id="water_county_ratio_2_1" /> <span class="lbl">%</span>
+														<input type="spinner" class="input" id="water_county_ratio_2_1" value="95"/> <span class="lbl">%</span>
 													</div>
 													<div class="span2">
-														<input type="text" class="input" id="water_county_ratio_2_2" /> <span class="lbl">%</span>
+														<input type="spinner" class="input" id="water_county_ratio_2_2" value="5"/> <span class="lbl">%</span>
 													</div>
 													<div class="span2">
-														<input type="text" class="input" id="water_county_ratio_2_3" /> <span class="lbl">%</span>
+														<input type="spinner" class="input" id="water_county_ratio_2_3" value="0"/> <span class="lbl">%</span>
 													</div>
 													<div class="span2">
-														<input type="text" class="input" id="water_county_ratio_2_4" /> <span class="lbl">%</span>
+														<input type="spinner" class="input" id="water_county_ratio_2_4" value="0"/> <span class="lbl">%</span>
 													</div>
 												</div>
 												<div class="row-fluid" style="margin-top:15px">
 													<div class="span3" style="text-align:center">
-														<span class="lbl">总可用水量</span> <input type="text" class="input" id="water_county_total2" /> <span class="lbl">万m^3</span>
+														<span class="lbl">总可用水量</span> <input type="spinner" class="input" id="water_county_total2" value="12000"/> <span class="lbl">万m^3</span>
 													</div>
 													<div class="span2">
 														<input type="text" id="water_county_distribution2_1" style="width:60px;height:28px" value="11400" /> <span class="lbl">万m^3</span>
@@ -1658,7 +1660,7 @@
 				if (data.length>=1){
 				var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年'+$("#land_selectCounty").find("option:selected").text()+'不同土地类型面积变化';
 				}
-			var Chart = echarts.init(document.getElementById('land_show_3'));
+			var Chart = echarts.init(document.getElementById('land_show_1'));
 			var option = {
 				title : {
 					text : titletext,
