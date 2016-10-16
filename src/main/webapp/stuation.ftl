@@ -1043,6 +1043,9 @@
 		<script src="js/situation.jq.js"></script>
 		
 		<script type="text/javascript">
+		$("span").on("click",function(){
+	$("input").trigger("change");
+});
 			
 			$("#IPCC").on("change", function() {
 				//气候情景温度变化图

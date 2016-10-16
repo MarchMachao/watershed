@@ -1,6 +1,8 @@
 /**
  * stuation.ftl的自定义js文件，注意在jq后引入
  */
+
+
 //设置气候情景中的增加降雨比例slider
 			$("#slider-1-1").css({
 				width: '100%',
@@ -38,7 +40,10 @@
 				min: 0.0,
 				max: 70.0,
 				step: 0.1,
-			});
+			}).css({
+					height: '20px',
+					width: '60px',
+				});
 //			$('#population_proportation_spinner').ace_spinner({
 //					value: 37.0,
 //					min: 0.0,
@@ -190,7 +195,7 @@
 					height: '20px',
 					width: '60px',
 				})
-				.on('change', function() {
+				.on("change", function() {
 					$("#zhiQuBar").css({
 						width: this.value + "%"
 					});
@@ -553,8 +558,8 @@
 					var ratio_1 = this.value;
 					var totalWater = $("#water_county_total").val();
 					var ratio_2 = ratio_3 = (100 - ratio_1) / 2;
-					$("#water_county_ratio_2").val(ratio_2);
-					$("#water_county_ratio_3").val(ratio_3);
+//					$("#water_county_ratio_2").val(ratio_2);
+//					$("#water_county_ratio_3").val(ratio_3);
 					$("#water_county_distribution1").val((ratio_1 / 100) * totalWater);
 					$("#water_county_distribution2").val((ratio_2 / 100) * totalWater);
 					$("#water_county_distribution3").val((ratio_3 / 100) * totalWater);
@@ -570,7 +575,7 @@
 					height: '20px',
 					width: '60px'
 				})
-				.on('change', function() {
+				.on("change", function() {
 					var ratio_2 = this.value;
 					var ratio_1 = $("#water_county_ratio_1").val();
 					var totalWater = $("#water_county_total").val();
@@ -696,6 +701,7 @@
 				.on('change', function() {
 					var ratio_4 = this.value;
 					var ratio_1 = ratio_2 = ratio_3 = (100 - ratio_4) / 3;
+					var totalWater = $("#water_county_total2").val();
 					$("#water_county_ratio_2_1").val(ratio_1);
 					$("#water_county_ratio_2_2").val(ratio_2);
 					$("#water_county_ratio_2_3").val(ratio_3);
