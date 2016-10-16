@@ -21,4 +21,10 @@ public interface GoalDao {
 	 */
 	public Goal getGoalById(String id);
 	
+	/**
+	 * 删除一个项目的目标体系
+	 * @param id
+	 */
+	public void deleteGoalById(String id);
+	
 }

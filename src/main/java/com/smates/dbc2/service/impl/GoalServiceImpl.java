@@ -277,4 +277,9 @@ public class GoalServiceImpl implements GoalService {
 		return root;
 	}
 
+	@Override
+	public void deleteGoalById(String id) {
+		goalDao.deleteGoalById(id);
+	}
+
 }

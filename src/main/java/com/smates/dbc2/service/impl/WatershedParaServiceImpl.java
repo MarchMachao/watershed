@@ -16,6 +16,7 @@ import com.smates.dbc2.po.TbWaterManSceWRPara;
 import com.smates.dbc2.po.TblClimateScePara;
 import com.smates.dbc2.po.TblIndUrbanScePara;
 import com.smates.dbc2.service.WatershedParaService;
+import com.smates.dbc2.vo.ProjectIdAndCountyId;
 
 /**
  * @author machao march.machao@gmail.com
@@ -30,6 +31,11 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 	@Override
 	public void addTblClimateScePara(String projectId, String countryId, String rainInc, String tempInc) {
 		watershedParaDao.addTblClimateScePara(new TblClimateScePara(projectId, countryId, rainInc, tempInc));
+	}
+	
+	@Override
+	public void deleteTblclimateSceParaById(String projectId,String countryId){
+		watershedParaDao.deleteTblclimateSceParaById(new ProjectIdAndCountyId(projectId, countryId));
 	}
 
 	@Override

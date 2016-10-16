@@ -23,6 +23,12 @@ public interface WatershedParaService {
 	 * @param tblClimateScePara
 	 */
 	public void addTblClimateScePara(String projectId,String countryId,String rainInc,String tempInc);
+	
+	/**
+	 * 删除某个项目的气候情景参数
+	 * @param id
+	 */
+	public void deleteTblclimateSceParaById(String id,String countryId);
 
 	/**
 	 * 添加土地利用情景参数

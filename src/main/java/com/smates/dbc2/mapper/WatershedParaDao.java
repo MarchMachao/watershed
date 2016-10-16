@@ -11,6 +11,7 @@ import com.smates.dbc2.po.TbWaterManSceTWPara;
 import com.smates.dbc2.po.TbWaterManSceWRPara;
 import com.smates.dbc2.po.TblClimateScePara;
 import com.smates.dbc2.po.TblIndUrbanScePara;
+import com.smates.dbc2.vo.ProjectIdAndCountyId;
 
 /**
  * @author machao march.machao@gmail.com
@@ -24,6 +25,12 @@ public interface WatershedParaDao {
 	 * @param tblClimateScePara
 	 */
 	public void addTblClimateScePara(TblClimateScePara tblClimateScePara);
+	
+	/**
+	 * 删除某个项目的气候情景参数
+	 * @param id
+	 */
+	public void deleteTblclimateSceParaById(ProjectIdAndCountyId projectIdAndCountyId);
 
 	/**
 	 * 添加土地利用情景参数

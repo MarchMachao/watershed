@@ -63,6 +63,7 @@ public class GoalController {
 			String index_211, String index_221, String index_231, String index_311, String index_321, String index_331,
 			String index_332, String index_341, String index_342, String index_351, String index_352, String index_361,
 			String index_371, String index_372, String index_373, String index_381, String index_382){
+		goalService.deleteGoalById(projectId);
 		goalService.addGoal(projectId, goal_1, goal_2, goal_3, index_111, index_112, index_121, index_131, index_132, index_141, index_142, index_143, index_144, index_211, index_221, index_231, index_311, index_321, index_331, index_332, index_341, index_342, index_351, index_352, index_361, index_371, index_372, index_373, index_381, index_382);
 		return new BaseMsg(true, "目标体系保存成功");
 	}

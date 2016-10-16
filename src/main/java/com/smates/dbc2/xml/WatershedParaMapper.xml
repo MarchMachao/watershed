@@ -9,5 +9,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO "a_tblClimateScePara"
 		VALUES(#{projectId},#{countryId},#{rainInc},#{tempInc})
 	</insert>
+	
+	<!-- 根据id删除气候情景参数 -->
+	<delete id="deleteTblclimateSceParaById" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId">
+		delete from "a_tblClimateScePara" where "a_tblClimateScePara"."projectId" = #{projectId} and "a_tblClimateScePara"."countryId" = #{countryId}
+	</delete>
 
 </mapper>

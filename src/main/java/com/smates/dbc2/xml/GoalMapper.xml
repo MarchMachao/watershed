@@ -24,5 +24,9 @@
 		from a_goal
 		where a_goal."id" = #{value}
 	</select>
+	
+	<delete id="deleteGoalById" parameterType="String">
+		DELETE from a_goal where a_goal."id" = #{value} 
+	</delete>
 
 </mapper>
