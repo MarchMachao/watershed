@@ -31,5 +31,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from "a_tblIndUrbanScePara" where "a_tblIndUrbanScePara"."projectId" =
 		#{projectId} and "a_tblIndUrbanScePara"."countryId" = #{countryId}
 	</delete>
-
+	
+	<!-- 添加土地资源利用情景参数 -->
+	<insert id="addTbLanduseScePara" parameterType="tbLanduseScePara">
+		insert INTO "a_tbLanduseScePara" VALUES (#{projectId},#{countryId},#{fldFarmAreaChgR},#{wheatChgR},#{cornChgR},#{oilPlantsChgR},#{vegetablesChgR},#{orchardChgR},#{cottonChgR},#{wheatArea},#{cornArea},#{oilPlantsArea},#{vegetablesArea},#{orchardArea},#{cottonArea},#{WetlandArea},#{ForestArea},#{GrassArea},#{WaterArea})
+	</insert>
+	
+	<!-- 删除土地资源利用情景参数 -->
+	<delete id="deleteTbLanduseScePara" parameterType="projectIdAndCountyId">
+		delete
+		from "a_tbLanduseScePara" where "a_tbLanduseScePara"."projectId" =
+		#{projectId} and "a_tbLanduseScePara"."countryId" = #{countryId}
+	</delete>
+	
 </mapper>

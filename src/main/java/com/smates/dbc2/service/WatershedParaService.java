@@ -47,4 +47,39 @@ public interface WatershedParaService {
 	 */
 	public void deleteTblIndUrbanScePara(String projectId, String countryId);
 	
+	/**
+	 * 添加土地资源利用情景参数
+	 * @param projectId
+	 * @param countryId
+	 * @param fldFarmAreaChgR
+	 * @param wheatChgR
+	 * @param cornChgR
+	 * @param oilPlantsChgR
+	 * @param vegetablesChgR
+	 * @param orchardChgR
+	 * @param cottonChgR
+	 * @param wheatArea
+	 * @param cornArea
+	 * @param oilPlantsArea
+	 * @param vegetablesArea
+	 * @param orchardArea
+	 * @param cottonArea
+	 * @param wetlandArea
+	 * @param forestArea
+	 * @param grassArea
+	 * @param waterArea
+	 */
+	public void addTbLanduseScePara(String projectId, String countryId, String fldFarmAreaChgR, String wheatChgR,
+			String cornChgR, String oilPlantsChgR, String vegetablesChgR, String orchardChgR, String cottonChgR,
+			String wheatArea, String cornArea, String oilPlantsArea, String vegetablesArea, String orchardArea,
+			String cottonArea, String wetlandArea, String forestArea, String grassArea, String waterArea);
+	
+	
+	/**
+	 * 删除土地资源利用情景参数
+	 * @param projectId
+	 * @param countryId
+	 */
+	public void deleteTbLanduseScePara(String projectId, String countryId);
+	
 }

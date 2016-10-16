@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.smates.dbc2.mapper.WatershedParaDao;
 import com.smates.dbc2.po.TbLanduseSceCropPara;
+import com.smates.dbc2.po.TbLanduseScePara;
 import com.smates.dbc2.po.TbSocioEconomySceHydEngPara;
 import com.smates.dbc2.po.TbSocioEconomyScePara;
 import com.smates.dbc2.po.TbSocioEconomyScePoyPara;
@@ -48,6 +49,19 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 	@Override
 	public void deleteTblIndUrbanScePara(String projectId, String countryId) {
 		watershedParaDao.deleteTblIndUrbanScePara(new ProjectIdAndCountyId(projectId, countryId));
+	}
+
+	@Override
+	public void addTbLanduseScePara(String projectId, String countryId, String fldFarmAreaChgR, String wheatChgR,
+			String cornChgR, String oilPlantsChgR, String vegetablesChgR, String orchardChgR, String cottonChgR,
+			String wheatArea, String cornArea, String oilPlantsArea, String vegetablesArea, String orchardArea,
+			String cottonArea, String wetlandArea, String forestArea, String grassArea, String waterArea) {
+		watershedParaDao.addTbLanduseScePara(new TbLanduseScePara(projectId, countryId, fldFarmAreaChgR, wheatChgR, cornChgR, oilPlantsChgR, vegetablesChgR, orchardChgR, cottonChgR, wheatArea, cornArea, oilPlantsArea, vegetablesArea, orchardArea, cottonArea, wetlandArea, forestArea, grassArea, waterArea));
+	}
+
+	@Override
+	public void deleteTbLanduseScePara(String projectId, String countryId) {
+		watershedParaDao.deleteTbLanduseScePara(new ProjectIdAndCountyId(projectId, countryId));
 	}
 
 	

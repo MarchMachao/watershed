@@ -1,5 +1,7 @@
 package com.smates.dbc2.controller;
 
+import javax.enterprise.inject.New;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,6 +62,21 @@ public class StuationParaSaveController {
 		watershedParaService.deleteTblIndUrbanScePara(projectId, countryId);
 		watershedParaService.addTblIndUrbanScePara(projectId, countryId, nonFarmPercent, fldIndOutput, fldIndOutputPercent, fldAgrOutput, fldAgrOutputPercent, fldSerOutput, fldSerOutputPercent, industryProgressRate, changeRateOfTourismIndustry);
 		return new BaseMsg(true, "产业与城市发展情景保存成功");
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value="saveTbLanduseScePara",method=RequestMethod.POST)
+	public BaseMsg saveTbLanduseScePara(String projectId, String countryId, String fldFarmAreaChgR, String wheatChgR,
+			String cornChgR, String oilPlantsChgR, String vegetablesChgR, String orchardChgR, String cottonChgR,
+			String wheatArea, String cornArea, String oilPlantsArea, String vegetablesArea, String orchardArea,
+			String cottonArea, String wetlandArea, String forestArea, String grassArea, String waterArea){
+		watershedParaService.deleteTbLanduseScePara(projectId, countryId);
+		watershedParaService.addTbLanduseScePara(projectId, countryId, fldFarmAreaChgR, wheatChgR, cornChgR, oilPlantsChgR, vegetablesChgR, orchardChgR, cottonChgR, wheatArea, cornArea, oilPlantsArea, vegetablesArea, orchardArea, cottonArea, wetlandArea, forestArea, grassArea, waterArea);
+		return new BaseMsg(true, "土地资源利用情景参数保存成功");
 	}
 
 }

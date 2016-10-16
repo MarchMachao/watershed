@@ -805,7 +805,7 @@
 								</div>
 								<div class="form-actions" align="center">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
-											<button class="btn btn-small btn-success" type="button" id="climate_submit">确定</button> &nbsp;
+											<button class="btn btn-small btn-success" type="button" id="landuse_submit">确定</button> &nbsp;
 											<button class="btn btn-small btn-warning" type="reset" id="climate_reset">重置</button>
 										</div>
 							</div>

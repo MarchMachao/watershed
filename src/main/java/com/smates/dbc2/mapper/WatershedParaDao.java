@@ -1,6 +1,7 @@
 package com.smates.dbc2.mapper;
 
 import com.smates.dbc2.po.TbLanduseSceCropPara;
+import com.smates.dbc2.po.TbLanduseScePara;
 import com.smates.dbc2.po.TbSocioEconomySceHydEngPara;
 import com.smates.dbc2.po.TbSocioEconomyScePara;
 import com.smates.dbc2.po.TbSocioEconomyScePoyPara;
@@ -14,6 +15,7 @@ import com.smates.dbc2.po.TblIndUrbanScePara;
 import com.smates.dbc2.vo.ProjectIdAndCountyId;
 
 /**
+ * 
  * @author machao march.machao@gmail.com
  * @version 创建时间：2016年9月29日 下午2:00:53
  */
@@ -42,6 +44,18 @@ public interface WatershedParaDao {
 	 * @param projectIdAndCountyId
 	 */
 	public void deleteTblIndUrbanScePara(ProjectIdAndCountyId projectIdAndCountyId);
+	
+	/**
+	 * 添加土地资源利用情景参数
+	 * @param tbLanduseScePara
+	 */
+	public void addTbLanduseScePara(TbLanduseScePara tbLanduseScePara);
+	
+	/**
+	 * 删除土地资源利用情景参数
+	 * @param projectIdAndCountyId
+	 */
+	public void deleteTbLanduseScePara(ProjectIdAndCountyId projectIdAndCountyId);
 	
 	
 	
