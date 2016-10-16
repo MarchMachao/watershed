@@ -1,5 +1,7 @@
 package com.smates.dbc2.service;
 
+import javax.enterprise.inject.New;
+
 import com.smates.dbc2.po.TbLanduseSceCropPara;
 import com.smates.dbc2.po.TbSocioEconomySceHydEngPara;
 import com.smates.dbc2.po.TbSocioEconomyScePara;
@@ -9,8 +11,6 @@ import com.smates.dbc2.po.TbWaterManSceMDPara;
 import com.smates.dbc2.po.TbWaterManScePara;
 import com.smates.dbc2.po.TbWaterManSceTWPara;
 import com.smates.dbc2.po.TbWaterManSceWRPara;
-import com.smates.dbc2.po.TblClimateScePara;
-import com.smates.dbc2.po.TblIndUrbanScePara;
 
 /**
  * @author machao march.machao@gmail.com
@@ -22,81 +22,29 @@ public interface WatershedParaService {
 	 * 
 	 * @param tblClimateScePara
 	 */
-	public void addTblClimateScePara(String projectId,String countryId,String rainInc,String tempInc);
-	
-	/**
-	 * 删除某个项目的气候情景参数
-	 * @param id
-	 */
-	public void deleteTblclimateSceParaById(String id,String countryId);
+	public void addTblClimateScePara(String projectId, String countryId, String rainInc, String tempInc);
 
 	/**
-	 * 添加土地利用情景参数
+	 * 删除某个项目的气候情景参数
+	 * 
+	 * @param id
+	 */
+	public void deleteTblclimateSceParaById(String id, String countryId);
+
+	/**
+	 * 添加产业与城市发展情景参数
 	 * 
 	 * @param tbLanduseScePara
 	 */
-	public void addTblIndUrbanScePara(TblIndUrbanScePara tblIndUrbanScePara);
-
+	public void addTblIndUrbanScePara(String projectId, String countryId, String nonFarmPercent, String fldIndOutput,
+			String fldIndOutputPercent, String fldAgrOutput, String fldAgrOutputPercent, String fldSerOutput,
+			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry);
+	
 	/**
-	 * 添加土地利用情景种植结构参数
-	 * 
-	 * @param tbLanduseSceCropPara
+	 * 删除产业与城市发展情景参数
+	 * @param projectId
+	 * @param countryId
 	 */
-	public void addTbLanduseSceCropPara(TbLanduseSceCropPara tbLanduseSceCropPara);
-
-	/**
-	 * 添加社会经济发展情景参数
-	 * 
-	 * @param tbSocioEconomyScePara
-	 */
-	public void addTbSocioEconomyScePara(TbSocioEconomyScePara tbSocioEconomyScePara);
-
-	/**
-	 * 添加社会经济发展情景优惠政策参数
-	 * 
-	 * @param tbSocioEconomyScePoyPara
-	 */
-	public void addTbSocioEconomyScePoyPara(TbSocioEconomyScePoyPara tbSocioEconomyScePoyPara);
-
-	/**
-	 * 添加社会经济发展情景水利工程参数
-	 * 
-	 * @param tbSocioEconomySceHydEngPara
-	 */
-	public void addTbSocioEconomySceHydEngPara(TbSocioEconomySceHydEngPara tbSocioEconomySceHydEngPara);
-
-	/**
-	 * 添加水资源管理情景参数
-	 * 
-	 * @param tbWaterManScePara
-	 */
-	public void addTbWaterManScePara(TbWaterManScePara tbWaterManScePara);
-
-	/**
-	 * 添加水资源管理情景县区三产用水量参数
-	 * 
-	 * @param tbWaterManSceTWPara
-	 */
-	public void addTbWaterManSceTWPara(TbWaterManSceTWPara tbWaterManSceTWPara);
-
-	/**
-	 * 添加水资源管理情景县区水权分配参数
-	 * 
-	 * @param tbWaterManSceTWPara
-	 */
-	public void addTbWaterManSceWRPara(TbWaterManSceWRPara tbWaterManSceWRPara);
-
-	/**
-	 * 添加水资源管理情景流域中下游用水量参数
-	 * 
-	 * @param tbWaterManSceMDPara
-	 */
-	public void addTbWaterManSceMDPara(TbWaterManSceMDPara tbWaterManSceMDPara);
-
-	/**
-	 * 添加水资源管理情景县区用水量参数
-	 * 
-	 * @param tbWaterManSceCWPara
-	 */
-	public void addTbWaterManSceCWPara(TbWaterManSceCWPara tbWaterManSceCWPara);
+	public void deleteTblIndUrbanScePara(String projectId, String countryId);
+	
 }

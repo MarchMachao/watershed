@@ -1,140 +1,130 @@
 package com.smates.dbc2.po;
 
-import java.util.UUID;
-
 /**
+ * 产业与城市发展情景参数
+ * 
  * @author machao march.machao@gmail.com
  * @version 创建时间：2016年9月29日 上午10:36:41
  */
 public class TblIndUrbanScePara {
 
-	private String id;
-	private String fldWatershedCode;
-	private String fldProjectCode;
-	private String fldCountyCode;
-	private String fldDate;
-	private double fldFarmPop;
-	private double fldNonFarmPop;
-	private double fldIndOutput;
-	private double fldAgrOutput;
-	private double fldSerOutput;
-	private double fldTourOutput;
-	private double fldTechProgRatio;
+	private String projectId;
+	private String countryId;
+	private String nonFarmPercent;
+	private String fldIndOutput;
+	private String fldIndOutputPercent;
+	private String fldAgrOutput;
+	private String fldAgrOutputPercent;
+	private String fldSerOutput;
+	private String fldSerOutputPercent;
+	private String industryProgressRate;
+	private String changeRateOfTourismIndustry;
 
 	public TblIndUrbanScePara() {
 	}
 
-	public TblIndUrbanScePara(String fldWatershedCode, String fldProjectCode, String fldCountyCode, String fldDate,
-			double fldFarmPop, double fldNonFarmPop, double fldIndOutput, double fldAgrOutput, double fldSerOutput,
-			double fldTourOutput, double fldTechProgRatio) {
-		this.id = UUID.randomUUID().toString();
-		this.fldWatershedCode = fldWatershedCode;
-		this.fldProjectCode = fldProjectCode;
-		this.fldCountyCode = fldCountyCode;
-		this.fldDate = fldDate;
-		this.fldFarmPop = fldFarmPop;
-		this.fldNonFarmPop = fldNonFarmPop;
+	public TblIndUrbanScePara(String projectId, String countryId, String nonFarmPercent, String fldIndOutput,
+			String fldIndOutputPercent, String fldAgrOutput, String fldAgrOutputPercent, String fldSerOutput,
+			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry) {
+		this.projectId = projectId;
+		this.countryId = countryId;
+		this.nonFarmPercent = nonFarmPercent;
 		this.fldIndOutput = fldIndOutput;
+		this.fldIndOutputPercent = fldIndOutputPercent;
 		this.fldAgrOutput = fldAgrOutput;
+		this.fldAgrOutputPercent = fldAgrOutputPercent;
 		this.fldSerOutput = fldSerOutput;
-		this.fldTourOutput = fldTourOutput;
-		this.fldTechProgRatio = fldTechProgRatio;
+		this.fldSerOutputPercent = fldSerOutputPercent;
+		this.industryProgressRate = industryProgressRate;
+		this.changeRateOfTourismIndustry = changeRateOfTourismIndustry;
 	}
 
-	public String getId() {
-		return id;
+	public String getProjectId() {
+		return projectId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
 	}
 
-	public String getFldWatershedCode() {
-		return fldWatershedCode;
+	public String getCountryId() {
+		return countryId;
 	}
 
-	public void setFldWatershedCode(String fldWatershedCode) {
-		this.fldWatershedCode = fldWatershedCode;
+	public void setCountryId(String countryId) {
+		this.countryId = countryId;
 	}
 
-	public String getFldProjectCode() {
-		return fldProjectCode;
+	public String getNonFarmPercent() {
+		return nonFarmPercent;
 	}
 
-	public void setFldProjectCode(String fldProjectCode) {
-		this.fldProjectCode = fldProjectCode;
+	public void setNonFarmPercent(String nonFarmPercent) {
+		this.nonFarmPercent = nonFarmPercent;
 	}
 
-	public String getFldCountyCode() {
-		return fldCountyCode;
-	}
-
-	public void setFldCountyCode(String fldCountyCode) {
-		this.fldCountyCode = fldCountyCode;
-	}
-
-	public String getFldDate() {
-		return fldDate;
-	}
-
-	public void setFldDate(String fldDate) {
-		this.fldDate = fldDate;
-	}
-
-	public double getFldFarmPop() {
-		return fldFarmPop;
-	}
-
-	public void setFldFarmPop(double fldFarmPop) {
-		this.fldFarmPop = fldFarmPop;
-	}
-
-	public double getFldNonFarmPop() {
-		return fldNonFarmPop;
-	}
-
-	public void setFldNonFarmPop(double fldNonFarmPop) {
-		this.fldNonFarmPop = fldNonFarmPop;
-	}
-
-	public double getFldIndOutput() {
+	public String getFldIndOutput() {
 		return fldIndOutput;
 	}
 
-	public void setFldIndOutput(double fldIndOutput) {
+	public void setFldIndOutput(String fldIndOutput) {
 		this.fldIndOutput = fldIndOutput;
 	}
 
-	public double getFldAgrOutput() {
+	public String getFldIndOutputPercent() {
+		return fldIndOutputPercent;
+	}
+
+	public void setFldIndOutputPercent(String fldIndOutputPercent) {
+		this.fldIndOutputPercent = fldIndOutputPercent;
+	}
+
+	public String getFldAgrOutput() {
 		return fldAgrOutput;
 	}
 
-	public void setFldAgrOutput(double fldAgrOutput) {
+	public void setFldAgrOutput(String fldAgrOutput) {
 		this.fldAgrOutput = fldAgrOutput;
 	}
 
-	public double getFldSerOutput() {
+	public String getFldAgrOutputPercent() {
+		return fldAgrOutputPercent;
+	}
+
+	public void setFldAgrOutputPercent(String fldAgrOutputPercent) {
+		this.fldAgrOutputPercent = fldAgrOutputPercent;
+	}
+
+	public String getFldSerOutput() {
 		return fldSerOutput;
 	}
 
-	public void setFldSerOutput(double fldSerOutput) {
+	public void setFldSerOutput(String fldSerOutput) {
 		this.fldSerOutput = fldSerOutput;
 	}
 
-	public double getFldTourOutput() {
-		return fldTourOutput;
+	public String getFldSerOutputPercent() {
+		return fldSerOutputPercent;
 	}
 
-	public void setFldTourOutput(double fldTourOutput) {
-		this.fldTourOutput = fldTourOutput;
+	public void setFldSerOutputPercent(String fldSerOutputPercent) {
+		this.fldSerOutputPercent = fldSerOutputPercent;
 	}
 
-	public double getFldTechProgRatio() {
-		return fldTechProgRatio;
+	public String getIndustryProgressRate() {
+		return industryProgressRate;
 	}
 
-	public void setFldTechProgRatio(double fldTechProgRatio) {
-		this.fldTechProgRatio = fldTechProgRatio;
+	public void setIndustryProgressRate(String industryProgressRate) {
+		this.industryProgressRate = industryProgressRate;
+	}
+
+	public String getChangeRateOfTourismIndustry() {
+		return changeRateOfTourismIndustry;
+	}
+
+	public void setChangeRateOfTourismIndustry(String changeRateOfTourismIndustry) {
+		this.changeRateOfTourismIndustry = changeRateOfTourismIndustry;
 	}
 
 }

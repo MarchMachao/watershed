@@ -30,11 +30,36 @@ public class StuationParaSaveController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "saveClimatePara", method = RequestMethod.GET)
+	@RequestMapping(value = "saveClimatePara", method = RequestMethod.POST)
 	public BaseMsg saveClimatePara(String projectId, String countryId, String rainInc, String tempInc) {
 		watershedParaService.deleteTblclimateSceParaById(projectId,countryId);
 		watershedParaService.addTblClimateScePara(projectId, countryId, rainInc, tempInc);
 		return new BaseMsg(true, "气候情景保存成功");
+	}
+	
+	/**
+	 * 保存产业与城市发展情景阐述
+	 * @param projectId
+	 * @param countryId
+	 * @param nonFarmPercent
+	 * @param fldIndOutput
+	 * @param fldIndOutputPercent
+	 * @param fldAgrOutput
+	 * @param fldAgrOutputPercent
+	 * @param fldSerOutput
+	 * @param fldSerOutputPercent
+	 * @param industryProgressRate
+	 * @param changeRateOfTourismIndustry
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value="saveIndUrbanScePara",method=RequestMethod.POST)
+	public BaseMsg saveIndUrbanScePara(String projectId, String countryId, String nonFarmPercent, String fldIndOutput,
+			String fldIndOutputPercent, String fldAgrOutput, String fldAgrOutputPercent, String fldSerOutput,
+			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry){
+		watershedParaService.deleteTblIndUrbanScePara(projectId, countryId);
+		watershedParaService.addTblIndUrbanScePara(projectId, countryId, nonFarmPercent, fldIndOutput, fldIndOutputPercent, fldAgrOutput, fldAgrOutputPercent, fldSerOutput, fldSerOutputPercent, industryProgressRate, changeRateOfTourismIndustry);
+		return new BaseMsg(true, "产业与城市发展情景保存成功");
 	}
 
 }

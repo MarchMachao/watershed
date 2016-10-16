@@ -313,7 +313,7 @@
 								</div>
 								<div class="form-actions" align="center">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
-											<button class="btn btn-small btn-success" type="button" id="climate_submit">确定</button> &nbsp;
+											<button class="btn btn-small btn-success" type="button" id="IndUrbanScePara_submit">确定</button> &nbsp;
 											<button class="btn btn-small btn-warning" type="reset" id="climate_reset">重置</button>
 										</div>
 							</div>
@@ -1795,7 +1795,7 @@
 				.click(
 						function() {
 							$
-									.get(
+									.post(
 											"saveClimatePara.do",
 											{
 												"projectId" : "${projectId}",
@@ -1809,6 +1809,27 @@
 												alert(data.content);
 											})
 						})
+						
+						
+		$("#IndUrbanScePara_submit").click(function() {
+			$.post(
+				"saveIndUrbanScePara.do",
+				{
+					"projectId" : "${projectId}",
+					"countryId" : document.getElementById("industry-selectCounty").value,
+					"nonFarmPercent" : document.getElementById("population_proportation_spinner").value,
+					"fldIndOutput" : document.getElementById("situation-1").value,
+					"fldIndOutputPercent" : document.getElementById("situation-1-2").value,
+					"fldAgrOutput" : document.getElementById("situation-2").value,
+					"fldAgrOutputPercent" : document.getElementById("situation-2-2").value,
+					"fldSerOutput" : document.getElementById("situation-3").value,
+					"fldSerOutputPercent" : document.getElementById("situation-3-2").value,
+					"industryProgressRate" : document.getElementById("situation-4").value,
+					"changeRateOfTourismIndustry" : document.getElementById("situation-5").value
+				}, function(data) {
+					alert(data.content);
+			})
+		})
 	</script>
 	</body>
 

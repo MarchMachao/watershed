@@ -39,55 +39,17 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 	}
 
 	@Override
-	public void addTblIndUrbanScePara(TblIndUrbanScePara tblIndUrbanScePara) {
-		watershedParaDao.addTblIndUrbanScePara(tblIndUrbanScePara);
-
+	public void addTblIndUrbanScePara(String projectId, String countryId, String nonFarmPercent, String fldIndOutput,
+			String fldIndOutputPercent, String fldAgrOutput, String fldAgrOutputPercent, String fldSerOutput,
+			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry) {
+		watershedParaDao.addTblIndUrbanScePara(new TblIndUrbanScePara(projectId, countryId, nonFarmPercent, fldIndOutput, fldIndOutputPercent, fldAgrOutput, fldAgrOutputPercent, fldSerOutput, fldSerOutputPercent, industryProgressRate, changeRateOfTourismIndustry));
 	}
 
 	@Override
-	public void addTbLanduseSceCropPara(TbLanduseSceCropPara tbLanduseSceCropPara) {
-		watershedParaDao.addTbLanduseSceCropPara(tbLanduseSceCropPara);
-
+	public void deleteTblIndUrbanScePara(String projectId, String countryId) {
+		watershedParaDao.deleteTblIndUrbanScePara(new ProjectIdAndCountyId(projectId, countryId));
 	}
 
-	@Override
-	public void addTbSocioEconomyScePara(TbSocioEconomyScePara tbSocioEconomyScePara) {
-		watershedParaDao.addTbSocioEconomyScePara(tbSocioEconomyScePara);
-	}
-
-	@Override
-	public void addTbSocioEconomyScePoyPara(TbSocioEconomyScePoyPara tbSocioEconomyScePoyPara) {
-		watershedParaDao.addTbSocioEconomyScePoyPara(tbSocioEconomyScePoyPara);
-	}
-
-	@Override
-	public void addTbSocioEconomySceHydEngPara(TbSocioEconomySceHydEngPara tbSocioEconomySceHydEngPara) {
-		watershedParaDao.addTbSocioEconomySceHydEngPara(tbSocioEconomySceHydEngPara);
-	}
-
-	@Override
-	public void addTbWaterManScePara(TbWaterManScePara tbWaterManScePara) {
-		watershedParaDao.addTbWaterManScePara(tbWaterManScePara);
-	}
-
-	@Override
-	public void addTbWaterManSceTWPara(TbWaterManSceTWPara tbWaterManSceTWPara) {
-		watershedParaDao.addTbWaterManSceTWPara(tbWaterManSceTWPara);
-	}
-
-	@Override
-	public void addTbWaterManSceWRPara(TbWaterManSceWRPara tbWaterManSceWRPara) {
-		watershedParaDao.addTbWaterManSceWRPara(tbWaterManSceWRPara);
-	}
-
-	@Override
-	public void addTbWaterManSceMDPara(TbWaterManSceMDPara tbWaterManSceMDPara) {
-		watershedParaDao.addTbWaterManSceMDPara(tbWaterManSceMDPara);
-	}
-
-	@Override
-	public void addTbWaterManSceCWPara(TbWaterManSceCWPara tbWaterManSceCWPara) {
-		watershedParaDao.addTbWaterManSceCWPara(tbWaterManSceCWPara);
-	}
+	
 
 }

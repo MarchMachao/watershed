@@ -31,13 +31,30 @@ public interface WatershedParaDao {
 	 * @param id
 	 */
 	public void deleteTblclimateSceParaById(ProjectIdAndCountyId projectIdAndCountyId);
-
+	
 	/**
-	 * 添加土地利用情景参数
-	 * 
-	 * @param tbLanduseScePara
+	 * 添加产业与城市发展情景参数
 	 */
 	public void addTblIndUrbanScePara(TblIndUrbanScePara tblIndUrbanScePara);
+	
+	/**
+	 * 删除产业与城市发展情景参数 
+	 * @param projectIdAndCountyId
+	 */
+	public void deleteTblIndUrbanScePara(ProjectIdAndCountyId projectIdAndCountyId);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	/**
 	 * 添加土地利用情景种植结构参数

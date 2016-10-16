@@ -3,16 +3,33 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smates.dbc2.mapper.WatershedParaDao">
-	
+
 	<!-- 保存气候情景参数 -->
 	<insert id="addTblClimateScePara" parameterType="TblClimateScePara">
-		INSERT INTO "a_tblClimateScePara"
+		INSERT INTO
+		"a_tblClimateScePara"
 		VALUES(#{projectId},#{countryId},#{rainInc},#{tempInc})
 	</insert>
-	
+
 	<!-- 根据id删除气候情景参数 -->
 	<delete id="deleteTblclimateSceParaById" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId">
-		delete from "a_tblClimateScePara" where "a_tblClimateScePara"."projectId" = #{projectId} and "a_tblClimateScePara"."countryId" = #{countryId}
+		delete
+		from "a_tblClimateScePara" where "a_tblClimateScePara"."projectId" =
+		#{projectId} and "a_tblClimateScePara"."countryId" = #{countryId}
+	</delete>
+
+	<!-- 添加产业与城市发展情景参数 -->
+	<insert id="addTblIndUrbanScePara" parameterType="TblIndUrbanScePara">
+		insert INTO
+		"a_tblIndUrbanScePara"
+		VALUES(#{projectId},#{countryId},#{nonFarmPercent},#{fldIndOutput},#{fldIndOutputPercent},#{fldAgrOutput},#{fldAgrOutputPercent},#{fldSerOutput},#{fldSerOutputPercent},#{industryProgressRate},#{changeRateOfTourismIndustry})
+	</insert>
+	
+	<!-- 根据id删除产业与城市发展情景参数 -->
+	<delete id="deleteTblIndUrbanScePara" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId">
+		delete
+		from "a_tblIndUrbanScePara" where "a_tblIndUrbanScePara"."projectId" =
+		#{projectId} and "a_tblIndUrbanScePara"."countryId" = #{countryId}
 	</delete>
 
 </mapper>
