@@ -1,17 +1,5 @@
 package com.smates.dbc2.service;
 
-import javax.enterprise.inject.New;
-
-import com.smates.dbc2.po.TbLanduseSceCropPara;
-import com.smates.dbc2.po.TbSocioEconomySceHydEngPara;
-import com.smates.dbc2.po.TbSocioEconomyScePara;
-import com.smates.dbc2.po.TbSocioEconomyScePoyPara;
-import com.smates.dbc2.po.TbWaterManSceCWPara;
-import com.smates.dbc2.po.TbWaterManSceMDPara;
-import com.smates.dbc2.po.TbWaterManScePara;
-import com.smates.dbc2.po.TbWaterManSceTWPara;
-import com.smates.dbc2.po.TbWaterManSceWRPara;
-
 /**
  * @author machao march.machao@gmail.com
  * @version 创建时间：2016年9月29日 下午2:19:39
@@ -42,6 +30,7 @@ public interface WatershedParaService {
 	
 	/**
 	 * 删除产业与城市发展情景参数
+	 * 
 	 * @param projectId
 	 * @param countryId
 	 */
@@ -49,6 +38,7 @@ public interface WatershedParaService {
 	
 	/**
 	 * 添加土地资源利用情景参数
+	 * 
 	 * @param projectId
 	 * @param countryId
 	 * @param fldFarmAreaChgR
@@ -77,9 +67,46 @@ public interface WatershedParaService {
 	
 	/**
 	 * 删除土地资源利用情景参数
+	 * 
 	 * @param projectId
 	 * @param countryId
 	 */
 	public void deleteTbLanduseScePara(String projectId, String countryId);
 	
+	/**
+	 * 增加社会经济发展情景参数、
+	 * 
+	 * @param projectId
+	 * @param countryId
+	 * @param perCapGDPR
+	 * @param fldMainCannelLeng
+	 * @param fldMainCanWUE
+	 * @param fldBranCannelLeng
+	 * @param fldBranCanWUE
+	 * @param fldDouLeng
+	 * @param fldDouWUE
+	 * @param fldNongLeng
+	 * @param fldNongWUE
+	 * @param fldMaoLeng
+	 * @param fldMaoWUE
+	 * @param fldSprinkingArea
+	 * @param fldDropIrrArea
+	 * @param fldIndustryAllowance
+	 * @param fldFarmAllowance
+	 * @param fldServiceAllowance
+	 */
+	public void addTbSocioEconomyScePara(String projectId, String countryId, String perCapGDPR,
+			String fldMainCannelLeng, String fldMainCanWUE, String fldBranCannelLeng, String fldBranCanWUE,
+			String fldDouLeng, String fldDouWUE, String fldNongLeng, String fldNongWUE, String fldMaoLeng,
+			String fldMaoWUE, String fldSprinkingArea, String fldDropIrrArea, String fldIndustryAllowance,
+			String fldFarmAllowance, String fldServiceAllowance);
+
+	/**
+	 * 删除社会经济发展情景参数
+	 * 
+	 * @param projectId
+	 * @param countryId
+	 */
+	public void deleteTbSocioEconomyScePara(String projectId, String countryId);
+
 }

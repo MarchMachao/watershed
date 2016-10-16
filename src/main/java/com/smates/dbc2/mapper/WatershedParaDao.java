@@ -30,6 +30,7 @@ public interface WatershedParaDao {
 	
 	/**
 	 * 删除某个项目的气候情景参数
+	 * 
 	 * @param id
 	 */
 	public void deleteTblclimateSceParaById(ProjectIdAndCountyId projectIdAndCountyId);
@@ -40,35 +41,39 @@ public interface WatershedParaDao {
 	public void addTblIndUrbanScePara(TblIndUrbanScePara tblIndUrbanScePara);
 	
 	/**
-	 * 删除产业与城市发展情景参数 
+	 * 删除产业与城市发展情景参数
+	 * 
 	 * @param projectIdAndCountyId
 	 */
 	public void deleteTblIndUrbanScePara(ProjectIdAndCountyId projectIdAndCountyId);
 	
 	/**
 	 * 添加土地资源利用情景参数
+	 * 
 	 * @param tbLanduseScePara
 	 */
 	public void addTbLanduseScePara(TbLanduseScePara tbLanduseScePara);
 	
 	/**
 	 * 删除土地资源利用情景参数
+	 * 
 	 * @param projectIdAndCountyId
 	 */
 	public void deleteTbLanduseScePara(ProjectIdAndCountyId projectIdAndCountyId);
 	
+	/**
+	 * 添加社会经济发展情景参数
+	 * 
+	 * @param tbSocioEconomyScePara
+	 */
+	public void addTbSocioEconomyScePara(TbSocioEconomyScePara tbSocioEconomyScePara);
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * 删除社会经济发展情景参数
+	 * 
+	 * @param projectIdAndCountyId
+	 */
+	public void deleteTbSocioEconomyScePara(ProjectIdAndCountyId projectIdAndCountyId);
 
 	/**
 	 * 添加土地利用情景种植结构参数
@@ -77,12 +82,6 @@ public interface WatershedParaDao {
 	 */
 	public void addTbLanduseSceCropPara(TbLanduseSceCropPara tbLanduseSceCropPara);
 
-	/**
-	 * 添加社会经济发展情景参数
-	 * 
-	 * @param tbSocioEconomyScePara
-	 */
-	public void addTbSocioEconomyScePara(TbSocioEconomyScePara tbSocioEconomyScePara);
 
 	/**
 	 * 添加社会经济发展情景优惠政策参数

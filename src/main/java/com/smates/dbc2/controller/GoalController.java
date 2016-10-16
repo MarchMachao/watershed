@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.smates.dbc2.po.Goal;
 import com.smates.dbc2.service.GoalService;
 import com.smates.dbc2.vo.BaseMsg;
 import com.smates.dbc2.vo.Node;
@@ -25,6 +24,7 @@ public class GoalController {
 	
 	/**
 	 * 保存目标体系接口（参数和界面标号对应）
+	 * 
 	 * @param goal_1
 	 * @param goal_2
 	 * @param goal_3
