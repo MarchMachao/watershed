@@ -806,7 +806,7 @@
 								<div class="form-actions" align="center">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
 											<button class="btn btn-small btn-success" type="button" id="landuse_submit">确定</button> &nbsp;
-											<button class="btn btn-small btn-warning" type="reset" id="climate_reset">重置</button>
+											<button class="btn btn-small btn-warning" type="reset" id="landuse_reset">重置</button>
 										</div>
 							</div>
 
@@ -1791,24 +1791,18 @@
 		
 		</script>
 		<script type="text/javascript">
-		$("#climate_submit")
-				.click(
-						function() {
-							$
-									.post(
-											"saveClimatePara.do",
-											{
-												"projectId" : "${projectId}",
-												"countryId" : document
-														.getElementById("IPCC-selectCounty").value,
-												"rainInc" : document
-														.getElementById("rain_inc_ratio").value,
-												"tempInc" : document
-														.getElementById("temp_inc_ratio").value
-											}, function(data) {
-												alert(data.content);
-											})
-						})
+		$("#climate_submit").click(function() {
+			$.post(
+				"saveClimatePara.do",
+				{
+					"projectId" : "${projectId}",
+					"countryId" : document.getElementById("IPCC-selectCounty").value,
+					"rainInc" : document.getElementById("rain_inc_ratio").value,
+					"tempInc" : document.getElementById("temp_inc_ratio").value
+				}, function(data) {
+					alert(data.content);
+			})
+		})
 						
 						
 		$("#IndUrbanScePara_submit").click(function() {
@@ -1826,6 +1820,34 @@
 					"fldSerOutputPercent" : document.getElementById("situation-3-2").value,
 					"industryProgressRate" : document.getElementById("situation-4").value,
 					"changeRateOfTourismIndustry" : document.getElementById("situation-5").value
+				}, function(data) {
+					alert(data.content);
+			})
+		})
+		
+		$("#landuse_submit").click(function() {
+			$.post(
+				"saveTbLanduseScePara.do",
+				{
+					"projectId" : "${projectId}",
+					"countryId" : document.getElementById("land_selectCounty").value,
+					"fldFarmAreaChgR" : document.getElementById("area_rateofchange_spinner").value,
+					"wheatChgR" : document.getElementById("land_situation_1").value,
+					"cornChgR" : document.getElementById("land_situation_2").value,
+					"oilPlantsChgR" : document.getElementById("land_situation_3").value,
+					"vegetablesChgR" : document.getElementById("land_situation_4").value,
+					"orchardChgR":document.getElementById("land_situation_5").value,
+					"cottonChgR" : document.getElementById("land_situation_6").value,
+					"wheatArea" : document.getElementById("land_situation_1_2").value,
+					"cornArea" : document.getElementById("land_situation_2_2").value,
+					"oilPlantsArea" : document.getElementById("land_situation_3_2").value,
+					"vegetablesArea":document.getElementById("land_situation_4_2").value,
+					"orchardArea":document.getElementById("land_situation_5_2").value,
+					"cottonArea":document.getElementById("land_situation_6_2").value,
+					"wetlandArea":document.getElementById("landuse_situation_1").value,
+					"forestArea":document.getElementById("landuse_situation_2").value,
+					"grassArea":document.getElementById("landuse_situation_3").value,
+					"waterArea":document.getElementById("landuse_situation_4").value
 				}, function(data) {
 					alert(data.content);
 			})

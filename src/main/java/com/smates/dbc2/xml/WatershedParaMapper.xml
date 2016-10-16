@@ -38,9 +38,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<!-- 删除土地资源利用情景参数 -->
-	<delete id="deleteTbLanduseScePara" parameterType="projectIdAndCountyId">
+	<delete id="deleteTbLanduseScePara" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId">
 		delete
 		from "a_tbLanduseScePara" where "a_tbLanduseScePara"."projectId" =
+		#{projectId} and "a_tbLanduseScePara"."countryId" = #{countryId}
+	</delete>
+	
+	<!-- 添加社会经济发展情景参数 -->
+	<insert id="addTbSocioEconomyScePara" parameterType="tbSocioEconomyScePara">
+		insert INTO "a_tbSocioEconomyScePara" VALUES (#{projectId},#{countryId},#{perCapGDPR},#{fldMainCannelLeng},#{fldMainCanWUE},#{fldBranCannelLeng},#{fldBranCanWUE},#{fldDouLeng},#{fldDouWUE},#{fldNongLeng},#{fldNongWUE},#{fldMaoLeng},#{fldMaoWUE},#{fldSprinkingArea},#{fldDropIrrArea},#{fldIndustryAllowance},#{fldFarmAllowance},#{fldServiceAllowance})
+	</insert>
+	
+	<!-- 删除社会经济发展情景参数 -->
+	<delete id="deleteTbSocioEconomyScePara" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId">
+		delete
+		from "a_tbSocioEconomyScePara" where "a_tbSocioEconomyScePara"."projectId" =
 		#{projectId} and "a_tbLanduseScePara"."countryId" = #{countryId}
 	</delete>
 	

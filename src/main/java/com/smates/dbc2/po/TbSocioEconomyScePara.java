@@ -1,118 +1,201 @@
 package com.smates.dbc2.po;
 
-import java.util.UUID;
-
 /**
+ * 社会经济发展情景参数
+ * 
  * @author machao march.machao@gmail.com
  * @version 创建时间：2016年9月29日 上午11:00:29
  */
 public class TbSocioEconomyScePara {
-	private String id;
-	private String fldWatershedCode;
-	private String fldProjectCode;
-	private String fldCountyCode;
-	private String fldDate;
-	private double fldPerCapGDP;
-	private double fldPerCapGDPR;
-	private double fldGDP;
-	private double fldGDPR;
-	private double fldPop;
+
+	private String projectId;
+	private String countryId;
+	private String perCapGDPR;
+	private String fldMainCannelLeng;
+	private String fldMainCanWUE;
+	private String fldBranCannelLeng;
+	private String fldBranCanWUE;
+	private String fldDouLeng;
+	private String fldDouWUE;
+	private String fldNongLeng;
+	private String fldNongWUE;
+	private String fldMaoLeng;
+	private String fldMaoWUE;
+	private String fldSprinkingArea;
+	private String fldDropIrrArea;
+	private String fldIndustryAllowance;
+	private String fldFarmAllowance;
+	private String fldServiceAllowance;
 
 	public TbSocioEconomyScePara() {
 	}
 
-	public TbSocioEconomyScePara(String fldWatershedCode, String fldProjectCode, String fldCountyCode, String fldDate,
-			double fldPerCapGDP, double fldPerCapGDPR, double fldGDP, double fldGDPR, double fldPop) {
-		this.id = UUID.randomUUID().toString();
-		this.fldWatershedCode = fldWatershedCode;
-		this.fldProjectCode = fldProjectCode;
-		this.fldCountyCode = fldCountyCode;
-		this.fldDate = fldDate;
-		this.fldPerCapGDP = fldPerCapGDP;
-		this.fldPerCapGDPR = fldPerCapGDPR;
-		this.fldGDP = fldGDP;
-		this.fldGDPR = fldGDPR;
-		this.fldPop = fldPop;
+	public TbSocioEconomyScePara(String projectId, String countryId, String perCapGDPR, String fldMainCannelLeng,
+			String fldMainCanWUE, String fldBranCannelLeng, String fldBranCanWUE, String fldDouLeng, String fldDouWUE,
+			String fldNongLeng, String fldNongWUE, String fldMaoLeng, String fldMaoWUE, String fldSprinkingArea,
+			String fldDropIrrArea, String fldIndustryAllowance, String fldFarmAllowance, String fldServiceAllowance) {
+		this.projectId = projectId;
+		this.countryId = countryId;
+		this.perCapGDPR = perCapGDPR;
+		this.fldMainCannelLeng = fldMainCannelLeng;
+		this.fldMainCanWUE = fldMainCanWUE;
+		this.fldBranCannelLeng = fldBranCannelLeng;
+		this.fldBranCanWUE = fldBranCanWUE;
+		this.fldDouLeng = fldDouLeng;
+		this.fldDouWUE = fldDouWUE;
+		this.fldNongLeng = fldNongLeng;
+		this.fldNongWUE = fldNongWUE;
+		this.fldMaoLeng = fldMaoLeng;
+		this.fldMaoWUE = fldMaoWUE;
+		this.fldSprinkingArea = fldSprinkingArea;
+		this.fldDropIrrArea = fldDropIrrArea;
+		this.fldIndustryAllowance = fldIndustryAllowance;
+		this.fldFarmAllowance = fldFarmAllowance;
+		this.fldServiceAllowance = fldServiceAllowance;
 	}
 
-	public String getId() {
-		return id;
+	public String getProjectId() {
+		return projectId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
 	}
 
-	public String getFldWatershedCode() {
-		return fldWatershedCode;
+	public String getCountryId() {
+		return countryId;
 	}
 
-	public void setFldWatershedCode(String fldWatershedCode) {
-		this.fldWatershedCode = fldWatershedCode;
+	public void setCountryId(String countryId) {
+		this.countryId = countryId;
 	}
 
-	public String getFldProjectCode() {
-		return fldProjectCode;
+	public String getPerCapGDPR() {
+		return perCapGDPR;
 	}
 
-	public void setFldProjectCode(String fldProjectCode) {
-		this.fldProjectCode = fldProjectCode;
+	public void setPerCapGDPR(String perCapGDPR) {
+		this.perCapGDPR = perCapGDPR;
 	}
 
-	public String getFldCountyCode() {
-		return fldCountyCode;
+	public String getFldMainCannelLeng() {
+		return fldMainCannelLeng;
 	}
 
-	public void setFldCountyCode(String fldCountyCode) {
-		this.fldCountyCode = fldCountyCode;
+	public void setFldMainCannelLeng(String fldMainCannelLeng) {
+		this.fldMainCannelLeng = fldMainCannelLeng;
 	}
 
-	public String getFldDate() {
-		return fldDate;
+	public String getFldMainCanWUE() {
+		return fldMainCanWUE;
 	}
 
-	public void setFldDate(String fldDate) {
-		this.fldDate = fldDate;
+	public void setFldMainCanWUE(String fldMainCanWUE) {
+		this.fldMainCanWUE = fldMainCanWUE;
 	}
 
-	public double getFldPerCapGDP() {
-		return fldPerCapGDP;
+	public String getFldBranCannelLeng() {
+		return fldBranCannelLeng;
 	}
 
-	public void setFldPerCapGDP(double fldPerCapGDP) {
-		this.fldPerCapGDP = fldPerCapGDP;
+	public void setFldBranCannelLeng(String fldBranCannelLeng) {
+		this.fldBranCannelLeng = fldBranCannelLeng;
 	}
 
-	public double getFldPerCapGDPR() {
-		return fldPerCapGDPR;
+	public String getFldBranCanWUE() {
+		return fldBranCanWUE;
 	}
 
-	public void setFldPerCapGDPR(double fldPerCapGDPR) {
-		this.fldPerCapGDPR = fldPerCapGDPR;
+	public void setFldBranCanWUE(String fldBranCanWUE) {
+		this.fldBranCanWUE = fldBranCanWUE;
 	}
 
-	public double getFldGDP() {
-		return fldGDP;
+	public String getFldDouLeng() {
+		return fldDouLeng;
 	}
 
-	public void setFldGDP(double fldGDP) {
-		this.fldGDP = fldGDP;
+	public void setFldDouLeng(String fldDouLeng) {
+		this.fldDouLeng = fldDouLeng;
 	}
 
-	public double getFldGDPR() {
-		return fldGDPR;
+	public String getFldDouWUE() {
+		return fldDouWUE;
 	}
 
-	public void setFldGDPR(double fldGDPR) {
-		this.fldGDPR = fldGDPR;
+	public void setFldDouWUE(String fldDouWUE) {
+		this.fldDouWUE = fldDouWUE;
 	}
 
-	public double getFldPop() {
-		return fldPop;
+	public String getFldNongLeng() {
+		return fldNongLeng;
 	}
 
-	public void setFldPop(double fldPop) {
-		this.fldPop = fldPop;
+	public void setFldNongLeng(String fldNongLeng) {
+		this.fldNongLeng = fldNongLeng;
+	}
+
+	public String getFldNongWUE() {
+		return fldNongWUE;
+	}
+
+	public void setFldNongWUE(String fldNongWUE) {
+		this.fldNongWUE = fldNongWUE;
+	}
+
+	public String getFldMaoLeng() {
+		return fldMaoLeng;
+	}
+
+	public void setFldMaoLeng(String fldMaoLeng) {
+		this.fldMaoLeng = fldMaoLeng;
+	}
+
+	public String getFldMaoWUE() {
+		return fldMaoWUE;
+	}
+
+	public void setFldMaoWUE(String fldMaoWUE) {
+		this.fldMaoWUE = fldMaoWUE;
+	}
+
+	public String getFldSprinkingArea() {
+		return fldSprinkingArea;
+	}
+
+	public void setFldSprinkingArea(String fldSprinkingArea) {
+		this.fldSprinkingArea = fldSprinkingArea;
+	}
+
+	public String getFldDropIrrArea() {
+		return fldDropIrrArea;
+	}
+
+	public void setFldDropIrrArea(String fldDropIrrArea) {
+		this.fldDropIrrArea = fldDropIrrArea;
+	}
+
+	public String getFldIndustryAllowance() {
+		return fldIndustryAllowance;
+	}
+
+	public void setFldIndustryAllowance(String fldIndustryAllowance) {
+		this.fldIndustryAllowance = fldIndustryAllowance;
+	}
+
+	public String getFldFarmAllowance() {
+		return fldFarmAllowance;
+	}
+
+	public void setFldFarmAllowance(String fldFarmAllowance) {
+		this.fldFarmAllowance = fldFarmAllowance;
+	}
+
+	public String getFldServiceAllowance() {
+		return fldServiceAllowance;
+	}
+
+	public void setFldServiceAllowance(String fldServiceAllowance) {
+		this.fldServiceAllowance = fldServiceAllowance;
 	}
 
 }
