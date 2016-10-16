@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.smates.dbc2.po.Goal;
 import com.smates.dbc2.service.GoalService;
 import com.smates.dbc2.vo.BaseMsg;
 import com.smates.dbc2.vo.Node;

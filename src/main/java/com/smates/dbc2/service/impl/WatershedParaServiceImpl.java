@@ -4,16 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smates.dbc2.mapper.WatershedParaDao;
-import com.smates.dbc2.po.TbLanduseSceCropPara;
 import com.smates.dbc2.po.TbLanduseScePara;
-import com.smates.dbc2.po.TbSocioEconomySceHydEngPara;
-import com.smates.dbc2.po.TbSocioEconomyScePara;
-import com.smates.dbc2.po.TbSocioEconomyScePoyPara;
-import com.smates.dbc2.po.TbWaterManSceCWPara;
-import com.smates.dbc2.po.TbWaterManSceMDPara;
-import com.smates.dbc2.po.TbWaterManScePara;
-import com.smates.dbc2.po.TbWaterManSceTWPara;
-import com.smates.dbc2.po.TbWaterManSceWRPara;
 import com.smates.dbc2.po.TblClimateScePara;
 import com.smates.dbc2.po.TblIndUrbanScePara;
 import com.smates.dbc2.service.WatershedParaService;
