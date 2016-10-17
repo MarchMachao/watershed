@@ -153,7 +153,7 @@ public class StuationParaController {
 	 * @param countryId
 	 * @return
 	 */
-	@ResponseBody
+	@ResponseBody 
 	@RequestMapping(value = "getSceParaByProjectIdAndCountryId", method = RequestMethod.GET)
 	public BaseClass getSceParaByProjectIdAndCountryId(String tab, String projectId, String countryId) {
 		switch (tab) {
