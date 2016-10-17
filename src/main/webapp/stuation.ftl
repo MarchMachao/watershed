@@ -559,6 +559,22 @@
 								</div>
 								
 								<div class="row-fluid">
+									<div class="span2"></div>
+									<div class="span8">
+										<div class="row-fluid">
+											<div class="span2">喷灌面积</div>
+											<div class="span8">
+												<div id="economy-slider-2" style="float:right;display:inline;"></div>
+											</div>
+											<div class="span2">
+												<input type="text" id="economy-penGuanArea" class="input-mini" value="50">万亩
+											</div>
+										</div>
+									</div>
+									<div class="span2"></div>
+								</div>
+								
+								<div class="row-fluid">
 									<div class="span1"></div>
 									<div class="span10">
 										<hr style="height:1px" color="#c2daee">
@@ -574,7 +590,7 @@
 										<div class="row-fluid">
 											<div class="span2">工业</div>
 											<div class="span8">
-												<div id="economy-slider-2" style="float:right;display:inline;"></div>
+												<div id="economy-slider-3" style="float:right;display:inline;"></div>
 											</div>
 											<div class="span2">
 												<input type="text" id="economy-industry" class="input-mini" value="50">元
@@ -589,7 +605,7 @@
 										<div class="row-fluid">
 											<div class="span2">农业</div>
 											<div class="span8">
-												<div id="economy-slider-3" style="float:right;display:inline;"></div>
+												<div id="economy-slider-4" style="float:right;display:inline;"></div>
 											</div>
 											<div class="span2">
 												<input type="text" id="economy-farm" class="input-mini" value="50">元
@@ -604,7 +620,7 @@
 										<div class="row-fluid">
 											<div class="span2">服务业</div>
 											<div class="span8">
-												<div id="economy-slider-4" style="float:right;display:inline;"></div>
+												<div id="economy-slider-5" style="float:right;display:inline;"></div>
 											</div>
 											<div class="span2">
 												<input type="text" id="economy-service" class="input-mini" value="50">元
@@ -616,8 +632,8 @@
 								
 								<div class="form-actions" align="center">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
-											<button class="btn btn-small btn-success" type="button" id="climate_submit">确定</button> &nbsp;
-											<button class="btn btn-small btn-warning" type="reset" id="climate_reset">重置</button>
+											<button class="btn btn-small btn-success" type="button" id="economy_submit">确定</button> &nbsp;
+											<button class="btn btn-small btn-warning" type="reset" id="economy_reset">重置</button>
 								</div>
 							</div>
 
@@ -1848,6 +1864,33 @@
 					"forestArea":document.getElementById("landuse_situation_2").value,
 					"grassArea":document.getElementById("landuse_situation_3").value,
 					"waterArea":document.getElementById("landuse_situation_4").value
+				}, function(data) {
+					alert(data.content);
+			})
+		})
+		
+		$("#economy_submit").click(function() {
+			$.post(
+				"saveTbLanduseScePara.do",
+				{
+					"projectId" : "${projectId}",
+					"countryId" : document.getElementById("water-selectCounty").value,
+					"perCapGDPR" : document.getElementById("GDPInc_spinner1").value,
+					"fldMainCannelLeng": "943.08",
+					"fldMainCanWUE" : document.getElementById("ganQu_spinner").value,
+					"fldBranCannelLeng" : "1033.63",
+					"fldBranCanWUE" : document.getElementById("zhiQu_spinner").value,
+					"fldDouLeng" : "2318.42",
+					"fldDouWUE":document.getElementById("douQu_spinner").value,
+					"fldNongLeng" : "2.42",
+					"fldNongWUE" : document.getElementById("nongQu_spinner").value,
+					"fldMaoLeng" : "0",
+					"fldMaoWUE" : document.getElementById("maoQu_spinner").value,
+					"fldSprinkingArea":document.getElementById("economy-diGuanArea").value,
+					"fldDropIrrArea":document.getElementById("economy-penGuanArea").value,
+					"fldIndustryAllowance":document.getElementById("economy-industry").value,
+					"fldFarmAllowance":document.getElementById("economy-farm").value,
+					"fldServiceAllowance":document.getElementById("economy-service").value
 				}, function(data) {
 					alert(data.content);
 			})

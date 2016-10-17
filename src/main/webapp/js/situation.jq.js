@@ -261,9 +261,25 @@
 					$("#economy-diGuanArea").val(val);
 				}
 			});
+			
+			//设置社会经济发展情景中喷灌面积的slider
+			$("#economy-slider-2").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 50,
+				range: "min",
+				min: 0,
+				max: 100,
+				step: 1,
+				slide: function(event, ui) {
+					var val = parseInt(ui.value);
+					$("#economy-penGuanArea").val(val);
+				}
+			});
 
 			//设置社会经济发展情景中工业优惠政策的slider
-			$("#economy-slider-2").css({
+			$("#economy-slider-3").css({
 				width: '100%',
 				margin: '5px 5px 15px 5px'
 			}).slider({
@@ -279,7 +295,7 @@
 			});
 			
 			//设置社会经济发展情景中农业优惠政策的slider
-			$("#economy-slider-3").css({
+			$("#economy-slider-4").css({
 				width: '100%',
 				margin: '5px 5px 15px 5px'
 			}).slider({
@@ -295,7 +311,7 @@
 			});
 			
 			//设置社会经济发展情景中服务业政策的slider
-			$("#economy-slider-4").css({
+			$("#economy-slider-5").css({
 				width: '100%',
 				margin: '5px 5px 15px 5px'
 			}).slider({
