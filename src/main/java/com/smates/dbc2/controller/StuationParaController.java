@@ -156,21 +156,32 @@ public class StuationParaController {
 	@ResponseBody 
 	@RequestMapping(value = "getSceParaByProjectIdAndCountryId", method = RequestMethod.GET)
 	public BaseClass getSceParaByProjectIdAndCountryId(String tab, String projectId, String countryId) {
+		BaseClass baseClass = null;
 		switch (tab) {
 		case "1"://气候情景参数
-			return watershedParaService.getTblClimateSceParaByProjectIdAndCountryId(projectId, countryId);
+			baseClass = watershedParaService.getTblClimateSceParaByProjectIdAndCountryId(projectId, countryId);
+			break;
 		case "2"://产业与城市化
-			return watershedParaService.getTblIndUrbanSceParaByProjectIdAndCountryId(projectId, countryId);
+			baseClass = watershedParaService.getTblIndUrbanSceParaByProjectIdAndCountryId(projectId, countryId);
+			break;
 		case "3"://社会经济
-			return watershedParaService.getTbSocioEconomySceParaByProjectIdAndCountryId(projectId, countryId);
+			baseClass = watershedParaService.getTbSocioEconomySceParaByProjectIdAndCountryId(projectId, countryId);
+			break;
 		case "4"://土地资源利用
-			return watershedParaService.getTbLanduseSceParaByProjectIdAndCountryId(projectId, countryId);
+			baseClass = watershedParaService.getTbLanduseSceParaByProjectIdAndCountryId(projectId, countryId);
+			break;
 		case "5":
-			return null;
-
+			baseClass = null;
+			break;
 		default:
-			return null;
+			baseClass = null;
 		}
+		
+		if(baseClass == null){
+			baseClass = new BaseClass();
+			baseClass.setIsEmpty("1");
+		}
+		return baseClass;
 	}
 
 }
