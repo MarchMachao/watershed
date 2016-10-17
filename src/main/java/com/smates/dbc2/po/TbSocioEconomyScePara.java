@@ -6,7 +6,7 @@ package com.smates.dbc2.po;
  * @author machao march.machao@gmail.com
  * @version 创建时间：2016年9月29日 上午11:00:29
  */
-public class TbSocioEconomyScePara {
+public class TbSocioEconomyScePara extends BaseClass{
 
 	private String projectId;
 	private String countryId;

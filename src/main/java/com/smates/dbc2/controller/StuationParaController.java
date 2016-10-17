@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.smates.dbc2.po.BaseClass;
 import com.smates.dbc2.service.WatershedParaService;
 import com.smates.dbc2.vo.BaseMsg;
 
@@ -16,7 +17,7 @@ import com.smates.dbc2.vo.BaseMsg;
  *
  */
 @Controller
-public class StuationParaSaveController {
+public class StuationParaController {
 
 	@Autowired
 	private WatershedParaService watershedParaService;
@@ -37,11 +38,11 @@ public class StuationParaSaveController {
 	@ResponseBody
 	@RequestMapping(value = "saveClimatePara", method = RequestMethod.POST)
 	public BaseMsg saveClimatePara(String projectId, String countryId, String rainInc, String tempInc) {
-		watershedParaService.deleteTblclimateSceParaById(projectId,countryId);
+		watershedParaService.deleteTblclimateSceParaById(projectId, countryId);
 		watershedParaService.addTblClimateScePara(projectId, countryId, rainInc, tempInc);
 		return new BaseMsg(true, "气候情景保存成功");
 	}
-	
+
 	/**
 	 * 保存产业与城市发展情景阐述
 	 * 
@@ -95,7 +96,7 @@ public class StuationParaSaveController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value="saveTbLanduseScePara",method=RequestMethod.POST)
+	@RequestMapping(value = "saveTbLanduseScePara", method = RequestMethod.POST)
 	public BaseMsg saveTbLanduseScePara(String projectId, String countryId, String fldFarmAreaChgR, String wheatChgR,
 			String cornChgR, String oilPlantsChgR, String vegetablesChgR, String orchardChgR, String cottonChgR,
 			String wheatArea, String cornArea, String oilPlantsArea, String vegetablesArea, String orchardArea,
@@ -143,6 +144,33 @@ public class StuationParaSaveController {
 				fldMaoLeng, fldMaoWUE, fldSprinkingArea, fldDropIrrArea, fldIndustryAllowance, fldFarmAllowance,
 				fldServiceAllowance);
 		return new BaseMsg(true, "社会经济发展情景保存成功");
+	}
+
+	/**
+	 * 获取情景参数
+	 * @param tab tab标签index
+	 * @param projectId 
+	 * @param countryId
+	 * @return
+	 */
+	@ResponseBody 
+	@RequestMapping(value = "getSceParaByProjectIdAndCountryId", method = RequestMethod.GET)
+	public BaseClass getSceParaByProjectIdAndCountryId(String tab, String projectId, String countryId) {
+		switch (tab) {
+		case "1"://气候情景参数
+			return watershedParaService.getTblClimateSceParaByProjectIdAndCountryId(projectId, countryId);
+		case "2"://产业与城市化
+			return watershedParaService.getTblIndUrbanSceParaByProjectIdAndCountryId(projectId, countryId);
+		case "3"://社会经济
+			return watershedParaService.getTbSocioEconomySceParaByProjectIdAndCountryId(projectId, countryId);
+		case "4"://土地资源利用
+			return watershedParaService.getTbLanduseSceParaByProjectIdAndCountryId(projectId, countryId);
+		case "5":
+			return null;
+
+		default:
+			return null;
+		}
 	}
 
 }

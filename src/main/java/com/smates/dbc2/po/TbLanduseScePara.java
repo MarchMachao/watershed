@@ -4,7 +4,7 @@ package com.smates.dbc2.po;
  * @author machao march.machao@gmail.com
  * @version 创建时间：2016年9月29日 上午10:54:43
  */
-public class TbLanduseScePara {
+public class TbLanduseScePara extends BaseClass{
 
 	private String projectId;
 	private String countryId;

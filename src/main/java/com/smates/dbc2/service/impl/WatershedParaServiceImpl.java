@@ -76,6 +76,26 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 	public void deleteTbSocioEconomyScePara(String projectId, String countryId) {
 		watershedParaDao.deleteTbLanduseScePara(new ProjectIdAndCountyId(projectId, countryId));
 	}
+
+	@Override
+	public TblClimateScePara getTblClimateSceParaByProjectIdAndCountryId(String projectId, String countryId) {
+		return watershedParaDao.getTblClimateSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId));
+	}
+
+	@Override
+	public TblIndUrbanScePara getTblIndUrbanSceParaByProjectIdAndCountryId(String projectId, String countryId) {
+		return watershedParaDao.getTblIndUrbanSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId));
+	}
+
+	@Override
+	public TbLanduseScePara getTbLanduseSceParaByProjectIdAndCountryId(String projectId, String countryId) {
+		return watershedParaDao.getTbLanduseSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId));
+	}
+
+	@Override
+	public TbSocioEconomyScePara getTbSocioEconomySceParaByProjectIdAndCountryId(String projectId, String countryId) {
+		return watershedParaDao.getTbSocioEconomySceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId));
+	}
 	
 
 }
