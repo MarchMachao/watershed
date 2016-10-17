@@ -1,5 +1,10 @@
 package com.smates.dbc2.service;
 
+import com.smates.dbc2.po.TbLanduseScePara;
+import com.smates.dbc2.po.TbSocioEconomyScePara;
+import com.smates.dbc2.po.TblClimateScePara;
+import com.smates.dbc2.po.TblIndUrbanScePara;
+
 /**
  * @author machao march.machao@gmail.com
  * @version 创建时间：2016年9月29日 下午2:19:39
@@ -18,6 +23,14 @@ public interface WatershedParaService {
 	 * @param id
 	 */
 	public void deleteTblclimateSceParaById(String id, String countryId);
+	
+	/**
+	 * 查找气候情景参数
+	 * @param projectId
+	 * @param countryId
+	 * @return
+	 */
+	public TblClimateScePara getTblClimateSceParaByProjectIdAndCountryId(String projectId, String countryId);
 
 	/**
 	 * 添加产业与城市发展情景参数
@@ -35,6 +48,14 @@ public interface WatershedParaService {
 	 * @param countryId
 	 */
 	public void deleteTblIndUrbanScePara(String projectId, String countryId);
+	
+	/**
+	 * 查找产业与城市发展情景参数
+	 * @param projectId
+	 * @param countryId
+	 * @return
+	 */
+	public TblIndUrbanScePara getTblIndUrbanSceParaByProjectIdAndCountryId(String projectId, String countryId);
 	
 	/**
 	 * 添加土地资源利用情景参数
@@ -74,6 +95,14 @@ public interface WatershedParaService {
 	public void deleteTbLanduseScePara(String projectId, String countryId);
 	
 	/**
+	 * 查找土地资源利用情景参数
+	 * @param projectId
+	 * @param countryId
+	 * @return
+	 */
+	public TbLanduseScePara getTbLanduseSceParaByProjectIdAndCountryId(String projectId, String countryId);
+	
+	/**
 	 * 增加社会经济发展情景参数、
 	 * 
 	 * @param projectId
@@ -108,5 +137,13 @@ public interface WatershedParaService {
 	 * @param countryId
 	 */
 	public void deleteTbSocioEconomyScePara(String projectId, String countryId);
+	
+	/**
+	 * 查找社会经济发展情景参数
+	 * @param projectId
+	 * @param countryId
+	 * @return
+	 */
+	public TbSocioEconomyScePara getTbSocioEconomySceParaByProjectIdAndCountryId(String projectId, String countryId);
 
 }
