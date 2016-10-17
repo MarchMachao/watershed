@@ -1060,14 +1060,25 @@
 		
 		<script type="text/javascript">
 		$("span").on("click",function(){
-	$("input").trigger("change");
-});
+		$("input").trigger("change");
+		});
 			
 			$("#IPCC").on("change", function() {
 				//气候情景温度变化图
 				showFigure_1();
 				//气候情景：降水变化图
 				showFigure_2();
+				//从数据库取初值放上页面
+				$.get(
+						"",
+						{
+							"projectId" : "${projectId}",
+							"countryId" : document.getElementById("IPCC-selectCounty").value,
+							"tab":"1"
+						},function(data){
+							document.getElementById("rain_inc_ratio").value(data.rainInc),
+							document.getElementById("temp_inc_ratio").value(data.tempInc)
+					});
 			});
 			
 			$("#industry-selectCounty").on("change",function(){
@@ -1075,6 +1086,24 @@
 				showFigure_3();
 				//三产产值变化
 				showFigure_4();
+				
+				$.get(
+						"",
+						{
+							"projectId" : "${projectId}",
+							"countryId" : document.getElementById("industry-selectCounty").value,
+							"tab":"2"
+						},function(data){
+							document.getElementById("population_proportation_spinner").value(data.nonFarmPercent),
+							document.getElementById("situation-1").value(data.fldIndOutput),
+							document.getElementById("situation-1-2").value(data.fldIndOutputPercent),
+							document.getElementById("situation-2").value(data.fldAgrOutput),
+							document.getElementById("situation-2-2").value(data.fldAgrOutputPercent),
+							document.getElementById("situation-3").value(data.fldSerOutput),
+							document.getElementById("situation-3-2").value(data.fldSerOutputPercent),
+							document.getElementById("situation-4").value(data.industryProgressRate),
+							document.getElementById("situation-5").value(data.changeRateOfTourismIndustry)
+						});
 			});
 			
 			$("#water-selectCounty").on("change", function(){
@@ -1082,6 +1111,26 @@
 				showFigure_5();
 				//各级渠道长度与水利用率变化
 				showFigure_6();
+				
+				$.get(
+						"",
+						{
+							"projectId" : "${projectId}",
+							"countryId" : document.getElementById("water-selectCounty").value,
+							"tab":"3"
+						},function(data){
+							document.getElementById("GDPInc_spinner1").value(data.perCapGDPR),
+							document.getElementById("ganQu_spinner").value(data.fldMainCanWUE),
+							document.getElementById("zhiQu_spinner").value(data.fldBranCanWUE),
+							document.getElementById("douQu_spinner").value(data.fldDouWUE),
+							document.getElementById("nongQu_spinner").value(data.fldNongWUE),
+							document.getElementById("maoQu_spinner").value(data.fldMaoWUE),
+							document.getElementById("economy-diGuanArea").value(data.fldSprinkingArea),
+							document.getElementById("economy-penGuanArea").value(data.fldDropIrrArea),
+							document.getElementById("economy-industry").value(data.fldIndustryAllowance),
+							document.getElementById("economy-farm").value(data.fldFarmAllowance),
+							document.getElementById("economy-service").value(data.fldServiceAllowance)
+						});
 			})
 			
 			$("#land_selectCounty").on("change",function(){
@@ -1091,9 +1140,36 @@
 				land_show_2();
 				//土地利用情景中的不同土地类型面积变化
 				land_show_3();
+				
+				$.get(
+						"",
+						{
+							"projectId" : "${projectId}",
+							"countryId" : document.getElementById("land_selectCounty").value,
+							"tab":"4"
+						},function(data){
+							document.getElementById("area_rateofchange_spinner").value(data.fldFarmAreaChgR),
+							document.getElementById("land_situation_1").value(data.wheatChgR),
+							document.getElementById("land_situation_2").value(data.cornChgR),
+							document.getElementById("land_situation_3").value(data.oilPlantsChgR),
+							document.getElementById("land_situation_4").value(data.vegetablesChgR),
+							document.getElementById("land_situation_5").value(data.orchardChgR),
+							document.getElementById("land_situation_6").value(data.cottonChgR),
+							document.getElementById("land_situation_1_2").value(data.wheatArea),
+							document.getElementById("land_situation_2_2").value(data.cornArea),
+							document.getElementById("land_situation_3_2").value(data.oilPlantsArea),
+							document.getElementById("land_situation_4_2").value(data.vegetablesArea),
+							document.getElementById("land_situation_5_2").value(data.orchardArea),
+							document.getElementById("land_situation_6_2").value(data.cottonArea),
+							document.getElementById("landuse_situation_1").value(data.wetlandArea),
+							document.getElementById("landuse_situation_2").value(data.forestArea),
+							document.getElementById("landuse_situation_3").value(data.grassArea),
+							document.getElementById("landuse_situation_4").value(data.waterArea)
+						});
 			});
 			
 			$(function() {
+				$(select).trigger("change");
 				//页面初始化以后加载图表：气候情景温度变化图
 				showFigure_1();
 				//气候情景：降水变化图
