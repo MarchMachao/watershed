@@ -1,5 +1,6 @@
 package com.smates.dbc2.service;
 
+import com.smates.dbc2.po.Goal;
 import com.smates.dbc2.vo.Node;
 
 /**
@@ -21,10 +22,14 @@ public interface GoalService {
 	
 	public Node getGoalTreeById(String id);
 	
+	public Goal getGoalById(String id);
+	
 	/**
 	 * 删除一个项目的目标体系
 	 * @param id
 	 */
 	public void deleteGoalById(String id);
+	
+	
 	
 }

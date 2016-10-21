@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.smates.dbc2.po.Goal;
 import com.smates.dbc2.service.GoalService;
 import com.smates.dbc2.vo.BaseMsg;
 import com.smates.dbc2.vo.Node;
@@ -72,6 +73,12 @@ public class GoalController {
 	@RequestMapping(value="getGoalTree.do",method=RequestMethod.GET)
 	public Node getGoalTree(String id){
 		return goalService.getGoalTreeById(id);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="getGoal.do",method=RequestMethod.GET)
+	public Goal getGoal(String id){
+		return goalService.getGoalById(id);
 	}
 	
 	@RequestMapping(value="toStuation.do",method=RequestMethod.GET)
