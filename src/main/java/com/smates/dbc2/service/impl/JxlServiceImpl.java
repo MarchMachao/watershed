@@ -71,19 +71,22 @@ public class JxlServiceImpl implements JxlService {
 		List<TblClimateScenarioYear> datas = new ArrayList<TblClimateScenarioYear>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCountyCode = cells[1].getContents();
-				fldCRPType = cells[2].getContents();
-				fldDate = cells[3].getContents();
-				fldPrecipitation = Double.parseDouble(cells[4].getContents());
-				fldAvgTemperature = Double.parseDouble(cells[5].getContents());
-				fldMaxTemp = Double.parseDouble(cells[6].getContents());
-				fldMinTemp = Double.parseDouble(cells[7].getContents());
-				datas.add(new TblClimateScenarioYear(fldWatershedCode, fldCountyCode, fldCRPType, fldDate,
-						fldPrecipitation, fldAvgTemperature, fldMaxTemp, fldMinTemp));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCountyCode = cells[1].getContents();
+					fldCRPType = cells[2].getContents();
+					fldDate = cells[3].getContents();
+					fldPrecipitation = Double.parseDouble(cells[4].getContents());
+					fldAvgTemperature = Double.parseDouble(cells[5].getContents());
+					fldMaxTemp = Double.parseDouble(cells[6].getContents());
+					fldMinTemp = Double.parseDouble(cells[7].getContents());
+					datas.add(new TblClimateScenarioYear(fldWatershedCode, fldCountyCode, fldCRPType, fldDate,
+							fldPrecipitation, fldAvgTemperature, fldMaxTemp, fldMinTemp));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -119,19 +122,22 @@ public class JxlServiceImpl implements JxlService {
 		List<TblClimateScenarioMonth> datas = new ArrayList<TblClimateScenarioMonth>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCountyCode = cells[1].getContents();
-				fldCRPType = cells[2].getContents();
-				fldDate = cells[3].getContents();
-				fldPrecipitation = Double.parseDouble(cells[4].getContents());
-				fldAvgTemperature = Double.parseDouble(cells[5].getContents());
-				fldMaxTemp = Double.parseDouble(cells[6].getContents());
-				fldMinTemp = Double.parseDouble(cells[7].getContents());
-				datas.add(new TblClimateScenarioMonth(fldWatershedCode, fldCountyCode, fldCRPType, fldDate,
-						fldPrecipitation, fldAvgTemperature, fldMaxTemp, fldMinTemp));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCountyCode = cells[1].getContents();
+					fldCRPType = cells[2].getContents();
+					fldDate = cells[3].getContents();
+					fldPrecipitation = Double.parseDouble(cells[4].getContents());
+					fldAvgTemperature = Double.parseDouble(cells[5].getContents());
+					fldMaxTemp = Double.parseDouble(cells[6].getContents());
+					fldMinTemp = Double.parseDouble(cells[7].getContents());
+					datas.add(new TblClimateScenarioMonth(fldWatershedCode, fldCountyCode, fldCRPType, fldDate,
+							fldPrecipitation, fldAvgTemperature, fldMaxTemp, fldMinTemp));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -169,21 +175,24 @@ public class JxlServiceImpl implements JxlService {
 		List<TblIndustyUrbanSce> datas = new ArrayList<TblIndustyUrbanSce>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCountyCode = cells[1].getContents();
-				fldDate = cells[2].getContents();
-				fldFarmPop = Double.parseDouble(cells[3].getContents());
-				fldNonFarmPop = Double.parseDouble(cells[4].getContents());
-				fldIndOutput = Double.parseDouble(cells[5].getContents());
-				fldAgrOutput = Double.parseDouble(cells[6].getContents());
-				fldSerOutput = Double.parseDouble(cells[7].getContents());
-				fldTourOutput = Double.parseDouble(cells[8].getContents());
-				fldTechProgRatio = Double.parseDouble(cells[9].getContents());
-				datas.add(new TblIndustyUrbanSce(fldWatershedCode, fldCountyCode, fldDate, fldFarmPop, fldNonFarmPop,
-						fldIndOutput, fldAgrOutput, fldSerOutput, fldTourOutput, fldTechProgRatio));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCountyCode = cells[1].getContents();
+					fldDate = cells[2].getContents();
+					fldFarmPop = Double.parseDouble(cells[3].getContents());
+					fldNonFarmPop = Double.parseDouble(cells[4].getContents());
+					fldIndOutput = Double.parseDouble(cells[5].getContents());
+					fldAgrOutput = Double.parseDouble(cells[6].getContents());
+					fldSerOutput = Double.parseDouble(cells[7].getContents());
+					fldTourOutput = Double.parseDouble(cells[8].getContents());
+					fldTechProgRatio = Double.parseDouble(cells[9].getContents());
+					datas.add(new TblIndustyUrbanSce(fldWatershedCode, fldCountyCode, fldDate, fldFarmPop,
+							fldNonFarmPop, fldIndOutput, fldAgrOutput, fldSerOutput, fldTourOutput, fldTechProgRatio));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -220,20 +229,23 @@ public class JxlServiceImpl implements JxlService {
 		List<TblLandUseSce> datas = new ArrayList<TblLandUseSce>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCountyCode = cells[1].getContents();
-				fldDate = cells[2].getContents();
-				fldFarmArea = Double.parseDouble(cells[3].getContents());
-				fldWetlandArea = Double.parseDouble(cells[4].getContents());
-				fldForestArea = Double.parseDouble(cells[5].getContents());
-				fldGrassArea = Double.parseDouble(cells[6].getContents());
-				fldHuYangArea = Double.parseDouble(cells[7].getContents());
-				idfldWaterArea = Double.parseDouble(cells[8].getContents());
-				datas.add(new TblLandUseSce(fldWatershedCode, fldCountyCode, fldDate, fldFarmArea, fldWetlandArea,
-						fldForestArea, fldGrassArea, fldHuYangArea, idfldWaterArea));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCountyCode = cells[1].getContents();
+					fldDate = cells[2].getContents();
+					fldFarmArea = Double.parseDouble(cells[3].getContents());
+					fldWetlandArea = Double.parseDouble(cells[4].getContents());
+					fldForestArea = Double.parseDouble(cells[5].getContents());
+					fldGrassArea = Double.parseDouble(cells[6].getContents());
+					fldHuYangArea = Double.parseDouble(cells[7].getContents());
+					idfldWaterArea = Double.parseDouble(cells[8].getContents());
+					datas.add(new TblLandUseSce(fldWatershedCode, fldCountyCode, fldDate, fldFarmArea, fldWetlandArea,
+							fldForestArea, fldGrassArea, fldHuYangArea, idfldWaterArea));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -270,20 +282,23 @@ public class JxlServiceImpl implements JxlService {
 		List<TblCropPattern> datas = new ArrayList<TblCropPattern>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCountyCode = cells[1].getContents();
-				fldDate = cells[2].getContents();
-				fldCropType = cells[3].getContents();
-				fldCropArea = Double.parseDouble(cells[4].getContents());
-				fldIrrQuota = Double.parseDouble(cells[5].getContents());
-				fldFertilizer = Double.parseDouble(cells[6].getContents());
-				fldYieldPer = Double.parseDouble(cells[7].getContents());
-				fldCropPrice = Double.parseDouble(cells[8].getContents());
-				datas.add(new TblCropPattern(fldWatershedCode, fldCountyCode, fldDate, fldCropType, fldCropArea,
-						fldIrrQuota, fldFertilizer, fldYieldPer, fldCropPrice));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCountyCode = cells[1].getContents();
+					fldDate = cells[2].getContents();
+					fldCropType = cells[3].getContents();
+					fldCropArea = Double.parseDouble(cells[4].getContents());
+					fldIrrQuota = Double.parseDouble(cells[5].getContents());
+					fldFertilizer = Double.parseDouble(cells[6].getContents());
+					fldYieldPer = Double.parseDouble(cells[7].getContents());
+					fldCropPrice = Double.parseDouble(cells[8].getContents());
+					datas.add(new TblCropPattern(fldWatershedCode, fldCountyCode, fldDate, fldCropType, fldCropArea,
+							fldIrrQuota, fldFertilizer, fldYieldPer, fldCropPrice));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -317,17 +332,35 @@ public class JxlServiceImpl implements JxlService {
 		List<TblSocioEconSce> datas = new ArrayList<TblSocioEconSce>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCountyCode = cells[1].getContents();
-				fldDate = cells[2].getContents();
-				fldPerCapGDP = Double.parseDouble(cells[3].getContents());
-				fldGDP = Double.parseDouble(cells[4].getContents());
-				fldPop = Double.parseDouble(cells[5].getContents());
-				datas.add(new TblSocioEconSce(fldWatershedCode, fldCountyCode, fldDate, fldPerCapGDP, fldGDP, fldPop));
+			Sheet[] sheets = rwb.getSheets();
+			Cell[] cells = null;
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 1; row < sheet.getRows(); row++) {
+					cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCountyCode = cells[1].getContents();
+					fldDate = cells[2].getContents();
+					try {
+						fldPerCapGDP = Double.parseDouble(cells[3].getContents());
+					} catch (Exception e) {
+						fldPerCapGDP = 0;
+					}
+					try {
+						fldGDP = Double.parseDouble(cells[4].getContents());
+					} catch (Exception e) {
+						fldGDP = 0;
+					}
+					try {
+						fldPop = Double.parseDouble(cells[5].getContents());
+					} catch (Exception e) {
+						fldPop = 0;
+					}
+					datas.add(new TblSocioEconSce(fldWatershedCode, fldCountyCode, fldDate, fldPerCapGDP, fldGDP,
+							fldPop));
+				}
 			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -359,15 +392,19 @@ public class JxlServiceImpl implements JxlService {
 		List<TblPrefPolicy> datas = new ArrayList<TblPrefPolicy>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCountyCode = cells[1].getContents();
-				fldDate = cells[2].getContents();
-				fldPrefPolicyType = cells[3].getContents();
-				fldAllowance = Double.parseDouble(cells[4].getContents());
-				datas.add(new TblPrefPolicy(fldWatershedCode, fldCountyCode, fldDate, fldPrefPolicyType, fldAllowance));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCountyCode = cells[1].getContents();
+					fldDate = cells[2].getContents();
+					fldPrefPolicyType = cells[3].getContents();
+					fldAllowance = Double.parseDouble(cells[4].getContents());
+					datas.add(new TblPrefPolicy(fldWatershedCode, fldCountyCode, fldDate, fldPrefPolicyType,
+							fldAllowance));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -412,29 +449,33 @@ public class JxlServiceImpl implements JxlService {
 		List<TblHydrEngineering> datas = new ArrayList<TblHydrEngineering>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCountyCode = cells[1].getContents();
-				fldDate = cells[2].getContents();
-				fldMainCannelLeng = Double.parseDouble(cells[3].getContents());
-				fldMainCanWUE = Double.parseDouble(cells[4].getContents());
-				fldBranCannelLeng = Double.parseDouble(cells[5].getContents());
-				fldBranCanWUE = Double.parseDouble(cells[6].getContents());
-				fldDouLeng = Double.parseDouble(cells[7].getContents());
-				fldDouWUE = Double.parseDouble(cells[8].getContents());
-				fldNongLeng = Double.parseDouble(cells[9].getContents());
-				fldNongWUE = Double.parseDouble(cells[10].getContents());
-				fldMaoLeng = Double.parseDouble(cells[11].getContents());
-				fldMaoWUE = Double.parseDouble(cells[12].getContents());
-				fldSprinkingArea = Double.parseDouble(cells[13].getContents());
-				fldSprWUE = Double.parseDouble(cells[14].getContents());
-				fldDropIrrArea = Double.parseDouble(cells[15].getContents());
-				fldDropWUE = Double.parseDouble(cells[16].getContents());
-				datas.add(new TblHydrEngineering(fldWatershedCode, fldCountyCode, fldDate, fldMainCannelLeng,
-						fldMainCanWUE, fldBranCannelLeng, fldBranCanWUE, fldDouLeng, fldDouWUE, fldNongLeng, fldNongWUE,
-						fldMaoLeng, fldMaoWUE, fldSprinkingArea, fldSprWUE, fldDropIrrArea, fldDropWUE));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCountyCode = cells[1].getContents();
+					fldDate = cells[2].getContents();
+					fldMainCannelLeng = Double.parseDouble(cells[3].getContents());
+					fldMainCanWUE = Double.parseDouble(cells[4].getContents());
+					fldBranCannelLeng = Double.parseDouble(cells[5].getContents());
+					fldBranCanWUE = Double.parseDouble(cells[6].getContents());
+					fldDouLeng = Double.parseDouble(cells[7].getContents());
+					fldDouWUE = Double.parseDouble(cells[8].getContents());
+					fldNongLeng = Double.parseDouble(cells[9].getContents());
+					fldNongWUE = Double.parseDouble(cells[10].getContents());
+					fldMaoLeng = Double.parseDouble(cells[11].getContents());
+					fldMaoWUE = Double.parseDouble(cells[12].getContents());
+					fldSprinkingArea = Double.parseDouble(cells[13].getContents());
+					fldSprWUE = Double.parseDouble(cells[14].getContents());
+					fldDropIrrArea = Double.parseDouble(cells[15].getContents());
+					fldDropWUE = Double.parseDouble(cells[16].getContents());
+					datas.add(new TblHydrEngineering(fldWatershedCode, fldCountyCode, fldDate, fldMainCannelLeng,
+							fldMainCanWUE, fldBranCannelLeng, fldBranCanWUE, fldDouLeng, fldDouWUE, fldNongLeng,
+							fldNongWUE, fldMaoLeng, fldMaoWUE, fldSprinkingArea, fldSprWUE, fldDropIrrArea,
+							fldDropWUE));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -467,16 +508,19 @@ public class JxlServiceImpl implements JxlService {
 		List<TblWaterResManSce> datas = new ArrayList<TblWaterResManSce>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCountyCode = cells[1].getContents();
-				fldDate = cells[2].getContents();
-				fldWaterManArea = Double.parseDouble(cells[3].getContents());
-				fldTransCoopArea = Double.parseDouble(cells[4].getContents());
-				datas.add(new TblWaterResManSce(fldWatershedCode, fldCountyCode, fldDate, fldWaterManArea,
-						fldTransCoopArea));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCountyCode = cells[1].getContents();
+					fldDate = cells[2].getContents();
+					fldWaterManArea = Double.parseDouble(cells[3].getContents());
+					fldTransCoopArea = Double.parseDouble(cells[4].getContents());
+					datas.add(new TblWaterResManSce(fldWatershedCode, fldCountyCode, fldDate, fldWaterManArea,
+							fldTransCoopArea));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -510,17 +554,20 @@ public class JxlServiceImpl implements JxlService {
 		List<TblWaterUseCounty> datas = new ArrayList<TblWaterUseCounty>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCountyCode = cells[1].getContents();
-				fldDate = cells[2].getContents();
-				fldWaterUseAgr = Double.parseDouble(cells[3].getContents());
-				fldWaterUseInd = Double.parseDouble(cells[4].getContents());
-				fldWaterUseSer = Double.parseDouble(cells[5].getContents());
-				datas.add(new TblWaterUseCounty(fldWatershedCode, fldCountyCode, fldDate, fldWaterUseAgr,
-						fldWaterUseInd, fldWaterUseSer));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCountyCode = cells[1].getContents();
+					fldDate = cells[2].getContents();
+					fldWaterUseAgr = Double.parseDouble(cells[3].getContents());
+					fldWaterUseInd = Double.parseDouble(cells[4].getContents());
+					fldWaterUseSer = Double.parseDouble(cells[5].getContents());
+					datas.add(new TblWaterUseCounty(fldWatershedCode, fldCountyCode, fldDate, fldWaterUseAgr,
+							fldWaterUseInd, fldWaterUseSer));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -553,17 +600,20 @@ public class JxlServiceImpl implements JxlService {
 		List<TblWaterRightCounty> datas = new ArrayList<TblWaterRightCounty>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCityCode = cells[1].getContents();
-				fldCountyCode = cells[2].getContents();
-				fldCountyCode = cells[3].getContents();
-				fldDate = cells[4].getContents();
-				fldWaterRightRatio = Double.parseDouble(cells[5].getContents());
-				datas.add(new TblWaterRightCounty(fldWatershedCode, fldCityCode, fldCountyCode, fldDate,
-						fldWaterRightRatio));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCityCode = cells[1].getContents();
+					fldCountyCode = cells[2].getContents();
+					fldCountyCode = cells[3].getContents();
+					fldDate = cells[4].getContents();
+					fldWaterRightRatio = Double.parseDouble(cells[5].getContents());
+					datas.add(new TblWaterRightCounty(fldWatershedCode, fldCityCode, fldCountyCode, fldDate,
+							fldWaterRightRatio));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -595,14 +645,17 @@ public class JxlServiceImpl implements JxlService {
 		List<TblMidDownWaterAllo> datas = new ArrayList<TblMidDownWaterAllo>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldDate = cells[1].getContents();
-				fldWaterUseMid = Double.parseDouble(cells[2].getContents());
-				fldWaterUseDown = Double.parseDouble(cells[3].getContents());
-				datas.add(new TblMidDownWaterAllo(fldWatershedCode, fldDate, fldWaterUseMid, fldWaterUseDown));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldDate = cells[1].getContents();
+					fldWaterUseMid = Double.parseDouble(cells[2].getContents());
+					fldWaterUseDown = Double.parseDouble(cells[3].getContents());
+					datas.add(new TblMidDownWaterAllo(fldWatershedCode, fldDate, fldWaterUseMid, fldWaterUseDown));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -635,15 +688,19 @@ public class JxlServiceImpl implements JxlService {
 		List<TblWaterAlloCounty> datas = new ArrayList<TblWaterAlloCounty>();
 		try {
 			rwb = Workbook.getWorkbook(fis);
-			Sheet sheet = rwb.getSheet(0);
-			for (int row = 0; row < sheet.getRows(); row++) {
-				Cell[] cells = sheet.getRow(row);
-				fldWatershedCode = cells[0].getContents();
-				fldCountyCode = cells[1].getContents();
-				fldDate = cells[2].getContents();
-				fldSurfaceWater = Double.parseDouble(cells[3].getContents());
-				fldGroundWater = Double.parseDouble(cells[4].getContents());
-				datas.add(new TblWaterAlloCounty(fldWatershedCode, fldCountyCode, fldDate, fldSurfaceWater, fldGroundWater));
+			Sheet[] sheets = rwb.getSheets();
+			for (int i = 0; i < sheets.length; i++) {
+				Sheet sheet = rwb.getSheet(i);
+				for (int row = 0; row < sheet.getRows(); row++) {
+					Cell[] cells = sheet.getRow(row);
+					fldWatershedCode = cells[0].getContents();
+					fldCountyCode = cells[1].getContents();
+					fldDate = cells[2].getContents();
+					fldSurfaceWater = Double.parseDouble(cells[3].getContents());
+					fldGroundWater = Double.parseDouble(cells[4].getContents());
+					datas.add(new TblWaterAlloCounty(fldWatershedCode, fldCountyCode, fldDate, fldSurfaceWater,
+							fldGroundWater));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

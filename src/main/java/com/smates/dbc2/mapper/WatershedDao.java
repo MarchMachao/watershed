@@ -38,11 +38,23 @@ public interface WatershedDao {
 	public void addTblClimateScenarioYear(TblClimateScenarioYear tblClimateScenarioYear);
 	
 	/**
+	 * 删除气候情景数据表(年)数据
+	 * @param watershedCode
+	 */
+	public void deleteTblClimateScenarioYear(String watershedCode);
+	
+	/**
 	 * 添加气候情景数据表(月)数据
 	 * 
 	 * @param tblClimateScenarioMonth
 	 */
 	public void addTblClimateScenarioMonth(TblClimateScenarioMonth tblClimateScenarioMonth);
+	
+	/**
+	 * 删除气候情景数据表(月)数据
+	 * @param watershedCode
+	 */
+	public void deleteTblClimateScenarioMonth(String watershedCode);
 	
 	/**
 	 * 添加产业与城市发展情景
@@ -52,11 +64,23 @@ public interface WatershedDao {
 	public void addTblIndustyUrbanSce(TblIndustyUrbanSce tblInodustyUrbanSce);
 	
 	/**
+	 * 删除产业与城市发展情景
+	 * @param watershedCode
+	 */
+	public void deleteTblIndustyUrbanSce(String watershedCode);
+	
+	/**
 	 * 添加土地类型
 	 * 
 	 * @param tblLandUseSce
 	 */
 	public void addtblLandUseSce(TblLandUseSce tblLandUseSce);
+	
+	/**
+	 * 删除土地类型
+	 * @param watershedCode
+	 */
+	public void deletetblLandUseSce(String watershedCode);
 
 	/**
 	 * 添加种植结构数据
@@ -66,11 +90,23 @@ public interface WatershedDao {
 	public void addtblCropPattern(TblCropPattern tblCropPattern);
 	
 	/**
+	 * 删除种植结构数据
+	 * @param watershedCode
+	 */
+	public void deletetblCropPattern(String watershedCode);
+	
+	/**
 	 * 添加GDP发展数据
 	 * 
 	 * @param tblSocioEconSce
 	 */
 	public void addtblSocioEconSce(TblSocioEconSce tblSocioEconSce);
+	
+	/**
+	 * 删除GDP发展数据
+	 * @param watershedCode
+	 */
+	public void deletetblSocioEconSce(String watershedCode);
 
 	/**
 	 * 添加优惠政策
@@ -80,11 +116,23 @@ public interface WatershedDao {
 	public void addtblPrefPolicy(TblPrefPolicy tblPrefPolicy);
 	
 	/**
+	 * 删除优惠政策
+	 * @param watershedCode
+	 */
+	public void deletetblPrefPolicy(String watershedCode);
+	
+	/**
 	 * 添加水利工程数据
 	 * 
 	 * @param tblHydrEngineering
 	 */
 	public void addtblHydrEngineering(TblHydrEngineering tblHydrEngineering);
+	
+	/**
+	 * 删除水利工程数据
+	 * @param watershedCode
+	 */
+	public void deletetblHydrEngineering(String watershedCode);
 
 	/**
 	 * 添加水资源面积数据
@@ -92,6 +140,12 @@ public interface WatershedDao {
 	 * @param tblWaterResManSce
 	 */
 	public void addtblWaterResManSce(TblWaterResManSce tblWaterResManSce);
+	
+	/**
+	 * 删除水资源面积数据
+	 * @param watershedCode
+	 */
+	public void deletetblWaterResManSce(String watershedCode);
 
 	/**
 	 * 添加县区三产用水量数据
@@ -99,6 +153,12 @@ public interface WatershedDao {
 	 * @param tblWaterUseCounty
 	 */
 	public void addtblWaterUseCounty(TblWaterUseCounty tblWaterUseCounty);
+	
+	/**
+	 * 删除县区三产用水量数据
+	 * @param watershedCode
+	 */
+	public void deletetblWaterUseCounty(String watershedCode);
 
 	/**
 	 * 添加县区水权分配数据
@@ -106,6 +166,12 @@ public interface WatershedDao {
 	 * @param tblWaterRightCounty
 	 */
 	public void addtblWaterRightCounty(TblWaterRightCounty tblWaterRightCounty);
+	
+	/**
+	 * 删除县区水权分配数据
+	 * @param watershedCode
+	 */
+	public void deletetblWaterRightCounty(String watershedCode);
 
 	/**
 	 * 添加流域中下游分配数据
@@ -113,6 +179,12 @@ public interface WatershedDao {
 	 * @param tblMidDownWaterAllo
 	 */
 	public void addtblMidDownWaterAllo(TblMidDownWaterAllo tblMidDownWaterAllo);
+	
+	/**
+	 * 删除流域中下游分配数据
+	 * @param watershedCode
+	 */
+	public void deletetblMidDownWaterAllo(String watershedCode);
 
 	/**
 	 * 添加县区用水量数据
@@ -120,6 +192,12 @@ public interface WatershedDao {
 	 * @param tblWaterAlloCounty
 	 */
 	public void addtblWaterAlloCounty(TblWaterAlloCounty tblWaterAlloCounty);
+	
+	/**
+	 * 删除县区用水量数据
+	 * @param watershedCode
+	 */
+	public void deletetblWaterAlloCounty(String watershedCode);
 
 
 	/**

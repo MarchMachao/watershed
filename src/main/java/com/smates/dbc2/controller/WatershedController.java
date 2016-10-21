@@ -72,8 +72,7 @@ public class WatershedController extends BaseController{
 		// 保存流域基本信息(流域名,流域描述)
 		watershedService.addWatershedInfo(id, name,describe);
 		// 解析excel表格并存储
-		StoreExcelData(tblClimateScenarioYear, tblClimateScenarioMonth, tblIndustyUrbanSce, tblLandUseSce,
-				tblCropPattern);
+		StoreExcelData(id,tblClimateScenarioYear, tblClimateScenarioMonth, tblIndustyUrbanSce, tblLandUseSce, tblCropPattern, tblSocioEconSce, tblPrefPolicy, tblHydrEngineering, tblWaterResManSce, tblWaterUseCounty, tblWaterRightCounty, tblMidDownWaterAllo, tblWaterAlloCounty);
 		return "watershedlist.ftl";
 	}
 	
@@ -96,7 +95,6 @@ public class WatershedController extends BaseController{
 	@ResponseBody
 	@RequestMapping(value="getWatershedByName",method=RequestMethod.GET)
 	public DataGrideRow<Watershed> getWatershedByName(@RequestParam(defaultValue = "1") int page, String name, int rows){
-		logger.info(page+","+rows+","+name);
 		return watershedService.getWatershedFormateDataGride(name,page,rows);
 	}
 	

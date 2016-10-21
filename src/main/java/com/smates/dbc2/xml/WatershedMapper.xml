@@ -17,6 +17,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"a_tblClimateScenarioYear"
 		VALUES(#{id},#{fldWatershedCode},#{fldCountyCode},#{fldCRPType},#{fldDate},#{fldPrecipitation},#{fldAvgTemperature},#{fldMaxTemp},#{fldMinTemp})
 	</insert>
+	
+	<!-- 删除气候情景数据表(年)数据 -->
+	<delete id="deleteTblClimateScenarioYear" parameterType="String">
+		delete from "a_tblClimateScenarioYear" where "a_tblClimateScenarioYear"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:存储气候情景数据表(月)数据 example sql: INSERT INTO "a_tblClimateScenarioMonth" 
 		VALUES ('235434', '45', '345', '45', '345', 345, 345, 345, 45); -->
@@ -25,6 +30,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INTO "a_tblClimateScenarioMonth"
 		VALUES(#{id},#{fldWatershedCode},#{fldCountyCode},#{fldCRPType},#{fldDate},#{fldPrecipitation},#{fldAvgTemperature},#{fldMaxTemp},#{fldMinTemp})
 	</insert>
+	
+	<!-- 删除气候情景数据表(月)数据  -->
+	<delete id="deleteTblClimateScenarioMonth" parameterType="String">
+		delete from "a_tblClimateScenarioMonth" where "a_tblClimateScenarioMonth"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:存储产业与城市发展情景 -->
 	<insert id="addTblIndustyUrbanSce" parameterType="TblIndustyUrbanSce">
@@ -32,6 +42,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"a_tblIndustyUrbanSce"
 		VALUES(#{id},#{fldWatershedCode},#{fldCountyCode},#{fldDate},#{fldFarmPop},#{fldNonFarmPop},#{fldIndOutput},#{fldAgrOutput},#{fldSerOutput},#{fldTourOutput},#{fldTechProgRatio})
 	</insert>
+	
+	<!-- 删除产业与城市发展情景   -->
+	<delete id="deleteTblIndustyUrbanSce" parameterType="String">
+		delete from "a_tblIndustyUrbanSce" where "a_tblIndustyUrbanSce"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:添加土地类型 -->
 	<insert id="addtblLandUseSce" parameterType="TblLandUseSce">
@@ -42,6 +57,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{ fldForestArea }, #{ fldGrassArea }, #{ fldHuYangArea }, #{
 		idfldWaterArea })
 	</insert>
+	
+	<!-- 删除土地类型   -->
+	<delete id="deletetblLandUseSce" parameterType="String">
+		delete from "a_tblLandUseSce" where "a_tblLandUseSce"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:添加种植结构数据 -->
 	<insert id="addtblCropPattern" parameterType="TblCropPattern">
@@ -61,6 +81,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{ fldYieldPer },
 		#{ fldCropPrice })
 	</insert>
+	
+	<!-- 删除种植结构数据   -->
+	<delete id="deletetblCropPattern" parameterType="String">
+		delete from "a_tblCropPattern" where "a_tblCropPattern"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:添加GDP发展数据 -->
 	<insert id="addtblSocioEconSce" parameterType="TblSocioEconSce">
@@ -77,6 +102,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{ fldPop
 		})
 	</insert>
+	
+	<!-- 删除种植结构数据   -->
+	<delete id="deletetblSocioEconSce" parameterType="String">
+		delete from "a_tblSocioEconSce" where "a_tblSocioEconSce"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:添加优惠政策 -->
 	<insert id="addtblPrefPolicy" parameterType="TblPrefPolicy">
@@ -86,6 +116,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		fldCountyCode }, #{ fldDate }, #{ fldPrefPolicyType }, #{ fldAllowance
 		})
 	</insert>
+	
+	<!-- 删除优惠政策   -->
+	<delete id="deletetblPrefPolicy" parameterType="String">
+		delete from "a_tblPrefPolicy" where "a_tblPrefPolicy"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:添加水利工程数据 -->
 	<insert id="addtblHydrEngineering" parameterType="TblHydrEngineering">
@@ -114,6 +149,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{ fldDropIrrArea },
 		#{ fldDropWUE })
 	</insert>
+	
+	<!-- 删除优惠政策   -->
+	<delete id="deletetblHydrEngineering" parameterType="String">
+		delete from "a_tblHydrEngineering" where "a_tblHydrEngineering"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:添加水资源面积数据 -->
 	<insert id="addtblWaterResManSce" parameterType="TblWaterResManSce">
@@ -123,6 +163,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		fldCountyCode }, #{ fldDate }, #{ fldWaterManArea }, #{
 		fldTransCoopArea })
 	</insert>
+	
+	<!-- 删除水资源面积数据   -->
+	<delete id="deletetblWaterResManSce" parameterType="String">
+		delete from "a_tblWaterResManSce" where "a_tblWaterResManSce"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:添加县区三产用水量数据 -->
 	<insert id="addtblWaterUseCounty" parameterType="TblWaterUseCounty">
@@ -132,6 +177,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		fldCountyCode }, #{ fldDate }, #{ fldWaterUseAgr }, #{ fldWaterUseInd
 		},#{ fldWaterUseSer })
 	</insert>
+	
+	<!-- 删除县区三产用水量数据   -->
+	<delete id="deletetblWaterUseCounty" parameterType="String">
+		delete from "a_tblWaterUseCounty" where "a_tblWaterUseCounty"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:添加县区水权分配数据 -->
 	<insert id="addtblWaterRightCounty" parameterType="TblWaterRightCounty">
@@ -141,6 +191,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		fldCityCode }, #{ fldCountyCode }, #{ fldDate }, #{ fldWaterRightRatio
 		})
 	</insert>
+	
+	<!-- 删除县区水权分配数据   -->
+	<delete id="deletetblWaterRightCounty" parameterType="String">
+		delete from "a_tblWaterRightCounty" where "a_tblWaterRightCounty"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:添加流域中下游水分配数据 -->
 	<insert id="addtblMidDownWaterAllo" parameterType="TblMidDownWaterAllo">
@@ -149,6 +204,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{ id }, #{ fldWatershedCode }, #{
 		fldDate }, #{ fldWaterUseMid }, #{ fldWaterUseDown })
 	</insert>
+	
+	<!-- 删除流域中下游水分配数据   -->
+	<delete id="deletetblMidDownWaterAllo" parameterType="String">
+		delete from "a_tblMidDownWaterAllo" where "a_tblMidDownWaterAllo"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:添加县区用水量数据 -->
 	<insert id="addtblWaterAlloCounty" parameterType="TblWaterAlloCounty">
@@ -158,6 +218,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		fldCountyCode }, #{ fldDate }, #{ fldSurfaceWater }, #{ fldGroundWater
 		})
 	</insert>
+	
+	<!-- 删除县区用水量数据   -->
+	<delete id="deletetblWaterAlloCounty" parameterType="String">
+		delete from "a_tblWaterAlloCounty" where "a_tblWaterAlloCounty"."fldWatershedCode" = #{value}
+	</delete>
 
 	<!-- desc:根据流域名称模糊查找流域数据 -->
 	<select id="getWatershedByName" parameterType="com.smates.dbc2.vo.WatershedParaVo"
