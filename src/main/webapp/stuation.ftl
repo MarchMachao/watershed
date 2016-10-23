@@ -73,21 +73,31 @@
 
 								<div class="row-fluid">
 									<div class="span2"></div>
-											<label style="margin-top: 10px;">
-										<span>选择区县</span>
-										<select id="IPCC-selectCounty">
-											<option value="620702">甘州</option>
-											<option value="620723">临泽</option>
-											<option value="620724">高台</option>
-											<option value="152923">额济纳旗</option>
-											<option value="620921">金塔</option>
-											<option value="620722">民乐</option>
-											<option value="620721">肃南</option>
-											<option value="620902">肃州</option>
-											<option value="620200">嘉峪关市</option>
-											<option value="632222">祁连</option>
-										</select>
-									</label>
+										<label style="margin-top: 10px;">
+											<span>选择区县</span>
+											<select id="IPCC-selectCounty">
+												<option value="620702">甘州</option>
+												<option value="620723">临泽</option>
+												<option value="620724">高台</option>
+												<option value="152923">额济纳旗</option>
+												<option value="620921">金塔</option>
+												<option value="620722">民乐</option>
+												<option value="620721">肃南</option>
+												<option value="620902">肃州</option>
+												<option value="620200">嘉峪关市</option>
+												<option value="632222">祁连</option>
+											</select>
+											<span>选择年份</span>
+											<select id="IPCC-selectYears">
+												<option value="2016">2016</option>
+												<option value="2015">2015</option>
+												<option value="2014">2014</option>
+												<option value="2013">2013</option>
+												<option value="2012">2012</option>
+												<option value="2011">2011</option>
+												<option value="2010">2010</option>
+											</select>
+										</label>
 									<div class="span1" style="margin-left: 0px;"></div>
 									<div class="span10">
 										<h4 class="header smaller lighter blue">
@@ -162,11 +172,11 @@
 										<input type="text" class="input-mini" id="temp_inc_ratio" value="2" />%
 									</div>
 								</div>
-								<div class="form-actions" align="center">
+									<div class="form-actions" align="center" style="background-color: #FFFFFF;">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
 											<button class="btn btn-small btn-success" type="button" id="climate_submit">确定</button> &nbsp;
 											<button class="btn btn-small btn-warning" type="reset" id="climate_reset">重置</button>
-										</div>
+									</div>
 							</div>
 
 							<!-- 设置产业与城市发展情景 -->
@@ -186,6 +196,16 @@
 											<option value="620902">肃州</option>
 											<option value="620200">嘉峪关市</option>
 											<option value="632222">祁连</option>
+										</select>
+										<span>选择年份</span>
+										<select id="industry-selectYears">
+											<option value="2016">2016</option>
+											<option value="2015">2015</option>
+											<option value="2014">2014</option>
+											<option value="2013">2013</option>
+											<option value="2012">2012</option>
+											<option value="2011">2011</option>
+											<option value="2010">2010</option>
 										</select>
 									</label>
 									<div class="span1" style="margin-left: 0px;"></div>
@@ -311,7 +331,7 @@
 									</div>
 									<div class="span1"></div>
 								</div>
-								<div class="form-actions" align="center">
+								<div class="form-actions" align="center" style="background-color: #FFFFFF;">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
 											<button class="btn btn-small btn-success" type="button" id="IndUrbanScePara_submit">确定</button> &nbsp;
 											<button class="btn btn-small btn-warning" type="reset" id="climate_reset">重置</button>
@@ -335,6 +355,16 @@
 											<option value="620902">肃州</option>
 											<option value="620200">嘉峪关市</option>
 											<option value="632222">祁连</option>
+										</select>
+										<span>选择年份</span>
+										<select id="water-selectYears">
+											<option value="2016">2016</option>
+											<option value="2015">2015</option>
+											<option value="2014">2014</option>
+											<option value="2013">2013</option>
+											<option value="2012">2012</option>
+											<option value="2011">2011</option>
+											<option value="2010">2010</option>
 										</select>
 									</label>
 										
@@ -433,7 +463,7 @@
 
 											</div>
 											<div class="span4">
-												<span>943.08(km)</span>
+												<input type="text" class="input" id="ganQu_text" value="943.08" style="width: 60px;"/>km
 												<span style="margin-bottom:8px;margin-top:0px;float:right">
 												<input type="spinner" class="input" id="ganQu_spinner" value="40"/>%
 											</span>
@@ -454,7 +484,7 @@
 
 											</div>
 											<div class="span4">
-												<span>1033.63(km)</span>
+												<input type="text" class="input" id="zhiQu_text" value="1033.63" style="width: 60px;"/>km
 												<span style="float:right">
 												<input type="spinner" class="input" id="zhiQu_spinner" value="45"/>%
 											</span>
@@ -475,8 +505,7 @@
 
 											</div>
 											<div class="span4">
-
-												<span>2318.42(km)</span>
+												<input type="text" class="input" id="douQu_text" value="2318.42" style="width: 60px;"/>km
 												<span style="float:right">
 												<input type="spinner" class="input" id="douQu_spinner" value="90"/>%
 											</span>
@@ -498,7 +527,7 @@
 
 											</div>
 											<div class="span4">
-												<span>2.42(km)</span>
+												<input type="text" class="input" id="nongQu_text" value="2.42" style="width: 60px;"/>km
 												<span style="float:right">
 													<input type="spinner" class="input" id="nongQu_spinner" value="0"/>%
 												</span>
@@ -519,7 +548,7 @@
 
 											</div>
 											<div class="span4">
-												<span>0(km)</span>
+												<input type="text" class="input" id="maoQu_text" value="0" style="width: 60px;"/>km
 												<span style="float:right">
 												<input type="spinner" class="input" id="maoQu_spinner" value="0"/>%
 											</span>
@@ -630,7 +659,7 @@
 									<div class="span2"></div>
 								</div>
 								
-								<div class="form-actions" align="center">
+								<div class="form-actions" align="center" style="background-color: #FFFFFF;">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
 											<button class="btn btn-small btn-success" type="button" id="economy_submit">确定</button> &nbsp;
 											<button class="btn btn-small btn-warning" type="reset" id="economy_reset">重置</button>
@@ -657,6 +686,16 @@
 											<option value="620902">肃州</option>
 											<option value="620200">嘉峪关市</option>
 											<option value="632222">祁连</option>
+										</select>
+										<span>选择年份</span>
+										<select id="land-selectYears">
+											<option value="2016">2016</option>
+											<option value="2015">2015</option>
+											<option value="2014">2014</option>
+											<option value="2013">2013</option>
+											<option value="2012">2012</option>
+											<option value="2011">2011</option>
+											<option value="2010">2010</option>
 										</select>
 									</label>
 											<h4 class="header smaller lighter blue"><i class="icon-credit-card"></i>耕地面积变化</h4>
@@ -819,7 +858,7 @@
 												</div>
 									<div class="span1"></div>
 								</div>
-								<div class="form-actions" align="center">
+								<div class="form-actions" align="center" style="background-color: #FFFFFF;">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
 											<button class="btn btn-small btn-success" type="button" id="landuse_submit">确定</button> &nbsp;
 											<button class="btn btn-small btn-warning" type="reset" id="landuse_reset">重置</button>
@@ -1041,7 +1080,7 @@
 											</div>
 
 										</fieldset>
-										<div class="form-actions" align="center">
+										<div class="form-actions" align="center" style="background-color: #FFFFFF;">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
 											<button class="btn btn-small btn-success" type="button" id="climate_submit">确定</button> &nbsp;
 											<button class="btn btn-small btn-warning" type="reset" id="climate_reset">重置</button>
@@ -1126,10 +1165,15 @@
 							if(data.isEmpty!="1"){
 							document.getElementById("GDPInc_spinner1").value=data.perCapGDPR,
 							document.getElementById("ganQu_spinner").value=data.fldMainCanWUE,
+							document.getElementById("ganQu_text").value=data.fldMainCannelLeng,
 							document.getElementById("zhiQu_spinner").value=data.fldBranCanWUE,
+							document.getElementById("zhiQu_text").value=data.fldBranCannelLeng,
 							document.getElementById("douQu_spinner").value=data.fldDouWUE,
+							document.getElementById("douQu_text").value=data.fldDouLeng,
 							document.getElementById("nongQu_spinner").value=data.fldNongWUE,
+							document.getElementById("nongQu_text").value=data.fldNongLeng,
 							document.getElementById("maoQu_spinner").value=data.fldMaoWUE,
+							document.getElementById("maoQu_text").value=data.fldMaoLeng,
 							document.getElementById("economy-diGuanArea").value=data.fldSprinkingArea,
 							document.getElementById("economy-penGuanArea").value=data.fldDropIrrArea,
 							document.getElementById("economy-industry").value=data.fldIndustryAllowance,
@@ -1960,15 +2004,15 @@
 					"projectId" : "${projectId}",
 					"countryId" : document.getElementById("water-selectCounty").value,
 					"perCapGDPR" : document.getElementById("GDPInc_spinner1").value,
-					"fldMainCannelLeng": "943.08",
+					"fldMainCannelLeng": document.getElementById("ganQu_text").value,
 					"fldMainCanWUE" : document.getElementById("ganQu_spinner").value,
-					"fldBranCannelLeng" : "1033.63",
+					"fldBranCannelLeng" : document.getElementById("zhiQu_text").value,
 					"fldBranCanWUE" : document.getElementById("zhiQu_spinner").value,
-					"fldDouLeng" : "2318.42",
+					"fldDouLeng" : document.getElementById("douQu_text").value,
 					"fldDouWUE":document.getElementById("douQu_spinner").value,
-					"fldNongLeng" : "2.42",
+					"fldNongLeng" : document.getElementById("nongQu_text").value,,
 					"fldNongWUE" : document.getElementById("nongQu_spinner").value,
-					"fldMaoLeng" : "0",
+					"fldMaoLeng" : document.getElementById("maoQu_text").value,
 					"fldMaoWUE" : document.getElementById("maoQu_spinner").value,
 					"fldSprinkingArea":document.getElementById("economy-diGuanArea").value,
 					"fldDropIrrArea":document.getElementById("economy-penGuanArea").value,
