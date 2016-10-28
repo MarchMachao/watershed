@@ -316,10 +316,10 @@ li {
 					&nbsp;
 					<button class="btn btn-warning" id="reset">重置</button>
 				</div>
-				<div class="col-sm-3" style="text-align: right">
-					<button class="btn btn-primary" type="button" id="show">
-						展示您创建的目标体系结构</button>
-				</div>
+<!-- 				<div class="col-sm-3" style="text-align: right"> -->
+<!-- 					<button class="btn btn-primary" type="button" id="show"> -->
+<!-- 						展示您创建的目标体系结构</button> -->
+<!-- 				</div> -->
 			</div>
 
 			<div class="row" style="margin-top: 5px">
@@ -517,6 +517,7 @@ li {
 
 			}, function(data) {
 				alert(data.content);
+				drawtree();
 			})
 		})
 	</script>

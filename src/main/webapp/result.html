@@ -3,10 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <title>可持续性评价</title>
+
+<script src="js/jquery.min.js"></script>
+
 </head>
 <body>
 <h1>用户参数设置列表</h1>
 <hr />
-<button type="button" onclick="window.location='GIS.html'">可持续评价</button>
+<div style="margin: 10px;">
+	输入参数：
+	<input type="text" id="input_para_1" style="width: 60px;"/>
+	<input type="text" id="input_para_2" style="width: 60px;"/>
+	<button id="input_btn">输入</button>
+	<input type="text" id="input_return" />
+</div>
+<div style="margin: 10px;">
+	查询状态：
+	<button id="query_btn">查询</button>
+	<input type="text" id="query_return" />
+</div>
+<div style="margin: 10px;">
+	输出参数：
+	<button id="output_btn">输出</button>
+	<input type="text" id="output_return" />
+</div>
 </body>
+<script>
+$("#input_btn").on("click",function(){
+	$.post(
+		"inputdatawebservice.do",
+		{
+			"a":document.getElementById("input_para_1").value,
+			"b":document.getElementById("input_para_2").value
+		},function(data){
+			document.getElementById("input_return").value=JSON.stringify(data);
+		}
+	);
+});
+
+$("#query_btn").on("click",function(){
+	$.post(
+		"querystatewebservice.do",
+		{
+		},function(data){
+			document.getElementById("query_return").value=JSON.stringify(data);
+		}
+	);
+});
+	
+$("#output_btn").on("click",function(){
+	$.post(
+		"outputdatawebservice.do",
+		{
+		},function(data){
+			document.getElementById("output_return").value=JSON.stringify(data);
+		}
+	);
+});
+</script>
 </html>
