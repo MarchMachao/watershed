@@ -648,12 +648,14 @@
 					width: '60px'
 				})
 				.on('change', function() {
-					var ratio_1 = this.value;
+					var ratio_1 = $("#water_county_ratio_2_1").val();
 					var totalWater = $("#water_county_total2").val();
-					var ratio_2 = ratio_3 = ratio_4 = (100 - ratio_1) / 3;
-					$("#water_county_ratio_2_2").val(ratio_2);
-					$("#water_county_ratio_2_3").val(ratio_3);
-					$("#water_county_ratio_2_4").val(ratio_4);
+					var ratio_2 = $("#water_county_ratio_2_2").val();
+					var ratio_3 = $("#water_county_ratio_2_2").val();
+					var ratio_4 = $("#water_county_ratio_2_2").val();
+//					$("#water_county_ratio_2_2").val(ratio_2);
+//					$("#water_county_ratio_2_3").val(ratio_3);
+//					$("#water_county_ratio_2_4").val(ratio_4);
 					$("#water_county_distribution2_1").val((ratio_1 / 100) * totalWater);
 					$("#water_county_distribution2_2").val((ratio_2 / 100) * totalWater);
 					$("#water_county_distribution2_3").val((ratio_3 / 100) * totalWater);
@@ -670,12 +672,13 @@
 					width: '60px'
 				})
 				.on('change', function() {
-					var ratio_2 = this.value;
 					var ratio_1 = $("#water_county_ratio_2_1").val();
 					var totalWater = $("#water_county_total2").val();
-					var ratio_3 = ratio_4 = (100 - ratio_1 - ratio_2) / 2;
-					$("#water_county_ratio_2_3").val(ratio_3);
-					$("#water_county_ratio_2_4").val(ratio_4);
+					var ratio_2 = $("#water_county_ratio_2_2").val();
+					var ratio_3 = $("#water_county_ratio_2_2").val();
+					var ratio_4 = $("#water_county_ratio_2_2").val();
+//					$("#water_county_ratio_2_3").val(ratio_3);
+//					$("#water_county_ratio_2_4").val(ratio_4);
 					$("#water_county_distribution2_1").val((ratio_1 / 100) * totalWater);
 					$("#water_county_distribution2_2").val((ratio_2 / 100) * totalWater);
 					$("#water_county_distribution2_3").val((ratio_3 / 100) * totalWater);
@@ -692,12 +695,12 @@
 					width: '60px'
 				})
 				.on('change', function() {
-					var ratio_3 = this.value;
 					var ratio_1 = $("#water_county_ratio_2_1").val();
-					var ratio_2 = $("#water_county_ratio_2_1").val();
 					var totalWater = $("#water_county_total2").val();
-					var ratio_4 = (100 - ratio_1 - ratio_2 - ratio_3);
-					$("#water_county_ratio_2_4").val(ratio_4);
+					var ratio_2 = $("#water_county_ratio_2_2").val();
+					var ratio_3 = $("#water_county_ratio_2_2").val();
+					var ratio_4 = $("#water_county_ratio_2_2").val();
+//					$("#water_county_ratio_2_4").val(ratio_4);
 					$("#water_county_distribution2_1").val((ratio_1 / 100) * totalWater);
 					$("#water_county_distribution2_2").val((ratio_2 / 100) * totalWater);
 					$("#water_county_distribution2_3").val((ratio_3 / 100) * totalWater);
@@ -715,12 +718,11 @@
 					width: '60px'
 				})
 				.on('change', function() {
-					var ratio_4 = this.value;
-					var ratio_1 = ratio_2 = ratio_3 = (100 - ratio_4) / 3;
+					var ratio_1 = $("#water_county_ratio_2_1").val();
 					var totalWater = $("#water_county_total2").val();
-					$("#water_county_ratio_2_1").val(ratio_1);
-					$("#water_county_ratio_2_2").val(ratio_2);
-					$("#water_county_ratio_2_3").val(ratio_3);
+					var ratio_2 = $("#water_county_ratio_2_2").val();
+					var ratio_3 = $("#water_county_ratio_2_2").val();
+					var ratio_4 = $("#water_county_ratio_2_2").val();
 					$("#water_county_distribution2_1").val((ratio_1 / 100) * totalWater);
 					$("#water_county_distribution2_2").val((ratio_2 / 100) * totalWater);
 					$("#water_county_distribution2_3").val((ratio_3 / 100) * totalWater);

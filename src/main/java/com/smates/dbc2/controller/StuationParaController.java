@@ -1,6 +1,5 @@
 package com.smates.dbc2.controller;
 
-import org.codehaus.jackson.map.deser.ValueInstantiators.Base;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -149,8 +148,10 @@ public class StuationParaController {
 
 	/**
 	 * 获取情景参数
-	 * @param tab tab标签index
-	 * @param projectId 
+	 * 
+	 * @param tab
+	 *            tab标签index
+	 * @param projectId
 	 * @param countryId
 	 * @return
 	 */
@@ -159,16 +160,16 @@ public class StuationParaController {
 	public BaseClass getSceParaByProjectIdAndCountryId(String tab, String projectId, String countryId) {
 		BaseClass baseClass = null;
 		switch (tab) {
-		case "1"://气候情景参数
+		case "1":// 气候情景参数
 			baseClass = watershedParaService.getTblClimateSceParaByProjectIdAndCountryId(projectId, countryId);
 			break;
-		case "2"://产业与城市化
+		case "2":// 产业与城市化
 			baseClass = watershedParaService.getTblIndUrbanSceParaByProjectIdAndCountryId(projectId, countryId);
 			break;
-		case "3"://社会经济
+		case "3":// 社会经济
 			baseClass = watershedParaService.getTbSocioEconomySceParaByProjectIdAndCountryId(projectId, countryId);
 			break;
-		case "4"://土地资源利用
+		case "4":// 土地资源利用
 			baseClass = watershedParaService.getTbLanduseSceParaByProjectIdAndCountryId(projectId, countryId);
 			break;
 		case "5":
@@ -187,6 +188,7 @@ public class StuationParaController {
 	
 	/**
 	 * 保存水资源管理情景县区用水量参数表
+	 * 
 	 * @param fldWatershedCode
 	 * @param fldProjectCode
 	 * @param fldCountyCode
@@ -197,13 +199,16 @@ public class StuationParaController {
 	 */
 	@ResponseBody
 	@RequestMapping(value="saveTbWaterManSceCWPara",method=RequestMethod.POST)
-	public BaseMsg saveTbWaterManSceCWPara(String fldWatershedCode,String fldProjectCode,String fldCountyCode,String fldDate,String fldSurfaceWater,String fldGroundWater){
-		watershedParaService.addTbWaterManSceCWPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate,Double.parseDouble(fldSurfaceWater), Double.parseDouble(fldGroundWater));
+	public BaseMsg saveTbWaterManSceCWPara(String fldWatershedCode, String projectId, String countryId, String fldDate,
+			String fldSurfaceWater, String fldGroundWater) {
+		watershedParaService.addTbWaterManSceCWPara(fldWatershedCode, projectId, countryId, fldDate,
+				Double.parseDouble(fldSurfaceWater), Double.parseDouble(fldGroundWater));
 		return new BaseMsg(true, "保存县区用水量成功");
 	}
 	
 	/**
 	 * 水资源管理情景流域中下游用水量参数表
+	 * 
 	 * @param fldWatershedCode
 	 * @param fldProjectCode
 	 * @param fldCountyCode
@@ -221,6 +226,7 @@ public class StuationParaController {
 	
 	/**
 	 * 水资源管理情景县区水权分配参数表
+	 * 
 	 * @param fldWatershedCode
 	 * @param fldProjectCode
 	 * @param fldCountyCode
