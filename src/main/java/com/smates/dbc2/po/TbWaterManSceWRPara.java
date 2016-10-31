@@ -1,13 +1,10 @@
 package com.smates.dbc2.po;
 
-import java.util.UUID;
-
 /**
  * @author machao march.machao@gmail.com
  * @version 创建时间：2016年9月29日 上午11:16:21 类说明
  */
 public class TbWaterManSceWRPara {
-	private String id;
 	private String fldWatershedCode;
 	private String fldProjectCode;
 	private String fldCountyCode;
@@ -15,14 +12,6 @@ public class TbWaterManSceWRPara {
 	private double fldWaterRightRatio;
 
 	public TbWaterManSceWRPara() {
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getFldWatershedCode() {
@@ -67,7 +56,6 @@ public class TbWaterManSceWRPara {
 
 	public TbWaterManSceWRPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode, String fldDate,
 			double fldWaterRightRatio) {
-		this.id = UUID.randomUUID().toString();
 		this.fldWatershedCode = fldWatershedCode;
 		this.fldProjectCode = fldProjectCode;
 		this.fldCountyCode = fldCountyCode;

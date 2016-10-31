@@ -40,7 +40,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"a_tblIndUrbanScePara" where "a_tblIndUrbanScePara"."projectId" =
 		#{projectId} and "a_tblIndUrbanScePara"."countryId" = #{countryId}
 	</delete>
-	
+
 	<!-- 查找产业与城市发展情景参数 -->
 	<select id="getTblIndUrbanSceParaByProjectIdAndCountryId"
 		parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId" resultType="TblIndUrbanScePara">
@@ -63,7 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"a_tbLanduseScePara" where "a_tbLanduseScePara"."projectId" =
 		#{projectId} and "a_tbLanduseScePara"."countryId" = #{countryId}
 	</delete>
-	
+
 	<!-- 查找土地资源利用情景参数 -->
 	<select id="getTbLanduseSceParaByProjectIdAndCountryId"
 		parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId" resultType="TbLanduseScePara">
@@ -87,7 +87,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{projectId} and
 		"a_tbLanduseScePara"."countryId" = #{countryId}
 	</delete>
-	
+
 	<!-- 查找土地资源利用情景参数 -->
 	<select id="getTbSocioEconomySceParaByProjectIdAndCountryId"
 		parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId" resultType="TbSocioEconomyScePara">
@@ -95,20 +95,57 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"a_tbSocioEconomyScePara"."projectId" =#{projectId} and
 		"a_tbSocioEconomyScePara"."countryId" =#{countryId}
 	</select>
-	
+
 	<!-- 添加水资源管理情景县区用水量参数 -->
 	<insert id="addTbWaterManSceCWPara" parameterType="TbWaterManSceCWPara">
-		INSERT into "a_tbWaterManSceCWPara" VALUES(#{id},#{fldWatershedCode},#{fldProjectCode},#{fldCountyCode},#{fldDate},#{fldSurfaceWater},#{fldGroundWater})
+		INSERT into
+		"a_tbWaterManSceCWPara"
+		VALUES(#{id},#{fldWatershedCode},#{fldProjectCode},#{fldCountyCode},#{fldDate},#{fldSurfaceWater},#{fldGroundWater})
 	</insert>
-	
+
 	<!-- 添加水资源管理情景流域中下游用水量参数表 -->
 	<insert id="addTbWaterManSceMDPara" parameterType="tbWaterManSceMDPara">
-		INSERT into "a_tbWaterManSceMDPara" VALUES(#{id},#{fldWatershedCode},#{fldProjectCode},#{fldCountyCode},#{fldDate},#{fldWaterUseMid},#{fldWaterUseDown})
+		INSERT into
+		"a_tbWaterManSceMDPara"
+		VALUES(#{id},#{fldWatershedCode},#{fldProjectCode},#{fldCountyCode},#{fldDate},#{fldWaterUseMid},#{fldWaterUseDown})
 	</insert>
-	
+
 	<!-- 添加水资源管理情景县区水权分配参数表 -->
 	<insert id="addTbWaterManSceWRPara" parameterType="TbWaterManSceWRPara">
-		INSERT into "a_tbWaterManSceWRPara" VALUES(#{id},#{fldWatershedCode},#{fldProjectCode},#{fldCountyCode},#{fldDate},#{fldWaterRightRatio})
+		INSERT into
+		"a_tbWaterManSceWRPara"
+		VALUES(#{fldWatershedCode},#{fldProjectCode},#{fldCountyCode},#{fldDate},#{fldWaterRightRatio})
 	</insert>
+
+	<!-- 删除水资源管理情景县区水权分配参数表 -->
+	<delete id="deleteTbWaterManSceWRPara" parameterType="ProjectIdAndCountyId">
+		delete	from "a_tbWaterManSceWRPara" where
+		"a_tbWaterManSceWRPara"."fldProjectCode" = #{projectId} and "a_tbWaterManSceWRPara"."fldCountryCode" = #{countryId}
+	</delete>
+
+	<!-- 添加水资源管理，中下游水分配 -->
+	<insert id="addMidAndDownStreamPercentPara" parameterType="MidAndDownStreamPercentPara">
+		insert into "a_MidAndDownStreamPercentPara"
+		values(#{projectId},#{watershedId},#{serfaceWater},#{midstreamPercent},#{downstreamPercent})
+	</insert>
+
+	<!-- 删除 中下游水分配 -->
+	<delete id="deleteMidAndDownStreamPercentPara" parameterType="String">
+		delete
+		from "a_MidAndDownStreamPercentPara" where
+		"a_MidAndDownStreamPercentPara"."projectId" = #{value}
+	</delete>
+	
+	<!-- 保存节水情景 -->
+	<insert id="addSaveWater" parameterType="SaveWater">
+		insert into "a_saveWater"
+		values(#{projectId},#{countryId},#{savewater})
+	</insert>
+	
+	<!-- 删除某个县区的节水情景数据 -->
+	<delete id="deleteSaveWater" parameterType="ProjectIdAndCountyId">
+			delete	from "a_saveWater" where
+		"a_saveWater"."projectId" = #{projectId} and "a_saveWater"."countryId" = #{countryId}
+	</delete>
 
 </mapper>

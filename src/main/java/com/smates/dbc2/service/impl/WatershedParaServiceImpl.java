@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smates.dbc2.mapper.WatershedParaDao;
+import com.smates.dbc2.po.MidAndDownStreamPercentPara;
+import com.smates.dbc2.po.SaveWater;
 import com.smates.dbc2.po.TbLanduseScePara;
 import com.smates.dbc2.po.TbSocioEconomyScePara;
 import com.smates.dbc2.po.TbWaterManSceCWPara;
@@ -115,8 +117,21 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 	@Override
 	public void addTbWaterManSceWRPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode, String fldDate,
 			double fldWaterRightRatio) {
+		watershedParaDao.deleteTbWaterManSceWRPara(new ProjectIdAndCountyId(fldProjectCode, fldCountyCode));
 		watershedParaDao.addTbWaterManSceWRPara(new TbWaterManSceWRPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate, fldWaterRightRatio));
 	}
-	
+
+	@Override
+	public void addMidAndDownStreamPercentPara(String projectId, String watershedId, double serfaceWater,
+			double midstreamPercent, double downstreamPercent) {
+		watershedParaDao.deleteMidAndDownStreamPercentPara(projectId);
+		watershedParaDao.addMidAndDownStreamPercentPara(new MidAndDownStreamPercentPara(projectId, watershedId, serfaceWater, midstreamPercent, downstreamPercent));
+	}
+
+	@Override
+	public void addSaveWater(String projectId, String countryId, double savewater) {
+		watershedParaDao.deleteSaveWater(new ProjectIdAndCountyId(projectId, countryId));
+		watershedParaDao.addSaveWater(new SaveWater(projectId, countryId, savewater));
+	}	
 
 }

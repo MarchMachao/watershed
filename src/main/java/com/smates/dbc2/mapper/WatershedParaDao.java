@@ -1,5 +1,7 @@
 package com.smates.dbc2.mapper;
 
+import com.smates.dbc2.po.MidAndDownStreamPercentPara;
+import com.smates.dbc2.po.SaveWater;
 import com.smates.dbc2.po.TbLanduseSceCropPara;
 import com.smates.dbc2.po.TbLanduseScePara;
 import com.smates.dbc2.po.TbSocioEconomySceHydEngPara;
@@ -145,6 +147,12 @@ public interface WatershedParaDao {
 	 * @param tbWaterManSceTWPara
 	 */
 	public void addTbWaterManSceWRPara(TbWaterManSceWRPara tbWaterManSceWRPara);
+	
+	/**
+	 * 删除水资源管理情景县区水权分配参数
+	 * @param projectId
+	 */
+	public void deleteTbWaterManSceWRPara(ProjectIdAndCountyId projectIdAndCountyId);
 
 	/**
 	 * 添加水资源管理情景流域中下游用水量参数
@@ -159,4 +167,26 @@ public interface WatershedParaDao {
 	 * @param tbWaterManSceCWPara
 	 */
 	public void addTbWaterManSceCWPara(TbWaterManSceCWPara tbWaterManSceCWPara);
+	
+	/**
+	 * 添加水资源管理，中下游水分配
+	 */
+	public void addMidAndDownStreamPercentPara(MidAndDownStreamPercentPara midAndDownStreamPercentPara);
+	
+	/**
+	 * 删除对应项目ID中下游水分配数据
+	 * @param projectId
+	 */
+	public void deleteMidAndDownStreamPercentPara(String projectId);
+	
+	/**
+	 * 保存节水技术情景
+	 */
+	public void addSaveWater(SaveWater saveWater);
+	
+	/**
+	 * 删除节水技术情景
+	 * @param projectIdAndCountyId
+	 */
+	public void deleteSaveWater(ProjectIdAndCountyId projectIdAndCountyId);
 }

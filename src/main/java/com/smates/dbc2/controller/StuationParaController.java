@@ -1,6 +1,5 @@
 package com.smates.dbc2.controller;
 
-import org.codehaus.jackson.map.deser.ValueInstantiators.Base;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -149,26 +148,28 @@ public class StuationParaController {
 
 	/**
 	 * 获取情景参数
-	 * @param tab tab标签index
-	 * @param projectId 
+	 * 
+	 * @param tab
+	 *            tab标签index
+	 * @param projectId
 	 * @param countryId
 	 * @return
 	 */
-	@ResponseBody 
+	@ResponseBody
 	@RequestMapping(value = "getSceParaByProjectIdAndCountryId", method = RequestMethod.GET)
 	public BaseClass getSceParaByProjectIdAndCountryId(String tab, String projectId, String countryId) {
 		BaseClass baseClass = null;
 		switch (tab) {
-		case "1"://气候情景参数
+		case "1":// 气候情景参数
 			baseClass = watershedParaService.getTblClimateSceParaByProjectIdAndCountryId(projectId, countryId);
 			break;
-		case "2"://产业与城市化
+		case "2":// 产业与城市化
 			baseClass = watershedParaService.getTblIndUrbanSceParaByProjectIdAndCountryId(projectId, countryId);
 			break;
-		case "3"://社会经济
+		case "3":// 社会经济
 			baseClass = watershedParaService.getTbSocioEconomySceParaByProjectIdAndCountryId(projectId, countryId);
 			break;
-		case "4"://土地资源利用
+		case "4":// 土地资源利用
 			baseClass = watershedParaService.getTbLanduseSceParaByProjectIdAndCountryId(projectId, countryId);
 			break;
 		case "5":
@@ -177,16 +178,17 @@ public class StuationParaController {
 		default:
 			baseClass = null;
 		}
-		
-		if(baseClass == null){
+
+		if (baseClass == null) {
 			baseClass = new BaseClass();
 			baseClass.setIsEmpty("1");
 		}
 		return baseClass;
 	}
-	
+
 	/**
 	 * 保存水资源管理情景县区用水量参数表
+	 * 
 	 * @param fldWatershedCode
 	 * @param fldProjectCode
 	 * @param fldCountyCode
@@ -195,15 +197,18 @@ public class StuationParaController {
 	 * @param fldGroundWater
 	 * @return
 	 */
-	@ResponseBody
-	@RequestMapping(value="saveTbWaterManSceCWPara",method=RequestMethod.POST)
-	public BaseMsg saveTbWaterManSceCWPara(String fldWatershedCode,String fldProjectCode,String fldCountyCode,String fldDate,String fldSurfaceWater,String fldGroundWater){
-		watershedParaService.addTbWaterManSceCWPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate,Double.parseDouble(fldSurfaceWater), Double.parseDouble(fldGroundWater));
-		return new BaseMsg(true, "保存县区用水量成功");
-	}
-	
+//	@ResponseBody
+//	@RequestMapping(value = "saveTbWaterManSceCWPara", method = RequestMethod.POST)
+//	public BaseMsg saveTbWaterManSceCWPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode,
+//			String fldDate, String fldSurfaceWater, String fldGroundWater) {
+//		watershedParaService.addTbWaterManSceCWPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate,
+//				Double.parseDouble(fldSurfaceWater), Double.parseDouble(fldGroundWater));
+//		return new BaseMsg(true, "保存县区用水量成功");
+//	}
+
 	/**
 	 * 水资源管理情景流域中下游用水量参数表
+	 * 
 	 * @param fldWatershedCode
 	 * @param fldProjectCode
 	 * @param fldCountyCode
@@ -213,14 +218,16 @@ public class StuationParaController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value="addTbWaterManSceMDPara",method=RequestMethod.POST)
-	public BaseMsg addTbWaterManSceMDPara(String fldWatershedCode,String fldProjectCode,String fldCountyCode,String fldDate,String fldWaterUseMid,String fldWaterUseDown){
-		watershedParaService.addTbWaterManSceCWPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate,Double.parseDouble(fldWaterUseMid), Double.parseDouble(fldWaterUseDown));
+	@RequestMapping(value = "addMidAndDownStreamPercentPara", method = RequestMethod.POST)
+	public BaseMsg addMidAndDownStreamPercentPara(String projectId, String watershedId, String serfaceWater,
+			String midstreamPercent, String downstreamPercent) {
+		watershedParaService.addMidAndDownStreamPercentPara(projectId, watershedId, Double.parseDouble(serfaceWater), Double.parseDouble(midstreamPercent), Double.parseDouble(downstreamPercent));
 		return new BaseMsg(true, "保存中下游用水量成功");
 	}
-	
+
 	/**
 	 * 水资源管理情景县区水权分配参数表
+	 * 
 	 * @param fldWatershedCode
 	 * @param fldProjectCode
 	 * @param fldCountyCode
@@ -229,14 +236,26 @@ public class StuationParaController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value="addtbWaterManSceWRPara",method=RequestMethod.POST)
-	public BaseMsg addTbWaterManSceWRPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode, String fldDate,
-			String fldWaterRightRatio){
-		watershedParaService.addTbWaterManSceWRPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate, Double.parseDouble(fldWaterRightRatio));
+	@RequestMapping(value = "addtbWaterManSceWRPara", method = RequestMethod.POST)
+	public BaseMsg addTbWaterManSceWRPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode,
+			String fldDate, String fldWaterRightRatio) {
+		watershedParaService.addTbWaterManSceWRPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate,
+				Double.parseDouble(fldWaterRightRatio));
 		return new BaseMsg(true, "保存水权比例成功");
 	}
 	
-	
-	
+	/**
+	 * 保存节水情景
+	 * @param projectId
+	 * @param countryId
+	 * @param savewater
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value="addSaveWater",method=RequestMethod.POST)
+	public BaseMsg addSaveWater(String projectId, String countryId, String savewater){
+		watershedParaService.addSaveWater(projectId, countryId, Double.parseDouble(savewater));
+		return new BaseMsg(true, "保存节水情景成功");
+	}
 
 }
