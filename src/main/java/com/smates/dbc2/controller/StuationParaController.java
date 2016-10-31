@@ -1,5 +1,6 @@
 package com.smates.dbc2.controller;
 
+import org.codehaus.jackson.map.deser.ValueInstantiators.Base;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -183,5 +184,59 @@ public class StuationParaController {
 		}
 		return baseClass;
 	}
+	
+	/**
+	 * 保存水资源管理情景县区用水量参数表
+	 * @param fldWatershedCode
+	 * @param fldProjectCode
+	 * @param fldCountyCode
+	 * @param fldDate
+	 * @param fldSurfaceWater
+	 * @param fldGroundWater
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value="saveTbWaterManSceCWPara",method=RequestMethod.POST)
+	public BaseMsg saveTbWaterManSceCWPara(String fldWatershedCode,String fldProjectCode,String fldCountyCode,String fldDate,String fldSurfaceWater,String fldGroundWater){
+		watershedParaService.addTbWaterManSceCWPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate,Double.parseDouble(fldSurfaceWater), Double.parseDouble(fldGroundWater));
+		return new BaseMsg(true, "保存县区用水量成功");
+	}
+	
+	/**
+	 * 水资源管理情景流域中下游用水量参数表
+	 * @param fldWatershedCode
+	 * @param fldProjectCode
+	 * @param fldCountyCode
+	 * @param fldDate
+	 * @param fldWaterUseMid
+	 * @param fldWaterUseDown
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value="addTbWaterManSceMDPara",method=RequestMethod.POST)
+	public BaseMsg addTbWaterManSceMDPara(String fldWatershedCode,String fldProjectCode,String fldCountyCode,String fldDate,String fldWaterUseMid,String fldWaterUseDown){
+		watershedParaService.addTbWaterManSceCWPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate,Double.parseDouble(fldWaterUseMid), Double.parseDouble(fldWaterUseDown));
+		return new BaseMsg(true, "保存中下游用水量成功");
+	}
+	
+	/**
+	 * 水资源管理情景县区水权分配参数表
+	 * @param fldWatershedCode
+	 * @param fldProjectCode
+	 * @param fldCountyCode
+	 * @param fldDate
+	 * @param fldWaterRightRatio
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value="addtbWaterManSceWRPara",method=RequestMethod.POST)
+	public BaseMsg addTbWaterManSceWRPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode, String fldDate,
+			String fldWaterRightRatio){
+		watershedParaService.addTbWaterManSceWRPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate, Double.parseDouble(fldWaterRightRatio));
+		return new BaseMsg(true, "保存水权比例成功");
+	}
+	
+	
+	
 
 }

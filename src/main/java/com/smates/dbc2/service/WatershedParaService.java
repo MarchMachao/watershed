@@ -1,7 +1,12 @@
 package com.smates.dbc2.service;
 
+import javax.enterprise.inject.New;
+
 import com.smates.dbc2.po.TbLanduseScePara;
 import com.smates.dbc2.po.TbSocioEconomyScePara;
+import com.smates.dbc2.po.TbWaterManSceCWPara;
+import com.smates.dbc2.po.TbWaterManSceMDPara;
+import com.smates.dbc2.po.TbWaterManSceWRPara;
 import com.smates.dbc2.po.TblClimateScePara;
 import com.smates.dbc2.po.TblIndUrbanScePara;
 
@@ -145,5 +150,29 @@ public interface WatershedParaService {
 	 * @return
 	 */
 	public TbSocioEconomyScePara getTbSocioEconomySceParaByProjectIdAndCountryId(String projectId, String countryId);
+	
+	/**
+	 * 添加水资源管理情景县区用水量参数
+	 * 
+	 * @param tbWaterManSceCWPara
+	 */
+	public void addTbWaterManSceCWPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode,
+			String fldDate, double fldSurfaceWater, double fldGroundWater);
+	
+	/**
+	 * 添加水资源管理情景流域中下游用水量参数
+	 * 
+	 * @param tbWaterManSceMDPara
+	 */
+	public void addTbWaterManSceMDPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode, String fldDate,
+			double fldWaterUseMid, double fldWaterUseDown);
+	
+	/**
+	 * 添加水资源管理情景县区水权分配参数
+	 * 
+	 * @param tbWaterManSceTWPara
+	 */
+	public void addTbWaterManSceWRPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode, String fldDate,
+			double fldWaterRightRatio);
 
 }

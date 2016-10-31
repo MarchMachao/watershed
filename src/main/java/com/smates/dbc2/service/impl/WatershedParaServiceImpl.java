@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import com.smates.dbc2.mapper.WatershedParaDao;
 import com.smates.dbc2.po.TbLanduseScePara;
 import com.smates.dbc2.po.TbSocioEconomyScePara;
+import com.smates.dbc2.po.TbWaterManSceCWPara;
+import com.smates.dbc2.po.TbWaterManSceMDPara;
+import com.smates.dbc2.po.TbWaterManSceWRPara;
 import com.smates.dbc2.po.TblClimateScePara;
 import com.smates.dbc2.po.TblIndUrbanScePara;
 import com.smates.dbc2.service.WatershedParaService;
@@ -95,6 +98,24 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 	@Override
 	public TbSocioEconomyScePara getTbSocioEconomySceParaByProjectIdAndCountryId(String projectId, String countryId) {
 		return watershedParaDao.getTbSocioEconomySceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId));
+	}
+
+	@Override
+	public void addTbWaterManSceCWPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode,
+			String fldDate, double fldSurfaceWater, double fldGroundWater) {
+		watershedParaDao.addTbWaterManSceCWPara(new TbWaterManSceCWPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate, fldSurfaceWater, fldGroundWater));
+	}
+
+	@Override
+	public void addTbWaterManSceMDPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode,
+			String fldDate, double fldWaterUseMid, double fldWaterUseDown) {
+		watershedParaDao.addTbWaterManSceMDPara(new TbWaterManSceMDPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate, fldWaterUseMid, fldWaterUseDown));
+	}
+
+	@Override
+	public void addTbWaterManSceWRPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode, String fldDate,
+			double fldWaterRightRatio) {
+		watershedParaDao.addTbWaterManSceWRPara(new TbWaterManSceWRPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate, fldWaterRightRatio));
 	}
 	
 

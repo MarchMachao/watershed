@@ -95,5 +95,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"a_tbSocioEconomyScePara"."projectId" =#{projectId} and
 		"a_tbSocioEconomyScePara"."countryId" =#{countryId}
 	</select>
+	
+	<!-- 添加水资源管理情景县区用水量参数 -->
+	<insert id="addTbWaterManSceCWPara" parameterType="TbWaterManSceCWPara">
+		INSERT into "a_tbWaterManSceCWPara" VALUES(#{id},#{fldWatershedCode},#{fldProjectCode},#{fldCountyCode},#{fldDate},#{fldSurfaceWater},#{fldGroundWater})
+	</insert>
+	
+	<!-- 添加水资源管理情景流域中下游用水量参数表 -->
+	<insert id="addTbWaterManSceMDPara" parameterType="tbWaterManSceMDPara">
+		INSERT into "a_tbWaterManSceMDPara" VALUES(#{id},#{fldWatershedCode},#{fldProjectCode},#{fldCountyCode},#{fldDate},#{fldWaterUseMid},#{fldWaterUseDown})
+	</insert>
+	
+	<!-- 添加水资源管理情景县区水权分配参数表 -->
+	<insert id="addTbWaterManSceWRPara" parameterType="TbWaterManSceWRPara">
+		INSERT into "a_tbWaterManSceWRPara" VALUES(#{id},#{fldWatershedCode},#{fldProjectCode},#{fldCountyCode},#{fldDate},#{fldWaterRightRatio})
+	</insert>
 
 </mapper>

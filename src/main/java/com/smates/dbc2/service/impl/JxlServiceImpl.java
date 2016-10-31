@@ -603,14 +603,13 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldCityCode = cells[1].getContents();
 					fldCountyCode = cells[2].getContents();
-					fldCountyCode = cells[3].getContents();
-					fldDate = cells[4].getContents();
-					fldWaterRightRatio = Double.parseDouble(cells[5].getContents());
+					fldDate = cells[3].getContents();
+					fldWaterRightRatio = Double.parseDouble(cells[4].getContents());
 					datas.add(new TblWaterRightCounty(fldWatershedCode, fldCityCode, fldCountyCode, fldDate,
 							fldWaterRightRatio));
 				}
@@ -691,7 +690,7 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldCountyCode = cells[1].getContents();
