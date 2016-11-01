@@ -973,22 +973,22 @@
 											<div id="dropdown1" class="row-fluid">
 												<div class="row-fluid" style="margin-top: 15px">
 													<div class="span3"></div>
-													<div class="span2 countrycode">甘州</div>
-													<div class="span2 countrycode">临则</div>
-													<div class="span2 countrycode">高台</div>
+													<div class="span2 water_county_span" id="620702">甘州</div>
+													<div class="span2 water_county_span" id="620723">临则</div>
+													<div class="span2 water_county_span" id="620724">高台</div>
 												</div>
 												<div class="row-fluid" style="margin-top:15px">
 													<div class="span3" style="text-align:center">水权分配比例</div>
 													<div class="span2">
-														<input type="spinner" class="input" id="water_county_ratio_1" value="95"/>
+														<input type="spinner" class="input water_county_ratio" id="water_county_ratio_1" value="95"/>
 														<span class="lbl">%</span>
 													</div>
 													<div class="span2">
-														<input type="spinner" class="input" id="water_county_ratio_2" value="5"/>
+														<input type="spinner" class="input water_county_ratio" id="water_county_ratio_2" value="5"/>
 														<span class="lbl">%</span>
 													</div>
 													<div class="span2">
-														<input type="spinner" class="input" id="water_county_ratio_3" value="0"/>
+														<input type="spinner" class="input water_county_ratio" id="water_county_ratio_3" value="0"/>
 														<span class="lbl">%</span>
 													</div>
 												</div>
@@ -1010,24 +1010,24 @@
 											<div id="dropdown2" class="row-fluid">
 												<div class="row-fluid" style="margin-top: 15px">
 													<div class="span3"></div>
-													<div class="span2 countrycode">A</div>
-													<div class="span2 countrycode">B</div>
-													<div class="span2 countrycode">C</div>
-													<div class="span2 countrycode">D</div>
+													<div class="span2 water_county_span" id="A">A</div>
+													<div class="span2 water_county_span" id="B">B</div>
+													<div class="span2 water_county_span" id="C">C</div>
+													<div class="span2 water_county_span" id="D">D</div>
 												</div>
 												<div class="row-fluid" style="margin-top:15px">
 													<div class="span3" style="text-align:center">水权分配比例</div>
 													<div class="span2">
-														<input type="spinner" class="input" id="water_county_ratio_2_1" value="95"/> <span class="lbl">%</span>
+														<input type="spinner" class="input water_county_ratio" id="water_county_ratio_2_1" value="95"/> <span class="lbl">%</span>
 													</div>
 													<div class="span2">
-														<input type="spinner" class="input" id="water_county_ratio_2_2" value="5"/> <span class="lbl">%</span>
+														<input type="spinner" class="input water_county_ratio" id="water_county_ratio_2_2" value="5"/> <span class="lbl">%</span>
 													</div>
 													<div class="span2">
-														<input type="spinner" class="input" id="water_county_ratio_2_3" value="0"/> <span class="lbl">%</span>
+														<input type="spinner" class="input water_county_ratio" id="water_county_ratio_2_3" value="0"/> <span class="lbl">%</span>
 													</div>
 													<div class="span2">
-														<input type="spinner" class="input" id="water_county_ratio_2_4" value="0"/> <span class="lbl">%</span>
+														<input type="spinner" class="input water_county_ratio" id="water_county_ratio_2_4" value="0"/> <span class="lbl">%</span>
 													</div>
 												</div>
 												<div class="row-fluid" style="margin-top:15px">
@@ -1989,6 +1989,7 @@
 		})
 		
 		$("#economy_submit").click(function() {
+			var contents="";
 			$.post(
 				"saveTbLanduseScePara.do",
 				{
@@ -2011,8 +2012,48 @@
 					"fldFarmAllowance":document.getElementById("economy-farm").value,
 					"fldServiceAllowance":document.getElementById("economy-service").value
 				}, function(data) {
+// 					contents=contents+data.content+"\n";
 					alert(data.content);
 			})
+			$.post(
+				"addSaveWater.do",
+				{
+					"projectId" : "${projectId}",
+					"countryId" : document.getElementById("water-selectCounty").value,
+					"savewater" : document.getElementById("water-saving").value,
+				}, function(data) {
+// 					alert(contents+data.content);
+			})
+		})
+		
+		$("#watersce_submit").click(function() {
+			$.post(
+				"addMidAndDownStreamPercentPara.do",
+				{
+					"projectId" : "${projectId}",
+					"watershedId" : "AKH13002",
+					"serfaceWater": document.getElementById("water_province_total").value,
+					"midstreamPercent" : document.getElementById("water_province_1").value,
+					"downstreamPercent" : document.getElementById("water_province_2").value,
+				}, function(data) {
+					alert(data.content);
+			})
+			
+			for(var i=0;i<=document.getElementsByClassName("water_county_ratio").length;i++ ){
+				$.post(
+					"addtbWaterManSceWRPara.do",
+					{
+						"fldProjectCode" : "${projectId}",
+						"fldWatershedCode" : "AKH13002",
+						"fldCountyCode": document.getElementsByClassName("water_county_span")[i].id,
+						"fldDate" : null,
+						"fldWaterRightRatio" : document.getElementsByClassName("water_county_ratio")[i].value,
+					}, function(data) {
+						
+				})
+			}
+			alert(document.getElementsByClassName("countrycode").length);
+			
 		})
 		
 	</script>

@@ -210,12 +210,11 @@ public class StuationParaController {
 	/**
 	 * 水资源管理情景流域中下游用水量参数表
 	 * 
-	 * @param fldWatershedCode
-	 * @param fldProjectCode
-	 * @param fldCountyCode
-	 * @param fldDate
-	 * @param fldWaterUseMid
-	 * @param fldWaterUseDown
+	 * @param projectId
+	 * @param watershedId
+	 * @param serfaceWater
+	 * @param midstreamPercent
+	 * @param downstreamPercent
 	 * @return
 	 */
 	@ResponseBody
@@ -247,6 +246,7 @@ public class StuationParaController {
 	
 	/**
 	 * 保存节水情景
+	 * 
 	 * @param projectId
 	 * @param countryId
 	 * @param savewater
