@@ -197,15 +197,16 @@ public class StuationParaController {
 	 * @param fldGroundWater
 	 * @return
 	 */
-//	@ResponseBody
-//	@RequestMapping(value = "saveTbWaterManSceCWPara", method = RequestMethod.POST)
-//	public BaseMsg saveTbWaterManSceCWPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode,
-//			String fldDate, String fldSurfaceWater, String fldGroundWater) {
-//		watershedParaService.addTbWaterManSceCWPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate,
-//				Double.parseDouble(fldSurfaceWater), Double.parseDouble(fldGroundWater));
-//		return new BaseMsg(true, "保存县区用水量成功");
-//	}
 
+	@ResponseBody
+	@RequestMapping(value="saveTbWaterManSceCWPara",method=RequestMethod.POST)
+	public BaseMsg saveTbWaterManSceCWPara(String fldWatershedCode, String projectId, String countryId, String fldDate,
+			String fldSurfaceWater, String fldGroundWater) {
+		watershedParaService.addTbWaterManSceCWPara(fldWatershedCode, projectId, countryId, fldDate,
+				Double.parseDouble(fldSurfaceWater), Double.parseDouble(fldGroundWater));
+		return new BaseMsg(true, "保存县区用水量成功");
+	}
+	
 	/**
 	 * 水资源管理情景流域中下游用水量参数表
 	 * 

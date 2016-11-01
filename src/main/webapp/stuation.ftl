@@ -944,9 +944,9 @@
 											<div id="dropdown1" class="row-fluid">
 												<div class="row-fluid" style="margin-top: 15px">
 													<div class="span3"></div>
-													<div class="span2">甘州</div>
-													<div class="span2">临则</div>
-													<div class="span2">高台</div>
+													<div class="span2 countrycode">甘州</div>
+													<div class="span2 countrycode">临则</div>
+													<div class="span2 countrycode">高台</div>
 												</div>
 												<div class="row-fluid" style="margin-top:15px">
 													<div class="span3" style="text-align:center">水权分配比例</div>
@@ -981,10 +981,10 @@
 											<div id="dropdown2" class="row-fluid">
 												<div class="row-fluid" style="margin-top: 15px">
 													<div class="span3"></div>
-													<div class="span2">A</div>
-													<div class="span2">B</div>
-													<div class="span2">C</div>
-													<div class="span2">D</div>
+													<div class="span2 countrycode">A</div>
+													<div class="span2 countrycode">B</div>
+													<div class="span2 countrycode">C</div>
+													<div class="span2 countrycode">D</div>
 												</div>
 												<div class="row-fluid" style="margin-top:15px">
 													<div class="span3" style="text-align:center">水权分配比例</div>
@@ -1082,8 +1082,8 @@
 										</fieldset>
 										<div class="form-actions" align="center" style="background-color: #FFFFFF;">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
-											<button class="btn btn-small btn-success" type="button" id="climate_submit">确定</button> &nbsp;
-											<button class="btn btn-small btn-warning" type="reset" id="climate_reset">重置</button>
+											<button class="btn btn-small btn-success" type="button" id="watersce_submit">确定</button> &nbsp;
+											<button class="btn btn-small btn-warning" type="reset" id="watersce_reset">重置</button>
 										</div>
 									</form>
 								</div>
@@ -2010,7 +2010,7 @@
 					"fldBranCanWUE" : document.getElementById("zhiQu_spinner").value,
 					"fldDouLeng" : document.getElementById("douQu_text").value,
 					"fldDouWUE":document.getElementById("douQu_spinner").value,
-					"fldNongLeng" : document.getElementById("nongQu_text").value,,
+					"fldNongLeng" : document.getElementById("nongQu_text").value,
 					"fldNongWUE" : document.getElementById("nongQu_spinner").value,
 					"fldMaoLeng" : document.getElementById("maoQu_text").value,
 					"fldMaoWUE" : document.getElementById("maoQu_spinner").value,
