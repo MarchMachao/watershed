@@ -1,12 +1,7 @@
 package com.smates.dbc2.service;
 
-import javax.enterprise.inject.New;
-
 import com.smates.dbc2.po.TbLanduseScePara;
 import com.smates.dbc2.po.TbSocioEconomyScePara;
-import com.smates.dbc2.po.TbWaterManSceCWPara;
-import com.smates.dbc2.po.TbWaterManSceMDPara;
-import com.smates.dbc2.po.TbWaterManSceWRPara;
 import com.smates.dbc2.po.TblClimateScePara;
 import com.smates.dbc2.po.TblIndUrbanScePara;
 
@@ -174,5 +169,16 @@ public interface WatershedParaService {
 	 */
 	public void addTbWaterManSceWRPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode, String fldDate,
 			double fldWaterRightRatio);
+	
+	/**
+	 * 添加水资源管理，中下游水分配
+	 */
+	public void addMidAndDownStreamPercentPara(String projectId, String watershedId, double serfaceWater,
+			double midstreamPercent, double downstreamPercent);
+	
+	/**
+	 * 保存节水技术情景
+	 */
+	public void addSaveWater(String projectId, String countryId, double savewater);
 
 }

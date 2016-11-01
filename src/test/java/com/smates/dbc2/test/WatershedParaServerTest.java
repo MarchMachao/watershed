@@ -21,18 +21,18 @@ public class WatershedParaServerTest {
 	}
 
 	@Test
-	public void testaddTbWaterManSceCWPara(){
-		watershedParaService.addTbWaterManSceCWPara("AK003", "001", "54822", "1199", 5454, 65465);
+	public void testaddMidAndDownStreamPercentPara(){
+		watershedParaService.addMidAndDownStreamPercentPara("AK003", "001", 5454.3, 65465.3,45.3);
 	}
 	
 	@Test
-	public void testaddTbWaterManSceMDPara(){
-		watershedParaService.addTbWaterManSceMDPara("AK003", "001", "54822", "1199", 5454, 65465);
+	public void testaddTbWaterManSceWRPara(){
+		watershedParaService.addTbWaterManSceWRPara("AK003", "001", "5454", "6546",45.3);
 	}
 	
 	@Test
-	public void testaddtbWaterManSceWRPara(){
-		watershedParaService.addTbWaterManSceWRPara("AK003", "001", "54822", "1199", 54);
+	public void testaddSaveWater(){
+		watershedParaService.addSaveWater("sdfd", "sdfs", 454.5);
 	}
 	
 }

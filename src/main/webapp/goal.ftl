@@ -373,6 +373,7 @@ li {
 					nodePadding : 40,
 					symbol : 'circle',
 					symbolSize : 20,
+					roam: true,
 
 					itemStyle : {
 						normal : {
