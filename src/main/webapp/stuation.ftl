@@ -115,10 +115,10 @@
 									<span>选择气候情景(IPCC)</span>
 									<select id="IPCC" name="IPCC" style="margin:0px">
 										
-										<option value="1">高排放情景，2100年地表接收稳定辐射强度大于8.5 W/m2</option>
-										<option value="2">较高排放情景，2100年地表接收稳定辐射强度控制在6 W/m2</option>
-										<option value="3">中等排放情景，2100年地表接收稳定辐射强度控制在4.5 W/m2</option>
-										<option value="4">低排放情景，2100年地表接收稳定辐射强度小于3 W/m2</option>
+										<option value="8.5">高排放情景，2100年地表接收稳定辐射强度大于8.5 W/m2</option>
+										<option value="6">较高排放情景，2100年地表接收稳定辐射强度控制在6 W/m2</option>
+										<option value="4.5">中等排放情景，2100年地表接收稳定辐射强度控制在4.5 W/m2</option>
+										<option value="2.6">低排放情景，2100年地表接收稳定辐射强度小于3 W/m2</option>
 									</select>
 									</label>
 									</div>

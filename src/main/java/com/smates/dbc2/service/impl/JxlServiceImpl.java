@@ -74,7 +74,7 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldCountyCode = cells[1].getContents();
@@ -125,7 +125,7 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldCountyCode = cells[1].getContents();
@@ -178,7 +178,7 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldCountyCode = cells[1].getContents();
@@ -232,7 +232,7 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldCountyCode = cells[1].getContents();
@@ -285,7 +285,7 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldCountyCode = cells[1].getContents();
@@ -395,7 +395,7 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldCountyCode = cells[1].getContents();
@@ -452,7 +452,7 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldCountyCode = cells[1].getContents();
@@ -511,7 +511,7 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldCountyCode = cells[1].getContents();
@@ -557,7 +557,7 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldCountyCode = cells[1].getContents();
@@ -647,7 +647,7 @@ public class JxlServiceImpl implements JxlService {
 			Sheet[] sheets = rwb.getSheets();
 			for (int i = 0; i < sheets.length; i++) {
 				Sheet sheet = rwb.getSheet(i);
-				for (int row = 0; row < sheet.getRows(); row++) {
+				for (int row = 1; row < sheet.getRows(); row++) {
 					Cell[] cells = sheet.getRow(row);
 					fldWatershedCode = cells[0].getContents();
 					fldDate = cells[1].getContents();
