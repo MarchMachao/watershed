@@ -115,10 +115,10 @@
 									<span>选择气候情景(IPCC)</span>
 									<select id="IPCC" name="IPCC" style="margin:0px">
 										
-										<option value="1">高排放情景，2100年地表接收稳定辐射强度大于8.5 W/m2</option>
-										<option value="2">较高排放情景，2100年地表接收稳定辐射强度控制在6 W/m2</option>
-										<option value="3">中等排放情景，2100年地表接收稳定辐射强度控制在4.5 W/m2</option>
-										<option value="4">低排放情景，2100年地表接收稳定辐射强度小于3 W/m2</option>
+										<option value="8.5">高排放情景，2100年地表接收稳定辐射强度大于8.5 W/m2</option>
+										<option value="6">较高排放情景，2100年地表接收稳定辐射强度控制在6 W/m2</option>
+										<option value="4.5">中等排放情景，2100年地表接收稳定辐射强度控制在4.5 W/m2</option>
+										<option value="2.6">低排放情景，2100年地表接收稳定辐射强度小于3 W/m2</option>
 									</select>
 									</label>
 									</div>
@@ -613,6 +613,7 @@
 									</div>
 									<div class="span1"></div>
 								</div>
+								
 								<div class="row-fluid">
 									<div class="span2"></div>
 									<div class="span8">
@@ -653,6 +654,34 @@
 											</div>
 											<div class="span2">
 												<input type="text" id="economy-service" class="input-mini" value="50">元
+											</div>
+										</div>
+									</div>
+									<div class="span2"></div>
+								</div>
+								<div class="row-fluid">
+									<div class="span1"></div>
+									<div class="span10">
+										<hr style="height:1px" color="#c2daee">
+										<h4 class="header smaller lighter blue">
+										<i class="icon-cloud-upload"></i>节水技术情景
+									</h4>
+									</div>
+									<div class="span1"></div>
+								</div>
+								<div class="row-fluid">
+									<div class="span2"></div>
+									<div class="span8">
+										<div class="row-fluid">
+											<div class="span2">节水技术提高</div>
+											<div class="span8">
+												<div id="slider-water-saving" style="float:right;display:inline;"></div>
+											</div>
+											<div class="span2">
+												<input type="text" id="water-saving" class="input-mini" value="10" style="width:40px;height:20px">%
+											</div>
+											<div class="span12">
+												<p align="center"><span class="red">*节水技术，包括水利工程改善、节水方式改善</span></p>
 											</div>
 										</div>
 									</div>
@@ -1023,47 +1052,6 @@
 											<hr style="height:1px" color="#c2daee">
 											<div class="row-fluid">
 												<h4 class="header smaller lighter blue">
-									<i class="icon-cloud-upload"></i>节水技术情景
-									</h4>
-												<div class="row-fluid">
-													<div class="span1"></div>
-													<div class="span9">
-														选择县区：
-														<select id="technology-selectCounty">
-															<option value="620702">甘州</option>
-															<option value="620723">临泽</option>
-															<option value="620724">高台</option>
-															<option value="152923">额济纳旗</option>
-															<option value="620921">金塔</option>
-															<option value="620722">民乐</option>
-															<option value="620721">肃南</option>
-															<option value="620902">肃州</option>
-															<option value="620200">嘉峪关市</option>
-															<option value="632222">祁连</option>
-														</select>
-													</div>
-													<div class="span1"></div>
-												</div>
-												<div class="row-fluid" style="margin-top: 20px">
-													<div class="span1"></div>
-													<div class="span2">
-														节水技术提高
-													</div>
-													<div class="span7">
-														<div id="slider-water-saving" style="float:left;display:inline;"></div>
-													</div>
-													<div class="span2">
-														<input type="text" id="water-saving" value="10" style="width:40px;height:20px">%
-													</div>
-												</div>
-												<div class="span12">
-													<p align="center"><span class="red">*节水技术，包括水利工程改善、节水方式改善</span></p>
-												</div>
-											</div>
-
-											<hr style="height:1px" color="#c2daee">
-											<div class="row-fluid">
-												<h4 class="header smaller lighter blue">
 									<i class="icon-cogs"></i>水资源分配方式
 									</h4>
 												<div class="row-fluid">
@@ -1099,9 +1087,12 @@
 		
 		<script type="text/javascript">
 		$("span").on("click",function(){
-		$("input").trigger("change");
+			$("input").trigger("change");
 		});
 			
+		$("#IPCC").on("change",function(){
+			$("#IPCC-selectCounty").trigger("change");
+		});
 			$("#IPCC-selectCounty").on("change", function() {
 				//气候情景温度变化图
 				showFigure_1();
@@ -1792,22 +1783,22 @@
 		//土地类型中不同土地类型面积变化
 		function land_show_3() {
 			$.get('getTblLandUseSceByfldCountyCode.do',
-					{fldCountyCode:$("#land_selectCounty").val},
+					{fldCountyCode : $("#land_selectCounty").val},
 					function(data){
-				var xdata=[], fldWetlandArea=[], fldForestArea=[], fldGrassArea=[], fldHuYangArea=[], fldWaterArea=[];
-				for(var i=0; i<data.length; i++)
-				{
-					xdata[i]=data[i].fldDate;
-					fldWetlandArea[i]=data[i].fldWetlandArea;
-					fldForestArea[i]=data[i].fldForestArea;
-					fldGrassArea[i]=data[i].fldGrassArea;
-					fldHuYangArea[i]=data[i].fldHuYangArea;
-					fldFarmArea[i]=data[i].fldWaterArea;
-				}
-				if (data.length>=1){
-				var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年'+$("#land_selectCounty").find("option:selected").text()+'不同土地类型面积变化';
-				}
-			var Chart = echarts.init(document.getElementById('land_show_1'));
+						var xdata=[], fldWetlandArea=[], fldForestArea=[], fldGrassArea=[], fldHuYangArea=[], fldWaterArea=[];
+						for(var i=0; i<data.length; i++)
+						{
+							xdata[i]=data[i].fldDate;
+							fldWetlandArea[i]=data[i].fldWetlandArea;
+							fldForestArea[i]=data[i].fldForestArea;
+							fldGrassArea[i]=data[i].fldGrassArea;
+							fldHuYangArea[i]=data[i].fldHuYangArea;
+							fldFarmArea[i]=data[i].fldWaterArea;
+						}
+						if (data.length>=1){
+						var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年'+$("#land_selectCounty").find("option:selected").text()+'不同土地类型面积变化';
+						}
+			var Chart = echarts.init(document.getElementById('land_show_3'));
 			var option = {
 				title : {
 					text : titletext,
@@ -2023,6 +2014,7 @@
 					alert(data.content);
 			})
 		})
+		
 	</script>
 	</body>
 

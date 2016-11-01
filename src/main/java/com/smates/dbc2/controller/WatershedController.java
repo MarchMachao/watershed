@@ -67,17 +67,25 @@ public class WatershedController extends BaseController{
 	 * @return
 	 * @throws IOException
 	 */
-	@RequestMapping(value="addWatershed",method=RequestMethod.POST)
-	public String addWatershed(String id, String name, String describe, MultipartFile tblClimateScenarioYear, MultipartFile tblClimateScenarioMonth, MultipartFile tblIndustyUrbanSce, MultipartFile tblLandUseSce, MultipartFile tblCropPattern, MultipartFile tblSocioEconSce, MultipartFile tblPrefPolicy, MultipartFile tblHydrEngineering, MultipartFile tblWaterResManSce, MultipartFile tblWaterUseCounty, MultipartFile tblWaterRightCounty, MultipartFile tblMidDownWaterAllo, MultipartFile tblWaterAlloCounty) throws IOException{
+	@RequestMapping(value = "addWatershed", method = RequestMethod.POST)
+	public String addWatershed(String id, String name, String describe, MultipartFile tblClimateScenarioYear,
+			MultipartFile tblClimateScenarioMonth, MultipartFile tblIndustyUrbanSce, MultipartFile tblLandUseSce,
+			MultipartFile tblCropPattern, MultipartFile tblSocioEconSce, MultipartFile tblPrefPolicy,
+			MultipartFile tblHydrEngineering, MultipartFile tblWaterResManSce, MultipartFile tblWaterUseCounty,
+			MultipartFile tblWaterRightCounty, MultipartFile tblMidDownWaterAllo, MultipartFile tblWaterAlloCounty)
+			throws IOException {
 		// 保存流域基本信息(流域名,流域描述)
-		watershedService.addWatershedInfo(id, name,describe);
+		watershedService.addWatershedInfo(id, name, describe);
 		// 解析excel表格并存储
-		StoreExcelData(id,tblClimateScenarioYear, tblClimateScenarioMonth, tblIndustyUrbanSce, tblLandUseSce, tblCropPattern, tblSocioEconSce, tblPrefPolicy, tblHydrEngineering, tblWaterResManSce, tblWaterUseCounty, tblWaterRightCounty, tblMidDownWaterAllo, tblWaterAlloCounty);
+		StoreExcelData(id, tblClimateScenarioYear, tblClimateScenarioMonth, tblIndustyUrbanSce, tblLandUseSce,
+				tblCropPattern, tblSocioEconSce, tblPrefPolicy, tblHydrEngineering, tblWaterResManSce,
+				tblWaterUseCounty, tblWaterRightCounty, tblMidDownWaterAllo, tblWaterAlloCounty);
 		return "watershedlist.ftl";
 	}
 	
 	/**
 	 * 加载流域信息页面
+	 * 
 	 * @return
 	 */
 	@RequestMapping(value="watershedlist",method=RequestMethod.GET)
@@ -87,9 +95,13 @@ public class WatershedController extends BaseController{
 	
 	/**
 	 * 根据用户输入的流域名称返回查找的结果
-	 * @param page 显示的页码
-	 * @param name 流域名称
-	 * @param rows 每页显示的个数
+	 * 
+	 * @param page
+	 *            显示的页码
+	 * @param name
+	 *            流域名称
+	 * @param rows
+	 *            每页显示的个数
 	 * @return 格式化后的流域信息
 	 */
 	@ResponseBody
@@ -100,7 +112,9 @@ public class WatershedController extends BaseController{
 	
 	/**
 	 * 删除一条流域信息
-	 * @param id 流域id
+	 * 
+	 * @param id
+	 *            流域id
 	 */
 	@ResponseBody
 	@RequestMapping(value="deleteWatershed",method=RequestMethod.GET)
