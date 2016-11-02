@@ -1237,7 +1237,10 @@
 			
 			function showFigure_1() {
 			$.get("geTblClimateScenarioYearsByfldCRPType.do",
-				{fldCRPType:$("#IPCC").val()},
+				{
+				"fldCRPType" : $("#IPCC").val(),
+				"countryId" : document.getElementById("IPCC-selectCounty").value,
+				},
 				function(data){
 				var xdata=[],averageTemp=[],maxTemp=[],minTemp=[];
 				for(var i=0; i<data.length; i++)
@@ -1309,7 +1312,10 @@
 		
 		function showFigure_2() {
 			$.get("geTblClimateScenarioYearsByfldCRPType.do",
-					{fldCRPType:$("#IPCC").val()},
+				{
+				"fldCRPType":$("#IPCC").val(),
+				"countryId" : document.getElementById("IPCC-selectCounty").value,
+				},
 					function(data){
 					var xdata=[],averagePrecip=[];
 					for(var i=0; i<data.length; i++)
