@@ -47,24 +47,24 @@ public interface WatershedService {
 	 * 气候情景数据表(月)
 	 */
 	public void addTblClimateScenarioMonth(TblClimateScenarioMonth tblClimateScenarioMonth);
-	
+
 	/**
 	 * 添加产业与城市发展情景
 	 */
 	public void addTblIndustyUrbanSce(TblIndustyUrbanSce tblIndustyUrbanSce);
-	
+
 	/**
 	 * 添加种植结构数据表
 	 */
 	public void addTblLandUseSce(TblLandUseSce tblLandUseSce);
-	
+
 	/**
 	 * 添加种植结构数据
 	 * 
 	 * @param tblCropPattern
 	 */
 	public void addtblCropPattern(TblCropPattern tblCropPattern);
-	
+
 	/**
 	 * 添加GDP发展数据
 	 * 
@@ -78,7 +78,7 @@ public interface WatershedService {
 	 * @param tblPrefPolicy
 	 */
 	public void addtblPrefPolicy(TblPrefPolicy tblPrefPolicy);
-	
+
 	/**
 	 * 添加水利工程数据
 	 * 
@@ -121,25 +121,17 @@ public interface WatershedService {
 	 */
 	public void addtblWaterAlloCounty(TblWaterAlloCounty tblWaterAlloCounty);
 
-
 	/**
 	 * 根据气候情景排放类型查找气候情景数据表（年）
 	 * 
 	 * @param fldCRPType
 	 *            气候情景排放类型
-	 * @return 气候情景数据表(年)lsit
-	 */
-	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(String fldCRPType);
-	
-
-	/**
-	 * 根据气候情景排放类型查找气候情景数据表（年）
 	 * 
-	 * @param fldCRPType
-	 *            气候情景排放类型
+	 * @param countryId
+	 *            县区代码
 	 * @return 气候情景数据表(年)list
 	 */
-	public List<TblClimateScenarioYear> getTblClimateScenarioYearsByfldCRPType(String fldCRPType);
+	public List<TblClimateScenarioYear> getTblClimateScenarioYearsByfldCRPType(String fldCRPType, String countryId);
 
 	/**
 	 * 根据气候情景排放类型查找气候情景数据表（月）
@@ -203,7 +195,7 @@ public interface WatershedService {
 	 * @return 种植结构数据表list
 	 */
 	public List<TblCropPattern> getTblCropPatternByfldCountyCode(String fldCountyCode);
-	
+
 	/**
 	 * 根据县区代码查找水资源面积数据表
 	 * 
@@ -230,7 +222,7 @@ public interface WatershedService {
 	 * @return 水权分配数据表list
 	 */
 	public List<TblWaterRightCounty> getTblWaterRightCountyByfldCountyCode(String fldCountyCode);
-	
+
 	/**
 	 * 查找流域中下游水分配表
 	 * 
@@ -248,19 +240,25 @@ public interface WatershedService {
 	 * @return 县区用水量数据表list
 	 */
 	public List<TblWaterAlloCounty> getTblWaterAlloCountyByfldCountyCode(String fldCountyCode);
-	
+
 	/**
 	 * 根据用户输入的流域名称模糊查找流域信息
-	 * @param name 流域名称
-	 * @param page 当前显示的页数
-	 * @param rows 每页显示的个数
+	 * 
+	 * @param name
+	 *            流域名称
+	 * @param page
+	 *            当前显示的页数
+	 * @param rows
+	 *            每页显示的个数
 	 * @return
 	 */
-	public DataGrideRow<Watershed> getWatershedFormateDataGride(String name,int page,int rows);	
-	
+	public DataGrideRow<Watershed> getWatershedFormateDataGride(String name, int page, int rows);
+
 	/**
 	 * 删除一条流域信息
-	 * @param id 流域id
+	 * 
+	 * @param id
+	 *            流域id
 	 */
 	public void deleteWatershed(String id);
 

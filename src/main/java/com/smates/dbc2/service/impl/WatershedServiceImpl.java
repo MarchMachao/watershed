@@ -21,6 +21,7 @@ import com.smates.dbc2.po.TblWaterRightCounty;
 import com.smates.dbc2.po.TblWaterUseCounty;
 import com.smates.dbc2.po.Watershed;
 import com.smates.dbc2.service.WatershedService;
+import com.smates.dbc2.vo.CRPTypeAndCountryId;
 import com.smates.dbc2.vo.DataGrideRow;
 import com.smates.dbc2.vo.WatershedParaVo;
 
@@ -41,8 +42,8 @@ public class WatershedServiceImpl implements WatershedService {
 	}
 
 	@Override
-	public List<TblClimateScenarioYear> getTblClimateScenarioYearsByfldCRPType(String fldCRPType) {
-		return watershedDao.geTblClimateScenarioYearsByfldCRPType(fldCRPType);
+	public List<TblClimateScenarioYear> getTblClimateScenarioYearsByfldCRPType(String fldCRPType,String countryId) {
+		return watershedDao.geTblClimateScenarioYearsByfldCRPType(new CRPTypeAndCountryId(fldCRPType, countryId));
 	}
 
 	@Override
@@ -106,11 +107,6 @@ public class WatershedServiceImpl implements WatershedService {
 	public void addtblWaterAlloCounty(TblWaterAlloCounty tblWaterAlloCounty) {
 		watershedDao.addtblWaterAlloCounty(tblWaterAlloCounty);
 
-	}
-
-	@Override
-	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(String fldCRPType) {
-		return watershedDao.geTblClimateScenarioYearsByfldCRPType(fldCRPType);
 	}
 
 	@Override

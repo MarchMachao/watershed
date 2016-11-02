@@ -258,13 +258,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- desc:根据气候情景排放类型查找气候情景数据表（年） example sql: SELECT * FROM "a_tblClimateScenarioYear" 
 		WHERE "a_tblClimateScenarioYear"."fldCRPType" = '3' -->
 	<select id="geTblClimateScenarioYearsByfldCRPType"
-		parameterType="String" resultType="TblClimateScenarioYear">
+		parameterType="CRPTypeAndCountryId" resultType="TblClimateScenarioYear">
 		SELECT
 		*
 		FROM
 		"a_tblClimateScenarioYear"
 		WHERE
-		"a_tblClimateScenarioYear"."fldCRPType" = #{value}
+		"a_tblClimateScenarioYear"."fldCRPType" = #{fldCRPType} and "a_tblClimateScenarioYear"."fldCountyCode" = #{countryId}
 	</select>
 
 	<!-- desc:根据气候情景排放类型查找气候情景数据表（月） -->

@@ -91,6 +91,7 @@
 				/logout.do = anon
 				/submit.do = anon
 				/addGoal.do = anon
+				/getGoal.do = anon
 				/*.do= authc
 			</value>
 		</property>

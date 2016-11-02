@@ -16,6 +16,7 @@ import com.smates.dbc2.po.TblWaterResManSce;
 import com.smates.dbc2.po.TblWaterRightCounty;
 import com.smates.dbc2.po.TblWaterUseCounty;
 import com.smates.dbc2.po.Watershed;
+import com.smates.dbc2.vo.CRPTypeAndCountryId;
 import com.smates.dbc2.vo.WatershedParaVo;
 
 public interface WatershedDao {
@@ -203,11 +204,11 @@ public interface WatershedDao {
 	/**
 	 * 根据气候情景排放类型查找气候情景数据表
 	 * 
-	 * @param fldCRPType
-	 *            气候情景排放类型
+	 * @param CRPTypeAndCountryId
+	 *            IPCC和县区代码
 	 * @return 气候情景数据表(年)lsit
 	 */
-	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(String fldCRPType);
+	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(CRPTypeAndCountryId cRPTypeAndCountryId);
 
 	/**
 	 * 查找流域信息

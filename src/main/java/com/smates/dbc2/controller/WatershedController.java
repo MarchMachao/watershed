@@ -133,8 +133,8 @@ public class WatershedController extends BaseController{
 	 */
 	@ResponseBody
 	@RequestMapping(value="geTblClimateScenarioYearsByfldCRPType",method=RequestMethod.GET)
-	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(String fldCRPType){
-		return watershedService.getTblClimateScenarioYearsByfldCRPType(fldCRPType);
+	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(String fldCRPType,String countryId){
+		return watershedService.getTblClimateScenarioYearsByfldCRPType(fldCRPType,countryId);
 	}
 	
 	/**
