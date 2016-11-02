@@ -1899,11 +1899,11 @@
 				for(var i=0; i<data.length; i++)
 				{
 					xdata[i]=data[i].fldDate;
-					fldWaterUseMid[i]=data[i].fldWaterUseMid;
-					fldWaterUseDown[i]=data[i].fldWaterUseDown;
+					fldWaterUseMid[i]=data[i].fldWaterUseMid/100000000;
+					fldWaterUseDown[i]=data[i].fldWaterUseDown/100000000;
 				}
 				if (data.length>=1){
-				var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年流域中游与下游用水量变化';
+				var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年流域中游与下游分水量变化';
 				}
 			var Chart = echarts.init(document.getElementById('using-water'));
 			var option = {
@@ -1916,7 +1916,7 @@
 					trigger : 'axis'
 				},
 				legend : {
-					data : [ '中游用水量', '下游用水量' ],
+					data : [ '中游分水量', '下游分水量' ],
 					x: 'right',
 					padding: [25,5,5,5]
 				},
@@ -1939,14 +1939,14 @@
 				},
 				yAxis : {
 					type : 'value',
-					name : '用水量(m³)',
+					name : '用水量(亿m³)',
 				},
 				series : [ {
-					name : '中游用水量',
+					name : '中游分水量',
 					type : 'line',
 					data : fldWaterUseMid
 				}, {
-					name : '下游用水量',
+					name : '下游分水量',
 					type : 'line',
 					data : fldWaterUseDown
 				
