@@ -60,7 +60,38 @@
 //				.on('change', function() {
 //
 //				});
-
+			//设置产业与城市发展情景的农业人口slider
+			$("#slider-farmpop-1").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 1,
+				range: "min",
+				min: 0,
+				max: 100,
+				step: 0.1,
+				slide: function(event, ui) {
+					var val = parseFloat(ui.value);
+					$("#text-farmpop-1").val(val);
+				}
+			});
+			
+			//设置产业与城市发展情景的非农业人口slider
+			$("#slider-farmpop-2").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 1,
+				range: "min",
+				min: 0,
+				max: 100,
+				step: 0.1,
+				slide: function(event, ui) {
+					var val = parseFloat(ui.value);
+					$("#text-farmpop-2").val(val);
+				}
+			});
+			
 			//设置产业与城市发展情景中的农业的slider
 			$("#slider-1").css({
 				width: '100%',
@@ -162,7 +193,18 @@
 					min: -1,
 					max: 1,
 					step: 0.1,
-					
+				})
+				.css({
+					height: '20px',
+					width: '60px',
+				}) //设置输入框的高度
+				.on('change', function() {});
+			
+			//设置社会经济发展情景中的GDP增长率spinner
+			$('#GDPInc_spinner2').spinner({
+					min: -10,
+					max: 20,
+					step: 0.1,
 				})
 				.css({
 					height: '20px',
@@ -340,6 +382,22 @@
 
 				});
 			//
+			//设置土地利用中湿地面积的slider
+			$("#gengdi_slider_1").css({
+				width: '100%',
+				margin: '5px 5px 15px 5px'
+			}).slider({
+				value: 0,
+				range: "min",
+				min: 0,
+				max: 100,
+				step: 0.1,
+				slide: function(event, ui) {
+					var val = parseFloat(ui.value);
+					$("#gengdi_situation_1").val(val);
+//					$("#land_situation_6_2").val(val * 10);
+				}
+			});
 			//设置土地利用中小麦种植结构调整的slider
 			$("#land_slider_1").css({
 				width: '100%',

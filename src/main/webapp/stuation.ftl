@@ -216,8 +216,32 @@
 										</h4>
 											<div>
 												<div class="span1"></div>
+												<div class="span2">
+													农业人口
+												</div>
+												<div class="span7">
+													<div id="slider-farmpop-1" style="float:left;display:inline;"></div>
+												</div>
+												<div class="span2">
+													<input type="text" id="text-farmpop-1" value="1" style="width:40px;height:20px">万人
+												</div>
+											</div>
+											<div>
+												<div class="span1"></div>
+												<div class="span2">
+													非农业人口
+												</div>
+												<div class="span7">
+													<div id="slider-farmpop-2" style="float:left;display:inline;"></div>
+												</div>
+												<div class="span2">
+													<input type="text" id="text-farmpop-2" value="1" style="width:40px;height:20px">万人
+												</div>
+											</div>
+											<div>
+												<div class="span1"></div>
 												<div class="span10">
-													非农业人口比例：
+													非农业人口比例变化率：
 													<input type="spinner" value="37.0" class="input-mini" id="population_proportation_spinner"/>%
 												</div>
 											</div>
@@ -380,9 +404,11 @@
 								</div>
 								<div class="row-fluid">
 									<div class="span2"></div>
-									<div class="span8">
+									<div class="span8" style="font-family: '微软雅黑';">
 										<span>人均GDP增长率：</span>
-										<input type="spinner" class="input" id="GDPInc_spinner1" value= "9"/>%
+										<input type="spinner" class="input" id="GDPInc_spinner1" value= "0.3"/>%&nbsp(-1%~1%)&nbsp&nbsp
+										<span>GDP增长率：</span>
+										<input type="spinner" class="input" id="GDPInc_spinner2" value= "8"/>%&nbsp(-10%~20%)
 									</div>
 
 								</div>
@@ -729,18 +755,18 @@
 									</label>
 											<h4 class="header smaller lighter blue"><i class="icon-credit-card"></i>耕地面积变化</h4>
 											<div>
+												<div class="span1" style="margin-left:0px"></div>
+												<div class="span1">耕地面积</div>
+												<div class="span6">
+													<div id="gengdi_slider_1" style="float:left;display:inline;"></div>
+												</div>
+												<div class=span4>
+													<input type="text" id="gengdi_situation_1" value="0" style="width:60px;height:20px">万亩
+												</div>
 												<div class="span1"></div>
 												<div class="span5" style="text-align:center">
 													耕地面积变化率： <input type="spinner" class="input-mini" id="area_rateofchange_spinner" value="1"/>%
 												</div>
-												<!--<div class="span5" style="text-align:center">
-													选择县区
-													<select id="land_selectCounty" name="land_selectCountry" style="width:80px">
-														<option value="ganzhou">甘州</option>
-														<option value="LinZe">临泽</option>
-														<option value="GaoTai">高台</option>
-													</select>
-												</div>-->
 											</div>
 											<div class="row-fluid">
 												<div class="span12" id="land_show_1" style="height:300px;width:800px">
@@ -839,7 +865,6 @@
 										<div>
 											<h4 class="header smaller lighter blue"><i class="icon-glass"></i>土地流转</h4>
 												<div style="width:100%">
-													<div class="span4" style="float:right">面积</div>
 												</div>
 													</br>
 														<div class="span1" style="margin-left:0px"></div>
