@@ -35,6 +35,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DoubleArray }
+     * 
+     */
+    public DoubleArray createDoubleArray() {
+        return new DoubleArray();
+    }
+
+    /**
      * Create an instance of {@link InputDataResponse }
      * 
      */
