@@ -35,7 +35,8 @@ public class WebserviceController {
 	@ResponseBody
 	@RequestMapping(value = "inputdatawebservice", method = RequestMethod.POST)
 	public String inputdata(String a, String b) {
-		return inputDataService.inputData(a, b);
+//		return inputDataService.inputData(a, b);
+		return null;
 	}
 
 	/**
@@ -45,7 +46,8 @@ public class WebserviceController {
 	@ResponseBody
 	@RequestMapping(value = "outputdatawebservice", method = RequestMethod.POST)
 	public String outputdata() {
-		return outputDataService.outputData();
+//		return outputDataService.outputData();
+		return null;
 	}
 
 	/**

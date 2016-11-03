@@ -1685,7 +1685,7 @@
 		//土地利用情景中的耕地面积变化图表
 		function land_show_1() {
 			$.get('getTblLandUseSceByfldCountyCode.do',
-					{fldCountyCode:$("#land_selectCounty").val},
+					{fldCountyCode:$("#land_selectCounty").val()},
 					function(data){
 				var xdata=[], fldFarmArea=[];
 				for(var i=0; i<data.length; i++)
@@ -1744,20 +1744,35 @@
 		//土地利用情景中的不同作物种植面积变化
 		function land_show_2() {
 			$.get('getTblCropPatternByfldCountyCode.do',
-					{fldCountyCode:$("#land_selectCounty").val},
+					{fldCountyCode:$("#land_selectCounty").val()},
 					function(data){
-				var cropdata=new Object();
+				var fldXiaomaiArea = [], fldYumiArea=[], fldYangyuArea=[], fldYouliaoArea=[],fldTiancaiArea=[],fldShucaiArea=[],fldGualeiArea=[];
 				var xdata=[];
 				for(var i=0; i<data.length; i++)
 				{
 					xdata[i]=data[i].fldDate;
 					switch(data[i].fldCropType){
-					case('粮食作物'):
-						cropdata.foodCropArea[i]=data[i].fldCropArea;
-						break;
-					case('经济作物'):
-						cropdata.economiCropArea[i]=data[i].fldCropArea;
-						break;
+					case('小麦'):
+						fldXiaomaiArea[i]=data[i].fldCropArea;
+// 						break;
+					case('玉米'):
+						fldYumiArea[i]=data[i].fldCropArea;
+// 						break;
+					case('洋芋'):
+						fldYangyuArea[i]=data[i].fldCropArea;
+// 						break;
+					case('油料'):
+						fldYouliaoArea[i]=data[i].fldCropArea;
+// 						break;
+					case('甜菜'):
+						fldTiancaiArea[i]=data[i].fldCropArea;
+// 						break;
+					case('蔬菜'):
+						fldShucaiArea[i]=data[i].fldCropArea;
+// 						break;
+					case('瓜类'):
+						fldGualeiArea[i]=data[i].fldCropArea;
+// 						break;
 					}
 				}
 				if (data.length>=1){
@@ -1774,7 +1789,7 @@
 					trigger : 'axis'
 				},
 				legend : {
-					data : [ '粮食作物', '经济作物' ],
+					data : [ '小麦', '玉米','洋芋','油料','甜菜','蔬菜','瓜类'],
 					x: 'right',
 					padding: [25,5,5,5]
 				},
@@ -1800,13 +1815,33 @@
 					name : '种植面积(亩)',
 				},
 				series : [ {
-					name : '粮食作物',
+					name : '小麦',
 					type : 'line',
-					data : cropdata.foodCropArea
+					data : fldXiaomaiArea
 				}, {
-					name : '经济作物',
+					name : '玉米',
 					type : 'line',
-					data : cropdata.economiCropArea
+					data : fldYumiArea
+				}, {
+					name : '洋芋',
+					type : 'line',
+					data : fldYangyuArea
+				}, {
+					name : '油料',
+					type : 'line',
+					data : fldYouliaoArea
+				}, {
+					name : '甜菜',
+					type : 'line',
+					data : fldTiancaiArea
+				}, {
+					name : '蔬菜',
+					type : 'line',
+					data : fldShucaiArea
+				}, {
+					name : '瓜类',
+					type : 'line',
+					data : fldGualeiArea
 				} ]
 			};
 			Chart.setOption(option);
@@ -1814,7 +1849,7 @@
 		//土地类型中不同土地类型面积变化
 		function land_show_3() {
 			$.get('getTblLandUseSceByfldCountyCode.do',
-					{fldCountyCode : $("#land_selectCounty").val},
+					{fldCountyCode : $("#land_selectCounty").val()},
 					function(data){
 						var xdata=[], fldWetlandArea=[], fldForestArea=[], fldGrassArea=[], fldHuYangArea=[], fldWaterArea=[];
 						for(var i=0; i<data.length; i++)
