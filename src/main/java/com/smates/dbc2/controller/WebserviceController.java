@@ -5,12 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.smates.dbc2.webservicedemo.inputdata.InputDataService;
-import com.smates.dbc2.webservicedemo.inputdata.InputDataServiceImplService;
-import com.smates.dbc2.webservicedemo.outputdata.OutputDataService;
-import com.smates.dbc2.webservicedemo.outputdata.OutputDataServiceImplService;
-import com.smates.dbc2.webservicedemo.querystate.QueryStateService;
-import com.smates.dbc2.webservicedemo.querystate.QueryStateServiceImplService;
+import com.smates.dbc2.ws.RisDSSModelService;
+import com.smates.dbc2.ws.RisDSSModelServiceImplService;
 
 /**
  * @author machao march.machao@gmail.com
@@ -22,9 +18,7 @@ import com.smates.dbc2.webservicedemo.querystate.QueryStateServiceImplService;
 @Controller
 public class WebserviceController {
 
-	private InputDataService inputDataService = new InputDataServiceImplService().getInputDataServiceImplPort();
-	private OutputDataService outputDataService = new OutputDataServiceImplService().getOutputDataServiceImplPort();
-	private QueryStateService queryStateService = new QueryStateServiceImplService().getQueryStateServiceImplPort();
+	private RisDSSModelService risDSSModelService = new RisDSSModelServiceImplService().getRisDSSModelServiceImplPort();
 
 	/**
 	 * 
@@ -57,7 +51,8 @@ public class WebserviceController {
 	@ResponseBody
 	@RequestMapping(value = "querystatewebservice", method = RequestMethod.POST)
 	public String querystate() {
-		return queryStateService.queryState();
+		// return queryStateService.queryState();
+		return null;
 	}
 
 }

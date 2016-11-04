@@ -1,5 +1,5 @@
 
-package com.smates.dbc2.webservicedemo.queryavailable;
+package com.smates.dbc2.ws;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>queryAvailableResponse complex type的 Java 类。
+ * <p>getDataYearlyResponse complex type的 Java 类。
  * 
  * <p>以下模式片段指定包含在此类中的预期内容。
  * 
  * <pre>
- * &lt;complexType name="queryAvailableResponse">
+ * &lt;complexType name="getDataYearlyResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,13 +29,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "queryAvailableResponse", propOrder = {
+@XmlType(name = "getDataYearlyResponse", propOrder = {
     "_return"
 })
-public class QueryAvailableResponse {
+public class GetDataYearlyResponse {
 
     @XmlElement(name = "return")
-    protected List<String> _return;
+    protected List<DoubleArray> _return;
 
     /**
      * Gets the value of the return property.
@@ -55,13 +55,13 @@ public class QueryAvailableResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link String }
+     * {@link DoubleArray }
      * 
      * 
      */
-    public List<String> getReturn() {
+    public List<DoubleArray> getReturn() {
         if (_return == null) {
-            _return = new ArrayList<String>();
+            _return = new ArrayList<DoubleArray>();
         }
         return this._return;
     }

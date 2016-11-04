@@ -1,5 +1,5 @@
 
-package com.smates.dbc2.webservicedemo.inputdata;
+package com.smates.dbc2.ws;
 
 import java.util.ArrayList;
 import java.util.List;

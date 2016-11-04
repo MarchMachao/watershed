@@ -1,5 +1,5 @@
 
-package com.smates.dbc2.webservicedemo.inputdata;
+package com.smates.dbc2.ws;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +10,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>inputData complex type的 Java 类。
+ * <p>start complex type的 Java 类。
  * 
  * <p>以下模式片段指定包含在此类中的预期内容。
  * 
  * <pre>
- * &lt;complexType name="inputData">
+ * &lt;complexType name="start">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -104,7 +104,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "inputData", propOrder = {
+@XmlType(name = "start", propOrder = {
     "watershedCode",
     "countyCodes",
     "countyNames",
@@ -182,7 +182,7 @@ import javax.xml.bind.annotation.XmlType;
     "waterRight",
     "waterSavingTechR"
 })
-public class InputData {
+public class Start {
 
     protected long watershedCode;
     @XmlElement(type = Long.class)

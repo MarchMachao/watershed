@@ -1,5 +1,5 @@
 
-package com.smates.dbc2.webservicedemo.querystate;
+package com.smates.dbc2.ws;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,12 +8,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>queryStateResponse complex type的 Java 类。
+ * <p>startResponse complex type的 Java 类。
  * 
  * <p>以下模式片段指定包含在此类中的预期内容。
  * 
  * <pre>
- * &lt;complexType name="queryStateResponse">
+ * &lt;complexType name="startResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -27,10 +27,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "queryStateResponse", propOrder = {
+@XmlType(name = "startResponse", propOrder = {
     "_return"
 })
-public class QueryStateResponse {
+public class StartResponse {
 
     @XmlElement(name = "return")
     protected String _return;
