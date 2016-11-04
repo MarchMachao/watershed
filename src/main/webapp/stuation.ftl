@@ -1748,31 +1748,42 @@
 					function(data){
 				var fldXiaomaiArea = [], fldYumiArea=[], fldYangyuArea=[], fldYouliaoArea=[],fldTiancaiArea=[],fldShucaiArea=[],fldGualeiArea=[];
 				var xdata=[];
-				for(var i=0; i<data.length; i++)
-				{
-					xdata[i]=data[i].fldDate;
+				var xcnt=0;xiaomaicnt=0;yumicnt=0;yangyucnt=0;youliaocnt=0;tiancaicnt=0;shucaicnt=0;gualeicnt=0;//控制数据下标的变量
+				for(var i=0; i<data.length; i=i+7){
+					xdata[xcnt]=data[i].fldDate;
+					xcnt++;
+				}
+				for(var i=0; i<data.length; i++){
+					
 					switch(data[i].fldCropType){
 					case('小麦'):
-						fldXiaomaiArea[i]=data[i].fldCropArea;
-// 						break;
+						fldXiaomaiArea[xiaomaicnt]=data[i].fldCropArea;
+						xiaomaicnt++;
+						break;
 					case('玉米'):
-						fldYumiArea[i]=data[i].fldCropArea;
-// 						break;
+						fldYumiArea[yumicnt]=data[i].fldCropArea;
+						yumicnt++;	
+						break;
 					case('洋芋'):
-						fldYangyuArea[i]=data[i].fldCropArea;
-// 						break;
+						fldYangyuArea[yangyucnt]=data[i].fldCropArea;
+						yangyucnt++;
+						break;
 					case('油料'):
-						fldYouliaoArea[i]=data[i].fldCropArea;
-// 						break;
+						fldYouliaoArea[youliaocnt]=data[i].fldCropArea;
+						youliaocnt++;
+						break;
 					case('甜菜'):
-						fldTiancaiArea[i]=data[i].fldCropArea;
-// 						break;
+						fldTiancaiArea[tiancaicnt]=data[i].fldCropArea;
+						tiancaicnt++;
+						break;
 					case('蔬菜'):
-						fldShucaiArea[i]=data[i].fldCropArea;
-// 						break;
+						fldShucaiArea[shucaicnt]=data[i].fldCropArea;
+						shucaicnt++;
+						break;
 					case('瓜类'):
-						fldGualeiArea[i]=data[i].fldCropArea;
-// 						break;
+						fldGualeiArea[gualeicnt]=data[i].fldCropArea;
+						gualeicnt++;
+						break;
 					}
 				}
 				if (data.length>=1){
