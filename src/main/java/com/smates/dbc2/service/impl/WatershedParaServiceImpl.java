@@ -39,30 +39,31 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 	@Override
 	public void addTblIndUrbanScePara(String projectId, String countryId, String nonFarmPercent, String fldIndOutput,
 			String fldIndOutputPercent, String fldAgrOutput, String fldAgrOutputPercent, String fldSerOutput,
-			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry) {
+			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry,String year, 
+			String fldFarmPop, String fldNonFarmPop) {
 		watershedParaDao.addTblIndUrbanScePara(new TblIndUrbanScePara(projectId, countryId, nonFarmPercent,
 				fldIndOutput, fldIndOutputPercent, fldAgrOutput, fldAgrOutputPercent, fldSerOutput, fldSerOutputPercent,
-				industryProgressRate, changeRateOfTourismIndustry));
+				industryProgressRate, changeRateOfTourismIndustry, year, fldFarmPop, fldNonFarmPop));
 	}
 
 	@Override
-	public void deleteTblIndUrbanScePara(String projectId, String countryId) {
-		watershedParaDao.deleteTblIndUrbanScePara(new ProjectIdAndCountyId(projectId, countryId,null));
+	public void deleteTblIndUrbanScePara(String projectId, String countryId, String year) {
+		watershedParaDao.deleteTblIndUrbanScePara(new ProjectIdAndCountyId(projectId, countryId,year));
 	}
 
 	@Override
-	public void addTbLanduseScePara(String projectId, String countryId, String fldFarmAreaChgR, String wheatChgR,
+	public void addTbLanduseScePara(String projectId, String countryId, String fldFarmArea,String fldFarmAreaChgR, String wheatChgR,
 			String cornChgR, String oilPlantsChgR, String vegetablesChgR, String orchardChgR, String cottonChgR,
 			String wheatArea, String cornArea, String oilPlantsArea, String vegetablesArea, String orchardArea,
-			String cottonArea, String wetlandArea, String forestArea, String grassArea, String waterArea) {
-		watershedParaDao.addTbLanduseScePara(new TbLanduseScePara(projectId, countryId, fldFarmAreaChgR, wheatChgR,
+			String cottonArea, String wetlandArea, String forestArea, String grassArea, String waterArea, String year) {
+		watershedParaDao.addTbLanduseScePara(new TbLanduseScePara(projectId, countryId, fldFarmArea,fldFarmAreaChgR, wheatChgR,
 				cornChgR, oilPlantsChgR, vegetablesChgR, orchardChgR, cottonChgR, wheatArea, cornArea, oilPlantsArea,
-				vegetablesArea, orchardArea, cottonArea, wetlandArea, forestArea, grassArea, waterArea));
+				vegetablesArea, orchardArea, cottonArea, wetlandArea, forestArea, grassArea, waterArea,year));
 	}
 
 	@Override
-	public void deleteTbLanduseScePara(String projectId, String countryId) {
-		watershedParaDao.deleteTbLanduseScePara(new ProjectIdAndCountyId(projectId, countryId,null));
+	public void deleteTbLanduseScePara(String projectId, String countryId, String year) {
+		watershedParaDao.deleteTbLanduseScePara(new ProjectIdAndCountyId(projectId, countryId, year));
 	}
 
 	@Override

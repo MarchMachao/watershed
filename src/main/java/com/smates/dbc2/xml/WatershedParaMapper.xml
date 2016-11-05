@@ -40,15 +40,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addTblIndUrbanScePara" parameterType="TblIndUrbanScePara">
 		insert INTO
 		"a_tblIndUrbanScePara"
-		VALUES(#{projectId},#{countryId},#{nonFarmPercent},#{fldIndOutput},#{fldIndOutputPercent},#{fldAgrOutput},#{fldAgrOutputPercent},#{fldSerOutput},#{fldSerOutputPercent},#{industryProgressRate},#{changeRateOfTourismIndustry})
+		VALUES(#{projectId},#{countryId},#{nonFarmPercent},#{fldIndOutput},#{fldIndOutputPercent},#{fldAgrOutput},#{fldAgrOutputPercent},#{fldSerOutput},#{fldSerOutputPercent},#{industryProgressRate},#{changeRateOfTourismIndustry},#{year},#{fldFarmPop},#{fldNonFarmPop})
 	</insert>
 
 	<!-- 根据id删除产业与城市发展情景参数 -->
 	<delete id="deleteTblIndUrbanScePara" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId">
 		delete
 		from
-		"a_tblIndUrbanScePara" where "a_tblIndUrbanScePara"."projectId" =
-		#{projectId} and "a_tblIndUrbanScePara"."countryId" = #{countryId}
+		"a_tblIndUrbanScePara" where 
+		"a_tblIndUrbanScePara"."projectId" = #{projectId} and 
+		"a_tblIndUrbanScePara"."countryId" = #{countryId} and
+		"a_tblIndUrbanScePara"."year" = #{year}
 	</delete>
 
 	<!-- 查找产业与城市发展情景参数 -->
@@ -56,22 +58,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId" resultType="TblIndUrbanScePara">
 		SELECT * from "a_tblIndUrbanScePara" where
 		"a_tblIndUrbanScePara"."projectId" =#{projectId} and
-		"a_tblIndUrbanScePara"."countryId" =#{countryId}
+		"a_tblIndUrbanScePara"."countryId" =#{countryId} and
+		"a_tblIndUrbanScePara"."year" = #{year}
 	</select>
 
+	<!-- 获取产业与城市发展参数 -->
+	<select id="getTblIndUrbanScePara" resultType="TblIndUrbanScePara" parameterType="String">
+		SELECT * from "a_tblIndUrbanScePara" where
+		"a_tblIndUrbanScePara"."projectId" =#{projectId} ORDER BY "a_tblIndUrbanScePara"."year","a_tblIndUrbanScePara"."countryId" =#{countryId}
+	</select>
+	
 	<!-- 添加土地资源利用情景参数 -->
 	<insert id="addTbLanduseScePara" parameterType="tbLanduseScePara">
-		insert INTO
-		"a_tbLanduseScePara" VALUES
-		(#{projectId},#{countryId},#{fldFarmAreaChgR},#{wheatChgR},#{cornChgR},#{oilPlantsChgR},#{vegetablesChgR},#{orchardChgR},#{cottonChgR},#{wheatArea},#{cornArea},#{oilPlantsArea},#{vegetablesArea},#{orchardArea},#{cottonArea},#{WetlandArea},#{ForestArea},#{GrassArea},#{WaterArea})
-	</insert>
+	insert INTO
+	"a_tbLanduseScePara" VALUES
+	(#{projectId},#{countryId},#{fldFarmAreaChgR},#{wheatChgR},#{cornChgR},#{oilPlantsChgR},#{vegetablesChgR},#{orchardChgR},#{cottonChgR},#{wheatArea},#{cornArea},#{oilPlantsArea},#{vegetablesArea},#{orchardArea},#{cottonArea},#{WetlandArea},#{ForestArea},#{GrassArea},#{WaterArea},#{year},#{fldFarmArea})
+</insert>
 
 	<!-- 删除土地资源利用情景参数 -->
 	<delete id="deleteTbLanduseScePara" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId">
 		delete
 		from
-		"a_tbLanduseScePara" where "a_tbLanduseScePara"."projectId" =
-		#{projectId} and "a_tbLanduseScePara"."countryId" = #{countryId}
+		"a_tbLanduseScePara" where 
+		"a_tbLanduseScePara"."projectId" = #{projectId} and 
+		"a_tbLanduseScePara"."countryId" = #{countryId} and
+		"a_tbLanduseScePara"."year" = #{year}
 	</delete>
 
 	<!-- 查找土地资源利用情景参数 -->
@@ -79,9 +90,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId" resultType="TbLanduseScePara">
 		SELECT * from "a_tbLanduseScePara" where
 		"a_tbLanduseScePara"."projectId" =#{projectId} and
-		"a_tbLanduseScePara"."countryId" =#{countryId}
+		"a_tbLanduseScePara"."countryId" =#{countryId} and
+		"a_tbLanduseScePara"."year" = #{year}
 	</select>
 
+	<!-- 获取土地利用参数 -->
+	<select id="geTbLanduseScePara" resultType="TbLanduseScePara" parameterType="String">
+		SELECT * FROM "a_tbLanduseScePara" where "projectId" = #{value} ORDER BY "a_tbLanduseScePara"."year","a_tbLanduseScePara"."countryId"
+	</select>
+	
 	<!-- 添加社会经济发展情景参数 -->
 	<insert id="addTbSocioEconomyScePara" parameterType="tbSocioEconomyScePara">
 		INSERT INTO
@@ -113,7 +130,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId" resultType="TbSocioEconomyScePara">
 		SELECT * from "a_tbSocioEconomyScePara" where
 		"a_tbSocioEconomyScePara"."projectId" =#{projectId} and
-		"a_tbSocioEconomyScePara"."countryId" =#{countryId} and "a_tbSocioEconomyScePara"."year" = #{year}
+		"a_tbSocioEconomyScePara"."countryId" =#{countryId} and 
+		"a_tbSocioEconomyScePara"."year" = #{year}
 	</select>
 
 	<!-- 添加水资源管理情景县区用水量参数 -->

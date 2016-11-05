@@ -37,8 +37,6 @@ public class ModelController {
 		// @WebParam(name = "tempMaxR") double tempMaxR [][], //最高温度变化率
 		// @WebParam(name = "tempMinR") double tempMinR [][], //最低温度变化率
 
-		// 产业与城市发展情景
-
 		// 社会经济发展情景
 		List<DoubleArray> gdp = getWebServiceParaService.getGDP(); // GDP
 		List<DoubleArray> gdpPer = getWebServiceParaService.getgdpPer();// 人均GDP
@@ -65,11 +63,58 @@ public class ModelController {
 		List<DoubleArray> allowanceAgr = getWebServiceParaService.getallowanceAgr(projectId); //农业政策补贴
 		List<DoubleArray> allowanceSer = getWebServiceParaService.getallowanceSer(projectId); //服务业政策补贴
 
+		//产业与城市发展参数
+		//		@WebParam(name = "pop") double pop [][], //人口
+//        @WebParam(name = "popR") double popR [][], //人口增长率
+//        @WebParam(name = "popAgriR") double popAgriR [][], //农业人口比例
+//        @WebParam(name = "popAgriRR") double popAgriRR [][], //农业人口比例变化率
+//        @WebParam(name = "popNonAgriR") double popNonAgriR [][], //非农业人口比例
+		List<DoubleArray> popNonAgriRR = getWebServiceParaService.getpopNonAgriRR(projectId);//非农业人口变化率
+		List<DoubleArray> outputInd = getWebServiceParaService.getoutputInd(projectId);//工业产值
+		List<DoubleArray> outputAgr = getWebServiceParaService.getoutputAgr(projectId);//农业产值
+		List<DoubleArray> outputSer = getWebServiceParaService.getoutputSer(projectId);//服务业产值
+		List<DoubleArray> outputTour = getWebServiceParaService.getoutputTour(projectId);//旅游业产值
+//                         @WebParam(name = "outputIndR") double outputIndR [][], //工业产值变化率
+//                         @WebParam(name = "outputAgrR") double outputAgrR [][], //农业产值变化率
+//                         @WebParam(name = "outputSerR") double outputSerR [][], //服务业产值变化率
+		List<DoubleArray> outputTourR = getWebServiceParaService.getoutputTourR(projectId);//旅游业产值变化率
+		List<DoubleArray> techProgRR = getWebServiceParaService.gettechProgRR(projectId);//产业进步率变化率
+		
+		//土地利用情景
+		List<DoubleArray> areaAgri = getWebServiceParaService.getareaAgri(projectId);//耕地面积
+		List<DoubleArray> areaAgriR = getWebServiceParaService.getareaAgriR(projectId);//耕地面积变化率
+		List<DoubleArray> areaCropWheat = getWebServiceParaService.getareaCropWheat(projectId);//作物小麦种植面积
+		List<DoubleArray> areaCropCorn = getWebServiceParaService.getareaCropCorn(projectId);//作物玉米种植面积
+		List<DoubleArray> areaCropOilseed = getWebServiceParaService.getareaCropOilseed(projectId); //作物油料种植面积
+		List<DoubleArray> areaCropOrchard = getWebServiceParaService.getareaCropOrchard(projectId);//作物果园种植面积
+		List<DoubleArray> areaCropCotton = getWebServiceParaService.getareaCropCotton(projectId);//作物棉花种植面积
+		List<DoubleArray> areaCropGreenstuff = getWebServiceParaService.getareaCropGreenstuff (projectId);//作物蔬菜种植面积
+		List<DoubleArray> areaCropWheatR = getWebServiceParaService.getareaCropWheatR(projectId);//作物小麦种植面积变化率
+		List<DoubleArray> areaCropCornR = getWebServiceParaService.getareaCropCornR(projectId);//作物玉米种植面积变化率
+		List<DoubleArray> areaCropOilseedR = getWebServiceParaService.getareaCropOilseedR(projectId);//作物油料种植面积变化率
+		List<DoubleArray> areaCropOrchardR = getWebServiceParaService.getareaCropOrchardR(projectId);//作物果园种植面积变化率
+		List<DoubleArray> areaCropCottonR = getWebServiceParaService.getareaCropCottonR(projectId);//作物棉花种植面积变化率
+		List<DoubleArray> areaCropGreenstuffR = getWebServiceParaService.getareaCropGreenstuffR(projectId);//作物蔬菜种植面积变化率
+		List<DoubleArray> areaWetland = getWebServiceParaService.getareaWetland(projectId);//湿地面积
+		List<DoubleArray> areaForest = getWebServiceParaService.getareaForest(projectId);//林地面积
+		List<DoubleArray> areaGrass = getWebServiceParaService.getareaGrass(projectId);//草地面积
+		List<DoubleArray> areaWater = getWebServiceParaService.getareaWater(projectId);//水域面积
+//     	@WebParam(name = "areaWetlandR") double areaWetlandR [][], //湿地面积
+//        @WebParam(name = "areaForestR") double areaForestR [][], //林地面积变化率
+//        @WebParam(name = "areaGrassR") double areaGrassR [][], //草地面积变化率
+//        @WebParam(name = "areaWaterR") double areaWaterR [][], //水域面积变化率
+		
+		
+
+		
+
 		// 水资源管理情景
 		List<DoubleArray> waterAlloMid = getWebServiceParaService.getTblMidDownWaterAllo(); // 中游分水量，没有countryId属性的
 		List<DoubleArray> waterAlloDown = getWebServiceParaService.getTblDownDownWaterAllo(); // 下游分水量
 		List<DoubleArray> waterRight = getWebServiceParaService.getfldWaterRightRatio(projectId); // 水权分配比例
 		List<DoubleArray> waterSavingTechR = getWebServiceParaService.getSaveWater(projectId); // 节水技术提高比率
+		
+		 System.out.println(techProgRR.size());
 
 		return "home.ftl";
 	}

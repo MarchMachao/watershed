@@ -2050,6 +2050,7 @@
 					"projectId" : "${projectId}",
 					"countryId" : document.getElementById("land_selectCounty").value,
 					"year":document.getElementById("land-selectYears").value,
+					"fldFarmArea":document.getElementById("gengdi_situation_1").value,
 					"fldFarmAreaChgR" : document.getElementById("area_rateofchange_spinner").value,
 					"wheatChgR" : document.getElementById("land_situation_1").value,
 					"cornChgR" : document.getElementById("land_situation_2").value,

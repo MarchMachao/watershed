@@ -132,6 +132,307 @@ public interface GetWebServiceParaService {
 	 */
 	public List<DoubleArray> getSaveWater(String projectId)
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取非农业人口比例变化率
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getpopNonAgriRR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取工业产值
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getoutputInd(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取农业产值
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getoutputAgr(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取服务业产值
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getoutputSer(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取旅游业产值
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getoutputTour(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取旅游业产值变化率
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getoutputTourR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取产业进步率
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> gettechProgRR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取耕地面积
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaAgri(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	
+	/**
+	 * 获取耕地面积增长率
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaAgriR(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取小麦种植面积
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropWheat(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取玉米种植面积
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropCorn(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取油料种植面积
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropOilseed(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取果园种植面积
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropOrchard(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取棉花种植面积
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropCotton(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取蔬菜种植面积
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropGreenstuff(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取小麦种植面积变化率
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropWheatR(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取玉米种植面积变化率
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropCornR(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取油料作物面积变化率
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropOilseedR(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取果园种植面积变化率
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropOrchardR(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取棉花种植面积变化率
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropCottonR(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取湿地面积
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaWetland(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取林地面积
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaForest(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取草地面积
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaGrass(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取水域面积
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaWater(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取蔬菜种植面积变化率
+	 * 
+	 * @param projectId
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getareaCropGreenstuffR(String projectId) 
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
 
 	/**
 	 * 获取GDP参数

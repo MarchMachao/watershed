@@ -63,11 +63,12 @@ public class StuationParaController {
 	@RequestMapping(value = "saveIndUrbanScePara", method = RequestMethod.POST)
 	public BaseMsg saveIndUrbanScePara(String projectId, String countryId, String nonFarmPercent, String fldIndOutput,
 			String fldIndOutputPercent, String fldAgrOutput, String fldAgrOutputPercent, String fldSerOutput,
-			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry) {
-		watershedParaService.deleteTblIndUrbanScePara(projectId, countryId);
+			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry, String year, 
+			String fldFarmPop, String fldNonFarmPop ) {
+		watershedParaService.deleteTblIndUrbanScePara(projectId, countryId, year);
 		watershedParaService.addTblIndUrbanScePara(projectId, countryId, nonFarmPercent, fldIndOutput,
 				fldIndOutputPercent, fldAgrOutput, fldAgrOutputPercent, fldSerOutput, fldSerOutputPercent,
-				industryProgressRate, changeRateOfTourismIndustry);
+				industryProgressRate, changeRateOfTourismIndustry, year, fldFarmPop, fldNonFarmPop);
 		return new BaseMsg(true, "产业与城市发展情景保存成功");
 	}
 
@@ -97,14 +98,14 @@ public class StuationParaController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "saveTbLanduseScePara", method = RequestMethod.POST)
-	public BaseMsg saveTbLanduseScePara(String projectId, String countryId, String fldFarmAreaChgR, String wheatChgR,
+	public BaseMsg saveTbLanduseScePara(String projectId, String countryId, String fldFarmArea, String fldFarmAreaChgR, String wheatChgR,
 			String cornChgR, String oilPlantsChgR, String vegetablesChgR, String orchardChgR, String cottonChgR,
 			String wheatArea, String cornArea, String oilPlantsArea, String vegetablesArea, String orchardArea,
-			String cottonArea, String wetlandArea, String forestArea, String grassArea, String waterArea) {
-		watershedParaService.deleteTbLanduseScePara(projectId, countryId);
-		watershedParaService.addTbLanduseScePara(projectId, countryId, fldFarmAreaChgR, wheatChgR, cornChgR,
+			String cottonArea, String wetlandArea, String forestArea, String grassArea, String waterArea, String year) {
+		watershedParaService.deleteTbLanduseScePara(projectId, countryId, year);
+		watershedParaService.addTbLanduseScePara(projectId, countryId, fldFarmArea,fldFarmAreaChgR, wheatChgR, cornChgR,
 				oilPlantsChgR, vegetablesChgR, orchardChgR, cottonChgR, wheatArea, cornArea, oilPlantsArea,
-				vegetablesArea, orchardArea, cottonArea, wetlandArea, forestArea, grassArea, waterArea);
+				vegetablesArea, orchardArea, cottonArea, wetlandArea, forestArea, grassArea, waterArea, year);
 		return new BaseMsg(true, "土地资源利用情景参数保存成功");
 	}
 
