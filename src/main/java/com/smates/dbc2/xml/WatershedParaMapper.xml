@@ -113,7 +113,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId" resultType="TbSocioEconomyScePara">
 		SELECT * from "a_tbSocioEconomyScePara" where
 		"a_tbSocioEconomyScePara"."projectId" =#{projectId} and
-		"a_tbSocioEconomyScePara"."countryId" =#{countryId}
+		"a_tbSocioEconomyScePara"."countryId" =#{countryId} and "a_tbSocioEconomyScePara"."year" = #{year}
 	</select>
 
 	<!-- 添加水资源管理情景县区用水量参数 -->

@@ -44,13 +44,13 @@ public class ModelController {
 		   List<DoubleArray> gdp = getWebServiceParaService.getGDP(); //GDP
 		   List<DoubleArray> gdpPer = getWebServiceParaService.getgdpPer();//人均GDP
 		   List<DoubleArray> gdpR = getWebServiceParaService.getGDPInc(projectId);//GDP增长率
-//         double gdpPerR [][], //人均GDP增长率
+		   List<DoubleArray> gdpPerR = getWebServiceParaService.getGDPperInc(projectId);//人均GDP增长率
 //         double policyPop [][], //人口政策， 1-一胎政策；2-二胎政策；3-全面二胎政策
-//         double channelMain [][], //干渠长度
-//         double channelBran [][], //支渠长度
-//         double channelDou [][], //斗渠长度
-//         double channelNong [][], //农渠长度
-//         double channelMao [][], //毛渠长度
+		   List<DoubleArray> channelMain = getWebServiceParaService.getchannelMain(projectId); //干渠长度
+		   List<DoubleArray> channelBran = getWebServiceParaService.getchannelBran(projectId);//支渠长度
+		   List<DoubleArray> channelDou = getWebServiceParaService.getchannelDou(projectId);//斗渠长度
+		   List<DoubleArray> channelNong = getWebServiceParaService.getchannelNong(projectId);//农渠长度
+		   List<DoubleArray> channelMao = getWebServiceParaService.getchannelMao(projectId);//毛渠长度
 //         double channelMainWUE [][], //干渠水利用率
 //         double channelBranWUE [][], //支渠水利用率
 //         double channelDouWUE [][], //斗渠水利用率
@@ -73,7 +73,7 @@ public class ModelController {
 		List<DoubleArray> waterRight = getWebServiceParaService.getfldWaterRightRatio(projectId); // 水权分配比例
 		List<DoubleArray> waterSavingTechR = getWebServiceParaService.getSaveWater(projectId); // 节水技术提高比率
 		
-		 System.out.println(gdpR.size());
+		 System.out.println(channelBran.size());
 
 		return "home.ftl";
 	}

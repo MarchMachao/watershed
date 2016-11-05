@@ -55,7 +55,7 @@ public interface WatershedParaService {
 	 * @param countryId
 	 * @return
 	 */
-	public TblIndUrbanScePara getTblIndUrbanSceParaByProjectIdAndCountryId(String projectId, String countryId);
+	public TblIndUrbanScePara getTblIndUrbanSceParaByProjectIdAndCountryId(String projectId, String countryId,String year);
 	
 	/**
 	 * 添加土地资源利用情景参数
@@ -100,7 +100,7 @@ public interface WatershedParaService {
 	 * @param countryId
 	 * @return
 	 */
-	public TbLanduseScePara getTbLanduseSceParaByProjectIdAndCountryId(String projectId, String countryId);
+	public TbLanduseScePara getTbLanduseSceParaByProjectIdAndCountryId(String projectId, String countryId,String year);
 	
 	/**
 	 * 增加社会经济发展情景参数、
@@ -144,7 +144,7 @@ public interface WatershedParaService {
 	 * @param countryId
 	 * @return
 	 */
-	public TbSocioEconomyScePara getTbSocioEconomySceParaByProjectIdAndCountryId(String projectId, String countryId);
+	public TbSocioEconomyScePara getTbSocioEconomySceParaByProjectIdAndCountryId(String projectId, String countryId,String year);
 	
 	/**
 	 * 添加水资源管理情景县区用水量参数

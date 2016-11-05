@@ -164,13 +164,13 @@ public class StuationParaController {
 			baseClass = watershedParaService.getTblClimateSceParaByProjectIdAndCountryId(projectId, countryId, year);
 			break;
 		case "2":// 产业与城市化
-			baseClass = watershedParaService.getTblIndUrbanSceParaByProjectIdAndCountryId(projectId, countryId);
+			baseClass = watershedParaService.getTblIndUrbanSceParaByProjectIdAndCountryId(projectId, countryId,year);
 			break;
 		case "3":// 社会经济
-			baseClass = watershedParaService.getTbSocioEconomySceParaByProjectIdAndCountryId(projectId, countryId);
+			baseClass = watershedParaService.getTbSocioEconomySceParaByProjectIdAndCountryId(projectId, countryId,year);
 			break;
 		case "4":// 土地资源利用
-			baseClass = watershedParaService.getTbLanduseSceParaByProjectIdAndCountryId(projectId, countryId);
+			baseClass = watershedParaService.getTbLanduseSceParaByProjectIdAndCountryId(projectId, countryId,year);
 			break;
 		case "5":
 			baseClass = null;

@@ -89,21 +89,21 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 	}
 
 	@Override
-	public TblIndUrbanScePara getTblIndUrbanSceParaByProjectIdAndCountryId(String projectId, String countryId) {
+	public TblIndUrbanScePara getTblIndUrbanSceParaByProjectIdAndCountryId(String projectId, String countryId,String year) {
 		return watershedParaDao
-				.getTblIndUrbanSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId,null));
+				.getTblIndUrbanSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId,year));
 	}
 
 	@Override
-	public TbLanduseScePara getTbLanduseSceParaByProjectIdAndCountryId(String projectId, String countryId) {
+	public TbLanduseScePara getTbLanduseSceParaByProjectIdAndCountryId(String projectId, String countryId,String year) {
 		return watershedParaDao
-				.getTbLanduseSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId,null));
+				.getTbLanduseSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId,year));
 	}
 
 	@Override
-	public TbSocioEconomyScePara getTbSocioEconomySceParaByProjectIdAndCountryId(String projectId, String countryId) {
+	public TbSocioEconomyScePara getTbSocioEconomySceParaByProjectIdAndCountryId(String projectId, String countryId,String year) {
 		return watershedParaDao
-				.getTbSocioEconomySceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId,null));
+				.getTbSocioEconomySceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId,year));
 	}
 
 	@Override

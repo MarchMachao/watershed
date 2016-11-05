@@ -174,4 +174,43 @@ public class GetWebServiceParaServiceImpl implements GetWebServiceParaService {
 		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getPerCapGDP");
 	}
 
+	@Override
+	public List<DoubleArray> getGDPperInc(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getPerCapGDPR");
+	}
+
+	@Override
+	public List<DoubleArray> getchannelMain(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldMainCannelLeng");
+	}
+
+	@Override
+	public List<DoubleArray> getchannelBran(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldBranCannelLeng");
+	}
+
+	@Override
+	public List<DoubleArray> getchannelDou(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<DoubleArray> getchannelNong(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<DoubleArray> getchannelMao(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
