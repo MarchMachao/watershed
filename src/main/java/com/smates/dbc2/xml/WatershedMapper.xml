@@ -304,6 +304,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE
 		"a_tblSocioEconSce"."fldCountyCode" = #{value}
 	</select>
+	
+	<!-- 获取社会经济参数 -->
+	<select id="getTblSocioEconSce" resultType="TblSocioEconSce">
+		select * from "a_tblSocioEconSce" ORDER BY "a_tblSocioEconSce"."fldDate","a_tblSocioEconSce"."fldCountyCode"
+	</select>
 
 	<!-- desc:根据县区代码查找优惠政策表 -->
 	<select id="getTblPrefPolicyByfldCountyCode" parameterType="String"
@@ -387,7 +392,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT
 		*
 		FROM
-		"a_tblMidDownWaterAllo"
+		"a_tblMidDownWaterAllo" order by "a_tblMidDownWaterAllo"."fldDate"
 	</select>
 
 	<!-- desc:根据县区代码查找县区用水量数据表 -->

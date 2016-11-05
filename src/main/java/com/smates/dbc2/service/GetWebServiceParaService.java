@@ -56,4 +56,86 @@ public interface GetWebServiceParaService {
 	 */
 	public List<DoubleArray> gettempAvg() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
 	
+	/**
+	 * 获取最高温度
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> gettempMax() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取最低温度
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> gettempMin() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取中下游分水量
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getTblMidDownWaterAllo() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取下游分水量
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getTblDownDownWaterAllo() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取水权分配比例
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getfldWaterRightRatio(String projectId) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取节水技术提高比例
+	 * @param projectId 项目id
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getSaveWater(String projectId) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取GDP参数
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getGDP() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取人均GDP
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getgdpPer() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
+	/**
+	 * 获取GDP增长率
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> getGDPInc(String projectId) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
 }

@@ -100,6 +100,12 @@ public interface WatershedParaDao {
 	public void addTbSocioEconomyScePara(TbSocioEconomyScePara tbSocioEconomyScePara);
 	
 	/**
+	 * 获取社会经济参数
+	 * @return
+	 */
+	public List<TbSocioEconomyScePara> getTbSocioEconomyScePara(String projectId);
+	
+	/**
 	 * 删除社会经济发展情景参数
 	 * 
 	 * @param projectIdAndCountyId
@@ -177,6 +183,13 @@ public interface WatershedParaDao {
 	public void addTbWaterManSceCWPara(TbWaterManSceCWPara tbWaterManSceCWPara);
 	
 	/**
+	 * 获取水权分配比例
+	 * @param projectId 项目id
+	 * @return
+	 */
+	public List<TbWaterManSceWRPara> getTbWaterManSceWRParaByProjectId(String projectId);
+	
+	/**
 	 * 添加水资源管理，中下游水分配
 	 */
 	public void addMidAndDownStreamPercentPara(MidAndDownStreamPercentPara midAndDownStreamPercentPara);
@@ -191,6 +204,12 @@ public interface WatershedParaDao {
 	 * 保存节水技术情景
 	 */
 	public void addSaveWater(SaveWater saveWater);
+	
+	/**
+	 * 获取节水技术参数
+	 * @param projectId 项目id
+	 */
+	public List<SaveWater> getSaveWaterByProjectId(String projectId);
 	
 	/**
 	 * 删除节水技术情景

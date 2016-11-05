@@ -6,11 +6,12 @@ package com.smates.dbc2.po;
  * @author machao march.machao@gmail.com
  * @version 创建时间：2016年9月29日 上午11:00:29
  */
-public class TbSocioEconomyScePara extends BaseClass{
+public class TbSocioEconomyScePara extends BaseClass {
 
 	private String projectId;
 	private String countryId;
 	private String perCapGDPR;
+	private String perCapGDP;
 	private String fldMainCannelLeng;
 	private String fldMainCanWUE;
 	private String fldBranCannelLeng;
@@ -26,17 +27,20 @@ public class TbSocioEconomyScePara extends BaseClass{
 	private String fldIndustryAllowance;
 	private String fldFarmAllowance;
 	private String fldServiceAllowance;
+	private String year;
 
 	public TbSocioEconomyScePara() {
 	}
 
-	public TbSocioEconomyScePara(String projectId, String countryId, String perCapGDPR, String fldMainCannelLeng,
-			String fldMainCanWUE, String fldBranCannelLeng, String fldBranCanWUE, String fldDouLeng, String fldDouWUE,
-			String fldNongLeng, String fldNongWUE, String fldMaoLeng, String fldMaoWUE, String fldSprinkingArea,
-			String fldDropIrrArea, String fldIndustryAllowance, String fldFarmAllowance, String fldServiceAllowance) {
+	public TbSocioEconomyScePara(String projectId, String countryId, String perCapGDPR, String perCapGDP,
+			String fldMainCannelLeng, String fldMainCanWUE, String fldBranCannelLeng, String fldBranCanWUE,
+			String fldDouLeng, String fldDouWUE, String fldNongLeng, String fldNongWUE, String fldMaoLeng,
+			String fldMaoWUE, String fldSprinkingArea, String fldDropIrrArea, String fldIndustryAllowance,
+			String fldFarmAllowance, String fldServiceAllowance, String year) {
 		this.projectId = projectId;
 		this.countryId = countryId;
 		this.perCapGDPR = perCapGDPR;
+		this.perCapGDP = perCapGDP;
 		this.fldMainCannelLeng = fldMainCannelLeng;
 		this.fldMainCanWUE = fldMainCanWUE;
 		this.fldBranCannelLeng = fldBranCannelLeng;
@@ -52,6 +56,7 @@ public class TbSocioEconomyScePara extends BaseClass{
 		this.fldIndustryAllowance = fldIndustryAllowance;
 		this.fldFarmAllowance = fldFarmAllowance;
 		this.fldServiceAllowance = fldServiceAllowance;
+		this.year = year;
 	}
 
 	public String getProjectId() {
@@ -196,6 +201,22 @@ public class TbSocioEconomyScePara extends BaseClass{
 
 	public void setFldServiceAllowance(String fldServiceAllowance) {
 		this.fldServiceAllowance = fldServiceAllowance;
+	}
+
+	public String getPerCapGDP() {
+		return perCapGDP;
+	}
+
+	public void setPerCapGDP(String perCapGDP) {
+		this.perCapGDP = perCapGDP;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
 	}
 
 }

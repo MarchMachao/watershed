@@ -15,7 +15,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteTblclimateSceParaById" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId">
 		delete
 		from "a_tblClimateScePara" where "a_tblClimateScePara"."projectId" =
-		#{projectId} and "a_tblClimateScePara"."countryId" = #{countryId} and "a_tblClimateScePara"."year" = #{year}
+		#{projectId} and "a_tblClimateScePara"."countryId" = #{countryId} and
+		"a_tblClimateScePara"."year" = #{year}
 	</delete>
 
 	<!-- 查找气候情景参数 -->
@@ -23,13 +24,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId" resultType="TblClimateScePara">
 		SELECT * from "a_tblClimateScePara" where
 		"a_tblClimateScePara"."projectId" =#{projectId} and
-		"a_tblClimateScePara"."countryId" =#{countryId} and "a_tblClimateScePara"."year" = #{year}
+		"a_tblClimateScePara"."countryId" =#{countryId} and
+		"a_tblClimateScePara"."year" = #{year}
 	</select>
-	
-	<!-- 查找气候情景参数  -->
-	<select id="getTblClimateSceParaByProjectId" parameterType="String" resultType="TblClimateScePara">
+
+	<!-- 查找气候情景参数 -->
+	<select id="getTblClimateSceParaByProjectId" parameterType="String"
+		resultType="TblClimateScePara">
 		SELECT * from "a_tblClimateScePara" where
-		"a_tblClimateScePara"."projectId" =#{projectId} order by "a_tblClimateScePara"."year","a_tblClimateScePara"."countryId"
+		"a_tblClimateScePara"."projectId" =#{projectId} order by
+		"a_tblClimateScePara"."year","a_tblClimateScePara"."countryId"
 	</select>
 
 	<!-- 添加产业与城市发展情景参数 -->
@@ -80,10 +84,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 添加社会经济发展情景参数 -->
 	<insert id="addTbSocioEconomyScePara" parameterType="tbSocioEconomyScePara">
-		insert INTO
-		"a_tbSocioEconomyScePara" VALUES
-		(#{projectId},#{countryId},#{perCapGDPR},#{fldMainCannelLeng},#{fldMainCanWUE},#{fldBranCannelLeng},#{fldBranCanWUE},#{fldDouLeng},#{fldDouWUE},#{fldNongLeng},#{fldNongWUE},#{fldMaoLeng},#{fldMaoWUE},#{fldSprinkingArea},#{fldDropIrrArea},#{fldIndustryAllowance},#{fldFarmAllowance},#{fldServiceAllowance})
+		INSERT INTO
+		"a_tbSocioEconomyScePara" ("projectId", "countryId",
+		"perCapGDPR","perCapGDP","fldMainCannelLeng", "fldMainCanWUE",
+		"fldBranCannelLeng", "fldBranCanWUE", "fldDouLeng", "fldDouWUE",
+		"fldNongLeng", "fldNongWUE", "fldMaoLeng", "fldMaoWUE",
+		"fldSprinkingArea", "fldDropIrrArea", "fldIndustryAllowance",
+		"fldFarmAllowance", "fldServiceAllowance","year") VALUES
+		(#{projectId},#{countryId},#{perCapGDPR},#{perCapGDP},#{fldMainCannelLeng},#{fldMainCanWUE},#{fldBranCannelLeng},#{fldBranCanWUE},#{fldDouLeng},#{fldDouWUE},#{fldNongLeng},#{fldNongWUE},#{fldMaoLeng},#{fldMaoWUE},#{fldSprinkingArea},#{fldDropIrrArea},#{fldIndustryAllowance},#{fldFarmAllowance},#{fldServiceAllowance},#{year})
 	</insert>
+	
+	<!-- 获取社会经济参数 -->
+	<select id="getTbSocioEconomyScePara" resultType="TbSocioEconomyScePara" parameterType="String">
+		select * from "a_tbSocioEconomyScePara" where "projectId" = #{value} ORDER BY "a_tbSocioEconomyScePara"."year","a_tbSocioEconomyScePara"."countryId"
+	</select>
 
 	<!-- 删除社会经济发展情景参数 -->
 	<delete id="deleteTbSocioEconomyScePara" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId">
@@ -91,7 +105,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from "a_tbSocioEconomyScePara" where
 		"a_tbSocioEconomyScePara"."projectId" =
 		#{projectId} and
-		"a_tbLanduseScePara"."countryId" = #{countryId}
+		"a_tbSocioEconomyScePara"."countryId" = #{countryId} and "a_tbSocioEconomyScePara"."year" = #{year}
 	</delete>
 
 	<!-- 查找土地资源利用情景参数 -->
@@ -125,9 +139,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 删除水资源管理情景县区水权分配参数表 -->
 	<delete id="deleteTbWaterManSceWRPara" parameterType="ProjectIdAndCountyId">
-		delete	from "a_tbWaterManSceWRPara" where
-		"a_tbWaterManSceWRPara"."fldProjectCode" = #{projectId} and "a_tbWaterManSceWRPara"."fldCountryCode" = #{countryId}
+		delete from
+		"a_tbWaterManSceWRPara" where
+		"a_tbWaterManSceWRPara"."fldProjectCode"
+		= #{projectId} and "a_tbWaterManSceWRPara"."fldCountryCode" =
+		#{countryId}
 	</delete>
+
+	<!-- 查找水权分配比例 -->
+	<select id="getTbWaterManSceWRParaByProjectId" parameterType="String"
+		resultType="TbWaterManSceWRPara">
+		select * from "a_tbWaterManSceWRPara" where
+		"a_tbWaterManSceWRPara"."fldProjectCode" =#{value} ORDER BY
+		"a_tbWaterManSceWRPara"."fldDate","a_tbWaterManSceWRPara"."fldCountryCode"
+	</select>
 
 	<!-- 添加水资源管理，中下游水分配 -->
 	<insert id="addMidAndDownStreamPercentPara" parameterType="MidAndDownStreamPercentPara">
@@ -141,17 +166,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from "a_MidAndDownStreamPercentPara" where
 		"a_MidAndDownStreamPercentPara"."projectId" = #{value}
 	</delete>
-	
+
 	<!-- 保存节水情景 -->
 	<insert id="addSaveWater" parameterType="SaveWater">
-		insert into "a_saveWater"
-		values(#{projectId},#{countryId},#{savewater})
+		insert into
+		"a_saveWater"
+		values(#{projectId},#{countryId},#{savewater},#{year})
 	</insert>
-	
+
+	<!-- 获取节水技术参数 -->
+	<select id="getSaveWaterByProjectId" parameterType="String"
+		resultType="saveWater">
+		select * from "a_saveWater" where "a_saveWater"."projectId"
+		=#{value} ORDER BY "a_saveWater"."year","a_saveWater"."countryId"
+	</select>
+
 	<!-- 删除某个县区的节水情景数据 -->
 	<delete id="deleteSaveWater" parameterType="ProjectIdAndCountyId">
-			delete	from "a_saveWater" where
-		"a_saveWater"."projectId" = #{projectId} and "a_saveWater"."countryId" = #{countryId}
+		delete from "a_saveWater" where
+		"a_saveWater"."projectId" = #{projectId} and
+		"a_saveWater"."countryId" = #{countryId}
 	</delete>
 
 </mapper>

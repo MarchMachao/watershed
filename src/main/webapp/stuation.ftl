@@ -2075,12 +2075,13 @@
 		$("#economy_submit").click(function() {
 			var contents="";
 			$.post(
-				"saveTbLanduseScePara.do",
+				"saveTbSocioEconomyScePara.do",
 				{
 					"projectId" : "${projectId}",
 					"year":document.getElementById("water-selectYears").value,
 					"countryId" : document.getElementById("water-selectCounty").value,
 					"perCapGDPR" : document.getElementById("GDPInc_spinner1").value,
+					"perCapGDP" : document.getElementById("GDPInc_spinner2").value,
 					"fldMainCannelLeng": document.getElementById("ganQu_text").value,
 					"fldMainCanWUE" : document.getElementById("ganQu_spinner").value,
 					"fldBranCannelLeng" : document.getElementById("zhiQu_text").value,

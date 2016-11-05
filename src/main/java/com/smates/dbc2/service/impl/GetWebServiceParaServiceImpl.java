@@ -119,4 +119,59 @@ public class GetWebServiceParaServiceImpl implements GetWebServiceParaService {
 		return ToDoubleArray(watershedDao.getTblClimateScenarioYear(),"getFldDate","getFldAvgTemperature");
 	}
 
+	@Override
+	public List<DoubleArray> gettempMax()
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedDao.getTblClimateScenarioYear(),"getFldDate","getFldMaxTemp");
+	}
+
+	@Override
+	public List<DoubleArray> gettempMin()
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedDao.getTblClimateScenarioYear(),"getFldDate","getFldMinTemp");
+
+	}
+
+	@Override
+	public List<DoubleArray> getTblMidDownWaterAllo()
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedDao.getTblMidDownWaterAllo(),"getFldDate","getFldWaterUseMid");
+	}
+
+	@Override
+	public List<DoubleArray> getTblDownDownWaterAllo()
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedDao.getTblMidDownWaterAllo(),"getFldDate","getFldWaterUseDown");
+	}
+
+	@Override
+	public List<DoubleArray> getfldWaterRightRatio(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbWaterManSceWRParaByProjectId(projectId),"getFldDate","getFldWaterRightRatio");
+	}
+
+	@Override
+	public List<DoubleArray> getSaveWater(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getSaveWaterByProjectId(projectId),"getYear","getSavewater");
+	}
+
+	@Override
+	public List<DoubleArray> getGDP()
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedDao.getTblSocioEconSce(),"getFldDate","getFldGDP");
+	}
+
+	@Override
+	public List<DoubleArray> getgdpPer()
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedDao.getTblSocioEconSce(),"getFldDate","getFldPerCapGDP");
+	}
+
+	@Override
+	public List<DoubleArray> getGDPInc(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getPerCapGDP");
+	}
+
 }

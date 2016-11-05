@@ -124,11 +124,11 @@ public interface WatershedParaService {
 	 * @param fldFarmAllowance
 	 * @param fldServiceAllowance
 	 */
-	public void addTbSocioEconomyScePara(String projectId, String countryId, String perCapGDPR,
+	public void addTbSocioEconomyScePara(String projectId, String countryId, String perCapGDPR,String perCapGDP,
 			String fldMainCannelLeng, String fldMainCanWUE, String fldBranCannelLeng, String fldBranCanWUE,
 			String fldDouLeng, String fldDouWUE, String fldNongLeng, String fldNongWUE, String fldMaoLeng,
 			String fldMaoWUE, String fldSprinkingArea, String fldDropIrrArea, String fldIndustryAllowance,
-			String fldFarmAllowance, String fldServiceAllowance);
+			String fldFarmAllowance, String fldServiceAllowance,String year);
 
 	/**
 	 * 删除社会经济发展情景参数
@@ -136,7 +136,7 @@ public interface WatershedParaService {
 	 * @param projectId
 	 * @param countryId
 	 */
-	public void deleteTbSocioEconomyScePara(String projectId, String countryId);
+	public void deleteTbSocioEconomyScePara(String projectId, String countryId ,String year);
 	
 	/**
 	 * 查找社会经济发展情景参数

@@ -133,16 +133,16 @@ public class StuationParaController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "saveTbSocioEconomyScePara", method = RequestMethod.POST)
-	public BaseMsg saveTbSocioEconomyScePara(String projectId, String countryId, String perCapGDPR,
+	public BaseMsg saveTbSocioEconomyScePara(String projectId, String countryId, String perCapGDPR,String perCapGDP,
 			String fldMainCannelLeng, String fldMainCanWUE, String fldBranCannelLeng, String fldBranCanWUE,
 			String fldDouLeng, String fldDouWUE, String fldNongLeng, String fldNongWUE, String fldMaoLeng,
 			String fldMaoWUE, String fldSprinkingArea, String fldDropIrrArea, String fldIndustryAllowance,
-			String fldFarmAllowance, String fldServiceAllowance) {
-		watershedParaService.deleteTbSocioEconomyScePara(projectId, countryId);
-		watershedParaService.addTbSocioEconomyScePara(projectId, countryId, perCapGDPR, fldMainCannelLeng,
+			String fldFarmAllowance, String fldServiceAllowance,String year) {
+		watershedParaService.deleteTbSocioEconomyScePara(projectId, countryId ,year);
+		watershedParaService.addTbSocioEconomyScePara(projectId, countryId, perCapGDPR,perCapGDP, fldMainCannelLeng,
 				fldMainCanWUE, fldBranCannelLeng, fldBranCanWUE, fldDouLeng, fldDouWUE, fldNongLeng, fldNongWUE,
 				fldMaoLeng, fldMaoWUE, fldSprinkingArea, fldDropIrrArea, fldIndustryAllowance, fldFarmAllowance,
-				fldServiceAllowance);
+				fldServiceAllowance,year);
 		return new BaseMsg(true, "社会经济发展情景保存成功");
 	}
 

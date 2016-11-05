@@ -114,6 +114,8 @@ public interface WatershedDao {
 	 * @param watershedCode
 	 */
 	public void deletetblSocioEconSce(String watershedCode);
+	
+	
 
 	/**
 	 * 添加优惠政策
@@ -351,5 +353,13 @@ public interface WatershedDao {
 	 * @return 县区用水量数据表list
 	 */
 	public List<TblWaterAlloCounty> getTblWaterAlloCountyByfldCountyCode(String fldCountyCode);
+	
+	/**
+	 * 获取社会经济参数
+	 * @return
+	 */
+	public List<TblSocioEconSce> getTblSocioEconSce();
+	
+	
 
 }

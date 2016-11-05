@@ -9,16 +9,18 @@ package com.smates.dbc2.po;
 public class SaveWater {
 
 	private String projectId;
+	private String year;
 	private String countryId;
 	private double savewater;
 
 	public SaveWater() {
 	}
 
-	public SaveWater(String projectId, String countryId, double savewater) {
+	public SaveWater(String projectId, String countryId, double savewater,String year) {
 		this.projectId = projectId;
 		this.countryId = countryId;
 		this.savewater = savewater;
+		this.year = year;
 	}
 
 	public String getProjectId() {
@@ -45,4 +47,12 @@ public class SaveWater {
 		this.savewater = savewater;
 	}
 
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+	
 }

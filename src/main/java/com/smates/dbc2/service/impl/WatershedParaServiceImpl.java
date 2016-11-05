@@ -66,20 +66,20 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 	}
 
 	@Override
-	public void addTbSocioEconomyScePara(String projectId, String countryId, String perCapGDPR,
+	public void addTbSocioEconomyScePara(String projectId, String countryId, String perCapGDPR,String perCapGDP,
 			String fldMainCannelLeng, String fldMainCanWUE, String fldBranCannelLeng, String fldBranCanWUE,
 			String fldDouLeng, String fldDouWUE, String fldNongLeng, String fldNongWUE, String fldMaoLeng,
 			String fldMaoWUE, String fldSprinkingArea, String fldDropIrrArea, String fldIndustryAllowance,
-			String fldFarmAllowance, String fldServiceAllowance) {
-		watershedParaDao.addTbSocioEconomyScePara(new TbSocioEconomyScePara(projectId, countryId, perCapGDPR,
+			String fldFarmAllowance, String fldServiceAllowance,String year) {
+		watershedParaDao.addTbSocioEconomyScePara(new TbSocioEconomyScePara(projectId, countryId, perCapGDPR,perCapGDP,
 				fldMainCannelLeng, fldMainCanWUE, fldBranCannelLeng, fldBranCanWUE, fldDouLeng, fldDouWUE, fldNongLeng,
 				fldNongWUE, fldMaoLeng, fldMaoWUE, fldSprinkingArea, fldDropIrrArea, fldIndustryAllowance,
-				fldFarmAllowance, fldServiceAllowance));
+				fldFarmAllowance, fldServiceAllowance,year));
 	}
 
 	@Override
-	public void deleteTbSocioEconomyScePara(String projectId, String countryId) {
-		watershedParaDao.deleteTbLanduseScePara(new ProjectIdAndCountyId(projectId, countryId,null));
+	public void deleteTbSocioEconomyScePara(String projectId, String countryId,String year) {
+		watershedParaDao.deleteTbSocioEconomyScePara(new ProjectIdAndCountyId(projectId, countryId,year));
 	}
 
 	@Override
@@ -138,8 +138,8 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 
 	@Override
 	public void addSaveWater(String projectId, String countryId, double savewater) {
-		watershedParaDao.deleteSaveWater(new ProjectIdAndCountyId(projectId, countryId,null));
-		watershedParaDao.addSaveWater(new SaveWater(projectId, countryId, savewater));
+		watershedParaDao.deleteSaveWater(new ProjectIdAndCountyId(projectId, countryId,"2014"));
+		watershedParaDao.addSaveWater(new SaveWater(projectId, countryId, savewater,"2014"));
 	}
 
 }
