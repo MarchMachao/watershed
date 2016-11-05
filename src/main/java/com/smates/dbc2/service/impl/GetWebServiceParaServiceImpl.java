@@ -195,22 +195,76 @@ public class GetWebServiceParaServiceImpl implements GetWebServiceParaService {
 	@Override
 	public List<DoubleArray> getchannelDou(String projectId)
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		// TODO Auto-generated method stub
-		return null;
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldDouLeng");
 	}
 
 	@Override
 	public List<DoubleArray> getchannelNong(String projectId)
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		// TODO Auto-generated method stub
-		return null;
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldNongLeng");
 	}
 
 	@Override
 	public List<DoubleArray> getchannelMao(String projectId)
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		// TODO Auto-generated method stub
-		return null;
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldMaoLeng");
+	}
+
+	
+	
+	
+	@Override
+	public List<DoubleArray> getchannelMainWUE(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldMainCanWUE");
+	}
+
+	@Override
+	public List<DoubleArray> getchannelBranWUE(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldBranCanWUE");
+	}
+
+	@Override
+	public List<DoubleArray> getchannelDouWUE(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldDouWUE");
+	}
+
+	@Override
+	public List<DoubleArray> getchannelNongWUE(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldNongWUE");
+	}
+
+	@Override
+	public List<DoubleArray> getchannelMaoWUE(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldMaoWUE");
+	}
+
+	@Override
+	public List<DoubleArray> getareaDripIrri(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldDropIrrArea");
+	}
+
+	@Override
+	public List<DoubleArray> getallowanceInd(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldIndustryAllowance");
+	}
+
+	@Override
+	public List<DoubleArray> getallowanceAgr(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldFarmAllowance");
+	}
+
+	@Override
+	public List<DoubleArray> getallowanceSer(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTbSocioEconomyScePara(projectId),"getYear","getFldServiceAllowance");
 	}
 
 }

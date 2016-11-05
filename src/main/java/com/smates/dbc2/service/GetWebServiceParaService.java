@@ -237,5 +237,111 @@ public interface GetWebServiceParaService {
 	 */
 	public List<DoubleArray> getchannelMao(String projectId)
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	   
+	   /**
+		 * 获取干渠水利用率
+		 * 
+		 * @param projectId
+		 * @return
+		 * @throws IllegalAccessException
+		 * @throws IllegalArgumentException
+		 * @throws InvocationTargetException
+		 */
+		public List<DoubleArray> getchannelMainWUE(String projectId)
+				throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+		
+		/**
+		 * 获取支渠水利用率
+		 * 
+		 * @param projectId
+		 * @return
+		 * @throws IllegalAccessException
+		 * @throws IllegalArgumentException
+		 * @throws InvocationTargetException
+		 */
+		public List<DoubleArray> getchannelBranWUE(String projectId)
+				throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+		
+		/**
+		 * 获取斗渠水利用率
+		 * 
+		 * @param projectId
+		 * @return
+		 * @throws IllegalAccessException
+		 * @throws IllegalArgumentException
+		 * @throws InvocationTargetException
+		 */
+		public List<DoubleArray> getchannelDouWUE(String projectId)
+				throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+		
+		/**
+		 * 获取农渠水利用率
+		 * 
+		 * @param projectId
+		 * @return
+		 * @throws IllegalAccessException
+		 * @throws IllegalArgumentException
+		 * @throws InvocationTargetException
+		 */
+		public List<DoubleArray> getchannelNongWUE(String projectId)
+				throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+		
+		/**
+		 * 获取毛渠水利用率
+		 * 
+		 * @param projectId
+		 * @return
+		 * @throws IllegalAccessException
+		 * @throws IllegalArgumentException
+		 * @throws InvocationTargetException
+		 */
+		public List<DoubleArray> getchannelMaoWUE(String projectId)
+				throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+		
+		/**
+		 * 获取滴灌面积
+		 * 
+		 * @param projectId
+		 * @return
+		 * @throws IllegalAccessException
+		 * @throws IllegalArgumentException
+		 * @throws InvocationTargetException
+		 */
+		public List<DoubleArray> getareaDripIrri(String projectId)
+				throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+
+		/**
+		 * 获取工业政策补贴
+		 * 
+		 * @param projectId
+		 * @return
+		 * @throws IllegalAccessException
+		 * @throws IllegalArgumentException
+		 * @throws InvocationTargetException
+		 */
+		public List<DoubleArray> getallowanceInd(String projectId)
+				throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+		/**
+		 * 获取农业政策补贴
+		 * 
+		 * @param projectId
+		 * @return
+		 * @throws IllegalAccessException
+		 * @throws IllegalArgumentException
+		 * @throws InvocationTargetException
+		 */
+		public List<DoubleArray> getallowanceAgr(String projectId)
+				throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+		/**
+		 * 获取服务业政策补贴
+		 * 
+		 * @param projectId
+		 * @return
+		 * @throws IllegalAccessException
+		 * @throws IllegalArgumentException
+		 * @throws InvocationTargetException
+		 */
+		public List<DoubleArray> getallowanceSer(String projectId)
+				throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
 
 }

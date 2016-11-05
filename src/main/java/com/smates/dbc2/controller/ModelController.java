@@ -38,42 +38,38 @@ public class ModelController {
 		// @WebParam(name = "tempMinR") double tempMinR [][], //最低温度变化率
 
 		// 产业与城市发展情景
-		
-		
-		 //社会经济发展情景
-		   List<DoubleArray> gdp = getWebServiceParaService.getGDP(); //GDP
-		   List<DoubleArray> gdpPer = getWebServiceParaService.getgdpPer();//人均GDP
-		   List<DoubleArray> gdpR = getWebServiceParaService.getGDPInc(projectId);//GDP增长率
-		   List<DoubleArray> gdpPerR = getWebServiceParaService.getGDPperInc(projectId);//人均GDP增长率
-//         double policyPop [][], //人口政策， 1-一胎政策；2-二胎政策；3-全面二胎政策
-		   List<DoubleArray> channelMain = getWebServiceParaService.getchannelMain(projectId); //干渠长度
-		   List<DoubleArray> channelBran = getWebServiceParaService.getchannelBran(projectId);//支渠长度
-		   List<DoubleArray> channelDou = getWebServiceParaService.getchannelDou(projectId);//斗渠长度
-		   List<DoubleArray> channelNong = getWebServiceParaService.getchannelNong(projectId);//农渠长度
-		   List<DoubleArray> channelMao = getWebServiceParaService.getchannelMao(projectId);//毛渠长度
-//         double channelMainWUE [][], //干渠水利用率
-//         double channelBranWUE [][], //支渠水利用率
-//         double channelDouWUE [][], //斗渠水利用率
-//         double channelNongWUE [][], //农渠水利用率
-//         double channelMaoWUE [][], //毛渠水利用率
-//         double channelMainWUER [][], //干渠水利用率变化率
-//         double channelBranWUER [][], //支渠水利用率变化率
-//         double channelDouWUER [][], //斗渠水利用率变化率
-//         double channelNongWUER [][], //农渠水利用率变化率
-//         double channelMaoWUER [][], //毛渠水利用率变化率
-//         double areaDripIrri [][], //滴灌面积（有中游滴灌面积和县区滴灌面积）
-//         double allowanceInd [][], //工业政策补贴
-//         double allowanceAgr [][], //农业政策补贴
-//         double allowanceSer [][], //服务业政策补贴
-		
+
+		// 社会经济发展情景
+		List<DoubleArray> gdp = getWebServiceParaService.getGDP(); // GDP
+		List<DoubleArray> gdpPer = getWebServiceParaService.getgdpPer();// 人均GDP
+		List<DoubleArray> gdpR = getWebServiceParaService.getGDPInc(projectId);// GDP增长率
+		List<DoubleArray> gdpPerR = getWebServiceParaService.getGDPperInc(projectId);// 人均GDP增长率
+		// double policyPop [][], //人口政策， 1-一胎政策；2-二胎政策；3-全面二胎政策
+		List<DoubleArray> channelMain = getWebServiceParaService.getchannelMain(projectId); // 干渠长度
+		List<DoubleArray> channelBran = getWebServiceParaService.getchannelBran(projectId);// 支渠长度
+		List<DoubleArray> channelDou = getWebServiceParaService.getchannelDou(projectId);// 斗渠长度
+		List<DoubleArray> channelNong = getWebServiceParaService.getchannelNong(projectId);// 农渠长度
+		List<DoubleArray> channelMao = getWebServiceParaService.getchannelMao(projectId);// 毛渠长度
+		List<DoubleArray> channelMainWUE = getWebServiceParaService.getchannelMainWUE(projectId); // 干渠水利用率
+		List<DoubleArray> channelBranWUE = getWebServiceParaService.getchannelBranWUE(projectId); // 支渠水利用率
+		List<DoubleArray> channelDouWUE = getWebServiceParaService.getchannelDouWUE(projectId); // 斗渠水利用率
+		List<DoubleArray> channelNongWUE = getWebServiceParaService.getchannelNongWUE(projectId); // 农渠水利用率
+		List<DoubleArray> channelMaoWUE = getWebServiceParaService.getchannelMaoWUE(projectId);// 毛渠水利用率
+		// double channelMainWUER [][], //干渠水利用率变化率
+		// double channelBranWUER [][], //支渠水利用率变化率
+		// double channelDouWUER [][], //斗渠水利用率变化率
+		// double channelNongWUER [][], //农渠水利用率变化率
+		// double channelMaoWUER [][], //毛渠水利用率变化率
+		List<DoubleArray> areaDripIrri = getWebServiceParaService.getareaDripIrri(projectId); //滴灌面积（有中游滴灌面积和县区滴灌面积）
+		List<DoubleArray> allowanceInd = getWebServiceParaService.getallowanceInd(projectId); //工业政策补贴
+		List<DoubleArray> allowanceAgr = getWebServiceParaService.getallowanceAgr(projectId); //农业政策补贴
+		List<DoubleArray> allowanceSer = getWebServiceParaService.getallowanceSer(projectId); //服务业政策补贴
 
 		// 水资源管理情景
 		List<DoubleArray> waterAlloMid = getWebServiceParaService.getTblMidDownWaterAllo(); // 中游分水量，没有countryId属性的
 		List<DoubleArray> waterAlloDown = getWebServiceParaService.getTblDownDownWaterAllo(); // 下游分水量
 		List<DoubleArray> waterRight = getWebServiceParaService.getfldWaterRightRatio(projectId); // 水权分配比例
 		List<DoubleArray> waterSavingTechR = getWebServiceParaService.getSaveWater(projectId); // 节水技术提高比率
-		
-		 System.out.println(channelBran.size());
 
 		return "home.ftl";
 	}
