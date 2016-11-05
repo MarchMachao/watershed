@@ -15,14 +15,14 @@ public interface WatershedParaService {
 	 * 
 	 * @param tblClimateScePara
 	 */
-	public void addTblClimateScePara(String projectId, String countryId, String rainInc, String tempInc);
+	public void addTblClimateScePara(String projectId, String countryId, String rainInc, String tempInc,String year);
 
 	/**
 	 * 删除某个项目的气候情景参数
 	 * 
 	 * @param id
 	 */
-	public void deleteTblclimateSceParaById(String id, String countryId);
+	public void deleteTblclimateSceParaById(String id, String countryId,String year);
 	
 	/**
 	 * 查找气候情景参数
@@ -30,7 +30,7 @@ public interface WatershedParaService {
 	 * @param countryId
 	 * @return
 	 */
-	public TblClimateScePara getTblClimateSceParaByProjectIdAndCountryId(String projectId, String countryId);
+	public TblClimateScePara getTblClimateSceParaByProjectIdAndCountryId(String projectId, String countryId,String yeare);
 
 	/**
 	 * 添加产业与城市发展情景参数

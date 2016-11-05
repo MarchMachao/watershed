@@ -47,4 +47,13 @@ public interface GetWebServiceParaService {
 	 */
 	public List<DoubleArray> getprecR(String projectId) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
 	
+	/**
+	 * 获取平均温度
+	 * @return
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InvocationTargetException
+	 */
+	public List<DoubleArray> gettempAvg() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException;
+	
 }

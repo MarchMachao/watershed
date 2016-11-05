@@ -84,20 +84,24 @@ public class GetWebServiceParaServiceImpl implements GetWebServiceParaService {
 
 			if (date == null) {
 				date = (String) dateMethodName.invoke(tblClimateScenarioYears.get(i), null);
-				// tblClimateScenarioYears.get(i).getFldDate();
 			}
-			// if(date.equals(tblClimateScenarioYears.get(i).getFldDate())){
 			if (date.equals((String) dateMethodName.invoke(tblClimateScenarioYears.get(i), null))) {
-//				 items.add(tblClimateScenarioYears.get(i).getFldPrecipitation());
-				items.add((double) dataMethodName.invoke(tblClimateScenarioYears.get(i), null));
+				try{
+					items.add(Double.parseDouble((String)dataMethodName.invoke(tblClimateScenarioYears.get(i), null)));
+				}catch (Exception e) {
+					items.add((Double)dataMethodName.invoke(tblClimateScenarioYears.get(i), null));
+				}
+				
 				
 			} else {
 				para.add(new DoubleArray(items));
 				items = new ArrayList<Double>();
-				// date = tblClimateScenarioYears.get(i).getFldDate();
 				date = (String) dateMethodName.invoke(tblClimateScenarioYears.get(i), null);
-				// items.add(tblClimateScenarioYears.get(i).getFldPrecipitation());
-				items.add((double) dataMethodName.invoke(tblClimateScenarioYears.get(i), null));
+				try{
+					items.add(Double.parseDouble((String)dataMethodName.invoke(tblClimateScenarioYears.get(i), null)));
+				}catch (Exception e) {
+					items.add((Double)dataMethodName.invoke(tblClimateScenarioYears.get(i), null));
+				}
 			}
 		}
 		para.add(new DoubleArray(items));
@@ -106,7 +110,13 @@ public class GetWebServiceParaServiceImpl implements GetWebServiceParaService {
 
 	@Override
 	public List<DoubleArray> getprecR(String projectId) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		return ToDoubleArray(watershedParaDao.getTblClimateSceParaByProjectId(projectId),"getFldDate","getFldPrecipitation");
+		return ToDoubleArray(watershedParaDao.getTblClimateSceParaByProjectId(projectId),"getYear","getRainInc");
+	}
+
+	@Override
+	public List<DoubleArray> gettempAvg()
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedDao.getTblClimateScenarioYear(),"getFldDate","getFldAvgTemperature");
 	}
 
 }

@@ -8,14 +8,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addTblClimateScePara" parameterType="TblClimateScePara">
 		INSERT INTO
 		"a_tblClimateScePara"
-		VALUES(#{projectId},#{countryId},#{rainInc},#{tempInc})
+		VALUES(#{projectId},#{countryId},#{rainInc},#{tempInc},#{year})
 	</insert>
 
 	<!-- 根据id删除气候情景参数 -->
 	<delete id="deleteTblclimateSceParaById" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId">
 		delete
 		from "a_tblClimateScePara" where "a_tblClimateScePara"."projectId" =
-		#{projectId} and "a_tblClimateScePara"."countryId" = #{countryId}
+		#{projectId} and "a_tblClimateScePara"."countryId" = #{countryId} and "a_tblClimateScePara"."year" = #{year}
 	</delete>
 
 	<!-- 查找气候情景参数 -->
@@ -23,13 +23,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId" resultType="TblClimateScePara">
 		SELECT * from "a_tblClimateScePara" where
 		"a_tblClimateScePara"."projectId" =#{projectId} and
-		"a_tblClimateScePara"."countryId" =#{countryId}
+		"a_tblClimateScePara"."countryId" =#{countryId} and "a_tblClimateScePara"."year" = #{year}
 	</select>
 	
 	<!-- 查找气候情景参数  -->
 	<select id="getTblClimateSceParaByProjectId" parameterType="String" resultType="TblClimateScePara">
 		SELECT * from "a_tblClimateScePara" where
-		"a_tblClimateScePara"."projectId" =#{projectId}
+		"a_tblClimateScePara"."projectId" =#{projectId} order by "a_tblClimateScePara"."year","a_tblClimateScePara"."countryId"
 	</select>
 
 	<!-- 添加产业与城市发展情景参数 -->

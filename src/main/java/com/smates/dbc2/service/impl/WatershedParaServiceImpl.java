@@ -27,13 +27,13 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 	private WatershedParaDao watershedParaDao;
 
 	@Override
-	public void addTblClimateScePara(String projectId, String countryId, String rainInc, String tempInc) {
-		watershedParaDao.addTblClimateScePara(new TblClimateScePara(projectId, countryId, rainInc, tempInc));
+	public void addTblClimateScePara(String projectId, String countryId, String rainInc, String tempInc, String year) {
+		watershedParaDao.addTblClimateScePara(new TblClimateScePara(projectId, countryId, rainInc, tempInc, year));
 	}
-	
+
 	@Override
-	public void deleteTblclimateSceParaById(String projectId,String countryId){
-		watershedParaDao.deleteTblclimateSceParaById(new ProjectIdAndCountyId(projectId, countryId));
+	public void deleteTblclimateSceParaById(String projectId, String countryId,String year) {
+		watershedParaDao.deleteTblclimateSceParaById(new ProjectIdAndCountyId(projectId, countryId,year));
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 
 	@Override
 	public void deleteTblIndUrbanScePara(String projectId, String countryId) {
-		watershedParaDao.deleteTblIndUrbanScePara(new ProjectIdAndCountyId(projectId, countryId));
+		watershedParaDao.deleteTblIndUrbanScePara(new ProjectIdAndCountyId(projectId, countryId,null));
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 
 	@Override
 	public void deleteTbLanduseScePara(String projectId, String countryId) {
-		watershedParaDao.deleteTbLanduseScePara(new ProjectIdAndCountyId(projectId, countryId));
+		watershedParaDao.deleteTbLanduseScePara(new ProjectIdAndCountyId(projectId, countryId,null));
 	}
 
 	@Override
@@ -79,59 +79,67 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 
 	@Override
 	public void deleteTbSocioEconomyScePara(String projectId, String countryId) {
-		watershedParaDao.deleteTbLanduseScePara(new ProjectIdAndCountyId(projectId, countryId));
+		watershedParaDao.deleteTbLanduseScePara(new ProjectIdAndCountyId(projectId, countryId,null));
 	}
 
 	@Override
-	public TblClimateScePara getTblClimateSceParaByProjectIdAndCountryId(String projectId, String countryId) {
-		return watershedParaDao.getTblClimateSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId));
+	public TblClimateScePara getTblClimateSceParaByProjectIdAndCountryId(String projectId, String countryId,String year) {
+		return watershedParaDao
+				.getTblClimateSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId,year));
 	}
 
 	@Override
 	public TblIndUrbanScePara getTblIndUrbanSceParaByProjectIdAndCountryId(String projectId, String countryId) {
-		return watershedParaDao.getTblIndUrbanSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId));
+		return watershedParaDao
+				.getTblIndUrbanSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId,null));
 	}
 
 	@Override
 	public TbLanduseScePara getTbLanduseSceParaByProjectIdAndCountryId(String projectId, String countryId) {
-		return watershedParaDao.getTbLanduseSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId));
+		return watershedParaDao
+				.getTbLanduseSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId,null));
 	}
 
 	@Override
 	public TbSocioEconomyScePara getTbSocioEconomySceParaByProjectIdAndCountryId(String projectId, String countryId) {
-		return watershedParaDao.getTbSocioEconomySceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId));
+		return watershedParaDao
+				.getTbSocioEconomySceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId,null));
 	}
 
 	@Override
 	public void addTbWaterManSceCWPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode,
 			String fldDate, double fldSurfaceWater, double fldGroundWater) {
-		watershedParaDao.addTbWaterManSceCWPara(new TbWaterManSceCWPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate, fldSurfaceWater, fldGroundWater));
+		watershedParaDao.addTbWaterManSceCWPara(new TbWaterManSceCWPara(fldWatershedCode, fldProjectCode, fldCountyCode,
+				fldDate, fldSurfaceWater, fldGroundWater));
 	}
 
 	@Override
 	public void addTbWaterManSceMDPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode,
 			String fldDate, double fldWaterUseMid, double fldWaterUseDown) {
-		watershedParaDao.addTbWaterManSceMDPara(new TbWaterManSceMDPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate, fldWaterUseMid, fldWaterUseDown));
+		watershedParaDao.addTbWaterManSceMDPara(new TbWaterManSceMDPara(fldWatershedCode, fldProjectCode, fldCountyCode,
+				fldDate, fldWaterUseMid, fldWaterUseDown));
 	}
 
 	@Override
-	public void addTbWaterManSceWRPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode, String fldDate,
-			double fldWaterRightRatio) {
-		watershedParaDao.deleteTbWaterManSceWRPara(new ProjectIdAndCountyId(fldProjectCode, fldCountyCode));
-		watershedParaDao.addTbWaterManSceWRPara(new TbWaterManSceWRPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate, fldWaterRightRatio));
+	public void addTbWaterManSceWRPara(String fldWatershedCode, String fldProjectCode, String fldCountyCode,
+			String fldDate, double fldWaterRightRatio) {
+		watershedParaDao.deleteTbWaterManSceWRPara(new ProjectIdAndCountyId(fldProjectCode, fldCountyCode,null));
+		watershedParaDao.addTbWaterManSceWRPara(
+				new TbWaterManSceWRPara(fldWatershedCode, fldProjectCode, fldCountyCode, fldDate, fldWaterRightRatio));
 	}
 
 	@Override
 	public void addMidAndDownStreamPercentPara(String projectId, String watershedId, double serfaceWater,
 			double midstreamPercent, double downstreamPercent) {
 		watershedParaDao.deleteMidAndDownStreamPercentPara(projectId);
-		watershedParaDao.addMidAndDownStreamPercentPara(new MidAndDownStreamPercentPara(projectId, watershedId, serfaceWater, midstreamPercent, downstreamPercent));
+		watershedParaDao.addMidAndDownStreamPercentPara(new MidAndDownStreamPercentPara(projectId, watershedId,
+				serfaceWater, midstreamPercent, downstreamPercent));
 	}
 
 	@Override
 	public void addSaveWater(String projectId, String countryId, double savewater) {
-		watershedParaDao.deleteSaveWater(new ProjectIdAndCountyId(projectId, countryId));
+		watershedParaDao.deleteSaveWater(new ProjectIdAndCountyId(projectId, countryId,null));
 		watershedParaDao.addSaveWater(new SaveWater(projectId, countryId, savewater));
-	}	
+	}
 
 }

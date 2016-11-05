@@ -37,9 +37,9 @@ public class StuationParaController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "saveClimatePara", method = RequestMethod.POST)
-	public BaseMsg saveClimatePara(String projectId, String countryId, String rainInc, String tempInc) {
-		watershedParaService.deleteTblclimateSceParaById(projectId, countryId);
-		watershedParaService.addTblClimateScePara(projectId, countryId, rainInc, tempInc);
+	public BaseMsg saveClimatePara(String projectId, String countryId, String rainInc, String tempInc, String year) {
+		watershedParaService.deleteTblclimateSceParaById(projectId, countryId,year);
+		watershedParaService.addTblClimateScePara(projectId, countryId, rainInc, tempInc,year);
 		return new BaseMsg(true, "气候情景保存成功");
 	}
 
@@ -157,11 +157,11 @@ public class StuationParaController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "getSceParaByProjectIdAndCountryId", method = RequestMethod.GET)
-	public BaseClass getSceParaByProjectIdAndCountryId(String tab, String projectId, String countryId) {
+	public BaseClass getSceParaByProjectIdAndCountryId(String tab, String projectId, String countryId,String year) {
 		BaseClass baseClass = null;
 		switch (tab) {
 		case "1":// 气候情景参数
-			baseClass = watershedParaService.getTblClimateSceParaByProjectIdAndCountryId(projectId, countryId);
+			baseClass = watershedParaService.getTblClimateSceParaByProjectIdAndCountryId(projectId, countryId, year);
 			break;
 		case "2":// 产业与城市化
 			baseClass = watershedParaService.getTblIndUrbanSceParaByProjectIdAndCountryId(projectId, countryId);

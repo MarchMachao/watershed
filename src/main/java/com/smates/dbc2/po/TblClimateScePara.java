@@ -12,12 +12,14 @@ public class TblClimateScePara extends BaseClass{
 	private String countryId;
 	private String rainInc;
 	private String tempInc;
+	private String year;
 
-	public TblClimateScePara(String projectId, String countryId, String rainInc, String tempInc) {
+	public TblClimateScePara(String projectId, String countryId, String rainInc, String tempInc, String year) {
 		this.projectId = projectId;
 		this.countryId = countryId;
 		this.rainInc = rainInc;
 		this.tempInc = tempInc;
+		this.year = year;
 	}
 
 	public TblClimateScePara() {
@@ -55,4 +57,12 @@ public class TblClimateScePara extends BaseClass{
 		this.tempInc = tempInc;
 	}
 
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+	
 }

@@ -18,16 +18,20 @@ public class ModelController {
 
 	@RequestMapping("test")
 	public String test(String projectId) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException{
-//			String watershedCode = "AKH13002"; //流域id
-//			List<String> countyCodes = getWebServiceParaService.getCountryCodes();//县区代码
-//			List<String> countyNames = getWebServiceParaService.getCountryNames();//县区名字
-//			String timeStart = getWebServiceParaService.getProjectById(projectId).getBaseYear();//开始时间
-//	        String timeEnd = getWebServiceParaService.getProjectById(projectId).getGoalYear();//结束时间
-//	        int timeStep = Integer.parseInt(getWebServiceParaService.getProjectById(projectId).getStep());//步长
+			String watershedCode = "AKH13002"; //流域id
+			List<String> countyCodes = getWebServiceParaService.getCountryCodes();//县区代码
+			List<String> countyNames = getWebServiceParaService.getCountryNames();//县区名字
+			String timeStart = getWebServiceParaService.getProjectById(projectId).getBaseYear();//开始时间
+	        String timeEnd = getWebServiceParaService.getProjectById(projectId).getGoalYear();//结束时间
+	        int timeStep = Integer.parseInt(getWebServiceParaService.getProjectById(projectId).getStep());//步长
 	        List<DoubleArray> prec = getWebServiceParaService.getTblClimateScenarioYear();//降水量
-//	        List<DoubleArray> precR = getWebServiceParaService.getprecR(projectId);
+	        List<DoubleArray> precR = getWebServiceParaService.getprecR(projectId);//降雨增加比率, 逐年各县。
+	        List<DoubleArray> tempAvg = getWebServiceParaService.gettempAvg();//平均温度
 	        
-	        System.out.println(prec.size());
+	        System.out.println(tempAvg.size());
+	        
+	        
+	        
 	        
 		return "home.ftl";
 	}
