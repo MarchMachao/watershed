@@ -1129,6 +1129,7 @@
 						{
 							"projectId" : "${projectId}",
 							"countryId" : document.getElementById("IPCC-selectCounty").value,
+							"year": document.getElementById("IPCC-selectYears").value,
 							"tab":"1"
 						},function(data){
 							if(data.isEmpty!="1"){
@@ -1149,6 +1150,7 @@
 						{
 							"projectId" : "${projectId}",
 							"countryId" : document.getElementById("industry-selectCounty").value,
+							"year": document.getElementById("industry-selectYears").value,
 							"tab":"2"
 						},function(data){
 							if(data.isEmpty!="1"){
@@ -1176,6 +1178,7 @@
 						{
 							"projectId" : "${projectId}",
 							"countryId" : document.getElementById("water-selectCounty").value,
+							"year": document.getElementById("water-selectYears").value,
 							"tab":"3"
 						},function(data){
 							if(data.isEmpty!="1"){
@@ -1212,6 +1215,7 @@
 						{
 							"projectId" : "${projectId}",
 							"countryId" : document.getElementById("land_selectCounty").value,
+							"year": document.getElementById("land-selectYears").value,
 							"tab":"4"
 						},function(data){
 							if(data.isEmpty!="1"){
