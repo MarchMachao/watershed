@@ -48,6 +48,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{id},#{fldWatershedCode},#{fldCountyCode},#{fldDate},#{fldFarmPop},#{fldNonFarmPop},#{fldIndOutput},#{fldAgrOutput},#{fldSerOutput},#{fldTourOutput},#{fldTechProgRatio})
 	</insert>
 	
+	<!-- 查找所有城市发展情景 -->
+	<select id="getTblIndustyUrbanSce" resultType="TblIndustyUrbanSce">
+		SELECT * FROM "a_tblIndustyUrbanSce" ORDER BY "a_tblIndustyUrbanSce"."fldDate", "a_tblIndustyUrbanSce"."fldCountyCode"
+	</select>
 	<!-- 删除产业与城市发展情景   -->
 	<delete id="deleteTblIndustyUrbanSce" parameterType="String">
 		delete from "a_tblIndustyUrbanSce" where "a_tblIndustyUrbanSce"."fldWatershedCode" = #{value}

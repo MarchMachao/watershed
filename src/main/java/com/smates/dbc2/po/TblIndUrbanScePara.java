@@ -19,13 +19,17 @@ public class TblIndUrbanScePara extends BaseClass{
 	private String fldSerOutputPercent;
 	private String industryProgressRate;
 	private String changeRateOfTourismIndustry;
+	private String year;
+	private String fldFarmPop;
+	private String fldNonFarmPop;
 
 	public TblIndUrbanScePara() {
 	}
 
 	public TblIndUrbanScePara(String projectId, String countryId, String nonFarmPercent, String fldIndOutput,
 			String fldIndOutputPercent, String fldAgrOutput, String fldAgrOutputPercent, String fldSerOutput,
-			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry) {
+			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry, String year, 
+			String fldFarmPop, String fldNonFarmPop) {
 		this.projectId = projectId;
 		this.countryId = countryId;
 		this.nonFarmPercent = nonFarmPercent;
@@ -37,6 +41,33 @@ public class TblIndUrbanScePara extends BaseClass{
 		this.fldSerOutputPercent = fldSerOutputPercent;
 		this.industryProgressRate = industryProgressRate;
 		this.changeRateOfTourismIndustry = changeRateOfTourismIndustry;
+		this.year = year;
+		this.fldFarmPop = fldFarmPop;
+		this.fldNonFarmPop = fldNonFarmPop;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getFldFarmPop() {
+		return fldFarmPop;
+	}
+
+	public void setFldFarmPop(String fldFarmPop) {
+		this.fldFarmPop = fldFarmPop;
+	}
+
+	public String getFldNonFarmPop() {
+		return fldNonFarmPop;
+	}
+
+	public void setFldNonFarmPop(String fldNonFarmPop) {
+		this.fldNonFarmPop = fldNonFarmPop;
 	}
 
 	public String getProjectId() {

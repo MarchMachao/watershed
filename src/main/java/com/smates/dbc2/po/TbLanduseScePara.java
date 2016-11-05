@@ -8,6 +8,7 @@ public class TbLanduseScePara extends BaseClass{
 
 	private String projectId;
 	private String countryId;
+	private String fldFarmArea;
 	private String fldFarmAreaChgR;
 	private String wheatChgR;
 	private String cornChgR;
@@ -25,13 +26,15 @@ public class TbLanduseScePara extends BaseClass{
 	private String ForestArea;
 	private String GrassArea;
 	private String WaterArea;
-
-	public TbLanduseScePara(String projectId, String countryId, String fldFarmAreaChgR, String wheatChgR,
+	private String year;
+	
+	public TbLanduseScePara(String projectId, String countryId, String fldFarmArea,String fldFarmAreaChgR, String wheatChgR,
 			String cornChgR, String oilPlantsChgR, String vegetablesChgR, String orchardChgR, String cottonChgR,
 			String wheatArea, String cornArea, String oilPlantsArea, String vegetablesArea, String orchardArea,
-			String cottonArea, String wetlandArea, String forestArea, String grassArea, String waterArea) {
+			String cottonArea, String wetlandArea, String forestArea, String grassArea, String waterArea, String year) {
 		this.projectId = projectId;
 		this.countryId = countryId;
+		this.fldFarmArea = fldFarmArea;
 		this.fldFarmAreaChgR = fldFarmAreaChgR;
 		this.wheatChgR = wheatChgR;
 		this.cornChgR = cornChgR;
@@ -49,6 +52,7 @@ public class TbLanduseScePara extends BaseClass{
 		ForestArea = forestArea;
 		GrassArea = grassArea;
 		WaterArea = waterArea;
+		this.year = year;
 	}
 
 	public TbLanduseScePara() {
@@ -56,6 +60,22 @@ public class TbLanduseScePara extends BaseClass{
 
 	public String getProjectId() {
 		return projectId;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getFldFarmArea() {
+		return fldFarmArea;
+	}
+
+	public void setFldFarmArea(String fldFarmArea) {
+		this.fldFarmArea = fldFarmArea;
 	}
 
 	public void setProjectId(String projectId) {

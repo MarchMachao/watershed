@@ -39,7 +39,8 @@ public interface WatershedParaService {
 	 */
 	public void addTblIndUrbanScePara(String projectId, String countryId, String nonFarmPercent, String fldIndOutput,
 			String fldIndOutputPercent, String fldAgrOutput, String fldAgrOutputPercent, String fldSerOutput,
-			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry);
+			String fldSerOutputPercent, String industryProgressRate, String changeRateOfTourismIndustry, String year, 
+			String fldFarmPop, String fldNonFarmPop);
 	
 	/**
 	 * 删除产业与城市发展情景参数
@@ -47,7 +48,7 @@ public interface WatershedParaService {
 	 * @param projectId
 	 * @param countryId
 	 */
-	public void deleteTblIndUrbanScePara(String projectId, String countryId);
+	public void deleteTblIndUrbanScePara(String projectId, String countryId, String year);
 	
 	/**
 	 * 查找产业与城市发展情景参数
@@ -80,10 +81,10 @@ public interface WatershedParaService {
 	 * @param grassArea
 	 * @param waterArea
 	 */
-	public void addTbLanduseScePara(String projectId, String countryId, String fldFarmAreaChgR, String wheatChgR,
+	public void addTbLanduseScePara(String projectId, String countryId,String fldFarmArea, String fldFarmAreaChgR, String wheatChgR,
 			String cornChgR, String oilPlantsChgR, String vegetablesChgR, String orchardChgR, String cottonChgR,
 			String wheatArea, String cornArea, String oilPlantsArea, String vegetablesArea, String orchardArea,
-			String cottonArea, String wetlandArea, String forestArea, String grassArea, String waterArea);
+			String cottonArea, String wetlandArea, String forestArea, String grassArea, String waterArea, String year);
 	
 	
 	/**
@@ -92,7 +93,7 @@ public interface WatershedParaService {
 	 * @param projectId
 	 * @param countryId
 	 */
-	public void deleteTbLanduseScePara(String projectId, String countryId);
+	public void deleteTbLanduseScePara(String projectId, String countryId, String year);
 	
 	/**
 	 * 查找土地资源利用情景参数

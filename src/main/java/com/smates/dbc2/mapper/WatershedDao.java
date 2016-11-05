@@ -77,6 +77,12 @@ public interface WatershedDao {
 	public void deleteTblIndustyUrbanSce(String watershedCode);
 	
 	/**
+	 * 查找所有城市发展情景
+	 * 
+	 * @return
+	 */
+	public List<TblIndustyUrbanSce> getTblIndustyUrbanSce();
+	/**
 	 * 添加土地类型
 	 * 
 	 * @param tblLandUseSce

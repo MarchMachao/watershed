@@ -213,4 +213,154 @@ public class GetWebServiceParaServiceImpl implements GetWebServiceParaService {
 		return null;
 	}
 
+	@Override
+	public List<DoubleArray> getareaAgri(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getFldFarmArea");
+	}
+
+	@Override
+	public List<DoubleArray> getareaAgriR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getFldFarmAreaChgR");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropWheat(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getWheatArea");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropCorn(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getCornArea");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropOilseed(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getOilPlantsArea");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropOrchard(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getOrchardArea");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropCotton(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getCottonArea");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropGreenstuff(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getVegetablesArea");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropWheatR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getWheatChgR");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropCornR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getCornChgR");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropOilseedR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getOilPlantsChgR");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropOrchardR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getOrchardChgR");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropCottonR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getCottonChgR");
+	}
+
+	@Override
+	public List<DoubleArray> getareaCropGreenstuffR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getVegetablesChgR");
+	}
+
+	@Override
+	public List<DoubleArray> getareaWetland(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getWetlandArea");
+	}
+
+	@Override
+	public List<DoubleArray> getareaForest(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getForestArea");
+	}
+
+	@Override
+	public List<DoubleArray> getareaGrass(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getGrassArea");
+	}
+
+	@Override
+	public List<DoubleArray> getareaWater(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.geTbLanduseScePara(projectId),"getYear","getWaterArea");
+	}
+
+	@Override
+	public List<DoubleArray> getpopNonAgriRR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTblIndUrbanScePara(projectId),"getYear","getNonFarmPercent");
+	}
+
+	@Override
+	public List<DoubleArray> getoutputInd(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedDao.getTblIndustyUrbanSce(), "getFldDate", "getFldIndOutput");
+	}
+
+	@Override
+	public List<DoubleArray> getoutputAgr(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedDao.getTblIndustyUrbanSce(), "getFldDate", "getFldAgrOutput");
+	}
+
+	@Override
+	public List<DoubleArray> getoutputSer(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedDao.getTblIndustyUrbanSce(), "getFldDate", "getFldSerOutput");
+	}
+
+	@Override
+	public List<DoubleArray> getoutputTour(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedDao.getTblIndustyUrbanSce(), "getFldDate", "getFldTourOutput");
+	}
+
+	@Override
+	public List<DoubleArray> getoutputTourR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTblIndUrbanScePara(projectId),"getYear","getChangeRateOfTourismIndustry");
+	}
+
+	@Override
+	public List<DoubleArray> gettechProgRR(String projectId)
+			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return ToDoubleArray(watershedParaDao.getTblIndUrbanScePara(projectId),"getYear","getIndustryProgressRate");
+	}
+
 }

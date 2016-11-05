@@ -72,6 +72,13 @@ public interface WatershedParaDao {
 	public TblIndUrbanScePara getTblIndUrbanSceParaByProjectIdAndCountryId(ProjectIdAndCountyId projectIdAndCountyId);
 	
 	/**
+	 * 获取城市与产业发展参数
+	 * 
+	 * @param projectId
+	 * @return
+	 */
+	public List<TblIndUrbanScePara> getTblIndUrbanScePara(String projectId);
+	/**
 	 * 添加土地资源利用情景参数
 	 * 
 	 * @param tbLanduseScePara
@@ -84,6 +91,13 @@ public interface WatershedParaDao {
 	 * @param projectIdAndCountyId
 	 */
 	public void deleteTbLanduseScePara(ProjectIdAndCountyId projectIdAndCountyId);
+	
+	/**
+	 * 获取土地利用参数
+	 * @param projectId
+	 * @return
+	 */
+	public List<TbLanduseScePara> geTbLanduseScePara (String projectId);
 	
 	/**
 	 * 查找土地资源利用情景参数
