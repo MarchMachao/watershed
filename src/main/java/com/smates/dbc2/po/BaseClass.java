@@ -11,4 +11,16 @@ public class BaseClass {
 		this.isEmpty = isEmpty;
 	}
 	
+	public String getYear(){
+		return null;
+	}
+	
+	public String getCountryCode(){
+		return null;
+	}
+	
+	public double getData(){
+		return 0;
+	}
+	
 }

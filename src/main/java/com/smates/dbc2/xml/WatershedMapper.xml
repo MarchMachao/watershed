@@ -18,6 +18,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{id},#{fldWatershedCode},#{fldCountyCode},#{fldCRPType},#{fldDate},#{fldPrecipitation},#{fldAvgTemperature},#{fldMaxTemp},#{fldMinTemp})
 	</insert>
 	
+	<!-- 查找所有气候数据（逐年各县） -->
+	<select id="getTblClimateScenarioYear" resultType="TblClimateScenarioYear">
+		select * from "a_tblClimateScenarioYear" ORDER BY "a_tblClimateScenarioYear"."fldDate","a_tblClimateScenarioYear"."fldCountyCode"
+	</select>
+	
 	<!-- 删除气候情景数据表(年)数据 -->
 	<delete id="deleteTblClimateScenarioYear" parameterType="String">
 		delete from "a_tblClimateScenarioYear" where "a_tblClimateScenarioYear"."fldWatershedCode" = #{value}

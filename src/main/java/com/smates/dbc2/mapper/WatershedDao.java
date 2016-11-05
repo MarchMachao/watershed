@@ -45,6 +45,12 @@ public interface WatershedDao {
 	public void deleteTblClimateScenarioYear(String watershedCode);
 	
 	/**
+	 * 查找所有气候数据（逐年各县）
+	 * @return
+	 */
+	public List<TblClimateScenarioYear> getTblClimateScenarioYear();
+	
+	/**
 	 * 添加气候情景数据表(月)数据
 	 * 
 	 * @param tblClimateScenarioMonth

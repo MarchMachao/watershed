@@ -30,23 +30,27 @@
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
 	
 	<!--   声明远端服务 -->
-	<jaxws:client id="InputDataServiceImplService"
-				serviceClass="com.smates.dbc2.webservicedemo.inputdata.InputDataService"
-				address="http://210.77.67.251:19001/Webservice-Demo/InputDataServiceWS">
-		<jaxws:outInterceptors>
-	      <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"/>
-	    </jaxws:outInterceptors>
-	</jaxws:client>
+<!-- 	<jaxws:client id="InputDataServiceImplService" -->
+<!-- 				serviceClass="com.smates.dbc2.webservicedemo.inputdata.InputDataService" -->
+<!-- 				address="http://210.77.67.251:19001/Webservice-Demo/InputDataServiceWS"> -->
+<!-- 		<jaxws:outInterceptors> -->
+<!-- 	      <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"/> -->
+<!-- 	    </jaxws:outInterceptors> -->
+<!-- 	</jaxws:client> -->
 	
-	<jaxws:client id="OutputDataServiceImplService"
-				serviceClass="com.smates.dbc2.webservicedemo.outputdata.OutputDataService"
-				address="http://210.77.67.251:19001/Webservice-Demo/OutputDataServiceWS">
-	</jaxws:client>
+<!-- 	<jaxws:client id="OutputDataServiceImplService" -->
+<!-- 				serviceClass="com.smates.dbc2.webservicedemo.outputdata.OutputDataService" -->
+<!-- 				address="http://210.77.67.251:19001/Webservice-Demo/OutputDataServiceWS"> -->
+<!-- 	</jaxws:client> -->
 	
-	<jaxws:client id="QueryStateServiceImplService"
-				serviceClass="com.smates.dbc2.webservicedemo.querystate.QueryStateService"
-				address="http://210.77.67.251:19001/Webservice-Demo/QueryStateServiceWS">
-	</jaxws:client>
+<!-- 	<jaxws:client id="QueryStateServiceImplService" -->
+<!-- 				serviceClass="com.smates.dbc2.webservicedemo.querystate.QueryStateService" -->
+<!-- 				address="http://210.77.67.251:19001/Webservice-Demo/QueryStateServiceWS"> -->
+<!-- 	</jaxws:client> -->
 
+	<jaxws:client id="RisDSSModelServiceImplService"
+				serviceClass="com.smates.dbc2.ws.RisDSSModelService"
+				address="http://210.77.67.251/Webservice-Demo/RisDSSModelServiceWS">
+	</jaxws:client>
     
 </beans>

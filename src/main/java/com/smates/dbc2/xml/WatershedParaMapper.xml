@@ -25,6 +25,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"a_tblClimateScePara"."projectId" =#{projectId} and
 		"a_tblClimateScePara"."countryId" =#{countryId}
 	</select>
+	
+	<!-- 查找气候情景参数  -->
+	<select id="getTblClimateSceParaByProjectId" parameterType="String" resultType="TblClimateScePara">
+		SELECT * from "a_tblClimateScePara" where
+		"a_tblClimateScePara"."projectId" =#{projectId}
+	</select>
 
 	<!-- 添加产业与城市发展情景参数 -->
 	<insert id="addTblIndUrbanScePara" parameterType="TblIndUrbanScePara">

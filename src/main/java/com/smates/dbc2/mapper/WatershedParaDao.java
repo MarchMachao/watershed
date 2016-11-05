@@ -1,5 +1,7 @@
 package com.smates.dbc2.mapper;
 
+import java.util.List;
+
 import com.smates.dbc2.po.MidAndDownStreamPercentPara;
 import com.smates.dbc2.po.SaveWater;
 import com.smates.dbc2.po.TbLanduseSceCropPara;
@@ -36,6 +38,12 @@ public interface WatershedParaDao {
 	 * @param id
 	 */
 	public void deleteTblclimateSceParaById(ProjectIdAndCountyId projectIdAndCountyId);
+	
+	/**
+	 * 查找气候情景参数
+	 * @param projectId
+	 */
+	public List<TblClimateScePara> getTblClimateSceParaByProjectId(String projectId);
 	
 	/**
 	 * 查找气候情景参数

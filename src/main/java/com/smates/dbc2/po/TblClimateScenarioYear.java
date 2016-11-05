@@ -7,7 +7,7 @@ import java.util.UUID;
  * @author baijw
  *
  */
-public class TblClimateScenarioYear {
+public class TblClimateScenarioYear{
 	
 	private String id;
 	private String fldWatershedCode;

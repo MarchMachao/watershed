@@ -3,16 +3,18 @@ package com.smates.dbc2.ws;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>doubleArray complex typeµÄ Java Àà¡£
+ * <p>
+ * doubleArray complex typeï¿½ï¿½ Java ï¿½à¡£
  * 
- * <p>ÒÔÏÂÄ£Ê½Æ¬¶ÎÖ¸¶¨°üº¬ÔÚ´ËÀàÖÐµÄÔ¤ÆÚÄÚÈÝ¡£
+ * <p>
+ * ï¿½ï¿½ï¿½ï¿½Ä£Ê½Æ¬ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
  * 
  * <pre>
  * &lt;complexType name="doubleArray">
@@ -29,41 +31,51 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "doubleArray", namespace = "http://jaxb.dev.java.net/array", propOrder = {
-    "item"
-})
+@XmlType(name = "doubleArray", namespace = "http://jaxb.dev.java.net/array", propOrder = { "item" })
 public class DoubleArray {
 
-    @XmlElement(nillable = true)
-    protected List<Double> item;
+	@XmlElement(nillable = true)
+	protected List<Double> item;
 
-    /**
-     * Gets the value of the item property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the item property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getItem().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Double }
-     * 
-     * 
-     */
-    public List<Double> getItem() {
-        if (item == null) {
-            item = new ArrayList<Double>();
-        }
-        return this.item;
-    }
+	/**
+	 * Gets the value of the item property.
+	 * 
+	 * <p>
+	 * This accessor method returns a reference to the live list, not a
+	 * snapshot. Therefore any modification you make to the returned list will
+	 * be present inside the JAXB object. This is why there is not a
+	 * <CODE>set</CODE> method for the item property.
+	 * 
+	 * <p>
+	 * For example, to add a new item, do as follows:
+	 * 
+	 * <pre>
+	 * getItem().add(newItem);
+	 * </pre>
+	 * 
+	 * 
+	 * <p>
+	 * Objects of the following type(s) are allowed in the list {@link Double }
+	 * 
+	 * 
+	 */
+
+	public DoubleArray() {
+	}
+
+	public DoubleArray(List<Double> item) {
+		setItem(item);
+	}
+
+	public void setItem(List<Double> item) {
+		this.item = item;
+	}
+
+	public List<Double> getItem() {
+		if (item == null) {
+			item = new ArrayList<Double>();
+		}
+		return this.item;
+	}
 
 }

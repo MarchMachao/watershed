@@ -38,4 +38,10 @@ public interface ProjectDao {
 	 */
 	public void deleteProjectById(String id);
 	
+	/**
+	 * 根据项目id查找项目信息
+	 * @param projectId
+	 */
+	public Project getProjectById(String projectId);
+	
 }
