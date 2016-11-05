@@ -2009,6 +2009,7 @@
 				{
 					"projectId" : "${projectId}",
 					"countryId" : document.getElementById("IPCC-selectCounty").value,
+					"year": document.getElementById("IPCC-selectYears").value,
 					"rainInc" : document.getElementById("rain_inc_ratio").value,
 					"tempInc" : document.getElementById("temp_inc_ratio").value
 				}, function(data) {
@@ -2023,6 +2024,7 @@
 				{
 					"projectId" : "${projectId}",
 					"countryId" : document.getElementById("industry-selectCounty").value,
+					"year" : document.getElementById("industry-selectYears").value,
 					"nonFarmPercent" : document.getElementById("population_proportation_spinner").value,
 					"fldIndOutput" : document.getElementById("situation-1").value,
 					"fldIndOutputPercent" : document.getElementById("situation-1-2").value,
@@ -2043,6 +2045,7 @@
 				{
 					"projectId" : "${projectId}",
 					"countryId" : document.getElementById("land_selectCounty").value,
+					"year":document.getElementById("land-selectYears").value,
 					"fldFarmAreaChgR" : document.getElementById("area_rateofchange_spinner").value,
 					"wheatChgR" : document.getElementById("land_situation_1").value,
 					"cornChgR" : document.getElementById("land_situation_2").value,
@@ -2071,6 +2074,7 @@
 				"saveTbLanduseScePara.do",
 				{
 					"projectId" : "${projectId}",
+					"year":document.getElementById("water-selectYears").value,
 					"countryId" : document.getElementById("water-selectCounty").value,
 					"perCapGDPR" : document.getElementById("GDPInc_spinner1").value,
 					"fldMainCannelLeng": document.getElementById("ganQu_text").value,
