@@ -121,7 +121,10 @@ public class ModelController {
 		List<DoubleArray> waterRight = getWebServiceParaService.getfldWaterRightRatio(projectId); // 水权分配比例
 		List<DoubleArray> waterSavingTechR = getWebServiceParaService.getSaveWater(projectId); // 节水技术提高比率
 		
-		 System.out.println(waterAlloDown.size());
+//		 System.out.println(allowanceSer.size());
+//		 System.out.println(waterAlloMid.size());
+//		 System.out.println(waterAlloDown.size());
+//		 System.out.println(waterRight.size());
 
 		return risDSSModelService.start(watershedCode, countyCodes, countyNames, timeStart, timeEnd, timeStep, prec,
 				precR, tempAvg, tempMax, tempMin, outputInd, outputAgr, outputSer, outputTour, outputTourR, techProgRR,
