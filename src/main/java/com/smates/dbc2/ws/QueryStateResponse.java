@@ -13,15 +13,15 @@ import javax.xml.bind.annotation.XmlType;
  * <p>以下模式片段指定包含在此类中的预期内容。
  * 
  * <pre>
- * &lt;complexType name="queryStateResponse">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="queryStateResponse"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -33,29 +33,21 @@ import javax.xml.bind.annotation.XmlType;
 public class QueryStateResponse {
 
     @XmlElement(name = "return")
-    protected String _return;
+    protected int _return;
 
     /**
      * 获取return属性的值。
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getReturn() {
+    public int getReturn() {
         return _return;
     }
 
     /**
      * 设置return属性的值。
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setReturn(String value) {
+    public void setReturn(int value) {
         this._return = value;
     }
 

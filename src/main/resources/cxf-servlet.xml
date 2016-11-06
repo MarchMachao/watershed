@@ -50,7 +50,7 @@
 
 	<jaxws:client id="RisDSSModelServiceImplService"
 				serviceClass="com.smates.dbc2.ws.RisDSSModelService"
-				address="http://210.77.67.251/Webservice-Demo/RisDSSModelServiceWS">
+				address="http://210.77.67.251:8000/Webservice-Demo/RisDSSModelServiceWS">
 	</jaxws:client>
     
 </beans>

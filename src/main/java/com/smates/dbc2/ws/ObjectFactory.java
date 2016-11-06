@@ -25,13 +25,13 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _GetDataYearly_QNAME = new QName("http://service.hhs.com/", "getDataYearly");
-    private final static QName _QueryAvailableResponse_QNAME = new QName("http://service.hhs.com/", "queryAvailableResponse");
     private final static QName _GetDataYearlyResponse_QNAME = new QName("http://service.hhs.com/", "getDataYearlyResponse");
+    private final static QName _QueryAvailable_QNAME = new QName("http://service.hhs.com/", "queryAvailable");
+    private final static QName _QueryAvailableResponse_QNAME = new QName("http://service.hhs.com/", "queryAvailableResponse");
+    private final static QName _QueryState_QNAME = new QName("http://service.hhs.com/", "queryState");
     private final static QName _QueryStateResponse_QNAME = new QName("http://service.hhs.com/", "queryStateResponse");
     private final static QName _Start_QNAME = new QName("http://service.hhs.com/", "start");
-    private final static QName _QueryAvailable_QNAME = new QName("http://service.hhs.com/", "queryAvailable");
     private final static QName _StartResponse_QNAME = new QName("http://service.hhs.com/", "startResponse");
-    private final static QName _QueryState_QNAME = new QName("http://service.hhs.com/", "queryState");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.smates.dbc2.ws
@@ -41,19 +41,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DoubleArray }
+     * Create an instance of {@link GetDataYearly }
      * 
      */
-    public DoubleArray createDoubleArray() {
-        return new DoubleArray();
-    }
-
-    /**
-     * Create an instance of {@link QueryStateResponse }
-     * 
-     */
-    public QueryStateResponse createQueryStateResponse() {
-        return new QueryStateResponse();
+    public GetDataYearly createGetDataYearly() {
+        return new GetDataYearly();
     }
 
     /**
@@ -65,19 +57,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Start }
+     * Create an instance of {@link QueryAvailable }
      * 
      */
-    public Start createStart() {
-        return new Start();
-    }
-
-    /**
-     * Create an instance of {@link GetDataYearly }
-     * 
-     */
-    public GetDataYearly createGetDataYearly() {
-        return new GetDataYearly();
+    public QueryAvailable createQueryAvailable() {
+        return new QueryAvailable();
     }
 
     /**
@@ -97,6 +81,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link QueryStateResponse }
+     * 
+     */
+    public QueryStateResponse createQueryStateResponse() {
+        return new QueryStateResponse();
+    }
+
+    /**
+     * Create an instance of {@link Start }
+     * 
+     */
+    public Start createStart() {
+        return new Start();
+    }
+
+    /**
      * Create an instance of {@link StartResponse }
      * 
      */
@@ -105,11 +105,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link QueryAvailable }
+     * Create an instance of {@link DoubleArray }
      * 
      */
-    public QueryAvailable createQueryAvailable() {
-        return new QueryAvailable();
+    public DoubleArray createDoubleArray() {
+        return new DoubleArray();
     }
 
     /**
@@ -122,6 +122,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDataYearlyResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.hhs.com/", name = "getDataYearlyResponse")
+    public JAXBElement<GetDataYearlyResponse> createGetDataYearlyResponse(GetDataYearlyResponse value) {
+        return new JAXBElement<GetDataYearlyResponse>(_GetDataYearlyResponse_QNAME, GetDataYearlyResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link QueryAvailable }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.hhs.com/", name = "queryAvailable")
+    public JAXBElement<QueryAvailable> createQueryAvailable(QueryAvailable value) {
+        return new JAXBElement<QueryAvailable>(_QueryAvailable_QNAME, QueryAvailable.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link QueryAvailableResponse }{@code >}}
      * 
      */
@@ -131,12 +149,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetDataYearlyResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link QueryState }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.hhs.com/", name = "getDataYearlyResponse")
-    public JAXBElement<GetDataYearlyResponse> createGetDataYearlyResponse(GetDataYearlyResponse value) {
-        return new JAXBElement<GetDataYearlyResponse>(_GetDataYearlyResponse_QNAME, GetDataYearlyResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.hhs.com/", name = "queryState")
+    public JAXBElement<QueryState> createQueryState(QueryState value) {
+        return new JAXBElement<QueryState>(_QueryState_QNAME, QueryState.class, null, value);
     }
 
     /**
@@ -158,30 +176,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link QueryAvailable }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.hhs.com/", name = "queryAvailable")
-    public JAXBElement<QueryAvailable> createQueryAvailable(QueryAvailable value) {
-        return new JAXBElement<QueryAvailable>(_QueryAvailable_QNAME, QueryAvailable.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link StartResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://service.hhs.com/", name = "startResponse")
     public JAXBElement<StartResponse> createStartResponse(StartResponse value) {
         return new JAXBElement<StartResponse>(_StartResponse_QNAME, StartResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link QueryState }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://service.hhs.com/", name = "queryState")
-    public JAXBElement<QueryState> createQueryState(QueryState value) {
-        return new JAXBElement<QueryState>(_QueryState_QNAME, QueryState.class, null, value);
     }
 
 }

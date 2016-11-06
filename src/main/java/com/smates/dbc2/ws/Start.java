@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -15,90 +14,70 @@ import javax.xml.bind.annotation.XmlType;
  * <p>以下模式片段指定包含在此类中的预期内容。
  * 
  * <pre>
- * &lt;complexType name="start">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="watershedCode" type="{http://www.w3.org/2001/XMLSchema}long"/>
- *         &lt;element name="countyCodes" type="{http://www.w3.org/2001/XMLSchema}long" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="countyNames" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="timeStart" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="timeEnd" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="timeStep" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="prec" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="precR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="tempAvg" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="tempMax" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="tempMin" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="tempAvgR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="tempMaxR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="tempMinR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="pop" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="popR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="popAgriR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="popAgriRR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="popNonAgriR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="popNonAgriRR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="outputInd" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="outputAgr" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="outputSer" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="outputTour" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="outputTourR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="techProgRR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaAgri" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaAgriR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropWheat" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropCorn" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropOilseed" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropOrchard" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropCotton" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropGreenstuff" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropWheatR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropCornR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropOilseedR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropOrchardR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropCottonR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaCropGreenstuffR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaWetland" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaForest" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaGrass" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaWater" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaWetlandR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaForestR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaGrassR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaWaterR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="gdp" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="gdpPer" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="gdpR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="gdpPerR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="policyPop" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelMain" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelBran" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelDou" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelNong" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelMao" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelMainWUE" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelBranWUE" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelDouWUE" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelNongWUE" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelMaoWUE" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelMainWUER" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelBranWUER" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelDouWUER" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelNongWUER" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="channelMaoWUER" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="areaDripIrri" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="allowanceInd" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="allowanceAgr" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="allowanceSer" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="waterAlloMid" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="waterAlloDown" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="waterRight" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="waterSavingTechR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="start"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="watershedCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="countyCodes" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="countyNames" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="timeStart" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="timeEnd" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="timeStep" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="prec" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="precR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="tempAvg" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="tempMax" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="tempMin" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="outputInd" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="outputAgr" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="outputSer" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="outputTour" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="outputTourR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="techProgRR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaAgri" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaAgriR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropWheat" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropCorn" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropOilseed" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropOrchard" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropCotton" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropGreenstuff" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropWheatR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropCornR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropOilseedR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropOrchardR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropCottonR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaCropGreenstuffR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaForest" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaGrass" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaWater" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="gdp" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="gdpPer" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="gdpR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="gdpPerR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="channelMain" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="channelBran" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="channelDou" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="channelNong" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="channelMao" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="channelMainWUE" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="channelBranWUE" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="channelDouWUE" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="channelNongWUE" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="channelMaoWUE" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="areaDripIrri" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="allowanceInd" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="allowanceAgr" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="allowanceSer" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="waterAlloMid" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="waterAlloDown" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="waterRight" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="waterSavingTechR" type="{http://jaxb.dev.java.net/array}doubleArray" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -116,15 +95,6 @@ import javax.xml.bind.annotation.XmlType;
     "tempAvg",
     "tempMax",
     "tempMin",
-    "tempAvgR",
-    "tempMaxR",
-    "tempMinR",
-    "pop",
-    "popR",
-    "popAgriR",
-    "popAgriRR",
-    "popNonAgriR",
-    "popNonAgriRR",
     "outputInd",
     "outputAgr",
     "outputSer",
@@ -145,19 +115,13 @@ import javax.xml.bind.annotation.XmlType;
     "areaCropOrchardR",
     "areaCropCottonR",
     "areaCropGreenstuffR",
-    "areaWetland",
     "areaForest",
     "areaGrass",
     "areaWater",
-    "areaWetlandR",
-    "areaForestR",
-    "areaGrassR",
-    "areaWaterR",
     "gdp",
     "gdpPer",
     "gdpR",
     "gdpPerR",
-    "policyPop",
     "channelMain",
     "channelBran",
     "channelDou",
@@ -168,11 +132,6 @@ import javax.xml.bind.annotation.XmlType;
     "channelDouWUE",
     "channelNongWUE",
     "channelMaoWUE",
-    "channelMainWUER",
-    "channelBranWUER",
-    "channelDouWUER",
-    "channelNongWUER",
-    "channelMaoWUER",
     "areaDripIrri",
     "allowanceInd",
     "allowanceAgr",
@@ -184,9 +143,8 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Start {
 
-    protected long watershedCode;
-    @XmlElement(type = Long.class)
-    protected List<Long> countyCodes;
+    protected String watershedCode;
+    protected List<String> countyCodes;
     protected List<String> countyNames;
     protected String timeStart;
     protected String timeEnd;
@@ -196,15 +154,6 @@ public class Start {
     protected List<DoubleArray> tempAvg;
     protected List<DoubleArray> tempMax;
     protected List<DoubleArray> tempMin;
-    protected List<DoubleArray> tempAvgR;
-    protected List<DoubleArray> tempMaxR;
-    protected List<DoubleArray> tempMinR;
-    protected List<DoubleArray> pop;
-    protected List<DoubleArray> popR;
-    protected List<DoubleArray> popAgriR;
-    protected List<DoubleArray> popAgriRR;
-    protected List<DoubleArray> popNonAgriR;
-    protected List<DoubleArray> popNonAgriRR;
     protected List<DoubleArray> outputInd;
     protected List<DoubleArray> outputAgr;
     protected List<DoubleArray> outputSer;
@@ -225,19 +174,13 @@ public class Start {
     protected List<DoubleArray> areaCropOrchardR;
     protected List<DoubleArray> areaCropCottonR;
     protected List<DoubleArray> areaCropGreenstuffR;
-    protected List<DoubleArray> areaWetland;
     protected List<DoubleArray> areaForest;
     protected List<DoubleArray> areaGrass;
     protected List<DoubleArray> areaWater;
-    protected List<DoubleArray> areaWetlandR;
-    protected List<DoubleArray> areaForestR;
-    protected List<DoubleArray> areaGrassR;
-    protected List<DoubleArray> areaWaterR;
     protected List<DoubleArray> gdp;
     protected List<DoubleArray> gdpPer;
     protected List<DoubleArray> gdpR;
     protected List<DoubleArray> gdpPerR;
-    protected List<DoubleArray> policyPop;
     protected List<DoubleArray> channelMain;
     protected List<DoubleArray> channelBran;
     protected List<DoubleArray> channelDou;
@@ -248,11 +191,6 @@ public class Start {
     protected List<DoubleArray> channelDouWUE;
     protected List<DoubleArray> channelNongWUE;
     protected List<DoubleArray> channelMaoWUE;
-    protected List<DoubleArray> channelMainWUER;
-    protected List<DoubleArray> channelBranWUER;
-    protected List<DoubleArray> channelDouWUER;
-    protected List<DoubleArray> channelNongWUER;
-    protected List<DoubleArray> channelMaoWUER;
     protected List<DoubleArray> areaDripIrri;
     protected List<DoubleArray> allowanceInd;
     protected List<DoubleArray> allowanceAgr;
@@ -265,16 +203,24 @@ public class Start {
     /**
      * 获取watershedCode属性的值。
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public long getWatershedCode() {
+    public String getWatershedCode() {
         return watershedCode;
     }
 
     /**
      * 设置watershedCode属性的值。
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setWatershedCode(long value) {
+    public void setWatershedCode(String value) {
         this.watershedCode = value;
     }
 
@@ -296,13 +242,13 @@ public class Start {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Long }
+     * {@link String }
      * 
      * 
      */
-    public List<Long> getCountyCodes() {
+    public List<String> getCountyCodes() {
         if (countyCodes == null) {
-            countyCodes = new ArrayList<Long>();
+            countyCodes = new ArrayList<String>();
         }
         return this.countyCodes;
     }
@@ -543,267 +489,6 @@ public class Start {
             tempMin = new ArrayList<DoubleArray>();
         }
         return this.tempMin;
-    }
-
-    /**
-     * Gets the value of the tempAvgR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the tempAvgR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getTempAvgR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getTempAvgR() {
-        if (tempAvgR == null) {
-            tempAvgR = new ArrayList<DoubleArray>();
-        }
-        return this.tempAvgR;
-    }
-
-    /**
-     * Gets the value of the tempMaxR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the tempMaxR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getTempMaxR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getTempMaxR() {
-        if (tempMaxR == null) {
-            tempMaxR = new ArrayList<DoubleArray>();
-        }
-        return this.tempMaxR;
-    }
-
-    /**
-     * Gets the value of the tempMinR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the tempMinR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getTempMinR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getTempMinR() {
-        if (tempMinR == null) {
-            tempMinR = new ArrayList<DoubleArray>();
-        }
-        return this.tempMinR;
-    }
-
-    /**
-     * Gets the value of the pop property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the pop property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPop().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getPop() {
-        if (pop == null) {
-            pop = new ArrayList<DoubleArray>();
-        }
-        return this.pop;
-    }
-
-    /**
-     * Gets the value of the popR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the popR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPopR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getPopR() {
-        if (popR == null) {
-            popR = new ArrayList<DoubleArray>();
-        }
-        return this.popR;
-    }
-
-    /**
-     * Gets the value of the popAgriR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the popAgriR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPopAgriR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getPopAgriR() {
-        if (popAgriR == null) {
-            popAgriR = new ArrayList<DoubleArray>();
-        }
-        return this.popAgriR;
-    }
-
-    /**
-     * Gets the value of the popAgriRR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the popAgriRR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPopAgriRR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getPopAgriRR() {
-        if (popAgriRR == null) {
-            popAgriRR = new ArrayList<DoubleArray>();
-        }
-        return this.popAgriRR;
-    }
-
-    /**
-     * Gets the value of the popNonAgriR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the popNonAgriR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPopNonAgriR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getPopNonAgriR() {
-        if (popNonAgriR == null) {
-            popNonAgriR = new ArrayList<DoubleArray>();
-        }
-        return this.popNonAgriR;
-    }
-
-    /**
-     * Gets the value of the popNonAgriRR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the popNonAgriRR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPopNonAgriRR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getPopNonAgriRR() {
-        if (popNonAgriRR == null) {
-            popNonAgriRR = new ArrayList<DoubleArray>();
-        }
-        return this.popNonAgriRR;
     }
 
     /**
@@ -1387,35 +1072,6 @@ public class Start {
     }
 
     /**
-     * Gets the value of the areaWetland property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the areaWetland property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getAreaWetland().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getAreaWetland() {
-        if (areaWetland == null) {
-            areaWetland = new ArrayList<DoubleArray>();
-        }
-        return this.areaWetland;
-    }
-
-    /**
      * Gets the value of the areaForest property.
      * 
      * <p>
@@ -1500,122 +1156,6 @@ public class Start {
             areaWater = new ArrayList<DoubleArray>();
         }
         return this.areaWater;
-    }
-
-    /**
-     * Gets the value of the areaWetlandR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the areaWetlandR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getAreaWetlandR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getAreaWetlandR() {
-        if (areaWetlandR == null) {
-            areaWetlandR = new ArrayList<DoubleArray>();
-        }
-        return this.areaWetlandR;
-    }
-
-    /**
-     * Gets the value of the areaForestR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the areaForestR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getAreaForestR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getAreaForestR() {
-        if (areaForestR == null) {
-            areaForestR = new ArrayList<DoubleArray>();
-        }
-        return this.areaForestR;
-    }
-
-    /**
-     * Gets the value of the areaGrassR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the areaGrassR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getAreaGrassR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getAreaGrassR() {
-        if (areaGrassR == null) {
-            areaGrassR = new ArrayList<DoubleArray>();
-        }
-        return this.areaGrassR;
-    }
-
-    /**
-     * Gets the value of the areaWaterR property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the areaWaterR property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getAreaWaterR().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getAreaWaterR() {
-        if (areaWaterR == null) {
-            areaWaterR = new ArrayList<DoubleArray>();
-        }
-        return this.areaWaterR;
     }
 
     /**
@@ -1732,35 +1272,6 @@ public class Start {
             gdpPerR = new ArrayList<DoubleArray>();
         }
         return this.gdpPerR;
-    }
-
-    /**
-     * Gets the value of the policyPop property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the policyPop property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getPolicyPop().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getPolicyPop() {
-        if (policyPop == null) {
-            policyPop = new ArrayList<DoubleArray>();
-        }
-        return this.policyPop;
     }
 
     /**
@@ -2051,151 +1562,6 @@ public class Start {
             channelMaoWUE = new ArrayList<DoubleArray>();
         }
         return this.channelMaoWUE;
-    }
-
-    /**
-     * Gets the value of the channelMainWUER property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the channelMainWUER property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getChannelMainWUER().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getChannelMainWUER() {
-        if (channelMainWUER == null) {
-            channelMainWUER = new ArrayList<DoubleArray>();
-        }
-        return this.channelMainWUER;
-    }
-
-    /**
-     * Gets the value of the channelBranWUER property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the channelBranWUER property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getChannelBranWUER().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getChannelBranWUER() {
-        if (channelBranWUER == null) {
-            channelBranWUER = new ArrayList<DoubleArray>();
-        }
-        return this.channelBranWUER;
-    }
-
-    /**
-     * Gets the value of the channelDouWUER property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the channelDouWUER property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getChannelDouWUER().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getChannelDouWUER() {
-        if (channelDouWUER == null) {
-            channelDouWUER = new ArrayList<DoubleArray>();
-        }
-        return this.channelDouWUER;
-    }
-
-    /**
-     * Gets the value of the channelNongWUER property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the channelNongWUER property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getChannelNongWUER().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getChannelNongWUER() {
-        if (channelNongWUER == null) {
-            channelNongWUER = new ArrayList<DoubleArray>();
-        }
-        return this.channelNongWUER;
-    }
-
-    /**
-     * Gets the value of the channelMaoWUER property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the channelMaoWUER property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getChannelMaoWUER().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link DoubleArray }
-     * 
-     * 
-     */
-    public List<DoubleArray> getChannelMaoWUER() {
-        if (channelMaoWUER == null) {
-            channelMaoWUER = new ArrayList<DoubleArray>();
-        }
-        return this.channelMaoWUER;
     }
 
     /**

@@ -6,9 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smates.dbc2.service.GetWebServiceParaService;
 import com.smates.dbc2.ws.DoubleArray;
+import com.smates.dbc2.ws.RisDSSModelService;
+import com.smates.dbc2.ws.RisDSSModelServiceImplService;
 
 @Controller
 public class ModelController {
@@ -16,7 +20,10 @@ public class ModelController {
 	@Autowired
 	private GetWebServiceParaService getWebServiceParaService;
 
-	@RequestMapping("test")
+	private RisDSSModelService risDSSModelService = new RisDSSModelServiceImplService().getRisDSSModelServiceImplPort();
+	
+	@ResponseBody
+	@RequestMapping(value="test", method = RequestMethod.POST)
 	public String test(String projectId)
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		// 模型控制信息
@@ -114,9 +121,16 @@ public class ModelController {
 		List<DoubleArray> waterRight = getWebServiceParaService.getfldWaterRightRatio(projectId); // 水权分配比例
 		List<DoubleArray> waterSavingTechR = getWebServiceParaService.getSaveWater(projectId); // 节水技术提高比率
 		
-		 System.out.println(techProgRR.size());
+		 System.out.println(waterAlloDown.size());
 
-		return "home.ftl";
+		return risDSSModelService.start(watershedCode, countyCodes, countyNames, timeStart, timeEnd, timeStep, prec,
+				precR, tempAvg, tempMax, tempMin, outputInd, outputAgr, outputSer, outputTour, outputTourR, techProgRR,
+				areaAgri, areaAgriR, areaCropWheat, areaCropCorn, areaCropOilseed, areaCropOrchard, areaCropCotton,
+				areaCropGreenstuff, areaCropWheatR, areaCropCornR, areaCropOilseedR, areaCropOrchardR, areaCropCottonR,
+				areaCropGreenstuffR, areaForest, areaGrass, areaWater, gdp, gdpPer, gdpR, gdpPerR, channelMain,
+				channelBran, channelDou, channelNong, channelMao, channelMainWUE, channelBranWUE, channelDouWUE,
+				channelNongWUE, channelMaoWUE, areaDripIrri, allowanceInd, allowanceAgr, allowanceSer, waterAlloMid,
+				waterAlloDown, waterRight, waterSavingTechR);
 	}
 
 }

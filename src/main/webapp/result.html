@@ -12,12 +12,11 @@
 <hr />
 <div style="margin: 10px;">
 	输入参数：
-	<input type="text" id="input_para_1" style="width: 60px;"/>
-	<input type="text" id="input_para_2" style="width: 60px;"/>
+	<input type="text" id="input_para_1" value="3ec75f9d-a1aa-4455-a753-e8fc50f188c8" readonly="true" style="width: 100px; "/>
 	<button id="input_btn">输入</button>
 	<input type="text" id="input_return" />
 </div>
-<div style="margin: 10px;">
+<!--<div style="margin: 10px;">
 	查询状态：
 	<button id="query_btn">查询</button>
 	<input type="text" id="query_return" />
@@ -25,16 +24,15 @@
 <div style="margin: 10px;">
 	输出参数：
 	<button id="output_btn">输出</button>
-	<input type="text" id="output_return" />
+	<input type="text" id="output_return" />-->
 </div>
 </body>
 <script>
 $("#input_btn").on("click",function(){
 	$.post(
-		"inputdatawebservice.do",
+		"test.do",
 		{
-			"a":document.getElementById("input_para_1").value,
-			"b":document.getElementById("input_para_2").value
+			"projectId":document.getElementById("input_para_1").value,
 		},function(data){
 			document.getElementById("input_return").value=JSON.stringify(data);
 		}
