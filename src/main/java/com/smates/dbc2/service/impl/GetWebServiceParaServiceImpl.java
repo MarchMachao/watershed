@@ -382,25 +382,25 @@ public class GetWebServiceParaServiceImpl implements GetWebServiceParaService {
 	}
 
 	@Override
-	public List<DoubleArray> getoutputInd(String projectId)
+	public List<DoubleArray> getoutputInd()
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		return ToDoubleArray(watershedDao.getTblIndustyUrbanSce(), "getFldDate", "getFldIndOutput");
 	}
 
 	@Override
-	public List<DoubleArray> getoutputAgr(String projectId)
+	public List<DoubleArray> getoutputAgr()
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		return ToDoubleArray(watershedDao.getTblIndustyUrbanSce(), "getFldDate", "getFldAgrOutput");
 	}
 
 	@Override
-	public List<DoubleArray> getoutputSer(String projectId)
+	public List<DoubleArray> getoutputSer()
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		return ToDoubleArray(watershedDao.getTblIndustyUrbanSce(), "getFldDate", "getFldSerOutput");
 	}
 
 	@Override
-	public List<DoubleArray> getoutputTour(String projectId)
+	public List<DoubleArray> getoutputTour()
 			throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		return ToDoubleArray(watershedDao.getTblIndustyUrbanSce(), "getFldDate", "getFldTourOutput");
 	}

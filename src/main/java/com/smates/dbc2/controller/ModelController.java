@@ -70,10 +70,10 @@ public class ModelController {
 //        @WebParam(name = "popAgriRR") double popAgriRR [][], //农业人口比例变化率
 //        @WebParam(name = "popNonAgriR") double popNonAgriR [][], //非农业人口比例
 		List<DoubleArray> popNonAgriRR = getWebServiceParaService.getpopNonAgriRR(projectId);//非农业人口变化率
-		List<DoubleArray> outputInd = getWebServiceParaService.getoutputInd(projectId);//工业产值
-		List<DoubleArray> outputAgr = getWebServiceParaService.getoutputAgr(projectId);//农业产值
-		List<DoubleArray> outputSer = getWebServiceParaService.getoutputSer(projectId);//服务业产值
-		List<DoubleArray> outputTour = getWebServiceParaService.getoutputTour(projectId);//旅游业产值
+		List<DoubleArray> outputInd = getWebServiceParaService.getoutputInd();//工业产值
+		List<DoubleArray> outputAgr = getWebServiceParaService.getoutputAgr();//农业产值
+		List<DoubleArray> outputSer = getWebServiceParaService.getoutputSer();//服务业产值
+		List<DoubleArray> outputTour = getWebServiceParaService.getoutputTour();//旅游业产值
 //                         @WebParam(name = "outputIndR") double outputIndR [][], //工业产值变化率
 //                         @WebParam(name = "outputAgrR") double outputAgrR [][], //农业产值变化率
 //                         @WebParam(name = "outputSerR") double outputSerR [][], //服务业产值变化率
