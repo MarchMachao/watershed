@@ -15,6 +15,11 @@ public class ProjectIdAndCountyId {
 		this.countryId = countryId;
 		this.year = year;
 	}
+	
+	public ProjectIdAndCountyId(String countryId,String year) {
+		this.countryId = countryId;
+		this.year = year;
+	}
 
 	public ProjectIdAndCountyId() {
 	}

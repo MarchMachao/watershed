@@ -17,6 +17,7 @@ import com.smates.dbc2.po.TblWaterRightCounty;
 import com.smates.dbc2.po.TblWaterUseCounty;
 import com.smates.dbc2.po.Watershed;
 import com.smates.dbc2.vo.CRPTypeAndCountryId;
+import com.smates.dbc2.vo.ProjectIdAndCountyId;
 import com.smates.dbc2.vo.WatershedParaVo;
 
 public interface WatershedDao {
@@ -174,6 +175,12 @@ public interface WatershedDao {
 	 * @param watershedCode
 	 */
 	public void deletetblWaterUseCounty(String watershedCode);
+	
+	/**
+	 * 获取三产用水量
+	 * @return
+	 */
+	public TblWaterUseCounty gettblWaterUseCountyByYearAndCountryId(ProjectIdAndCountyId projectIdAndCountyId);
 
 	/**
 	 * 添加县区水权分配数据

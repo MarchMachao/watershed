@@ -191,6 +191,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deletetblWaterUseCounty" parameterType="String">
 		delete from "a_tblWaterUseCounty" where "a_tblWaterUseCounty"."fldWatershedCode" = #{value}
 	</delete>
+	
+	<!-- 查找三产用水量 -->
+	<select id="gettblWaterUseCountyByYearAndCountryId" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId" resultType="tblWaterUseCounty">
+		select * from "a_tblWaterUseCounty" where "fldDate" = #{fldDate} and "fldCountyCode" = #{fldCountyCode}
+	</select>
 
 	<!-- desc:添加县区水权分配数据 -->
 	<insert id="addtblWaterRightCounty" parameterType="TblWaterRightCounty">
