@@ -12,9 +12,11 @@
 <hr />
 <div style="margin: 10px;">
 	输入参数：
-	<input type="text" id="input_para_1" value="3ec75f9d-a1aa-4455-a753-e8fc50f188c8" readonly="true" style="width: 100px; "/>
+	<input type="hidden" id="input_para_1" value="3ec75f9d-a1aa-4455-a753-e8fc50f188c8" readonly="true" style="width: 100px; "/>
 	<button id="input_btn">输入</button>
 	<input type="text" id="input_return" />
+</div>
+<div id="bigtext" style="height: 300px; width: 400px; font-family: '微软雅黑' ;">
 </div>
 <!--<div style="margin: 10px;">
 	查询状态：
@@ -28,35 +30,42 @@
 </div>
 </body>
 <script>
-$("#input_btn").on("click",function(){
-	$.post(
-		"test.do",
-		{
-			"projectId":document.getElementById("input_para_1").value,
-		},function(data){
-			document.getElementById("input_return").value=JSON.stringify(data);
-		}
-	);
-});
+	$("#input_btn").on("click",function(){
+		$("#bigtext").empty();
+		$("#input_btn").attr("disabled","true");
+		$("#bigtext").append("<p>正在传入参数……</p>");
+		document.getElementById("#bigtext").appendChild(newChild );
+		
+		$.post(
+			"test.do",
+			{
+				"projectId":document.getElementById("input_para_1").value,
+			},function(data){
+	//			document.getElementById("input_return").value=JSON.stringify(data);
+				$("#bigtext").append("<p>"+JSON.stringify(data)+"</p>");
+			}
+		);
+		
+		
+	});
 
-$("#query_btn").on("click",function(){
-	$.post(
-		"querystatewebservice.do",
-		{
-		},function(data){
-			document.getElementById("query_return").value=JSON.stringify(data);
-		}
-	);
-});
-	
-$("#output_btn").on("click",function(){
-	$.post(
-		"outputdatawebservice.do",
-		{
-		},function(data){
-			document.getElementById("output_return").value=JSON.stringify(data);
-		}
-	);
-});
+//$("#query_btn").on("click",function(){
+//	$.post(
+//		"querystatewebservice.do",
+//		{
+//		},function(data){
+//			document.getElementById("query_return").value=JSON.stringify(data);
+//		}
+//	);
+//});
+//	
+//$("#output_btn").on("click",function(){
+//	$.post(
+//		"outputdatawebservice.do",
+//		{
+//		},function(data){
+//			document.getElementById("output_return").value=JSON.stringify(data);
+//		}
+//	);
+//});
 </script>
-</html>

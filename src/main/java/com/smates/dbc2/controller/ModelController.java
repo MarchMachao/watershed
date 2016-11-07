@@ -136,4 +136,16 @@ public class ModelController {
 				waterAlloDown, waterRight, waterSavingTechR);
 	}
 
+	@ResponseBody
+	@RequestMapping(value = ("getDataYearlyws"), method = RequestMethod.POST)
+	public String getDataYearlyws(Integer year) {
+		try {
+			List<DoubleArray> E = risDSSModelService.getDataYearly("AKH13002", year);
+		} catch (Exception e) {
+			return "数据返回错误，请检查";
+		}
+
+		return "数据返回成功";
+	}
+
 }
