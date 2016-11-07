@@ -24,7 +24,7 @@ public class ModelWaterProductivity {
 	 * @param outputInd	double	工业产值
 	 * @param outputAgr	double	农业产值
 	 * @param outputSer	double	服务业产值
-	 * @param waterUseInd	double	工业需水量
+	 * @param waterUseInd	double	工业需水量 
 	 * @param waterUseAgr	double	农业需水量
 	 * @param waterUseSer	double	服务业需水量
 	 * @return waterProductivity	double	 水生产力
