@@ -1,7 +1,7 @@
 package com.smates.dbc2.vo;
 
 /**
- * 气候情景主键
+ * 查询条件
  * @author baijw
  *
  */

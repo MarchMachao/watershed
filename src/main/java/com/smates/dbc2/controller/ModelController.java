@@ -141,7 +141,6 @@ public class ModelController {
 	public String getDataYearlyws(long year) {
 		try {
 			List<DoubleArray> modleOutput = risDSSModelService.getDataYearly("AKH13002", year);
-			
 		} catch (Exception e) {
 			return "数据返回错误，请检查";
 		}

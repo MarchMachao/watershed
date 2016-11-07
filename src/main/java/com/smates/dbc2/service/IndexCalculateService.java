@@ -11,7 +11,7 @@ public interface IndexCalculateService {
 	/**
 	 * 提高水生产力到b%
 	 */
-	public double WaterProductivity();
+	public double WaterProductivity(String projectId, String year,String countryId,double outputSer,double waterUseSer);
 
 	/**
 	 * 在各个层次上减小用水压力到m%

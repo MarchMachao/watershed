@@ -1,9 +1,13 @@
 package com.smates.dbc2.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.smates.dbc2.mapper.WatershedParaDao;
 import com.smates.dbc2.model.ModelWaterProductivity;
+import com.smates.dbc2.po.TblIndUrbanScePara;
 import com.smates.dbc2.service.IndexCalculateService;
+import com.smates.dbc2.vo.ProjectIdAndCountyId;
 
 /**
  * 指标计算
@@ -12,11 +16,15 @@ import com.smates.dbc2.service.IndexCalculateService;
  */
 @Service
 public class IndexCalculateServiceImpl implements IndexCalculateService{
+	
+	@Autowired
+	private WatershedParaDao watershedParaDao;
 
 	@Override
-	public double WaterProductivity() {
+	public double WaterProductivity(String projectId, String year,String countryId,double outputSer,double waterUseSer) {
 		ModelWaterProductivity modelWaterProductivity = new ModelWaterProductivity();
-		return modelWaterProductivity.calc(outputInd, outputAgr, outputSer, waterUseInd, waterUseAgr, waterUseSer);
+		TblIndUrbanScePara indUrbanScePara = watershedParaDao.getTblIndUrbanSceParaByProjectIdAndCountryId(new ProjectIdAndCountyId(projectId, countryId, year));
+		return modelWaterProductivity.calc(indUrbanScePara.getFldIndOutput(), indUrbanScePara.getFldAgrOutput(), outputSer, waterUseInd, waterUseAgr, waterUseSer);
 	}
 
 	@Override
