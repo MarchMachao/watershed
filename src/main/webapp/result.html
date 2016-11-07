@@ -16,7 +16,7 @@
 	<button id="input_btn">输入数据</button>
 	<button id="query_btn">查询状态</button>
 	<button id="queryyears_btn" disabled="true">查询可获取年份列表</button>
-	<button id="calculate">计算指标</button>
+	<button id="calculate" disabled="true">计算指标</button>
 	<button id="clear">清屏</button>
 </div>
 <div id="bigtext" style="height: 300px; width: 400px; font-family: '微软雅黑' ;">
@@ -90,6 +90,7 @@
 					}else{
 						$("#bigtext").append("<p>"+"可用年份："+JSON.stringify(data)+"</p>");
 						$("#availableyear").val(data);
+						$("#calculate").attr("disabled",false);
 					}
 				}
 			)	
@@ -103,7 +104,8 @@
 			},function(data){
 				if(data=="数据已提交给指标计算模型！"){
 					$("button").attr("disabled","true");
-					$("#bigtext").append("<p>"+data+"</p>");
+					$("#bigtext").append("<p>"+data+"&nbsp 3秒后跳转……</p>");
+					setInterval("window.location='GIS.html'",3000);
 				}else{
 					$("#bigtext").append("<p>"+data+"</p>");
 				}
