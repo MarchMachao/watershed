@@ -138,15 +138,27 @@ public class ModelController {
 
 	@ResponseBody
 	@RequestMapping(value = ("getDataYearlyws"), method = RequestMethod.POST)
-	public String getDataYearlyws(Integer year) {
+	public String getDataYearlyws(long year) {
 		try {
 			List<DoubleArray> modleOutput = risDSSModelService.getDataYearly("AKH13002", year);
 			
 		} catch (Exception e) {
 			return "数据返回错误，请检查";
 		}
+		return "数据已提交给指标计算模型！";
+	}
 
-		return "数据返回成功";
+	@ResponseBody
+	@RequestMapping(value = ("queryAvailablews"), method = RequestMethod.POST)
+	public List<Integer> queryAvailablews() {
+
+		return risDSSModelService.queryAvailable();
+	}
+
+	@ResponseBody
+	@RequestMapping(value = ("queryStatews"), method = RequestMethod.POST)
+	public int queryStatews() {
+		return risDSSModelService.queryState();
 	}
 
 }
