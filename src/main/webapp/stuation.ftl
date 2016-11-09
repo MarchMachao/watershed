@@ -58,7 +58,7 @@
 								<a data-toggle="tab" href="#land"><span class="badge badge-success badge-icon"><i
 									class="icon-caret-right"></i></span>土地利用情景</a>
 							</li>
-		！！！！！！！！！！！！！！注意，这里“土地利用情景”和“社会经济发展情景”进行了标签的调换，代码没改变位置！！！！！！by 马超
+<!-- 		！！！！！！！！！！！！！！注意，这里“土地利用情景”和“社会经济发展情景”进行了标签的调换，代码没改变位置！！！！！！by 马超 -->
 							<li>
 								<a data-toggle="tab" href="#economy"><i class="blue icon-user bigger-110"></i>社会经济发展情景</a>
 							</li>
@@ -1875,7 +1875,7 @@
 							fldForestArea[i]=data[i].fldForestArea;
 							fldGrassArea[i]=data[i].fldGrassArea;
 							fldHuYangArea[i]=data[i].fldHuYangArea;
-							fldFarmArea[i]=data[i].fldWaterArea;
+							fldWaterArea[i]=data[i].fldWaterArea;
 						}
 						if (data.length>=1){
 						var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年'+$("#land_selectCounty").find("option:selected").text()+'不同土地类型面积变化';
