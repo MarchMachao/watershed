@@ -55,11 +55,12 @@
 								<a data-toggle="tab" href="#industry"><i class="blue icon-user bigger-110"></i>产业与城市发展情景</a>
 							</li>
 							<li>
-								<a data-toggle="tab" href="#economy"><span class="badge badge-success badge-icon"><i
-									class="icon-caret-right"></i></span>社会经济发展情景</a>
+								<a data-toggle="tab" href="#land"><span class="badge badge-success badge-icon"><i
+									class="icon-caret-right"></i></span>土地利用情景</a>
 							</li>
+		！！！！！！！！！！！！！！注意，这里“土地利用情景”和“社会经济发展情景”进行了标签的调换，代码没改变位置！！！！！！by 马超
 							<li>
-								<a data-toggle="tab" href="#land"><i class="blue icon-user bigger-110"></i>土地利用情景</a>
+								<a data-toggle="tab" href="#economy"><i class="blue icon-user bigger-110"></i>社会经济发展情景</a>
 							</li>
 							<li>
 								<a data-toggle="tab" href="#water"><span class="badge badge-success badge-icon"><i
