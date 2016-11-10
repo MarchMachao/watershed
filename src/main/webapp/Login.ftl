@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="static/login/bootstrap-responsive.min.css" />
 <link rel="stylesheet" href="static/login/matrix-login.css" />
 <link href="static/login/font-awesome.css" rel="stylesheet" />
-<script type="text/javascript" src="static/js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
 
 </head>
 <body>
@@ -82,45 +82,45 @@
 
 	<script type="text/javascript">
 		//客户端校验
-		function check() {
+// 		function check() {
 
-			if ($("#loginname").val() == "") {
+// 			if ($("#loginname").val() == "") {
 
-				$("#loginname").tips({
-					side : 2,
-					msg : '用户名不得为空',
-					bg : '#AE81FF',
-					time : 3
-				});
+// 				$("#loginname").tips({
+// 					side : 2,
+// 					msg : '用户名不得为空',
+// 					bg : '#AE81FF',
+// 					time : 3
+// 				});
 
-				$("#loginname").focus();
-				return false;
-			} else {
-				$("#loginname").val(jQuery.trim($('#loginname').val()));
-			}
+// 				$("#loginname").focus();
+// 				return false;
+// 			} else {
+// 				$("#loginname").val(jQuery.trim($('#loginname').val()));
+// 			}
 
-			if ($("#password").val() == "") {
+// 			if ($("#password").val() == "") {
 
-				$("#password").tips({
-					side : 2,
-					msg : '密码不得为空',
-					bg : '#AE81FF',
-					time : 3
-				});
+// 				$("#password").tips({
+// 					side : 2,
+// 					msg : '密码不得为空',
+// 					bg : '#AE81FF',
+// 					time : 3
+// 				});
 
-				$("#password").focus();
-				return false;
-			}
+// 				$("#password").focus();
+// 				return false;
+// 			}
 
-			$("#loginbox").tips({
-				side : 1,
-				msg : '正在登录 , 请稍后 ...',
-				bg : '#68B500',
-				time : 10
-			});
+// 			$("#loginbox").tips({
+// 				side : 1,
+// 				msg : '正在登录 , 请稍后 ...',
+// 				bg : '#68B500',
+// 				time : 10
+// 			});
 
-			return true;
-		}
+// 			return true;
+// 		}
 
 		function quxiao() {
 			$("#loginname").val('');
@@ -145,7 +145,7 @@
 			data:{accountNumber:'guest356246547',userpwd:'123456'},
 			success:function(){window.location.href='home.do'}
 		});
-	})
+	});
 	</script>
 	<!--<script>
 		//TOCMAT重启之后 点击左侧列表跳转登录首页 
