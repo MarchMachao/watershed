@@ -54,7 +54,7 @@ public class UserController extends BaseController {
 			return "Login.ftl";
 		}
 		logger.info("登录成功");
-		return "redirect:home.do";
+		return "redirect:/home.do";
 	}
 
 	/**
