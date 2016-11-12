@@ -17,8 +17,7 @@
 <body>
 	<div style="width:100%;text-align: center;margin: 0 auto;position: absolute;">
 		<div id="loginbox">
-			<form action="login.do" method="POST" name="loginForm"
-				id="loginForm">
+			<form action="login.do" method="POST" name="loginForm" id="loginForm">
 				<div class="control-group normal_text">
 					<h3>
 						<img src="static/login/logo_cas.png" alt="Logo" />
@@ -42,20 +41,22 @@
 								name="userpwd" id="password" placeholder="请输入密码"
 								value="" />
 						</div>
-						<div class="danger-error">
-            				${callback}
+						<div class="danger-error" style="display: none;">
+            				账号或密码错误
             			</div>
 					</div>
 				</div>
 				<div class="form-actions">
 					<div style="width:86%;padding-left:8%;">
-						<span class="pull-right" style="padding-right:3%;"><a
-							href="javascript:quxiao();" class="btn btn-success">取消</a></span> <span
-							class="pull-right"><button type="submit"
-							class="flip-link btn btn-info" id="to-recover">登录</button></span>
-							<div style="margin-top:7px ;">
-            					<a href="#" id="login-guest" class="pull-left lip-link btn btn-info" style="font-size: 15px;">游客登录</a>
-            				</div>
+						<span class="pull-right" style="padding-right:3%;">
+							<a href="javascript:quxiao();" class="btn btn-success">取消</a>
+						</span> 
+						<span class="pull-right">
+							<a class="flip-link btn btn-info" id="to-recover">登录</a>
+						</span>
+						<div style="margin-top:7px ;">
+            				<a href="#" id="login-guest" class="pull-left lip-link btn btn-info" style="font-size: 15px;">游客登录</a>
+            			</div>
 					</div>
 					
 				</div>
@@ -82,45 +83,57 @@
 
 	<script type="text/javascript">
 		//客户端校验
-// 		function check() {
+//    		function check() {
+//    			if ($("#loginname").val() == "") {
+//    				$("#loginname").tips({
+//    					side : 2,
+//    					msg : '用户名不得为空',
+//    					bg : '#AE81FF',
+//    					time : 3
+//    				});
+//    				$("#loginname").focus();
+//    				return false;
+//    			} else {
+//    				$("#loginname").val(jQuery.trim($('#loginname').val()));
+//    			}
+//    			if ($("#password").val() == "") {
+//    				$("#password").tips({
+//    					side : 2,
+//    					msg : '密码不得为空',
+//    					bg : '#AE81FF',
+//    					time : 3
+//    				});
+//    				$("#password").focus();
+//    				return false;
+//    			}
+//    			$("#loginbox").tips({
+//    				side : 1,
+//    				msg : '正在登录 , 请稍后 ...',
+//    				bg : '#68B500',
+//    				time : 10
+//    			});
+//    			return true;
+//    		}
+   		
+		$("#to-recover").on("click", function() {
+			$.ajax({
+				type: "post",
+				url: "login.do",
+				data: {
+					accountNumber: document.getElementById("loginname").value,
+					userpwd: document.getElementById("password").value
+				},
+				success:function(data){
+					if(data=='404'){
+						$(".danger-error").css("display","block");
+					}else{
+						window.location.href='home.do';
+					}
+				}
+				
+			});
 
-// 			if ($("#loginname").val() == "") {
-
-// 				$("#loginname").tips({
-// 					side : 2,
-// 					msg : '用户名不得为空',
-// 					bg : '#AE81FF',
-// 					time : 3
-// 				});
-
-// 				$("#loginname").focus();
-// 				return false;
-// 			} else {
-// 				$("#loginname").val(jQuery.trim($('#loginname').val()));
-// 			}
-
-// 			if ($("#password").val() == "") {
-
-// 				$("#password").tips({
-// 					side : 2,
-// 					msg : '密码不得为空',
-// 					bg : '#AE81FF',
-// 					time : 3
-// 				});
-
-// 				$("#password").focus();
-// 				return false;
-// 			}
-
-// 			$("#loginbox").tips({
-// 				side : 1,
-// 				msg : '正在登录 , 请稍后 ...',
-// 				bg : '#68B500',
-// 				time : 10
-// 			});
-
-// 			return true;
-// 		}
+		})
 
 		function quxiao() {
 			$("#loginname").val('');
