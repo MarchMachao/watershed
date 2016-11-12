@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smates.dbc2.po.User;
 import com.smates.dbc2.utils.SysConst;
@@ -43,7 +42,6 @@ public class UserController extends BaseController {
 	 *            用户登录的明文密码
 	 * @return
 	 */
-	@ResponseBody
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String submit(ModelMap modelMap, String accountNumber, String userpwd) {
 		Subject subject = SecurityUtils.getSubject();
@@ -53,7 +51,7 @@ public class UserController extends BaseController {
 		} catch (AuthenticationException ae) {
 			logger.info("账号或密码错误");
 			modelMap.addAttribute("callback", "账号或密码错误");
-			return "404";
+			return "Login.ftl";
 		}
 		logger.info("登录成功");
 		return "redirect:/home.do";
@@ -83,7 +81,7 @@ public class UserController extends BaseController {
 		User user = userService.getUserByAccountNumber(userService.getCurrentUserId());
 		user.setImage(SysConst.QNIUYUNURL + user.getImage());
 		modelMap.addAttribute("user", user);
-		return "home.ftl";
+		return "Home.ftl";
 	}
 
 }
