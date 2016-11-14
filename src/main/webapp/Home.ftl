@@ -70,12 +70,13 @@
 					<ul class="sidebar-menu">
 						<#list menulist as item>
 							<li class="treeview">
-								<a href="#"><i class="fa fa-link"></i> <span>${item.menuName}</span>
+								<a href="#">
+									<i class="fa fa-link"></i> 
+									<span class="menuUrl" menuUrl="${item.menuUrl}">${item.menuName}</span>
 									<span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+              							<i class="fa fa-angle-left pull-right"></i>
+            						</span>
 								</a>
-
 								<ul class="treeview-menu">
 									<#list item.submenus as record>
 										<li>
