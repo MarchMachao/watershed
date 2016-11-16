@@ -17,11 +17,12 @@
     <style>
         body{overflow: hidden; position: relative; width: 100%;}
         #mapframe{width:100%;border: 0;}
-        #right_flash,#right_flash2{width: 433px; height: auto; position: absolute; right: -400px; top: 15%; margin-top: 0;}
+        #right_flash,#right_flash2{width: 433px; height: auto; position: absolute; right: -400px; top: 10%; margin-top: 0;}
         .situation-toggle{font-size: 14px; text-align:left;width:20px; position: absolute; left: 0px;top: 40px;z-index: 110;}
         .situation{width:400px; position: relative; right:-33px; top:0px; z-index:10;}
         #right_flash2{right: -400px; margin-top: 125px; height: 300px; z-index: 20;}
         #right_flash2.down{margin-top: 278px;}
+        .widget-body{border-top: 1px solid #CCCCCC;}
     </style>
 </head>
 
@@ -33,9 +34,6 @@
         情景控制
     </div>
     <div id="situation1" class="widget-box situation">
-        <div class="widget-header">
-            <h4>情景控制</h4>
-        </div>
         <div class="widget-body">
             <div class="widget-main">
                 <div class="row-fluid">
@@ -48,29 +46,29 @@
                     <span style="visibility:hidden">中下游分水：</span> 中游&nbsp;下游
                 </div>
                 <div class="row-fluid">
-                    中下游分水：
+                    	中下游分水：
                     <input type="text" id="situation-2-1" value="9" style="width:25px;height:10px">
                     <input type="text" id="situation-2-2" value="7" style="width:25px;height:10px">亿m^3
                     <div id="slider-2" style="float:right;display:inline;"></div>
                 </div>
                 <div class="row-fluid">
-                    中游耕地面积：
+                    	中游耕地面积：
                     <input type="text" id="situation-3" value="568" style="width:30px;height:10px">万亩
                     <div id="slider-3" style="float:right;display:inline;"></div>
                 </div>
                 <div class="row-fluid">
-                    中游湿地面积：
+                    	中游湿地面积：
                     <input type="text" id="situation-4" value="24.4" style="width:30px;height:10px">万亩
                     <div id="slider-4" style="float:right;display:inline;"></div>
                 </div>
                 <div class="row-fluid">
-                    中游滴灌面积：
+                    	中游滴灌面积：
                     <input type="text" id="situation-5" value="10" style="width:30px;height:10px">万亩
                     <div id="slider-5" style="float:right;display:inline;"></div>
                     <hr style="margin:0px;height:4px">
                 </div>
                 <div class="row-fluid">
-                    下游耕地面积：
+                    	下游耕地面积：
                     <input type="text" id="situation-6" value="10" style="width:30px;height:10px">万亩
                     <div id="slider-6" style="float:right;display:inline;"></div>
                     <hr style="margin:0px;height:4px">
@@ -89,9 +87,6 @@
         	评价结果
     </div>
     <div id="situation2" class="widget-box situation">
-        <div class="widget-header">
-            <h4>评价结果</h4>
-        </div>
         <div class="widget-body">
             <div class="widget-main">
             	<div id="gis-chart-1" style="width:100%; height: 300px;"></div>

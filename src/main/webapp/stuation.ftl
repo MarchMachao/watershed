@@ -42,7 +42,7 @@
 	</head>
 
 	<body>
-		<input type="hidden" name="projectId" value="${projectId}" />
+		<input type="hidden" id="projectId" name="projectId" value="${projectId}" />
 		<div class="container-fluid" id="main-container">
 			<div id="page-content" class="clearfix">
 				<div class="row-fluid">
@@ -1098,6 +1098,14 @@
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
 											<button class="btn btn-small btn-success" type="button" id="watersce_submit">确定</button> &nbsp;
 											<button class="btn btn-small btn-warning" type="reset" id="watersce_reset">重置</button>
+											<div class="row" style="margin-top: 5px">
+												<div class="col-sm-6 col-sm-offset-3"></div>
+												<div class="col-sm-3" style="text-align: right">
+													<button class="btn btn-primary" type="button" id="nextStep"
+														onclick="javascript:;">
+														下一步：情景摘要</button>
+												</div>
+											</div>
 										</div>
 									</form>
 								</div>
@@ -1112,6 +1120,12 @@
 		<script src="js/situation.jq.js"></script>
 		
 		<script type="text/javascript">
+		
+		$("#nextStep").on("click",function(){
+			location.href = '.do?id='+document.getElementById("projectId").value;
+		})
+		
+		
 		$("span").on("click",function(){
 			$("input").trigger("change");
 		});
