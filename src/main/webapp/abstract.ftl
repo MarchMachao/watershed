@@ -130,7 +130,7 @@
     </div>
     <div class="text-right btn-wrapper">
         <button type="button" id="backToStuation" class="btn btn-primary pro-btn" onclick="javascript:location.href = 'toStuation.do?id=${projectId}'">设置</button>
-        <button type="button" id="toResult" class="btn btn-primary pro-btn" onclick="javascript:location.href = 'jumpToResult.do?projectId=${projectId}'">模拟</button>
+        <button type="button" id="toResult" class="btn btn-primary pro-btn" onclick="javascript:;">模拟</button>
     </div>
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
@@ -142,7 +142,7 @@
 					"projectId":"${projectId}",
 				},function(data){
 					alert(data);
-					location.href = 'toStuation.do?id=${projectId}'
+					location.href = 'jumpToResult.do?id=${projectId}'
 				}
 			);
 	})
