@@ -1122,7 +1122,7 @@
 		<script type="text/javascript">
 		
 		$("#nextStep").on("click",function(){
-			location.href = '.do?id='+document.getElementById("projectId").value;
+			location.href = 'jumpToAbstract.do?projectId='+document.getElementById("projectId").value;
 		})
 		
 		

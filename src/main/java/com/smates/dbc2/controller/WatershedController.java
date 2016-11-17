@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -213,6 +214,18 @@ public class WatershedController extends BaseController{
 	@RequestMapping(value = "getTblMidDownWaterAllo", method = RequestMethod.GET)
 	public List<TblMidDownWaterAllo> getTblMidDownWaterAllo() {
 		return watershedService.getTblMidDownWaterAllo();
+	}
+
+	@RequestMapping(value = "jumpToAbstract", method = RequestMethod.GET)
+	public String jumpToAbstract(ModelMap modelMap, String projectId) {
+		modelMap.addAttribute("projectId", projectId);
+		return "abstract.ftl";
+	}
+
+	@RequestMapping(value = "jumpToResult", method = RequestMethod.GET)
+	public String jumpToResult(ModelMap modelMap, String projectId) {
+		modelMap.addAttribute("projectId", projectId);
+		return "result.ftl";
 	}
 
 }

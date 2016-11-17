@@ -23,6 +23,7 @@
 </head>
 <body>
 <div class="b-wrapper">
+	<input type="text" id="projectId" name="projectId" value="${projectId}" />
     <h2>
         <p class="text-center">决策项目情景摘要</p>
     </h2>
@@ -101,12 +102,13 @@
         </ul>
     </div>
     <div class="text-right btn-wrapper">
-        <button type="button" class="btn btn-primary pro-btn">设置</button>
-        <button type="button" class="btn btn-primary pro-btn">模拟</button>
+        <button type="button" class="btn btn-primary pro-btn" onclick="javascript:location.href = 'toStuation.do?id=${projectId}'">设置</button>
+        <button type="button" class="btn btn-primary pro-btn" onclick="javascript:location.href = 'jumpToResult.do?projectId=${projectId}'">模拟</button>
     </div>
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script>
+	
 </script>
 </body>
 </html>
