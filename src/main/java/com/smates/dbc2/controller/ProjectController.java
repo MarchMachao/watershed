@@ -73,4 +73,16 @@ public class ProjectController {
 		return "goal.ftl";
 	}
 
+	/**
+	 * 根据项目id查询项目信息（abstract.ftl用到）
+	 * 
+	 * @param projectId
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "getProjectById", method = RequestMethod.GET)
+	public Project getProjectById(String projectId) {
+		return projectService.getProjectById(projectId);
+	}
+
 }

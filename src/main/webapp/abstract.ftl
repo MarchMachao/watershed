@@ -19,7 +19,7 @@
         .part3 ul{width: 80%;}
         .btn-wrapper{padding-right: 15%; margin-top: 50px;}
         .pro-btn{padding: 8px 40px; box-shadow: 3px 3px 3px #275f8f; margin-left: 20px;}
-        .form-control{width: 100px ; display: inline-block;}
+        .form-control{width: 110px ; display: inline-block;}
     </style>
 </head>
 <body>
@@ -31,19 +31,19 @@
     <div class="part1">
         <h4>
             <span class="part-title part-title4">研究区域：</span>
-            <span></span>
+            <span id="part1-1"></span>
         </h4>
         <h4>
             <span class="part-title part-title6">模拟时间范围：</span>
-            <span></span>
+            <span id="part1-2"></span>
         </h4>
         <h4>
             <span class="part-title part-title6">模拟时间步长：</span>
-            <span></span>
+            <span id="part1-3"></span>
         </h4>
         <h4>
             <span class="part-title part-title4">项目名称：</span>
-            <span></span>
+            <span id="part1-4"></span>
         </h4>
             <div class="part" style="padding-left: 0px; margin-left: 18%;font-size: 18px;">
 				<span>选择区县:</span>
@@ -136,6 +136,19 @@
 <script src="js/jquery-1.11.1.min.js"></script>
 <script>
 	
+	findDataByCountryAndYear();
+	
+	$.get(
+		"getProjectById.do",
+		{projectId:"${projectId}"},
+		function(data){
+			$("#part1-1").html("黑河流域"),
+			$("#part1-2").html(data.baseYear+"~"+data.goalYear),
+			$("#part1-3").html("一年"),
+			$("#part1-4").html(data.name)
+		}
+	)
+	
 	$("#toResult").on("click", function() {
 		$.post("test.do", {
 			"projectId" : "${projectId}",
@@ -145,7 +158,84 @@
 		});
 	});
 	
-	function findDataByCountryAndYear(){
+	$("#selectCounty,#selectYears").on("change",function(){
+		findDataByCountryAndYear();
+	})
+	
+	function findDataByCountryAndYear() {
+		$.get("getSceParaByProjectIdAndCountryId.do", {
+			"projectId" : "${projectId}",
+			"countryId" : document.getElementById("selectCounty").value,
+			"year" : document.getElementById("selectYears").value,
+			"tab" : "1"
+		}, function(data) {
+			if (data.isEmpty != "1") {
+				switch(data.fldCRPType)
+				{
+				case '8.5':
+					$("#IPCC").html('高排放情景，2100年地表接收稳定辐射强度大于8.5 W/m2');
+					break;
+				case '6':
+					$("#IPCC").html('较高排放情景，2100年地表接收稳定辐射强度控制在6 W/m2');
+					break;
+				case '4.5':
+					$("#IPCC").html('中等排放情景，2100年地表接收稳定辐射强度控制在4.5 W/m2');
+					break;
+				case '2.6':
+					$("#IPCC").html('低排放情景，2100年地表接收稳定辐射强度小于3 W/m2');
+					break;
+				}
+			}else{
+				$("#IPCC").html('无相关数据');
+			}
+		});
+		
+		$.get("getSceParaByProjectIdAndCountryId.do", {
+			"projectId" : "${projectId}",
+			"countryId" : document.getElementById("selectCounty").value,
+			"year" : document.getElementById("selectYears").value,
+			"tab" : "2"
+		}, function(data) {
+			if (data.isEmpty != "1") {
+				$("#industry-1").html(data.nonFarmPercent);
+				$("#industry-2").html(data.changeRateOfTourismIndustry)
+			}else{
+				$("#industry-1,#industry-2").html('无相关数据');
+			}
+		});
+		
+		$.get("getSceParaByProjectIdAndCountryId.do", {
+			"projectId" : "${projectId}",
+			"countryId" : document.getElementById("selectCounty").value,
+			"year" : document.getElementById("selectYears").value,
+			"tab" : "4"
+		}, function(data) {
+			if (data.isEmpty != "1") {
+				$("#land-1").html(data.fldFarmAreaChgR);
+				$("#land-2").html(data.wheatChgR);
+				$("#land-3").html(data.cornChgR);
+				$("#land-4").html(data.oilPlantsChgR);
+				$("#land-5").html(data.vegetablesChgR);
+				$("#land-6").html(data.orchardChgR);
+				$("#land-7").html(data.cottonChgR);
+			}else{
+				$("#land-1,#land-2,#land-3,#land-4,#land-5,#land-6,#land-7").html('无相关数据');
+			}
+		});
+		
+		$.get("getSceParaByProjectIdAndCountryId.do", {
+			"projectId" : "${projectId}",
+			"countryId" : document.getElementById("selectCounty").value,
+			"year" : document.getElementById("selectYears").value,
+			"tab" : "3"
+		}, function(data) {
+			if (data.isEmpty != "1") {
+				$("#conomy-1").html(data.perCapGDPR);
+				$("#conomy-2").html(data.perCapGDP);
+			}else{
+				$("#conomy-1,#conomy-2").html('无相关数据');
+			}
+		});
 		
 	};
 </script>

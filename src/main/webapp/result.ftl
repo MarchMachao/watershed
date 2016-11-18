@@ -12,7 +12,6 @@
         .wrapper table{width: 80%;}
         .btn-wrapper{padding-right: 15%; margin-top: 50px;}
         .pro-btn{padding: 8px 30px; box-shadow: 3px 3px 3px #275f8f;}
-        .table th .tabale td{text-align: center; }
     </style>
 </head>
 <body>
@@ -28,11 +27,11 @@
             0%
         </div>
     </div>
+    <button onclick="queryAvailable();">点我！进度条会变（测试用）</button>
     <h4>模拟结果</h4>
-    <div class="table-responsive">
-	    <table class="table table-hover">
-	    	<thead>
-	        <tr>
+    <div class="table-responsive" style="margin-top: 20px;">
+	    <table id="resultTable" class="table table-hover">
+	        <!--<tr>
 	            <th>年份/指标</th>
 	            <th>水生产力(%)</th>
 	            <th>水压力(%)</th>
@@ -49,20 +48,43 @@
 	            <th>人均GDP</th>
 	            <th>人均 GDP增长率(%)</th>
 	            <th>年轻人在教育、就业和培训中的比例 (%)</th>
-	            <th>年轻人失业率(%) </th>
+	            <th>年轻人失业率(%)</th>
 	            <th>旅游业在 GDP中的比例 (%)</th>
 	            <th>旅游消费 </th>
 	            <th>土地消耗率与人口增长率的比率(%)</th>
-	            <th>城镇化率(%) </th>
+	            <th>城镇化率(%)</th>
 	            <th>农业水生产力 </th>
 	            <th>农业水利用效率 </th>
 	            <th>每公顷农产品产值 </th>
 	            <th>维持可持续的农业种植面积 </th>
 	            <th>可持续社会福利指数  </th>
-	        </tr>
-	        </thead>
-	        <tbody>
-	        </tbody>
+	        </tr>-->
+	      	<tr><th>年份/指标</th></tr>
+	      	<tr><td>水生产力(%)</td></tr>
+	      	<tr><td>水压力(%)</td></tr>
+	      	<tr><td>安全饮用水比例(%)</td></tr>
+	      	<tr><td>水资源管理执行度(%)</td></tr>
+	      	<tr><td>可操作合约有效性(%)</td></tr>
+	      	<tr><td>可持续湿地面积(万亩)</td></tr>
+	      	<tr><td>下游可持续最小水量(亿m³)</td></tr>
+	      	<tr><td>中游地下水开采量(亿m³)</td></tr>
+	      	<tr><td>中游生态系统用水量(亿m³)</td></tr>
+	      	<tr><td>森林覆盖率(%)</td></tr>
+	      	<tr><td>可持续森林管理覆盖(%)</td></tr>
+	      	<tr><td>山地绿色覆盖指数(%)</td></tr>
+	      	<tr><td>人均GDP</td></tr>
+	      	<tr><td>人均 GDP增长率(%)</td></tr>
+	      	<tr><td>年轻人在教育、就业和培训中的比例 (%)</td></tr>
+	      	<tr><td>年轻人失业率(%)</td></tr>
+	      	<tr><td>旅游业在 GDP中的比例 (%)</td></tr>
+	      	<tr><td>旅游消费</td></tr>
+	      	<tr><td>土地消耗率与人口增长率的比率(%)</td></tr>
+	      	<tr><td>城镇化率(%)</td></tr>
+	      	<tr><td>农业水生产力 </td></tr>
+	      	<tr><td>农业水利用效率</td></tr>
+	      	<tr><td>每公顷农产品产值</td></tr>
+	      	<tr><td>维持可持续的农业种植面积</td></tr>
+	      	<tr><td>可持续社会福利指数</td></tr>
 	    </table>
     </div>
     <div class="text-right btn-wrapper">
@@ -76,7 +98,7 @@
 //      "aria-valuenow" : num
 //  }).width(num + "%").html(num + "%");
 	queryStatews();
-	
+					
 	function queryStatews(){
 		$.post(
 			"queryStatews.do",
@@ -93,6 +115,7 @@
 					break;
 				case(3):
 					$("#state").html("成功，模型状态为3-accessible");
+					getDataYearly();
 					break;
 				case(4):
 					$("#state").html("成功，模型状态为4-finished");
@@ -105,41 +128,41 @@
 		);
 	}
 	
-    $.ajax({
-        type    : "post",
-        url     : "queryAvailablews.do",
-        success : function(data){
-            var num = data.length*10;
-            $(".progress-bar").attr({
-                "aria-valuenow" : num
-            }).width(num + "%").html(num + "%");
-        },
-        error   :function(){
-            console.log("queryAvailablews error!")
-        }
-    });
-    
-    
+	function queryAvailable(){
+	    $.ajax({
+	        type    : "post",
+	        url     : "queryAvailablews.do",
+	        success : function(data){
+	            var num = data.length*10;
+	            $(".progress-bar").attr({
+	                "aria-valuenow" : num
+	            }).width(num + "%").html(num + "%");
+	        },
+	        error   :function(){
+	            console.log("queryAvailablews error!")
+	        }
+	    });
+	};
+	
+    function getDataYearly(){
 		$.post(
 			"getDataYearlyws.do",
 			{
 				"year":parseInt("2000")
 			},function(data){
 				if(data.length>0){
-					$(".table tbody").empty();
-					var newTr = '<tr><td>2000</td>';
+					var newTh = '<th>2000</th>';
+					$("#resultTable tr:eq(0)").append(newTh);
 					for(i=0;i<data.length;i++){
 						var newTd='<td>'+data[i]+'</td>';
-						newTr=newTr+newTd;
+						var j=i+1;
+						$("#resultTable tr:eq("+j+")").append(newTd);
 					}
-					newTr=newTr+'<tr>';
-					$(".table tbody").append(newTr);
 				}else{
-					var newTr = '<tr><td>暂无数据</td></tr>';
 					console.log("没数据!")
 				}
 			}
-		)
+		)};
 	
 </script>
 </body>

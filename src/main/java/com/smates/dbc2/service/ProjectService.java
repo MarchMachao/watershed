@@ -43,4 +43,12 @@ public interface ProjectService {
 	 */
 	public void deleteProjectById(String id);
 	
+	/**
+	 * 根据项目id查询项目
+	 * 
+	 * @param id项目id
+	 * @return 项目所有信息
+	 */
+	public Project getProjectById(String id);
+
 }

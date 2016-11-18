@@ -114,8 +114,7 @@
 									<div class="span6">
 									<label>
 									<span>选择气候情景(IPCC)</span>
-									<select id="IPCC" name="IPCC" style="margin:0px">
-										
+									<select id="IPCC" name="IPCC" style="margin:0px; width:430px">
 										<option value="8.5">高排放情景，2100年地表接收稳定辐射强度大于8.5 W/m2</option>
 										<option value="6">较高排放情景，2100年地表接收稳定辐射强度控制在6 W/m2</option>
 										<option value="4.5">中等排放情景，2100年地表接收稳定辐射强度控制在4.5 W/m2</option>
@@ -1198,6 +1197,7 @@
 						},function(data){
 							if(data.isEmpty!="1"){
 							document.getElementById("GDPInc_spinner1").value=data.perCapGDPR,
+							document.getElementById("GDPInc_spinner2").value=data.perCapGDP,
 							document.getElementById("ganQu_spinner").value=data.fldMainCanWUE,
 							document.getElementById("ganQu_text").value=data.fldMainCannelLeng,
 							document.getElementById("zhiQu_spinner").value=data.fldBranCanWUE,
