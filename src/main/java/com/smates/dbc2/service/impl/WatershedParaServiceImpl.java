@@ -27,8 +27,10 @@ public class WatershedParaServiceImpl implements WatershedParaService {
 	private WatershedParaDao watershedParaDao;
 
 	@Override
-	public void addTblClimateScePara(String projectId, String countryId, String rainInc, String tempInc, String year) {
-		watershedParaDao.addTblClimateScePara(new TblClimateScePara(projectId, countryId, rainInc, tempInc, year));
+	public void addTblClimateScePara(String projectId, String countryId, String rainInc, String tempInc, String year,
+			String fldCRPType) {
+		watershedParaDao
+				.addTblClimateScePara(new TblClimateScePara(projectId, countryId, rainInc, tempInc, year, fldCRPType));
 	}
 
 	@Override

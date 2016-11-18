@@ -2030,7 +2030,8 @@
 					"countryId" : document.getElementById("IPCC-selectCounty").value,
 					"year": document.getElementById("IPCC-selectYears").value,
 					"rainInc" : document.getElementById("rain_inc_ratio").value,
-					"tempInc" : document.getElementById("temp_inc_ratio").value
+					"tempInc" : document.getElementById("temp_inc_ratio").value,
+					"fldCRPType":document.getElementById("IPCC").value
 				}, function(data) {
 					alert(data.content);
 			})

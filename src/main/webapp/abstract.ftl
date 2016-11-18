@@ -75,17 +75,17 @@
 
     <div class="part part2">
         <h4>气候情景</h4>
-        <p class="b-word"></p>
+        <p id="IPCC" class="b-word"></p>
         <i class="line"></i>
     </div>
     <div class="part part2">
         <h4>产业与城市发展情景</h4>
         <ul class="list-unstyled">
             <li>
-                <span class="part2-title">非农业人口比例变化率</span><span></span>
+                <span class="part2-title">非农业人口比例变化率</span><span id="industry-1"></span>
             </li>
             <li>
-                <span class="part2-title">旅游业产值变化率</span><span></span>
+                <span class="part2-title">旅游业产值变化率</span><span id="industry-2"></span>
             </li>
         </ul>
         <i class="line"></i>
@@ -94,25 +94,25 @@
         <h4>土地利用情景</h4>
         <ul class="list-unstyled row">
             <li>
-                <span class="part2-title">耕地面积变化率</span><span></span>
+                <span class="part2-title">耕地面积变化率</span><spanc id="land-1"></span>
             </li>
             <li class="col-md-6">
-                <span class="part2-title">小麦种植面积变化率</span><span></span>
+                <span class="part2-title">小麦种植面积变化率</span><span id="land-2"></span>
             </li>
             <li class="col-md-6">
-                <span class="part2-title">玉米种植面积变化率</span><span></span>
+                <span class="part2-title">玉米种植面积变化率</span><span id="land-3"></span>
             </li>
             <li class="col-md-6">
-                <span class="part2-title">油料种植面积变化率</span><span></span>
+                <span class="part2-title">油料种植面积变化率</span><span id="land-4"></span>
             </li>
             <li class="col-md-6">
-                <span class="part2-title">蔬菜种植面积变化率</span><span></span>
+                <span class="part2-title">蔬菜种植面积变化率</span><span id="land-5"></span>
             </li>
             <li class="col-md-6">
-                <span class="part2-title">果园种植面积变化率</span><span></span>
+                <span class="part2-title">果园种植面积变化率</span><span id="land-6"></span>
             </li>
             <li class="col-md-6">
-                <span class="part2-title">棉花种植面积变化率</span><span></span>
+                <span class="part2-title">棉花种植面积变化率</span><span id="land-7"></span>
             </li>
         </ul>
         <i class="line"></i>
@@ -121,10 +121,10 @@
         <h4>社会经济发展情景</h4>
         <ul class="list-unstyled row">
             <li class="col-md-6">
-                <span class="part2-title">GDP增长率</span><span></span>
+                <span class="part2-title">GDP增长率</span><span id="conomy-1"></span>
             </li>
             <li class="col-md-6">
-                <span class="part2-title">人均GDP增长率</span><span></span>
+                <span class="part2-title">人均GDP增长率</span><span id="conomy-2"></span>
             </li>
         </ul>
     </div>
@@ -135,17 +135,19 @@
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script>
-	$("#toResult").on("click",function(){
-		$.post(
-				"test.do",
-				{
-					"projectId":"${projectId}",
-				},function(data){
-					alert(data);
-					location.href = 'jumpToResult.do?id=${projectId}'
-				}
-			);
-	})
+	
+	$("#toResult").on("click", function() {
+		$.post("test.do", {
+			"projectId" : "${projectId}",
+		}, function(data) {
+			alert(data);
+			location.href = 'jumpToResult.do?id=${projectId}'
+		});
+	});
+	
+	function findDataByCountryAndYear(){
+		
+	};
 </script>
 </body>
 </html>

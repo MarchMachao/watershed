@@ -37,9 +37,10 @@ public class StuationParaController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "saveClimatePara", method = RequestMethod.POST)
-	public BaseMsg saveClimatePara(String projectId, String countryId, String rainInc, String tempInc, String year) {
+	public BaseMsg saveClimatePara(String projectId, String countryId, String rainInc, String tempInc, String year,
+			String fldCRPType) {
 		watershedParaService.deleteTblclimateSceParaById(projectId, countryId,year);
-		watershedParaService.addTblClimateScePara(projectId, countryId, rainInc, tempInc,year);
+		watershedParaService.addTblClimateScePara(projectId, countryId, rainInc, tempInc, year, fldCRPType);
 		return new BaseMsg(true, "气候情景保存成功");
 	}
 

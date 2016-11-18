@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addTblClimateScePara" parameterType="TblClimateScePara">
 		INSERT INTO
 		"a_tblClimateScePara"
-		VALUES(#{projectId},#{countryId},#{rainInc},#{tempInc},#{year})
+		VALUES(#{projectId},#{countryId},#{rainInc},#{tempInc},#{year},#{fldCRPType})
 	</insert>
 
 	<!-- 根据id删除气候情景参数 -->
