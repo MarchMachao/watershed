@@ -88,7 +88,7 @@
 	    </table>
     </div>
     <div class="text-right btn-wrapper">
-        <button type="button" class="btn btn-primary pro-btn">发展评价</button>
+        <button id="startEvalModel" type="button" class="btn btn-primary pro-btn" onclick="">发展评价</button>
     </div>
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
@@ -97,6 +97,9 @@
 //  $(".progress-bar").attr({
 //      "aria-valuenow" : num
 //  }).width(num + "%").html(num + "%");
+
+	var jsonData = new Object();
+	
 	queryStatews();
 					
 	function queryStatews(){
@@ -115,7 +118,7 @@
 					break;
 				case(3):
 					$("#state").html("成功，模型状态为3-accessible");
-					getDataYearly();
+					queryAvailable();
 					break;
 				case(4):
 					$("#state").html("成功，模型状态为4-finished");
@@ -133,37 +136,51 @@
 	        type    : "post",
 	        url     : "queryAvailablews.do",
 	        success : function(data){
-	            var num = data.length*10;
-	            $(".progress-bar").attr({
-	                "aria-valuenow" : num
-	            }).width(num + "%").html(num + "%");
+	        	if(data.length>=1){
+		        	getDataYearlyAsList(data);
+		        	jsonData = data;
+		            var num = data.length*7.7;
+		            $(".progress-bar").attr({
+		                "aria-valuenow" : num
+		            }).width(num + "%").html(num + "%");
+	        	}
 	        },
-	        error   :function(){
+	        error   : function(){
 	            console.log("queryAvailablews error!")
 	        }
 	    });
 	};
 	
-    function getDataYearly(){
-		$.post(
-			"getDataYearlyws.do",
-			{
-				"year":parseInt("2000")
-			},function(data){
-				if(data.length>0){
-					var newTh = '<th>2000</th>';
-					$("#resultTable tr:eq(0)").append(newTh);
-					for(i=0;i<data.length;i++){
-						var newTd='<td>'+data[i]+'</td>';
-						var j=i+1;
-						$("#resultTable tr:eq("+j+")").append(newTd);
+    function getDataYearlyAsList(years){
+    	for(var i=0;i<years.length;i++){
+			$.post("getDataYearlyws.do", {
+					"year" : years[i]
+				}, function(data) {
+					if (data.length > 0) {
+						var newTh = '<th>2000</th>';
+						$("#resultTable tr:eq(0)").append(newTh);
+						for (i = 0; i < data.length; i++) {
+							var newTd = '<td>' + data[i] + '</td>';
+							var j = i + 1;
+							$("#resultTable tr:eq(" + j + ")").append(newTd);
+						}
+					} else {
+						console.log("没数据!")
 					}
-				}else{
-					console.log("没数据!")
-				}
-			}
-		)};
+			})}
+	};
 	
+	$("#startEvalModel").on("click",function(){
+		$.post("getDataYearlyAsIndicators.do", {
+			"year" : jsonData
+		}, function(data) {
+			$.get("http://210.77.67.251:8000/evalmodel/startEvalModel.do", {
+				indicators : JSON.stringify(data)
+			}, function(data) {
+
+			})
+		})
+	});
 </script>
 </body>
 </html>

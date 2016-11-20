@@ -1,6 +1,7 @@
 package com.smates.dbc2.controller;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -137,160 +138,330 @@ public class ModelController {
 				waterAlloDown, waterRight, waterSavingTechR);
 	}
 
+	/**
+	 * 调用ws的getDataYearly前端页面用
+	 * 
+	 * @param year
+	 * @return List<Double>
+	 */
 	@ResponseBody
 	@RequestMapping(value = ("getDataYearlyws"), method = RequestMethod.POST)
-	public Indicators getDataYearlyws(long year) {
+	public List<Double> getDataYearlyws(long year) {
 		try {
 			List<DoubleArray> modleOutput = risDSSModelService.getDataYearly("AKH13002", year);
 			// System.out.println(modleOutput.size()+"*************");
+			List<Double> index = new ArrayList<Double>();
 			/**
 			 * 提高水生产力到b%
-			 * 
-			 * @return
 			 */
-			// List<Double> index = new ArrayList<Double>();
 			double index1 = indexCalculateService.WaterProductivity(modleOutput);
-			// index.add(index1);
+			index.add(index1);
 			/**
 			 * 在各个层次上减小用水压力到m%
-			 * 
-			 * @return
 			 */
 			double index2 = indexCalculateService.reduceWaterUseP(modleOutput);
-			// index.add(index2);
+			index.add(index2);
 
 			/**
 			 * 提高流域社会安全饮用水人口比例到d%
 			 */
 			double index3 = indexCalculateService.SafeDrinkingWaterRate(modleOutput);
-			// index.add(index3);
+			index.add(index3);
 			/**
 			 * 集成水资源管理效率
 			 */
 			double index4 = indexCalculateService.IWRMRate(modleOutput);
-			// index.add(index4);
+			index.add(index4);
 			/**
 			 * 跨边界流域可操作合约有效性e%
 			 */
 			double index5 = indexCalculateService.TransboundaryAvailability(modleOutput);
-			// index.add(index5);
+			index.add(index5);
 			/**
 			 * 维持流域可持续湿地面积d万亩
 			 */
 			double index6 = indexCalculateService.OutputWetlandArea(modleOutput);
-			// index.add(index6);
+			index.add(index6);
 			/**
 			 * 保证下游可持续生态系统发展所需最小水量f 亿m3
 			 */
 			double index7 = indexCalculateService.OutputMinWater(modleOutput);
-			// index.add(index7);
+			index.add(index7);
 			/**
 			 * 中游地下水开采量i 亿m3
 			 * 
 			 */
 			double index8 = indexCalculateService.OutputWaterExtraction(modleOutput);
-			// index.add(index8);
+			index.add(index8);
 			/**
 			 * 中游生态系统用水量j 亿m3
 			 */
 			double index9 = indexCalculateService.OutputMidWaterUse(modleOutput);
-			// index.add(index9);
+			index.add(index9);
 			/**
 			 * 森林覆盖率
 			 */
 			double index10 = indexCalculateService.ForestCoverageRate(modleOutput);
-			// index.add(index10);
+			index.add(index10);
 			/**
 			 * 可持续森林管理覆盖b%
 			 */
 			double index11 = indexCalculateService.ForestSustainableRate(modleOutput);
-			// index.add(index11);
+			index.add(index11);
 			/**
 			 * 山地绿色覆盖指数b%
 			 */
 			double index12 = indexCalculateService.MountainGreenCoverageRate(modleOutput);
-			// index.add(index12);
+			index.add(index12);
 			/**
 			 * 人均GDP
 			 */
 			double index13 = indexCalculateService.GDPPerCapita(modleOutput);
-			// index.add(index13);
+			index.add(index13);
 			/**
 			 * 就业人口人均 GDP 增长率
 			 */
 			double index14 = indexCalculateService.GDPPerPersonEmployed(modleOutput);
-			// index.add(index14);
+			index.add(index14);
 			/**
 			 * 年轻人（15-24）在教育，就业和培训中的比例
 			 */
 			double index15 = indexCalculateService.YouthEmpRate(modleOutput);
-			// index.add(index15);
+			index.add(index15);
 			/**
 			 * 年轻人（15-24）失业率
 			 */
 			double index16 = indexCalculateService.YouthUnempRate(modleOutput);
-			// index.add(index16);
+			index.add(index16);
 			/**
 			 * 旅游业产值在 GDP 中的比例
 			 */
 			double index17 = indexCalculateService.GDPTourismRate(modleOutput);
-			// index.add(index17);
+			index.add(index17);
 			/**
 			 * 旅游消费
 			 */
 			double index18 = indexCalculateService.TourConsRate(modleOutput);
-			// index.add(index18);
+			index.add(index18);
 			/**
 			 * 土地消耗率与人口增长率的比率
 			 */
 			double index19 = indexCalculateService.LandPopuRate(modleOutput);
-			// index.add(index19);
+			index.add(index19);
 			/**
 			 * 城镇化率
 			 */
 			double index20 = indexCalculateService.UrbanizationRate(modleOutput);
-			// index.add(index20);
+			index.add(index20);
 			/**
 			 * 农业水生产力
 			 */
 			double index21 = indexCalculateService.WaterProductivityAgri(modleOutput);
-			// index.add(index21);
+			index.add(index21);
 			/**
 			 * 农业水利用效率
 			 */
 			double index22 = indexCalculateService.WaterUseEfficiencyAgri(modleOutput);
-			// index.add(index22);
+			index.add(index22);
 			/**
 			 * 每公顷农产品产值
 			 */
 			double index23 = indexCalculateService.AgriOutputPerHectare(modleOutput);
-			// index.add(index23);
+			index.add(index23);
 			/**
 			 * 维持可持续的农业种植面积
 			 */
 			double index24 = indexCalculateService.OutputAgriArea(modleOutput);
-			// index.add(index24);
+			index.add(index24);
 			/**
 			 * 可持续社会福利指数
 			 */
 			double index25 = indexCalculateService.OutputSocialWelWare(modleOutput);
-			// index.add(index25);
+			index.add(index25);
 
-			return new Indicators(index1, index2, index3, index4, index5, index6, index7, index8, index9, index10,
-					index11, index12, index13, index14, index15, index16, index17, index18, index19, index20, index21,
-					index22, index23, index24, index25);
+			return index;
 		} catch (Exception e) {
-			return new Indicators();
+			return new ArrayList<Double>();
 		}
 
 	}
 
+	/**
+	 * 调用ws的getDataYearly，Json指标模型专用
+	 * 
+	 * @param List<Integer>
+	 *            year
+	 * @return List<Indicators>
+	 */
+	@ResponseBody
+	@RequestMapping(value = ("getDataYearlyAsIndicators"), method = RequestMethod.POST)
+	public List<Indicators> getDataYearlyAsIndicators(List<Integer> years) {
+		try {
+			List<Indicators> index = new ArrayList<Indicators>();
+			for (int i = 0; i < years.size(); i++) {
+				List<DoubleArray> modleOutput = risDSSModelService.getDataYearly("AKH13002", years.get(i));
+				// System.out.println(modleOutput.size()+"*************");
+				// List<Double> index = new ArrayList<Double>();
+				/**
+				 * 提高水生产力到b%
+				 */
+				double index1 = indexCalculateService.WaterProductivity(modleOutput);
+				// index.add(index1);
+				/**
+				 * 在各个层次上减小用水压力到m%
+				 */
+				double index2 = indexCalculateService.reduceWaterUseP(modleOutput);
+				// index.add(index2);
+
+				/**
+				 * 提高流域社会安全饮用水人口比例到d%
+				 */
+				double index3 = indexCalculateService.SafeDrinkingWaterRate(modleOutput);
+				// index.add(index3);
+				/**
+				 * 集成水资源管理效率
+				 */
+				double index4 = indexCalculateService.IWRMRate(modleOutput);
+				// index.add(index4);
+				/**
+				 * 跨边界流域可操作合约有效性e%
+				 */
+				double index5 = indexCalculateService.TransboundaryAvailability(modleOutput);
+				// index.add(index5);
+				/**
+				 * 维持流域可持续湿地面积d万亩
+				 */
+				double index6 = indexCalculateService.OutputWetlandArea(modleOutput);
+				// index.add(index6);
+				/**
+				 * 保证下游可持续生态系统发展所需最小水量f 亿m3
+				 */
+				double index7 = indexCalculateService.OutputMinWater(modleOutput);
+				// index.add(index7);
+				/**
+				 * 中游地下水开采量i 亿m3
+				 * 
+				 */
+				double index8 = indexCalculateService.OutputWaterExtraction(modleOutput);
+				// index.add(index8);
+				/**
+				 * 中游生态系统用水量j 亿m3
+				 */
+				double index9 = indexCalculateService.OutputMidWaterUse(modleOutput);
+				// index.add(index9);
+				/**
+				 * 森林覆盖率
+				 */
+				double index10 = indexCalculateService.ForestCoverageRate(modleOutput);
+				// index.add(index10);
+				/**
+				 * 可持续森林管理覆盖b%
+				 */
+				double index11 = indexCalculateService.ForestSustainableRate(modleOutput);
+				// index.add(index11);
+				/**
+				 * 山地绿色覆盖指数b%
+				 */
+				double index12 = indexCalculateService.MountainGreenCoverageRate(modleOutput);
+				// index.add(index12);
+				/**
+				 * 人均GDP
+				 */
+				double index13 = indexCalculateService.GDPPerCapita(modleOutput);
+				// index.add(index13);
+				/**
+				 * 就业人口人均 GDP 增长率
+				 */
+				double index14 = indexCalculateService.GDPPerPersonEmployed(modleOutput);
+				// index.add(index14);
+				/**
+				 * 年轻人（15-24）在教育，就业和培训中的比例
+				 */
+				double index15 = indexCalculateService.YouthEmpRate(modleOutput);
+				// index.add(index15);
+				/**
+				 * 年轻人（15-24）失业率
+				 */
+				double index16 = indexCalculateService.YouthUnempRate(modleOutput);
+				// index.add(index16);
+				/**
+				 * 旅游业产值在 GDP 中的比例
+				 */
+				double index17 = indexCalculateService.GDPTourismRate(modleOutput);
+				// index.add(index17);
+				/**
+				 * 旅游消费
+				 */
+				double index18 = indexCalculateService.TourConsRate(modleOutput);
+				// index.add(index18);
+				/**
+				 * 土地消耗率与人口增长率的比率
+				 */
+				double index19 = indexCalculateService.LandPopuRate(modleOutput);
+				// index.add(index19);
+				/**
+				 * 城镇化率
+				 */
+				double index20 = indexCalculateService.UrbanizationRate(modleOutput);
+				// index.add(index20);
+				/**
+				 * 农业水生产力
+				 */
+				double index21 = indexCalculateService.WaterProductivityAgri(modleOutput);
+				// index.add(index21);
+				/**
+				 * 农业水利用效率
+				 */
+				double index22 = indexCalculateService.WaterUseEfficiencyAgri(modleOutput);
+				// index.add(index22);
+				/**
+				 * 每公顷农产品产值
+				 */
+				double index23 = indexCalculateService.AgriOutputPerHectare(modleOutput);
+				// index.add(index23);
+				/**
+				 * 维持可持续的农业种植面积
+				 */
+				double index24 = indexCalculateService.OutputAgriArea(modleOutput);
+				// index.add(index24);
+				/**
+				 * 可持续社会福利指数
+				 */
+				double index25 = indexCalculateService.OutputSocialWelWare(modleOutput);
+				// index.add(index25);
+
+				index.add(new Indicators(index1, index2, index3, index4, index5, index6, index7, index8, index9,
+						index10, index11, index12, index13, index14, index15, index16, index17, index18, index19,
+						index20, index21, index22, index23, index24, index25));
+			}
+			return index;
+		} catch (Exception e) {
+			return new ArrayList<Indicators>();
+		}
+
+	}
+
+	/**
+	 * 调用ws的queryAvailable（测试用）
+	 * 
+	 * @return
+	 * @note 查询可获取数据的年份列表，如{2010, 2011, 2012, ...} --------伪模型相关--------
+	 *       模型状态为3或4时，查询3次增加一个可用 到模拟结束年份后，模型状态变为4
+	 */
 	@ResponseBody
 	@RequestMapping(value = ("queryAvailablews"), method = RequestMethod.POST)
 	public List<Integer> queryAvailablews() {
 		return risDSSModelService.queryAvailable();
 	}
 
+	/**
+	 * 调用ws的queryState（测试用）
+	 * 
+	 * @return 状态码
+	 * @note 查询模型状态 1-ready 2-running 3-accessible 4-finished
+	 *       --------伪模型相关-------- state默认为1， start启动模型后为2-running，
+	 *       经3次queryState查询变为3-accessible 模型结束后，状态变为4-finished
+	 */
 	@ResponseBody
 	@RequestMapping(value = ("queryStatews"), method = RequestMethod.POST)
 	public int queryStatews() {
