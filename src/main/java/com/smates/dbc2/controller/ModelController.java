@@ -1,7 +1,6 @@
 package com.smates.dbc2.controller;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.smates.dbc2.po.Indicators;
 import com.smates.dbc2.service.GetWebServiceParaService;
 import com.smates.dbc2.service.IndexCalculateService;
 import com.smates.dbc2.ws.DoubleArray;
@@ -139,7 +139,7 @@ public class ModelController {
 
 	@ResponseBody
 	@RequestMapping(value = ("getDataYearlyws"), method = RequestMethod.POST)
-	public List<Double> getDataYearlyws(long year) {
+	public Indicators getDataYearlyws(long year) {
 		try {
 			List<DoubleArray> modleOutput = risDSSModelService.getDataYearly("AKH13002", year);
 			// System.out.println(modleOutput.size()+"*************");
@@ -148,148 +148,139 @@ public class ModelController {
 			 * 
 			 * @return
 			 */
-			List<Double> index = new ArrayList<Double>();
+			// List<Double> index = new ArrayList<Double>();
 			double index1 = indexCalculateService.WaterProductivity(modleOutput);
-			index.add(index1);
+			// index.add(index1);
 			/**
 			 * 在各个层次上减小用水压力到m%
 			 * 
 			 * @return
 			 */
 			double index2 = indexCalculateService.reduceWaterUseP(modleOutput);
-			index.add(index2);
+			// index.add(index2);
 
 			/**
 			 * 提高流域社会安全饮用水人口比例到d%
 			 */
 			double index3 = indexCalculateService.SafeDrinkingWaterRate(modleOutput);
-			index.add(index3);
+			// index.add(index3);
 			/**
 			 * 集成水资源管理效率
 			 */
 			double index4 = indexCalculateService.IWRMRate(modleOutput);
-			index.add(index4);
+			// index.add(index4);
 			/**
 			 * 跨边界流域可操作合约有效性e%
 			 */
 			double index5 = indexCalculateService.TransboundaryAvailability(modleOutput);
-			index.add(index5);
+			// index.add(index5);
 			/**
 			 * 维持流域可持续湿地面积d万亩
 			 */
 			double index6 = indexCalculateService.OutputWetlandArea(modleOutput);
-			index.add(index6);
+			// index.add(index6);
 			/**
 			 * 保证下游可持续生态系统发展所需最小水量f 亿m3
 			 */
 			double index7 = indexCalculateService.OutputMinWater(modleOutput);
-			index.add(index7);
+			// index.add(index7);
 			/**
 			 * 中游地下水开采量i 亿m3
 			 * 
 			 */
 			double index8 = indexCalculateService.OutputWaterExtraction(modleOutput);
-			index.add(index8);
+			// index.add(index8);
 			/**
 			 * 中游生态系统用水量j 亿m3
 			 */
 			double index9 = indexCalculateService.OutputMidWaterUse(modleOutput);
-			index.add(index9);
+			// index.add(index9);
 			/**
 			 * 森林覆盖率
 			 */
 			double index10 = indexCalculateService.ForestCoverageRate(modleOutput);
-			index.add(index10);
+			// index.add(index10);
 			/**
 			 * 可持续森林管理覆盖b%
 			 */
 			double index11 = indexCalculateService.ForestSustainableRate(modleOutput);
-			index.add(index11);
+			// index.add(index11);
 			/**
 			 * 山地绿色覆盖指数b%
 			 */
 			double index12 = indexCalculateService.MountainGreenCoverageRate(modleOutput);
-			index.add(index12);
+			// index.add(index12);
 			/**
 			 * 人均GDP
 			 */
 			double index13 = indexCalculateService.GDPPerCapita(modleOutput);
-			index.add(index13);
+			// index.add(index13);
 			/**
 			 * 就业人口人均 GDP 增长率
 			 */
 			double index14 = indexCalculateService.GDPPerPersonEmployed(modleOutput);
-			index.add(index14);
+			// index.add(index14);
 			/**
 			 * 年轻人（15-24）在教育，就业和培训中的比例
 			 */
 			double index15 = indexCalculateService.YouthEmpRate(modleOutput);
-			index.add(index15);
+			// index.add(index15);
 			/**
 			 * 年轻人（15-24）失业率
 			 */
 			double index16 = indexCalculateService.YouthUnempRate(modleOutput);
-			index.add(index16);
+			// index.add(index16);
 			/**
 			 * 旅游业产值在 GDP 中的比例
 			 */
 			double index17 = indexCalculateService.GDPTourismRate(modleOutput);
-			index.add(index17);
+			// index.add(index17);
 			/**
 			 * 旅游消费
 			 */
 			double index18 = indexCalculateService.TourConsRate(modleOutput);
-			index.add(index18);
+			// index.add(index18);
 			/**
 			 * 土地消耗率与人口增长率的比率
 			 */
 			double index19 = indexCalculateService.LandPopuRate(modleOutput);
-			index.add(index19);
+			// index.add(index19);
 			/**
 			 * 城镇化率
 			 */
 			double index20 = indexCalculateService.UrbanizationRate(modleOutput);
-			index.add(index20);
+			// index.add(index20);
 			/**
 			 * 农业水生产力
 			 */
 			double index21 = indexCalculateService.WaterProductivityAgri(modleOutput);
-			index.add(index21);
+			// index.add(index21);
 			/**
 			 * 农业水利用效率
 			 */
 			double index22 = indexCalculateService.WaterUseEfficiencyAgri(modleOutput);
-			index.add(index22);
+			// index.add(index22);
 			/**
 			 * 每公顷农产品产值
 			 */
 			double index23 = indexCalculateService.AgriOutputPerHectare(modleOutput);
-			index.add(index23);
+			// index.add(index23);
 			/**
 			 * 维持可持续的农业种植面积
 			 */
 			double index24 = indexCalculateService.OutputAgriArea(modleOutput);
-			index.add(index24);
+			// index.add(index24);
 			/**
 			 * 可持续社会福利指数
 			 */
 			double index25 = indexCalculateService.OutputSocialWelWare(modleOutput);
-			index.add(index25);
+			// index.add(index25);
 
-			return index;
-			// return index1 + "<br />" + index2 + "<br />" + index3 + "<br />"
-			// + index4 + "<br />" + index5 + "<br />" + index6 + "<br />" +
-			// index7
-			// + "<br />" + index8 + "<br />" + index9 + "<br />" + index10 +
-			// "<br />" + index11 + "<br />" + index12 + "<br />" + index13 +
-			// "<br />"
-			// + index14 + "<br />" + index15 + "<br />" + index16 + "<br />" +
-			// index17 + "<br />" + index18 + "<br />" + index19 + "<br />" +
-			// index20
-			// + "<br />" + index21 + "<br />" + index22 + "<br />" + index23 +
-			// "<br />" + index24 + "<br />" + index25;
+			return new Indicators(index1, index2, index3, index4, index5, index6, index7, index8, index9, index10,
+					index11, index12, index13, index14, index15, index16, index17, index18, index19, index20, index21,
+					index22, index23, index24, index25);
 		} catch (Exception e) {
-			return new ArrayList<Double>();
+			return new Indicators();
 		}
 
 	}
@@ -297,7 +288,6 @@ public class ModelController {
 	@ResponseBody
 	@RequestMapping(value = ("queryAvailablews"), method = RequestMethod.POST)
 	public List<Integer> queryAvailablews() {
-
 		return risDSSModelService.queryAvailable();
 	}
 
