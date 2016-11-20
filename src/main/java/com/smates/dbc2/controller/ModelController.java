@@ -295,11 +295,11 @@ public class ModelController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = ("getDataYearlyAsIndicators"), method = RequestMethod.POST)
-	public List<Indicators> getDataYearlyAsIndicators(List<Integer> years) {
+	public List<Indicators> getDataYearlyAsIndicators(long[] years) {
 		try {
 			List<Indicators> index = new ArrayList<Indicators>();
-			for (int i = 0; i < years.size(); i++) {
-				List<DoubleArray> modleOutput = risDSSModelService.getDataYearly("AKH13002", years.get(i));
+			for (int i = 0; i < years.length; i++) {
+				List<DoubleArray> modleOutput = risDSSModelService.getDataYearly("AKH13002", years[i]);
 				// System.out.println(modleOutput.size()+"*************");
 				// List<Double> index = new ArrayList<Double>();
 				/**

@@ -98,7 +98,7 @@
 //      "aria-valuenow" : num
 //  }).width(num + "%").html(num + "%");
 
-	var jsonData = new Object();
+	var jsonData = [];
 	
 	queryStatews();
 					
@@ -138,7 +138,7 @@
 	        success : function(data){
 	        	if(data.length>=1){
 		        	getDataYearlyAsList(data);
-		        	jsonData = data;
+		        	jsonData = JSON.parse(data);
 		            var num = data.length*7.7;
 		            $(".progress-bar").attr({
 		                "aria-valuenow" : num
@@ -153,11 +153,12 @@
 	
     function getDataYearlyAsList(years){
     	for(var i=0;i<years.length;i++){
+    		var year=years[i];
 			$.post("getDataYearlyws.do", {
 					"year" : years[i]
 				}, function(data) {
 					if (data.length > 0) {
-						var newTh = '<th>2000</th>';
+						var newTh = '<th>'+year+'</th>';
 						$("#resultTable tr:eq(0)").append(newTh);
 						for (i = 0; i < data.length; i++) {
 							var newTd = '<td>' + data[i] + '</td>';
@@ -172,7 +173,7 @@
 	
 	$("#startEvalModel").on("click",function(){
 		$.post("getDataYearlyAsIndicators.do", {
-			"year" : jsonData
+			"years" : jsonData
 		}, function(data) {
 			$.get("http://210.77.67.251:8000/evalmodel/startEvalModel.do", {
 				indicators : JSON.stringify(data)
