@@ -23,7 +23,8 @@
     <h5>模型当前状态：<span id="state"></span></h5>
     <h4>模拟进度</h4>
     <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" 
+        		style="width: 0%;">
             0%
         </div>
     </div>
@@ -175,11 +176,33 @@
 		$.post("getDataYearlyAsIndicators.do", {
 			"years" : jsonData
 		}, function(data) {
-			$.get("http://210.77.67.251:8000/evalmodel/startEvalModel.do", {
-				indicators : JSON.stringify(data)
-			}, function(data) {
-
-			})
+			var inputdata = JSON.stringify(data).replace(']','')+','+JSON.stringify(data).replace('[','');
+			$.ajax({
+				type:"get",
+				url:"http://210.77.67.251/EvalModel/startEvalModel.do?indicators="+inputdata,
+				success:function(msg){
+					$.post("saveGisEcharts.do",
+						{
+						year : '2000',
+						resultOverall : msg[0].resultOverall,
+						resultP1 : msg[0].resultP1,
+						resultP2 : msg[0].resultP2,
+						resultP3 : msg[0].resultP3
+						},function(data){
+							alert(data.content+'\n单击确定后跳转');
+							window.location.href='GIS.html';
+						}
+					);
+				},
+				error:function(msg){
+					alert("出错！ 错误代码："+JSON.stringify(msg));
+				}
+			});
+// 			$.get("http://210.77.67.251:8000/EvalModel/startEvalModel.do", {
+// 				indicators : JSON.stringify(data)
+// 			}, function(msg) {
+// 				alert(JSON.stringify(msg));
+// 			})
 		})
 	});
 </script>

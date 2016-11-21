@@ -430,9 +430,15 @@ public class ModelController {
 				double index25 = indexCalculateService.OutputSocialWelWare(modleOutput);
 				// index.add(index25);
 
-				index.add(new Indicators(index1, index2, index3, index4, index5, index6, index7, index8, index9,
-						index10, index11, index12, index13, index14, index15, index16, index17, index18, index19,
-						index20, index21, index22, index23, index24, index25));
+				index.add(new Indicators(Double.toString(index1), Double.toString(index2), Double.toString(index3),
+						Double.toString(index4), Double.toString(index5), Double.toString(index6),
+						Double.toString(index7), Double.toString(index8), Double.toString(index9),
+						Double.toString(index10), Double.toString(index11), Double.toString(index12),
+						Double.toString(index13), Double.toString(index14), Double.toString(index15),
+						Double.toString(index16), Double.toString(index17), Double.toString(index18),
+						Double.toString(index19), Double.toString(index20), Double.toString(index21),
+						Double.toString(index22), Double.toString(index23), Double.toString(index24),
+						Double.toString(index25)));
 			}
 			return index;
 		} catch (Exception e) {

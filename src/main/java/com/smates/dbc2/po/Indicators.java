@@ -8,41 +8,42 @@ package com.smates.dbc2.po;
  */
 public class Indicators {
 
-	private double waterProductivity;// 提高水生产力到b%
-	private double waterPressure; // 在各个层次上减小用水压力到m%
-	private double safeDrinkingWaterR;// 提高流域社会安全饮用水人口比例到d%
-	private double iwrmR;// 集成水资源管理效率
-	private double transboundaryAvailability;// 跨边界流域可操作合约有效性e%
-	private double areaWetland; // 维持流域可持续湿地面积d万亩
-	private double waterDemandEco; // 保证下游可持续生态系统发展所需最小水量f 亿m3
-	private double groundwaterMining;// 中游地下水开采量i 亿m3
-	private double waterUseEco; // 中游生态系统用水量j 亿m3
-	private double forestCoverR;// 森林覆盖率
-	private double forestSustainableR;// 可持续森林管理覆盖b%
-	private double mountainGreenCoverR;// 山地绿色覆盖指数b%
-	private double gdpPerCapita;// 人均GDP
-	private double gdpPerCapitaEmployed;// 就业人口人均 GDP 增长率
-	private double youthEmpR;// 年轻人（15-24）在教育，就业和培训中的比例
-	private double youthUnempR;// 年轻人（15-24）失业率
-	private double gdpTourismR;// 旅游业产值在 GDP 中的比例
-	private double tourConsR;// 旅游消费
-	private double landPopuR;// 土地消耗率与人口增长率的比率
-	private double urbanR;// 城镇化率
-	private double waterProductivityAgri;// 农业水生产力
-	private double waterUseEffiAgri;// 农业水利用效率
-	private double agriOutputPerHectare;// 每公顷农产品产值
-	private double areaCrop; // 维持可持续农业种植面积
-	private double socialWelfareIndex;// 可持续社会福利指数
+	private String waterProductivity;// 提高水生产力到b%
+	private String waterPressure; // 在各个层次上减小用水压力到m%
+	private String safeDrinkingWaterR;// 提高流域社会安全饮用水人口比例到d%
+	private String iwrmR;// 集成水资源管理效率
+	private String transboundaryAvailability;// 跨边界流域可操作合约有效性e%
+	private String areaWetland; // 维持流域可持续湿地面积d万亩
+	private String waterDemandEco; // 保证下游可持续生态系统发展所需最小水量f 亿m3
+	private String groundwaterMining;// 中游地下水开采量i 亿m3
+	private String waterUseEco; // 中游生态系统用水量j 亿m3
+	private String forestCoverR;// 森林覆盖率
+	private String forestSustainableR;// 可持续森林管理覆盖b%
+	private String mountainGreenCoverR;// 山地绿色覆盖指数b%
+	private String gdpPerCapita;// 人均GDP
+	private String gdpPerCapitaEmployed;// 就业人口人均 GDP 增长率
+	private String youthEmpR;// 年轻人（15-24）在教育，就业和培训中的比例
+	private String youthUnempR;// 年轻人（15-24）失业率
+	private String gdpTourismR;// 旅游业产值在 GDP 中的比例
+	private String tourConsR;// 旅游消费
+	private String landPopuR;// 土地消耗率与人口增长率的比率
+	private String urbanR;// 城镇化率
+	private String waterProductivityAgri;// 农业水生产力
+	private String waterUseEffiAgri;// 农业水利用效率
+	private String agriOutputPerHectare;// 每公顷农产品产值
+	private String areaCrop; // 维持可持续农业种植面积
+	private String socialWelfareIndex;// 可持续社会福利指数
 
 	public Indicators() {
 	}
 
-	public Indicators(double waterProductivity, double waterPressure, double safeDrinkingWaterR, double iwrmR,
-			double transboundaryAvailability, double areaWetland, double waterDemandEco, double groundwaterMining,
-			double waterUseEco, double forestCoverR, double forestSustainableR, double mountainGreenCoverR,
-			double gdpPerCapita, double gdpPerCapitaEmployed, double youthEmpR, double youthUnempR, double gdpTourismR,
-			double tourConsR, double landPopuR, double urbanR, double waterProductivityAgri, double waterUseEffiAgri,
-			double agriOutputPerHectare, double areaCrop, double socialWelfareIndex) {
+	public Indicators(String waterProductivity, String waterPressure, String safeDrinkingWaterR, String iwrmR,
+			String transboundaryAvailability, String areaWetland, String waterDemandEco, String groundwaterMining,
+			String waterUseEco, String forestCoverR, String forestSustainableR, String mountainGreenCoverR,
+			String gdpPerCapita, String gdpPerCapitaEmployed, String youthEmpR, String youthUnempR, String gdpTourismR,
+			String tourConsR, String landPopuR, String urbanR, String waterProductivityAgri, String waterUseEffiAgri,
+			String agriOutputPerHectare, String areaCrop, String socialWelfareIndex) {
+		super();
 		this.waterProductivity = waterProductivity;
 		this.waterPressure = waterPressure;
 		this.safeDrinkingWaterR = safeDrinkingWaterR;
@@ -70,204 +71,205 @@ public class Indicators {
 		this.socialWelfareIndex = socialWelfareIndex;
 	}
 
-	public double getWaterProductivity() {
+	public String getWaterProductivity() {
 		return waterProductivity;
 	}
 
-	public void setWaterProductivity(double waterProductivity) {
+	public void setWaterProductivity(String waterProductivity) {
 		this.waterProductivity = waterProductivity;
 	}
 
-	public double getWaterPressure() {
+	public String getWaterPressure() {
 		return waterPressure;
 	}
 
-	public void setWaterPressure(double waterPressure) {
+	public void setWaterPressure(String waterPressure) {
 		this.waterPressure = waterPressure;
 	}
 
-	public double getSafeDrinkingWaterR() {
+	public String getSafeDrinkingWaterR() {
 		return safeDrinkingWaterR;
 	}
 
-	public void setSafeDrinkingWaterR(double safeDrinkingWaterR) {
+	public void setSafeDrinkingWaterR(String safeDrinkingWaterR) {
 		this.safeDrinkingWaterR = safeDrinkingWaterR;
 	}
 
-	public double getIwrmR() {
+	public String getIwrmR() {
 		return iwrmR;
 	}
 
-	public void setIwrmR(double iwrmR) {
+	public void setIwrmR(String iwrmR) {
 		this.iwrmR = iwrmR;
 	}
 
-	public double getTransboundaryAvailability() {
+	public String getTransboundaryAvailability() {
 		return transboundaryAvailability;
 	}
 
-	public void setTransboundaryAvailability(double transboundaryAvailability) {
+	public void setTransboundaryAvailability(String transboundaryAvailability) {
 		this.transboundaryAvailability = transboundaryAvailability;
 	}
 
-	public double getAreaWetland() {
+	public String getAreaWetland() {
 		return areaWetland;
 	}
 
-	public void setAreaWetland(double areaWetland) {
+	public void setAreaWetland(String areaWetland) {
 		this.areaWetland = areaWetland;
 	}
 
-	public double getWaterDemandEco() {
+	public String getWaterDemandEco() {
 		return waterDemandEco;
 	}
 
-	public void setWaterDemandEco(double waterDemandEco) {
+	public void setWaterDemandEco(String waterDemandEco) {
 		this.waterDemandEco = waterDemandEco;
 	}
 
-	public double getGroundwaterMining() {
+	public String getGroundwaterMining() {
 		return groundwaterMining;
 	}
 
-	public void setGroundwaterMining(double groundwaterMining) {
+	public void setGroundwaterMining(String groundwaterMining) {
 		this.groundwaterMining = groundwaterMining;
 	}
 
-	public double getWaterUseEco() {
+	public String getWaterUseEco() {
 		return waterUseEco;
 	}
 
-	public void setWaterUseEco(double waterUseEco) {
+	public void setWaterUseEco(String waterUseEco) {
 		this.waterUseEco = waterUseEco;
 	}
 
-	public double getForestCoverR() {
+	public String getForestCoverR() {
 		return forestCoverR;
 	}
 
-	public void setForestCoverR(double forestCoverR) {
+	public void setForestCoverR(String forestCoverR) {
 		this.forestCoverR = forestCoverR;
 	}
 
-	public double getForestSustainableR() {
+	public String getForestSustainableR() {
 		return forestSustainableR;
 	}
 
-	public void setForestSustainableR(double forestSustainableR) {
+	public void setForestSustainableR(String forestSustainableR) {
 		this.forestSustainableR = forestSustainableR;
 	}
 
-	public double getMountainGreenCoverR() {
+	public String getMountainGreenCoverR() {
 		return mountainGreenCoverR;
 	}
 
-	public void setMountainGreenCoverR(double mountainGreenCoverR) {
+	public void setMountainGreenCoverR(String mountainGreenCoverR) {
 		this.mountainGreenCoverR = mountainGreenCoverR;
 	}
 
-	public double getGdpPerCapita() {
+	public String getGdpPerCapita() {
 		return gdpPerCapita;
 	}
 
-	public void setGdpPerCapita(double gdpPerCapita) {
+	public void setGdpPerCapita(String gdpPerCapita) {
 		this.gdpPerCapita = gdpPerCapita;
 	}
 
-	public double getGdpPerCapitaEmployed() {
+	public String getGdpPerCapitaEmployed() {
 		return gdpPerCapitaEmployed;
 	}
 
-	public void setGdpPerCapitaEmployed(double gdpPerCapitaEmployed) {
+	public void setGdpPerCapitaEmployed(String gdpPerCapitaEmployed) {
 		this.gdpPerCapitaEmployed = gdpPerCapitaEmployed;
 	}
 
-	public double getYouthEmpR() {
+	public String getYouthEmpR() {
 		return youthEmpR;
 	}
 
-	public void setYouthEmpR(double youthEmpR) {
+	public void setYouthEmpR(String youthEmpR) {
 		this.youthEmpR = youthEmpR;
 	}
 
-	public double getYouthUnempR() {
+	public String getYouthUnempR() {
 		return youthUnempR;
 	}
 
-	public void setYouthUnempR(double youthUnempR) {
+	public void setYouthUnempR(String youthUnempR) {
 		this.youthUnempR = youthUnempR;
 	}
 
-	public double getGdpTourismR() {
+	public String getGdpTourismR() {
 		return gdpTourismR;
 	}
 
-	public void setGdpTourismR(double gdpTourismR) {
+	public void setGdpTourismR(String gdpTourismR) {
 		this.gdpTourismR = gdpTourismR;
 	}
 
-	public double getTourConsR() {
+	public String getTourConsR() {
 		return tourConsR;
 	}
 
-	public void setTourConsR(double tourConsR) {
+	public void setTourConsR(String tourConsR) {
 		this.tourConsR = tourConsR;
 	}
 
-	public double getLandPopuR() {
+	public String getLandPopuR() {
 		return landPopuR;
 	}
 
-	public void setLandPopuR(double landPopuR) {
+	public void setLandPopuR(String landPopuR) {
 		this.landPopuR = landPopuR;
 	}
 
-	public double getUrbanR() {
+	public String getUrbanR() {
 		return urbanR;
 	}
 
-	public void setUrbanR(double urbanR) {
+	public void setUrbanR(String urbanR) {
 		this.urbanR = urbanR;
 	}
 
-	public double getWaterProductivityAgri() {
+	public String getWaterProductivityAgri() {
 		return waterProductivityAgri;
 	}
 
-	public void setWaterProductivityAgri(double waterProductivityAgri) {
+	public void setWaterProductivityAgri(String waterProductivityAgri) {
 		this.waterProductivityAgri = waterProductivityAgri;
 	}
 
-	public double getWaterUseEffiAgri() {
+	public String getWaterUseEffiAgri() {
 		return waterUseEffiAgri;
 	}
 
-	public void setWaterUseEffiAgri(double waterUseEffiAgri) {
+	public void setWaterUseEffiAgri(String waterUseEffiAgri) {
 		this.waterUseEffiAgri = waterUseEffiAgri;
 	}
 
-	public double getAgriOutputPerHectare() {
+	public String getAgriOutputPerHectare() {
 		return agriOutputPerHectare;
 	}
 
-	public void setAgriOutputPerHectare(double agriOutputPerHectare) {
+	public void setAgriOutputPerHectare(String agriOutputPerHectare) {
 		this.agriOutputPerHectare = agriOutputPerHectare;
 	}
 
-	public double getAreaCrop() {
+	public String getAreaCrop() {
 		return areaCrop;
 	}
 
-	public void setAreaCrop(double areaCrop) {
+	public void setAreaCrop(String areaCrop) {
 		this.areaCrop = areaCrop;
 	}
 
-	public double getSocialWelfareIndex() {
+	public String getSocialWelfareIndex() {
 		return socialWelfareIndex;
 	}
 
-	public void setSocialWelfareIndex(double socialWelfareIndex) {
+	public void setSocialWelfareIndex(String socialWelfareIndex) {
 		this.socialWelfareIndex = socialWelfareIndex;
 	}
+
 
 }

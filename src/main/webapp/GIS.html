@@ -31,13 +31,13 @@
         scrolling="no"></iframe>
 <div id="right_flash">
     <div class="widget-header situation-toggle" id="situation-toggle1">
-        情景控制
+        	情景控制
     </div>
     <div id="situation1" class="widget-box situation">
         <div class="widget-body">
             <div class="widget-main">
                 <div class="row-fluid">
-                    上游耕地面积：
+                    	上游耕地面积：
                     <input type="text" id="situation-1" value="10" style="width:30px;height:10px">万亩
                     <div id="slider-1" style="float:right;display:inline;"></div>
                     <hr style="margin:0px;height:4px">
@@ -260,67 +260,75 @@
 
 	function drawchart(){
 		var myChart = echarts.init(document.getElementById('gis-chart-1'));
-		var option = {
-		    tooltip : {
-		        trigger: 'axis'
-		    },
-		    legend: {
-		        data:['1','2','3','4','5']
-		    },
-		    toolbox: {
-		        show : true,
-		        feature : {
-		            restore : {show: true},
-		            saveAsImage : {show: true}
-		        }
-		    },
-		    calculable : true,
-		    xAxis : [
-		        {
-		            type : 'category',
-		            boundaryGap : false,
-		            data : ['2001','2002','2003','2004','2005','2006','2007']
-		        }
-		    ],
-		    yAxis : [
-		        {
-		            type : 'value'
-		        }
-		    ],
-		    series : [
-		        {
-		            name:'1',
-		            type:'line',
-		            stack: '总量',
-		            data:[120, 132, 101, 134, 90, 230, 210]
-		        },
-		        {
-		            name:'2',
-		            type:'line',
-		            stack: '总量',
-		            data:[220, 182, 191, 234, 290, 330, 310]
-		        },
-		        {
-		            name:'3',
-		            type:'line',
-		            stack: '总量',
-		            data:[150, 232, 201, 154, 190, 330, 410]
-		        },
-		        {
-		            name:'4',
-		            type:'line',
-		            stack: '总量',
-		            data:[320, 332, 301, 334, 390, 330, 320]
-		        },
-		        {
-		            name:'5',
-		            type:'line',
-		            stack: '总量',
-		            data:[820, 932, 901, 934, 1290, 1330, 1320]
-		        }
-		    ]
-		};
-         myChart.setOption(option);           
+		$.get("getGisEcharts.do",
+				[],function(data){
+				var xdata=[], Overall=[],P1=[],P2=[],P3=[];
+				for(var i=0;i<data.length;i++){
+					xdata[i]=data[i].year,
+					Overall[i]=data[i].resultOverall,
+					P1[i]=data[i].resultP1,
+					P2[i]=data[i].resultP2,
+					P3[i]=data[i].resultP3;
+				}
+		
+				var option = {
+				    tooltip : {
+				        trigger: 'axis'
+				    },
+				    legend: {
+				        data:['resultOverall','resultP1','resultP2','resultP3',]
+				    },
+				    toolbox: {
+				        show : true,
+				        feature : {
+				            restore : {show: true},
+				            saveAsImage : {show: true}
+				        }
+				    },
+				    calculable : true,
+				    xAxis : [
+				        {
+				            type : 'category',
+				            boundaryGap : false,
+				            data : xdata
+				        }
+				    ],
+				    yAxis : [
+				        {
+				            type : 'value'
+				        }
+				    ],
+				    series : [
+				        {
+				            name:'resultOverall',
+				            type:'line',
+				            stack: '总量',
+				            data: Overall
+				        },
+				        {
+				            name:'resultP1',
+				            type:'line',
+				            stack: '总量',
+				            data: P1
+				        },
+				        {
+				            name:'resultP2',
+				            type:'line',
+				            stack: '总量',
+				            data:P2
+				        },
+				        {
+				            name:'resultP3',
+				            type:'line',
+				            stack: '总量',
+				            data:P3
+				        }
+				        
+				    ]
+				};
+				myChart.setOption(option); 
+		});
+                   
 	};
 </script>
 </body>
