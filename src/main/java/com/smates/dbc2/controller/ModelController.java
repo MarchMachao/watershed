@@ -145,7 +145,7 @@ public class ModelController {
 	 * @return List<Double>
 	 */
 	@ResponseBody
-	@RequestMapping(value = ("getDataYearlyws"), method = RequestMethod.POST)
+	@RequestMapping(value = ("getDataYearlyws"), method = RequestMethod.GET)
 	public List<Double> getDataYearlyws(long year) {
 		try {
 			List<DoubleArray> modleOutput = risDSSModelService.getDataYearly("AKH13002", year);

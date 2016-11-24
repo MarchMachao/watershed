@@ -32,35 +32,7 @@
     <h4>模拟结果</h4>
     <div class="table-responsive" style="margin-top: 20px;">
 	    <table id="resultTable" class="table table-hover">
-	        <!--<tr>
-	            <th>年份/指标</th>
-	            <th>水生产力(%)</th>
-	            <th>水压力(%)</th>
-	            <th>安全饮用水比例(%)</th>
-	            <th>水资源管理执行度(%)</th>
-	            <th>可操作合约有效性(%)</th>
-	            <th>可持续湿地面积(万亩)</th>
-	            <th>下游可持续最小水量(亿m³)</th>
-	            <th>中游地下水开采量(亿m³)</th>
-	            <th>中游生态系统用水量(亿m³)</th>
-	            <th>森林覆盖率(%)</th>
-	            <th>可持续森林管理覆盖(%)</th>
-	            <th>山地绿色覆盖指数(%)</th>
-	            <th>人均GDP</th>
-	            <th>人均 GDP增长率(%)</th>
-	            <th>年轻人在教育、就业和培训中的比例 (%)</th>
-	            <th>年轻人失业率(%)</th>
-	            <th>旅游业在 GDP中的比例 (%)</th>
-	            <th>旅游消费 </th>
-	            <th>土地消耗率与人口增长率的比率(%)</th>
-	            <th>城镇化率(%)</th>
-	            <th>农业水生产力 </th>
-	            <th>农业水利用效率 </th>
-	            <th>每公顷农产品产值 </th>
-	            <th>维持可持续的农业种植面积 </th>
-	            <th>可持续社会福利指数  </th>
-	        </tr>-->
-	      	<tr><th>年份/指标</th></tr>
+	      	<tr><th style="min-width: 200px;">年份/指标</th></tr>
 	      	<tr><td>水生产力(%)</td></tr>
 	      	<tr><td>水压力(%)</td></tr>
 	      	<tr><td>安全饮用水比例(%)</td></tr>
@@ -75,14 +47,14 @@
 	      	<tr><td>山地绿色覆盖指数(%)</td></tr>
 	      	<tr><td>人均GDP</td></tr>
 	      	<tr><td>人均 GDP增长率(%)</td></tr>
-	      	<tr><td>年轻人在教育、就业和培训中的比例 (%)</td></tr>
+	      	<tr><td>教育就业培训的年轻人比例(%)</td></tr>
 	      	<tr><td>年轻人失业率(%)</td></tr>
 	      	<tr><td>旅游业在 GDP中的比例 (%)</td></tr>
 	      	<tr><td>旅游消费</td></tr>
-	      	<tr><td>土地消耗率与人口增长率的比率(%)</td></tr>
+	      	<tr><td>土地消耗率/人口增长率(%)</td></tr>
 	      	<tr><td>城镇化率(%)</td></tr>
 	      	<tr><td>农业水生产力 </td></tr>
-	      	<tr><td>农业水利用效率</td></tr>
+	      	<tr><td>农业水利用效率(%)</td></tr>
 	      	<tr><td>每公顷农产品产值</td></tr>
 	      	<tr><td>维持可持续的农业种植面积</td></tr>
 	      	<tr><td>可持续社会福利指数</td></tr>
@@ -94,10 +66,6 @@
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script>
-//  var num = 30;
-//  $(".progress-bar").attr({
-//      "aria-valuenow" : num
-//  }).width(num + "%").html(num + "%");
 
 	var jsonData = [];
 	
@@ -138,9 +106,14 @@
 	        url     : "queryAvailablews.do",
 	        success : function(data){
 	        	if(data.length>=1){
+		        	for(var i=0; i<data.length; i++){
+		        		var newTh = '<th>'+data[i]+'</th>';
+						$("#resultTable tr:eq(0)").append(newTh);
+		        	}
+		        	jsonData = data;
 		        	getDataYearlyAsList(data);
-		        	jsonData = JSON.parse(data);
 		            var num = data.length*7.7;
+		            num = (num >= 100) ? 100 : num;
 		            $(".progress-bar").attr({
 		                "aria-valuenow" : num
 		            }).width(num + "%").html(num + "%");
@@ -154,15 +127,14 @@
 	
     function getDataYearlyAsList(years){
     	for(var i=0;i<years.length;i++){
-    		var year=years[i];
-			$.post("getDataYearlyws.do", {
+//     		var yearnum = years[i];
+			$.get("getDataYearlyws.do", {
 					"year" : years[i]
 				}, function(data) {
 					if (data.length > 0) {
-						var newTh = '<th>'+year+'</th>';
-						$("#resultTable tr:eq(0)").append(newTh);
 						for (i = 0; i < data.length; i++) {
-							var newTd = '<td>' + data[i] + '</td>';
+							data[i] = (data[i].toFixed(2).toString().length>=12)?(data[i]/100000000):data[i];
+							var newTd = '<td>' + data[i].toFixed(2) + '</td>';
 							var j = i + 1;
 							$("#resultTable tr:eq(" + j + ")").append(newTd);
 						}
@@ -177,6 +149,7 @@
 			"years" : jsonData
 		}, function(data) {
 			var inputdata = JSON.stringify(data).replace(']','')+','+JSON.stringify(data).replace('[','');
+			//因为传一年数据指标计算模型不工作，传入两年相同数据
 			$.ajax({
 				type:"get",
 				url:"http://210.77.67.251/EvalModel/startEvalModel.do?indicators="+inputdata,
