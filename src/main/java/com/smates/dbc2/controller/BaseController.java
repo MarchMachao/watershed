@@ -25,6 +25,7 @@ import com.smates.dbc2.qniu.QniuHelper;
 import com.smates.dbc2.service.JxlService;
 import com.smates.dbc2.service.MenuService;
 import com.smates.dbc2.service.RoleService;
+import com.smates.dbc2.service.UserProjectRelationService;
 import com.smates.dbc2.service.UserService;
 import com.smates.dbc2.service.WatershedService;
 import com.smates.dbc2.utils.StringUtils;
@@ -51,6 +52,9 @@ public class BaseController {
 
 	@Autowired
 	public WatershedService watershedService;
+	
+	@Autowired
+	public UserProjectRelationService userProjectRelationService;
 
 	public Logger logger = Logger.getLogger(BaseController.class);
 

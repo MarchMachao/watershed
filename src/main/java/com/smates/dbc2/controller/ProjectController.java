@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smates.dbc2.po.Project;
+import com.smates.dbc2.po.UserProjectRelation;
 import com.smates.dbc2.service.ProjectService;
+import com.smates.dbc2.service.UserProjectRelationService;
+import com.smates.dbc2.service.UserService;
 import com.smates.dbc2.vo.BaseMsg;
 import com.smates.dbc2.vo.DataGrideRow;
 
@@ -18,6 +21,12 @@ public class ProjectController {
 
 	@Autowired
 	private ProjectService projectService;
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private UserProjectRelationService userProjectRelationService;
 	
 	@RequestMapping(value="projectlist.do",method=RequestMethod.GET)
 	public String projectlist(){
@@ -67,10 +76,22 @@ public class ProjectController {
 		return new BaseMsg(true, "删除成功");
 	}
 	
+	/**
+	 * 跳转到评价界面
+	 * @param modelMap
+	 * @return
+	 */
 	@RequestMapping(value="assess.do",method=RequestMethod.GET)
-	public String assess(String id, ModelMap modelMap){
-		modelMap.addAttribute("projectId", id);
-		return "goal.ftl";
+	public String assess(ModelMap modelMap){
+		String userName = userService.getCurrentUserId();//获取当前登录的用户账号
+		UserProjectRelation userProjectRelation = userProjectRelationService.getUserProjectRelationByUserName(userName);
+		//判断该用户是否设置了默认项目
+		if(userProjectRelation==null){
+			return "none.ftl";
+		}else{
+			modelMap.addAttribute("projectId", userProjectRelation.getAutoProjectId());
+			return "goal.ftl";
+		}
 	}
 
 	/**
@@ -83,6 +104,19 @@ public class ProjectController {
 	@RequestMapping(value = "getProjectById", method = RequestMethod.GET)
 	public Project getProjectById(String projectId) {
 		return projectService.getProjectById(projectId);
+	}
+	
+	/**
+	 * 将某个项目设置为默认项目
+	 * @param id 项目id
+	 * @return 是否设置成功
+	 */
+	@ResponseBody
+	@RequestMapping(value="autoproject",method=RequestMethod.GET)
+	public BaseMsg autoproject(String id){
+		String userName = userService.getCurrentUserId();//获取当前登录的用户账号
+		userProjectRelationService.addUserProjectRelation(userName, id);
+		return new BaseMsg(true, "设置默认项目成功");
 	}
 
 }

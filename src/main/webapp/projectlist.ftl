@@ -37,7 +37,7 @@
             <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:location.href = 'projectedit.html';">新增</a>
             <a href="javascript:void(0)" id="deleteBtn" class="easyui-linkbutton" iconCls="icon-cut" plain="true">删除</a>
             <a href="javascript:void(0)" id="okBtn" class="easyui-linkbutton" iconCls="icon-ok" plain="true">打开</a>
-            <a href="javascript:void(0)" id="easyui-linkbutton" class="easyui-linkbutton" iconCls="icon-redo" plain="true" >设置为默认项目</a>
+            <a href="javascript:void(0)" id="autoprojectBtn" class="easyui-linkbutton" iconCls="icon-redo" plain="true" >设置为默认项目</a>
         </div>
  
     </body>
@@ -71,6 +71,19 @@
                 });
             } else {
                 $.messager.alert('提示', "请选中要删除的行", 'info');
+            }
+        })
+        
+        $("#autoprojectBtn").click(function() {
+            var row = $('#dg').datagrid('getSelected');
+            if(row) {
+                $.get('autoproject.do', {
+                    id: row.id
+                }, function(data) {
+                    $.messager.alert('提示', data.content, 'info');
+                })
+            } else {
+                $.messager.alert('提示', "请选中一个项目", 'info');
             }
         })
  
