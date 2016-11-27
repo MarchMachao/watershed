@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smates.dbc2.po.Goal;
+import com.smates.dbc2.po.UserProjectRelation;
 import com.smates.dbc2.service.GoalService;
+import com.smates.dbc2.service.UserProjectRelationService;
+import com.smates.dbc2.service.UserService;
 import com.smates.dbc2.vo.BaseMsg;
 import com.smates.dbc2.vo.Node;
 
@@ -22,6 +25,12 @@ public class GoalController {
 	
 	@Autowired
 	private GoalService goalService;
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private UserProjectRelationService userProjectRelationService;
 	
 	/**
 	 * 保存目标体系接口（参数和界面标号对应）
@@ -82,9 +91,16 @@ public class GoalController {
 	}
 	
 	@RequestMapping(value="toStuation.do",method=RequestMethod.GET)
-	public String toStuation(String id,ModelMap modelMap){
-		modelMap.addAttribute("projectId", id);
-		return "stuation.ftl";
+	public String toStuation(ModelMap modelMap){
+		String userName = userService.getCurrentUserId();//获取当前登录的用户账号
+		UserProjectRelation userProjectRelation = userProjectRelationService.getUserProjectRelationByUserName(userName);
+		//判断该用户是否设置了默认项目
+		if(userProjectRelation==null){
+			return "none.ftl";
+		}else{
+			modelMap.addAttribute("projectId", userProjectRelation.getAutoProjectId());
+			return "stuation.ftl";
+		}
 	}
 	
 }
