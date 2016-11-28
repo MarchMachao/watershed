@@ -28,7 +28,6 @@
             0%
         </div>
     </div>
-    <button onclick="queryAvailable();">点我！进度条会变（测试用）</button>
     <h4>模拟结果</h4>
     <div class="table-responsive" style="margin-top: 20px;">
 	    <table id="resultTable" class="table table-hover">

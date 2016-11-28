@@ -20,7 +20,7 @@
         #right_flash,#right_flash2{width: 433px; height: auto; position: absolute; right: -400px; top: 10%; margin-top: 0;}
         .situation-toggle{font-size: 14px; text-align:left;width:20px; position: absolute; left: 0px;top: 40px;z-index: 110;}
         .situation{width:400px; position: relative; right:-33px; top:0px; z-index:10;}
-        #right_flash2{right: -400px; margin-top: 125px; height: 300px; z-index: 20;}
+        #right_flash2{right: -600px; margin-top: 125px; height: 300px; z-index: 20; width: 633px;}
         #right_flash2.down{margin-top: 278px;}
         .widget-body{border-top: 1px solid #CCCCCC;}
     </style>
@@ -86,7 +86,7 @@
     <div class="widget-header situation-toggle" id="situation-toggle2" style="cursor: pointer;">
         	评价结果
     </div>
-    <div id="situation2" class="widget-box situation">
+    <div id="situation2" class="widget-box situation" style="width: 600px;">
         <div class="widget-body">
             <div class="widget-main">
             	<div id="gis-chart-1" style="width:100%; height: 300px;"></div>
@@ -235,7 +235,7 @@
                 $("#right_flash2").removeClass("down");
             }
         }else{
-            $("#right_flash2").animate({right: "-400px"}).addClass("down");
+            $("#right_flash2").animate({right: "-600px"}).addClass("down");
             $("#right_flash").animate({right: "0"});
             clicknum2 = !clicknum2;
         }
@@ -247,7 +247,7 @@
             if(!clicknum2){
                 $("#right_flash2").animate({right: "0px"});
             }else {
-                $("#right_flash2").animate({right: "-400px"});
+                $("#right_flash2").animate({right: "-600px"});
             }
         }else{
             $("#right_flash").animate({right: "-400px"});
