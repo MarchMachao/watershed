@@ -10,7 +10,7 @@
         .wrapper .progress{width: 60%; height: 30px; line-height: 30px; min-width: 400px; border: 2px solid #000;}
         .wrapper .progress-bar{line-height: 30px; font-size: 15px;}
         .wrapper table{width: 80%;}
-        .btn-wrapper{padding-right: 15%; margin-top: 50px;}
+        .btn-wrapper{padding-right: 15%; margin-top: 50px; margin-bottom: 50px;}
         .pro-btn{padding: 8px 30px; box-shadow: 3px 3px 3px #275f8f;}
     </style>
 </head>
@@ -109,7 +109,7 @@
 		        		var newTh = '<th>'+data[i]+'</th>';
 						$("#resultTable tr:eq(0)").append(newTh);
 		        	}
-		        	jsonData = data;
+		        	jsonData = JSON.parse(data);
 		        	getDataYearlyAsList(data);
 		            var num = data.length*7.7;
 		            num = (num >= 100) ? 100 : num;
