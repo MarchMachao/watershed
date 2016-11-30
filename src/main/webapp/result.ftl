@@ -151,7 +151,7 @@
 			//因为传一年数据指标计算模型不工作，传入两年相同数据
 			$.ajax({
 				type:"get",
-				url:"http://210.77.67.251/EvalModel/startEvalModel.do?indicators="+inputdata,
+				url:"http://210.77.79.201/EvalModel/startEvalModel.do?indicators="+inputdata,
 				success:function(msg){
 					$.post("saveGisEcharts.do",
 						{
