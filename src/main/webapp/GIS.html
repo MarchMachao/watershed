@@ -27,7 +27,7 @@
 </head>
 
 <body>
-<iframe id="mapframe" src="http://210.77.67.251:19001/map/index.jsp"
+<iframe id="mapframe" src="http://210.77.79.201:19001/map/index.jsp"
         scrolling="no"></iframe>
 <div id="right_flash">
     <div class="widget-header situation-toggle" id="situation-toggle1" style="cursor: pointer;">
@@ -272,11 +272,16 @@
 				}
 		
 				var option = {
+					title : {
+					    text: '流域可持续发展目标评价',
+					    x:'center',
+					    y:'bottom'
+					},
 				    tooltip : {
 				        trigger: 'axis'
 				    },
 				    legend: {
-				        data:['resultOverall','resultP1','resultP2','resultP3',]
+				        data:['流域可持续发展','水资源发展','生态发展','经济发展',]
 				    },
 				    toolbox: {
 				        show : true,
@@ -300,25 +305,25 @@
 				    ],
 				    series : [
 				        {
-				            name:'resultOverall',
+				            name:'流域可持续发展',
 				            type:'line',
 				            stack: '总量',
 				            data: Overall
 				        },
 				        {
-				            name:'resultP1',
+				            name:'水资源发展',
 				            type:'line',
 				            stack: '总量',
 				            data: P1
 				        },
 				        {
-				            name:'resultP2',
+				            name:'生态发展',
 				            type:'line',
 				            stack: '总量',
 				            data:P2
 				        },
 				        {
-				            name:'resultP3',
+				            name:'经济发展',
 				            type:'line',
 				            stack: '总量',
 				            data:P3
