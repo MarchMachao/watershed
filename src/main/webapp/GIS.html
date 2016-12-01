@@ -275,12 +275,18 @@
 					title : {
 					    text: '流域可持续发展目标评价',
 					    x:'center',
-					    y:'bottom'
 					},
 				    tooltip : {
 				        trigger: 'axis'
 				    },
+				    dataZoom: {
+				        show: true,
+				        start : 0,
+				        height: 15
+				    },
 				    legend: {
+				    	x : 'left',
+				    	y : '32',
 				        data:['流域可持续发展','水资源发展','生态发展','经济发展',]
 				    },
 				    toolbox: {
