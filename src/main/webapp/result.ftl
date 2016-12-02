@@ -109,7 +109,7 @@
 		        		var newTh = '<th>'+data[i]+'</th>';
 						$("#resultTable tr:eq(0)").append(newTh);
 		        	}
-		        	jsonData = eval(data);
+		        	jsonData = eval('('+data+')');
 		        	getDataYearlyAsList(data);
 		            var num = data.length*7.7;
 		            num = (num >= 100) ? 100 : num;

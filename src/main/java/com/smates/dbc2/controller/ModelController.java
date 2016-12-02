@@ -457,7 +457,7 @@ public class ModelController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = ("queryAvailablews"), method = RequestMethod.POST)
-	public List<Integer> queryAvailablews() {
+	public List<String> queryAvailablews() {
 		return risDSSModelService.queryAvailable();
 	}
 
