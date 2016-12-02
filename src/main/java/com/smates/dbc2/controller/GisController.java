@@ -14,6 +14,7 @@ import com.smates.dbc2.vo.BaseMsg;
 
 @Controller
 public class GisController {
+
 	@Autowired
 	private GisService gisService;
 
