@@ -16,6 +16,14 @@ public class Gisecharts {
 	public Gisecharts() {
 	}
 
+	public Gisecharts(String resultOverall, String resultP1, String resultP2, String resultP3) {
+		super();
+		this.resultOverall = resultOverall;
+		this.resultP1 = resultP1;
+		this.resultP2 = resultP2;
+		this.resultP3 = resultP3;
+	}
+
 	public Gisecharts(String year, String resultOverall, String resultP1, String resultP2, String resultP3) {
 		this.year = year;
 		this.resultOverall = resultOverall;

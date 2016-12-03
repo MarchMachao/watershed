@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.smates.dbc2.po.Indicators;
 import com.smates.dbc2.service.GetWebServiceParaService;
 import com.smates.dbc2.service.IndexCalculateService;
@@ -295,11 +296,13 @@ public class ModelController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = ("getDataYearlyAsIndicators"), method = RequestMethod.POST)
-	public List<Indicators> getDataYearlyAsIndicators(long[] years) {
+	public List<Indicators> getDataYearlyAsIndicators(String years) {
+		// List<Person> persons2 = JSON.parseArray(paraJson,Person.class);
+		List<Integer> years2 = JSON.parseArray(years, Integer.class);
 		try {
 			List<Indicators> index = new ArrayList<Indicators>();
-			for (int i = 0; i < years.length; i++) {
-				List<DoubleArray> modleOutput = risDSSModelService.getDataYearly("AKH13002", years[i]);
+			for (int i = 0; i < years2.size(); i++) {
+				List<DoubleArray> modleOutput = risDSSModelService.getDataYearly("AKH13002", years2.get(i));
 				// System.out.println(modleOutput.size()+"*************");
 				// List<Double> index = new ArrayList<Double>();
 				/**

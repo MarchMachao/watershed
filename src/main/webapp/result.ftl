@@ -4,17 +4,47 @@
     <meta charset="UTF-8">
     <title>可持续性评价</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <style>
-        .wrapper{padding: 0 20px;}
-        .wrapper h4{margin-top: 40px;}
-        .wrapper .progress{width: 60%; height: 30px; line-height: 30px; min-width: 400px; border: 2px solid #000;}
-        .wrapper .progress-bar{line-height: 30px; font-size: 15px;}
-        .wrapper table{width: 80%;}
-        .btn-wrapper{padding-right: 15%; margin-top: 50px; margin-bottom: 50px;}
-        .pro-btn{padding: 8px 30px; box-shadow: 3px 3px 3px #275f8f;}
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/loaders.css"/>
+<style>
+.wrapper {
+	padding: 0 20px;
+}
+
+.wrapper h4 {
+	margin-top: 40px;
+}
+
+.wrapper .progress {
+	width: 60%;
+	height: 30px;
+	line-height: 30px;
+	min-width: 400px;
+	border: 2px solid #000;
+}
+
+.wrapper .progress-bar {
+	line-height: 30px;
+	font-size: 15px;
+}
+
+.wrapper table {
+	width: 80%;
+}
+
+.btn-wrapper {
+	padding-right: 15%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.pro-btn {
+	padding: 8px 30px;
+	box-shadow: 3px 3px 3px #275f8f;
+}
+
+</style>
 </head>
-<body>
+<body style="background-color: #ecf0f1;">
 <div class="wrapper">
     <h2>
         <p class="text-center">情景模拟进度</p>
@@ -59,14 +89,17 @@
 	      	<tr><td>可持续社会福利指数</td></tr>
 	    </table>
     </div>
-    <div class="text-right btn-wrapper">
-        <button id="startEvalModel" type="button" class="btn btn-primary pro-btn" onclick="">发展评价</button>
-    </div>
+	<div class="text-right btn-wrapper">
+		 <span id="loading" style="display: none;"><img src="image/loading.gif" style="height:40px;"/></span> 
+		 <button id="startEvalModel" type="button" class="btn btn-primary pro-btn" disable="true">发展评价</button>
+	</div>
+	    
+   
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script>
 
-	var jsonData = [];
+	var jsonData="";
 	
 	queryStatews();
 					
@@ -105,17 +138,22 @@
 	        url     : "queryAvailablews.do",
 	        success : function(data){
 	        	if(data.length>=1){
+	        		$("#startEvalModel").attr("disabled",false);
 		        	for(var i=0; i<data.length; i++){
 		        		var newTh = '<th>'+data[i]+'</th>';
 						$("#resultTable tr:eq(0)").append(newTh);
 		        	}
-		        	jsonData = eval('('+data+')');
+		        	jsonData = JSON.stringify(data);
+		        	console.log(jsonData);
 		        	getDataYearlyAsList(data);
 		            var num = data.length*7.7;
 		            num = (num >= 100) ? 100 : num;
 		            $(".progress-bar").attr({
 		                "aria-valuenow" : num
 		            }).width(num + "%").html(num + "%");
+	        	}else{
+	        		document.getElementById("startEvalModel").value="年份数据不足";
+	        		
 	        	}
 	        },
 	        error   : function(){
@@ -144,23 +182,23 @@
 	};
 	
 	$("#startEvalModel").on("click",function(){
+		$("#loading").show();
 		$.post("getDataYearlyAsIndicators.do", {
 			"years" : jsonData
 		}, function(data) {
-			var inputdata = JSON.stringify(data).replace(']','')+','+JSON.stringify(data).replace('[','');
+			var inputdata = JSON.stringify(data);
 			//因为传一年数据指标计算模型不工作，传入两年相同数据
 			$.ajax({
-				type:"get",
-				url:"http://210.77.79.201/EvalModel/startEvalModel.do?indicators="+inputdata,
+				type:"post",
+				url:"http://210.77.79.201/EvalModel/startEvalModel.do",
+				data:{indicators:inputdata},
 				success:function(msg){
 					$.post("saveGisEcharts.do",
 						{
-						year : '2000',
-						resultOverall : msg[0].resultOverall,
-						resultP1 : msg[0].resultP1,
-						resultP2 : msg[0].resultP2,
-						resultP3 : msg[0].resultP3
+						years : jsonData,
+						results : JSON.stringify(msg)
 						},function(data){
+							$("#loading").hide();
 							alert(data.content+'\n单击确定后跳转');
 							window.location.href='GIS.html';
 						}
@@ -168,13 +206,9 @@
 				},
 				error:function(msg){
 					alert("出错！ 错误代码："+JSON.stringify(msg));
+					$("#loading").hide();
 				}
 			});
-// 			$.get("http://210.77.67.251:8000/EvalModel/startEvalModel.do", {
-// 				indicators : JSON.stringify(data)
-// 			}, function(msg) {
-// 				alert(JSON.stringify(msg));
-// 			})
 		})
 	});
 </script>

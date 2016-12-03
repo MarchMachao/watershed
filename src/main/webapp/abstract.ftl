@@ -22,7 +22,7 @@
         .form-control{width: 110px ; display: inline-block;}
     </style>
 </head>
-<body>
+<body style="background-color: #ecf0f1;">
 <div class="b-wrapper">
 	<input type="hidden" id="projectId" name="projectId" value="${projectId}" />
     <h2>
@@ -129,6 +129,7 @@
         </ul>
     </div>
     <div class="text-right btn-wrapper">
+    	<span id="loading" style="display: none;"><img src="image/loading.gif" style="height:40px;"/></span> 
         <button type="button" id="backToStuation" class="btn btn-primary pro-btn" onclick="javascript:location.href = 'toStuation.do?id=${projectId}'">设置</button>
         <button type="button" id="toResult" class="btn btn-primary pro-btn" onclick="javascript:;">模拟</button>
     </div>
@@ -150,9 +151,11 @@
 	)
 	
 	$("#toResult").on("click", function() {
+		$("#loading").show();
 		$.post("test.do", {
 			"projectId" : "${projectId}",
 		}, function(data) {
+			$("#loading").hide();
 			alert(data);
 			location.href = 'jumpToResult.do?id=${projectId}'
 		});
