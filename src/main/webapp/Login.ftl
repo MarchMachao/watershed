@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="static/login/bootstrap-responsive.min.css" />
 <link rel="stylesheet" href="static/login/matrix-login.css" />
 <link href="static/login/font-awesome.css" rel="stylesheet" />
+<link rel="icon" href="image/icon.ico" type="image/x-icon"/>
 <script type="text/javascript" src="js/jquery.min.js"></script>
  
 </head>
