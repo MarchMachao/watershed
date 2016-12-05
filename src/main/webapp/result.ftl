@@ -168,6 +168,14 @@
 			$.get("getDataYearlyws.do", {
 					"year" : years[i]
 				}, function(data) {
+					
+					
+					//****************************************************
+					var inputdata = JSON.stringify(data);
+					$.get("saveFirstModelResult.do",{"data":inputdata},function(data){})
+					//****************************************************
+					
+					
 					if (data.length > 0) {
 						for (i = 0; i < data.length; i++) {
 							data[i] = (data[i].toFixed(2).toString().length>=12)?(data[i]/100000000):data[i];
