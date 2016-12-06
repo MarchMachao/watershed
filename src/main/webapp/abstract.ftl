@@ -22,7 +22,7 @@
         .form-control{width: 110px ; display: inline-block;}
     </style>
 </head>
-<body style="background-color: #ecf0f1;">
+<body>
 <div class="b-wrapper">
 	<input type="hidden" id="projectId" name="projectId" value="${projectId}" />
     <h2>
@@ -61,13 +61,20 @@
 				</select>
 				<span style="margin-left: 5%;">选择年份:</span>
 				<select id="selectYears" class="form-control">
-					<option value="2016">2016</option>
-					<option value="2015">2015</option>
-					<option value="2014">2014</option>
 					<option value="2013">2013</option>
 					<option value="2012">2012</option>
 					<option value="2011">2011</option>
 					<option value="2010">2010</option>
+					<option value="2009">2009</option>
+					<option value="2008">2008</option>
+					<option value="2007">2007</option>
+					<option value="2006">2006</option>
+					<option value="2005">2005</option>
+					<option value="2004">2004</option>
+					<option value="2003">2003</option>
+					<option value="2002">2002</option>
+					<option value="2001">2001</option>
+					<option value="2000">2000</option>
 				</select>
 		    </div>
         <i class="line"></i>
@@ -129,7 +136,6 @@
         </ul>
     </div>
     <div class="text-right btn-wrapper">
-    	<span id="loading" style="display: none;"><img src="image/loading.gif" style="height:40px;"/></span> 
         <button type="button" id="backToStuation" class="btn btn-primary pro-btn" onclick="javascript:location.href = 'toStuation.do?id=${projectId}'">设置</button>
         <button type="button" id="toResult" class="btn btn-primary pro-btn" onclick="javascript:;">模拟</button>
     </div>
@@ -151,11 +157,11 @@
 	)
 	
 	$("#toResult").on("click", function() {
-		$("#loading").show();
+		$("#toResult").attr("disabled","true");
 		$.post("test.do", {
 			"projectId" : "${projectId}",
 		}, function(data) {
-			$("#loading").hide();
+			$("#toResult").attr("disabled","false");
 			alert(data);
 			location.href = 'jumpToResult.do?id=${projectId}'
 		});

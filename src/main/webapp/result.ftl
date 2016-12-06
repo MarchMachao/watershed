@@ -190,6 +190,8 @@
 	};
 	
 	$("#startEvalModel").on("click",function(){
+		$(this).attr("disabled","disabled");
+		$(this).text("评价中…");
 		$("#loading").show();
 		$.post("getDataYearlyAsIndicators.do", {
 			"years" : jsonData

@@ -27,7 +27,7 @@ li {
 							checked="checked"> <label for="index_1"
 							style="font-weight: bold;">目标1:为所有人提供水和环境卫生，为所有用水部门提供可持续的供水和取水，并进行流域水资源的可持续管理</label>
 							<input type="text" id="goal_1" name="goal_1" value="20"
-							style="width: 30px; height: 20px; ime-mode: disabled" />%
+							style="margin-left: 40px; width: 30px; height: 20px; ime-mode: disabled" />%
 							<ul>
 								<li class="father_li"><input type="checkbox"
 									name="index_1_1" id="index_1_1" checked="checked"> <label
@@ -119,7 +119,7 @@ li {
 							checked="checked"> <label for="index_2"
 							style="font-weight: bold;">目标2:保护、恢复和促进流域可持续利用陆地生态系统健康发展，可持续管理森林，防治荒漠化</label>
 							<input type="text" id="goal_2" name="goal_2" value="40"
-							style="width: 30px; height: 20px;" />%
+							style="margin-left: 40px;width: 30px; height: 20px;" />%
 							<ul>
 								<li class="father_li"><input type="checkbox"
 									name="index_2_1" id="index_2_1" checked="checked"> <label
@@ -169,7 +169,7 @@ li {
 							checked="checked"> <label for="index_3"
 							style="font-weight: bold;">目标3:促进持久、包容性和可持续经济增长、促进实现充分和生产性就业</label>
 							<input type="text" id="goal_3" name="goal_3" value="40"
-							style="width: 30px; height: 20px;" />%
+							style="margin-left: 40px;width: 30px; height: 20px;" />%
 							<ul>
 								<li class="father_li"><input type="checkbox"
 									name="index_3_1" id="index_3_1" checked="checked"> <label

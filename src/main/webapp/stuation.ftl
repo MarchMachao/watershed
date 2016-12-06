@@ -90,13 +90,20 @@
 											</select>
 											<span>选择年份</span>
 											<select id="IPCC-selectYears">
-												<option value="2016">2016</option>
-												<option value="2015">2015</option>
-												<option value="2014">2014</option>
 												<option value="2013">2013</option>
 												<option value="2012">2012</option>
 												<option value="2011">2011</option>
 												<option value="2010">2010</option>
+												<option value="2009">2009</option>
+												<option value="2008">2008</option>
+												<option value="2007">2007</option>
+												<option value="2006">2006</option>
+												<option value="2005">2005</option>
+												<option value="2004">2004</option>
+												<option value="2003">2003</option>
+												<option value="2002">2002</option>
+												<option value="2001">2001</option>
+												<option value="2000">2000</option>
 											</select>
 										</label>
 									<div class="span1" style="margin-left: 0px;"></div>
@@ -199,13 +206,20 @@
 										</select>
 										<span>选择年份</span>
 										<select id="industry-selectYears">
-											<option value="2016">2016</option>
-											<option value="2015">2015</option>
-											<option value="2014">2014</option>
-											<option value="2013">2013</option>
-											<option value="2012">2012</option>
-											<option value="2011">2011</option>
-											<option value="2010">2010</option>
+												<option value="2013">2013</option>
+												<option value="2012">2012</option>
+												<option value="2011">2011</option>
+												<option value="2010">2010</option>
+												<option value="2009">2009</option>
+												<option value="2008">2008</option>
+												<option value="2007">2007</option>
+												<option value="2006">2006</option>
+												<option value="2005">2005</option>
+												<option value="2004">2004</option>
+												<option value="2003">2003</option>
+												<option value="2002">2002</option>
+												<option value="2001">2001</option>
+												<option value="2000">2000</option>
 										</select>
 									</label>
 									<div class="span1" style="margin-left: 0px;"></div>
@@ -382,13 +396,20 @@
 										</select>
 										<span>选择年份</span>
 										<select id="water-selectYears">
-											<option value="2016">2016</option>
-											<option value="2015">2015</option>
-											<option value="2014">2014</option>
 											<option value="2013">2013</option>
-											<option value="2012">2012</option>
-											<option value="2011">2011</option>
-											<option value="2010">2010</option>
+												<option value="2012">2012</option>
+												<option value="2011">2011</option>
+												<option value="2010">2010</option>
+												<option value="2009">2009</option>
+												<option value="2008">2008</option>
+												<option value="2007">2007</option>
+												<option value="2006">2006</option>
+												<option value="2005">2005</option>
+												<option value="2004">2004</option>
+												<option value="2003">2003</option>
+												<option value="2002">2002</option>
+												<option value="2001">2001</option>
+												<option value="2000">2000</option>
 										</select>
 									</label>
 										
@@ -738,19 +759,26 @@
 											<option value="620921">金塔</option>
 											<option value="620722">民乐</option>
 											<option value="620721">肃南</option>
-											<option value="620902">肃州</option>
+											<option value="620902" selected="selected">肃州</option>
 											<option value="620200">嘉峪关市</option>
 											<option value="632222">祁连</option>
 										</select>
 										<span>选择年份</span>
 										<select id="land-selectYears">
-											<option value="2016">2016</option>
-											<option value="2015">2015</option>
-											<option value="2014">2014</option>
 											<option value="2013">2013</option>
-											<option value="2012">2012</option>
-											<option value="2011">2011</option>
-											<option value="2010">2010</option>
+												<option value="2012">2012</option>
+												<option value="2011">2011</option>
+												<option value="2010">2010</option>
+												<option value="2009">2009</option>
+												<option value="2008">2008</option>
+												<option value="2007">2007</option>
+												<option value="2006">2006</option>
+												<option value="2005">2005</option>
+												<option value="2004">2004</option>
+												<option value="2003">2003</option>
+												<option value="2002">2002</option>
+												<option value="2001">2001</option>
+												<option value="2000">2000</option>
 										</select>
 									</label>
 											<h4 class="header smaller lighter blue"><i class="icon-credit-card"></i>耕地面积变化</h4>
