@@ -5,40 +5,61 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <title>联系我们</title>
-
-<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="css/demo.css" />
-
-<!--必要样式-->
-<link rel="stylesheet" type="text/css" href="css/component.css" />
-
-<!--[if IE]>
-<script src="js/html5.js"></script>
-<![endif]-->
-<style>
-.second-title{font-family: "微软雅黑"; font-weight: ;color: #f9f1e9; position:absolute;left: 35%; top:20%;text-align: center;}
-</style>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 </head>
-<body>
-		<div class="container demo-1">
-			<div class="content">
-				<div id="large-header" class="large-header">
-					<canvas id="demo-canvas"></canvas>
-					<h1 class="main-title" style="top: 15%;">联系我们</h1>
-					<h2 class="second-title" style="left: 35%; top:20%">
-						<p>兰州市东岗西路320号  兰州  甘肃</br>320 Donggang West Road, Lanzhou,Gansu</p>
-						<p>中国科学院寒区旱区环境与工程研究所</br>Cold and Arid Region Environmental </br>and Engineering Research Institute</p>
-						<p>电话：0931－4967250</br>Tel: +0086 931 4967250<p>
-						<p>传真：0931－4967235</br>Fax: +0086 931 4967235</p>
-						<p>电子邮件/E-mail：rslab@lzb.ac.cn</p>
-						<p>邮编/zip：730000</p>
-					</h2>
-				</div>
-			</div>
-		</div><!-- /container -->
-		<script src="js/TweenLite.min.js"></script>
-		<script src="js/EasePack.min.js"></script>
-		<script src="js/rAF.js"></script>
-		<script src="js/demo-1.js"></script>
-	</body>
+<style>
+.pull-left {
+	width: 610px;
+	height: 300px;
+	padding: 10px 20px;
+	margin-right: 20px;
+	float: left;
+	background-color: #f6f6f6;
+	outline: none;
+	border: 1px solid rgba(102, 102, 102, 0.5);
+	color: #000000;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	-webkit-box-shadow: 0 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0 0 0 3px rgb(254, 254, 254), 3px 6px 4px 4px rgb(210, 210, 210);
+	-moz-box-shadow: 0 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0 0 0 3px rgb(254, 254, 254), 3px 6px 4px 4px rgb(210, 210, 210);
+	box-shadow: 0 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0 0 0 3px rgb(254, 254, 254), 3px 6px 4px 4px rgb(210, 210, 210);
+}
+
+body {
+	padding: 30px 10%;
+}
+</style>
+<body class="wrapper" style="font-family: '微软雅黑';">
+	<h1>联系我们</h1>
+	<hr />
+	<h2 class="pull-left">
+		<dl class="dl-horizontal">
+		  <dt>地址：</dt>
+		  <dd>兰州市东岗西路320号  <br>兰州  甘肃</dd>
+		  <dt>电话：</dt>
+		  <dd>0931－4967250</dd>
+		  <dt>传真：</dt>
+		  <dd>0931－4967235</dd>
+		  <dt>电子邮件：</dt>
+		  <dd>rslab@lzb.ac.cn</dd>
+		  <dt>邮编：</dt>
+		  <dd>730000</dd>
+		</dl>
+	</h2>
+	<h2 class="pull-left" style="margin-bottom: 30px;">
+		<dl class="dl-horizontal">
+		  <dt>addr：</dt>
+		  <dd>320 Donggang West Road,<br> Lanzhou,Gansu</dd>
+		  <dt>Tel：</dt>
+		  <dd>+0086 931 4967250</dd>
+		  <dt>Fax：</dt>
+		  <dd>+0086 931 4967235</dd>
+		  <dt>E-mail：</dt>
+		  <dd>rslab@lzb.ac.cn</dd>
+		  <dt>zip：</dt>
+		  <dd>730000</dd>
+		</dl>
+	</h2>
+</body>
 </html>
