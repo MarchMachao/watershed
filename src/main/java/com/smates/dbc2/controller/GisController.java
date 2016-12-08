@@ -14,7 +14,7 @@ import com.smates.dbc2.service.GisService;
 import com.smates.dbc2.vo.BaseMsg;
 
 @Controller
-public class GisController {
+public class GisController extends BaseController {
 
 	@Autowired
 	private GisService gisService;
@@ -36,6 +36,42 @@ public class GisController {
 	@RequestMapping(value = "getGisEcharts", method = RequestMethod.GET)
 	public List<Gisecharts> getGisEcharts() {
 		return gisService.getAllGisecharts();
+	}
+
+	/**
+	 * 接收从GIS情景控制传来的全局变量
+	 * 
+	 * @param projectId
+	 *            项目代码【为null时值为默认项目id】
+	 * @param upstreamCultivatedArea
+	 *            上游耕地面积
+	 * @param midstreamWater
+	 *            中游分水量
+	 * @param downstreamWater
+	 *            下游分水量
+	 * @param midStreamCultivatedArea
+	 *            中游耕地面积
+	 * @param midStreamWetLandArea
+	 *            中游湿地面积
+	 * @param midStreamDripIrrigation
+	 *            中游滴灌面积
+	 * @param downStreamCultivatedArea
+	 *            下游耕地面积
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "stuationControl", method = RequestMethod.GET)
+	public BaseMsg stuationControl(String projectId, String upstreamCultivatedArea, String midstreamWater,
+			String downstreamWater, String midStreamCultivatedArea, String midStreamWetLandArea,
+			String midStreamDripIrrigation, String downStreamCultivatedArea) {
+		if (projectId == null) {
+			projectId = userProjectRelationService.getUserProjectRelationByUserName(userService.getCurrentUserId())
+					.getAutoProjectId();
+		}
+		System.out.println(projectId + "," + upstreamCultivatedArea + "," + midstreamWater + "," + downstreamWater + ","
+				+ midStreamCultivatedArea + "," + midStreamWetLandArea + "," + midStreamDripIrrigation + ","
+				+ downStreamCultivatedArea);
+		return new BaseMsg(true, "情景控制保存成功");
 	}
 
 }

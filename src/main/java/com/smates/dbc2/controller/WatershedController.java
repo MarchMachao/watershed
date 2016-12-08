@@ -29,9 +29,8 @@ import com.smates.dbc2.vo.DataGrideRow;
  *
  */
 @Controller
-public class WatershedController extends BaseController{
-	
-	
+public class WatershedController extends BaseController {
+
 	/**
 	 * 添加流域信息
 	 * 
@@ -83,17 +82,17 @@ public class WatershedController extends BaseController{
 				tblWaterUseCounty, tblWaterRightCounty, tblMidDownWaterAllo, tblWaterAlloCounty);
 		return "watershedlist.ftl";
 	}
-	
+
 	/**
 	 * 加载流域信息页面
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value="watershedlist",method=RequestMethod.GET)
-	public String watershedlist(){
+	@RequestMapping(value = "watershedlist", method = RequestMethod.GET)
+	public String watershedlist() {
 		return "watershedlist.ftl";
 	}
-	
+
 	/**
 	 * 根据用户输入的流域名称返回查找的结果
 	 * 
@@ -106,11 +105,12 @@ public class WatershedController extends BaseController{
 	 * @return 格式化后的流域信息
 	 */
 	@ResponseBody
-	@RequestMapping(value="getWatershedByName",method=RequestMethod.GET)
-	public DataGrideRow<Watershed> getWatershedByName(@RequestParam(defaultValue = "1") int page, String name, int rows){
-		return watershedService.getWatershedFormateDataGride(name,page,rows);
+	@RequestMapping(value = "getWatershedByName", method = RequestMethod.GET)
+	public DataGrideRow<Watershed> getWatershedByName(@RequestParam(defaultValue = "1") int page, String name,
+			int rows) {
+		return watershedService.getWatershedFormateDataGride(name, page, rows);
 	}
-	
+
 	/**
 	 * 删除一条流域信息
 	 * 
@@ -118,12 +118,11 @@ public class WatershedController extends BaseController{
 	 *            流域id
 	 */
 	@ResponseBody
-	@RequestMapping(value="deleteWatershed",method=RequestMethod.GET)
-	public BaseMsg deleteWatershed(String id){
+	@RequestMapping(value = "deleteWatershed", method = RequestMethod.GET)
+	public BaseMsg deleteWatershed(String id) {
 		watershedService.deleteWatershed(id);
 		return new BaseMsg(true, "删除成功");
 	}
-
 
 	/**
 	 * 根据用户输入的气候情景排放类型返回List<TblClimateScenarioYear>
@@ -133,11 +132,11 @@ public class WatershedController extends BaseController{
 	 * @return List<TblClimateScenarioYear>的json格式数据
 	 */
 	@ResponseBody
-	@RequestMapping(value="geTblClimateScenarioYearsByfldCRPType",method=RequestMethod.GET)
-	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(String fldCRPType,String countryId){
-		return watershedService.getTblClimateScenarioYearsByfldCRPType(fldCRPType,countryId);
+	@RequestMapping(value = "geTblClimateScenarioYearsByfldCRPType", method = RequestMethod.GET)
+	public List<TblClimateScenarioYear> geTblClimateScenarioYearsByfldCRPType(String fldCRPType, String countryId) {
+		return watershedService.getTblClimateScenarioYearsByfldCRPType(fldCRPType, countryId);
 	}
-	
+
 	/**
 	 * 根据县区代码查找产业与城市发展情景 返回List<TblIndustyUrbanSce>
 	 * 
@@ -224,6 +223,10 @@ public class WatershedController extends BaseController{
 
 	@RequestMapping(value = "jumpToResult", method = RequestMethod.GET)
 	public String jumpToResult(ModelMap modelMap, String projectId) {
+		if (projectId == null) {
+			projectId = userProjectRelationService.getUserProjectRelationByUserName(userService.getCurrentUserId())
+					.getAutoProjectId();
+		}
 		modelMap.addAttribute("projectId", projectId);
 		return "result.ftl";
 	}
