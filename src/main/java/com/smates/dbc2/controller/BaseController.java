@@ -7,7 +7,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.smates.dbc2.mapper.StreamLanUseSceVoDao;
 import com.smates.dbc2.mapper.WatershedDao;
+import com.smates.dbc2.mapper.WatershedParaDao;
 import com.smates.dbc2.po.TblClimateScenarioMonth;
 import com.smates.dbc2.po.TblClimateScenarioYear;
 import com.smates.dbc2.po.TblCropPattern;
@@ -31,6 +33,12 @@ import com.smates.dbc2.service.WatershedService;
 import com.smates.dbc2.utils.StringUtils;
 
 public class BaseController {
+	
+	@Autowired
+	public StreamLanUseSceVoDao streamLanUseSceVoDao;
+	
+	@Autowired
+	public WatershedParaDao watershedParaDao;
 
 	@Autowired
 	public QniuHelper qniuHelper;

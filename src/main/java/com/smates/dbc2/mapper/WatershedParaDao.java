@@ -188,6 +188,12 @@ public interface WatershedParaDao {
 	 * @param tbWaterManSceMDPara
 	 */
 	public void addTbWaterManSceMDPara(TbWaterManSceMDPara tbWaterManSceMDPara);
+	
+	/**
+	 * 获取中下游分水量
+	 * @param projectId
+	 */
+	public TbWaterManSceMDPara getTbWaterManSceMDPara(String projectId);
 
 	/**
 	 * 添加水资源管理情景县区用水量参数
@@ -195,6 +201,13 @@ public interface WatershedParaDao {
 	 * @param tbWaterManSceCWPara
 	 */
 	public void addTbWaterManSceCWPara(TbWaterManSceCWPara tbWaterManSceCWPara);
+	
+	/**
+	 * 获取中游滴灌面积
+	 * @param projectId
+	 * @return
+	 */
+	public List<TbSocioEconomyScePara> getmidStreamSocioEconomyScePara(String projectId);
 	
 	/**
 	 * 获取水权分配比例

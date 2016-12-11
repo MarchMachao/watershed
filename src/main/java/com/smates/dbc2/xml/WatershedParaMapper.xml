@@ -115,6 +115,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTbSocioEconomyScePara" resultType="TbSocioEconomyScePara" parameterType="String">
 		select * from "a_tbSocioEconomyScePara" where "projectId" = #{value} ORDER BY "a_tbSocioEconomyScePara"."year","a_tbSocioEconomyScePara"."countryId"
 	</select>
+	
+	<!-- 获取中游滴灌面积 -->
+	<select id="getmidStreamSocioEconomyScePara" resultType="TbSocioEconomyScePara" parameterType="String">
+		SELECT
+			"a_countryStreamRelation".countryid,
+			"a_countryStreamRelation"."cityName",
+			"a_tbSocioEconomyScePara"."fldSprinkingArea"
+		FROM
+			"a_tbSocioEconomyScePara",
+			"a_countryStreamRelation"
+		WHERE
+			"a_countryStreamRelation".stream = 'midstream'
+		AND "a_tbSocioEconomyScePara"."projectId" = #{value}
+	</select>
 
 	<!-- 删除社会经济发展情景参数 -->
 	<delete id="deleteTbSocioEconomyScePara" parameterType="com.smates.dbc2.vo.ProjectIdAndCountyId">
@@ -147,6 +161,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"a_tbWaterManSceMDPara"
 		VALUES(#{id},#{fldWatershedCode},#{fldProjectCode},#{fldCountyCode},#{fldDate},#{fldWaterUseMid},#{fldWaterUseDown})
 	</insert>
+	
+	<!-- 获取中下游分水量数据 -->
+	<select id="getTbWaterManSceMDPara" parameterType="String" resultType="TbWaterManSceMDPara">
+		SELECT * from "a_tbWaterManSceMDPara" where "a_tbWaterManSceMDPara"."fldProjectCode" = #{value}
+	</select>
 
 	<!-- 添加水资源管理情景县区水权分配参数表 -->
 	<insert id="addTbWaterManSceWRPara" parameterType="TbWaterManSceWRPara">

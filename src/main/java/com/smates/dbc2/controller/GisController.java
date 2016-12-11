@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.smates.dbc2.po.Gisecharts;
+import com.smates.dbc2.po.TbSocioEconomyScePara;
+import com.smates.dbc2.po.TbWaterManSceMDPara;
 import com.smates.dbc2.service.GisService;
 import com.smates.dbc2.vo.BaseMsg;
+import com.smates.dbc2.vo.StreamLanUseSceVo;
 
 @Controller
 public class GisController extends BaseController {
@@ -71,6 +74,16 @@ public class GisController extends BaseController {
 		System.out.println(projectId + "," + upstreamCultivatedArea + "," + midstreamWater + "," + downstreamWater + ","
 				+ midStreamCultivatedArea + "," + midStreamWetLandArea + "," + midStreamDripIrrigation + ","
 				+ downStreamCultivatedArea);
+		//上游【耕地面积、湿地面积】
+		List<StreamLanUseSceVo> upstreamLanUseSceVos = streamLanUseSceVoDao.getStreamLanUseSceVo("upstream");
+		//中游游【耕地面积、湿地面积】
+		List<StreamLanUseSceVo> midstreamLanUseSceVos = streamLanUseSceVoDao.getStreamLanUseSceVo("midstream");
+		//下游【耕地面积、湿地面积】
+		List<StreamLanUseSceVo> downstreamLanUseSceVos = streamLanUseSceVoDao.getStreamLanUseSceVo("downstream");
+		//中下游分水量
+		TbWaterManSceMDPara MidAndDownStreamUserWater = watershedParaDao.getTbWaterManSceMDPara(projectId);
+		//中游滴灌面积
+		List<TbSocioEconomyScePara> midStreamTbSocioEconomyScePara = watershedParaDao.getmidStreamSocioEconomyScePara(projectId);
 		return new BaseMsg(true, "情景控制保存成功");
 	}
 
