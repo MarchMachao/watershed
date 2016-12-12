@@ -144,6 +144,7 @@
 <script>
 	
 	findDataByCountryAndYear();
+	var options="";
 	
 	$.get(
 		"getProjectById.do",
@@ -152,7 +153,12 @@
 			$("#part1-1").html("黑河流域"),
 			$("#part1-2").html(data.baseYear+"~"+data.goalYear),
 			$("#part1-3").html("一年"),
-			$("#part1-4").html(data.name)
+			$("#part1-4").html(data.name);
+			for(var i=parseInt(data.goalYear);i>=parseInt(data.baseYear);i--){
+				options=options+"<option>"+i.toString()+"</option>";
+			}
+			$("#selectYears").empty();
+			$("#selectYears").append(options);
 		}
 	)
 	
