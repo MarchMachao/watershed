@@ -1148,6 +1148,26 @@
 		
 		<script type="text/javascript">
 		
+		var options="";
+// 		加载select的option
+		$.get(
+			"getProjectById.do",
+			{projectId:"${projectId}"},
+			function(data){
+				for(var i=parseInt(data.goalYear);i>=parseInt(data.baseYear);i--){
+					options=options+"<option>"+i.toString()+"</option>";
+				}
+				$("#IPCC-selectYears").empty();
+				$("#IPCC-selectYears").append(options);
+				$("#industry-selectYears").empty();
+				$("#industry-selectYears").append(options);
+				$("#land-selectYears").empty();
+				$("#land-selectYears").append(options);
+				$("#water-selectYears").empty();
+				$("#water-selectYears").append(options);
+			}
+		)
+		
 		$("#nextStep").on("click",function(){
 			location.href = 'jumpToAbstract.do?projectId='+document.getElementById("projectId").value;
 		})
