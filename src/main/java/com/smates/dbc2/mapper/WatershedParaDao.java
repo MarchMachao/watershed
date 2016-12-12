@@ -222,6 +222,13 @@ public interface WatershedParaDao {
 	public void addMidAndDownStreamPercentPara(MidAndDownStreamPercentPara midAndDownStreamPercentPara);
 	
 	/**
+	 * 获取中下游分水量
+	 * @param projectId
+	 * @return
+	 */
+	public MidAndDownStreamPercentPara getMidAndDownStreamPercentPara(String projectId);
+	
+	/**
 	 * 删除对应项目ID中下游水分配数据
 	 * @param projectId
 	 */

@@ -4,7 +4,8 @@
 
 	<!-- 查找所有评价结果信息 -->
 	<select id="getAllGisecharts" resultType="Gisecharts">
-		select * from "a_gisecharts" order by "a_gisecharts"."year"
+		select * from
+		"a_gisecharts" order by "a_gisecharts"."year"
 	</select>
 
 	<!-- 插入一条评价结果信息 -->
@@ -13,10 +14,34 @@
 		"a_gisecharts"
 		VALUES(#{year},#{resultOverall},#{resultP1},#{resultP2},#{resultP3})
 	</insert>
-	
+
 	<!-- 插入一条评价结果信息 -->
 	<delete id="deleteGisecharts" parameterType="String">
-		delete from "a_gisecharts" where "a_gisecharts"."year" = #{value}
+		delete from
+		"a_gisecharts" where "a_gisecharts"."year" = #{value}
 	</delete>
+
+	<!-- 更新上游更新面积数据 -->
+	<update id="updateLandUseArea" parameterType="CountryIdAndFarmAreaVo">
+		update "a_tbLanduseScePara"
+		<set>
+			<if test="farmArea!=null">
+				"a_tbLanduseScePara"."fldFarmArea" = #{farmArea}
+			</if>
+			<if test="wetLand!=null">
+				"a_tbLanduseScePara"."WetlandArea" = #{wetLand}
+			</if>
+		</set>
+		where "a_tbLanduseScePara"."countryId" = #{countryId} and
+		"a_tbLanduseScePara"."projectId" = #{projectId}
+	</update>
 	
+	<!-- 更新滴灌面积 -->
+	<update id="updateSprinkArea" parameterType="CountryIdAndFarmAreaVo">
+		update "a_tbSocioEconomyScePara"
+		set "a_tbSocioEconomyScePara"."fldSprinkingArea" = #{sprinkArea}
+		where "a_tbSocioEconomyScePara"."countryId" = #{countryId} and
+		"a_tbSocioEconomyScePara"."projectId" = #{projectId}
+	</update>
+
 </mapper>
