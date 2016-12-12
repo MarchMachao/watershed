@@ -147,7 +147,7 @@ public class GisController extends BaseController {
 		
 		//下游耕地面积和
 		double downStreamFarmArea = 0;
-		for(int i=0;i<downstreamLanUseSceVos.size();i++){
+		for(int i=0;i<downstreamLanUseSceVos.size();i++){ 
 			downStreamFarmArea = downStreamFarmArea + Double.parseDouble(downstreamLanUseSceVos.get(i).getFldFarmArea());
 		}
 //		List<CountryIdAndFarmAreaVo> CountryIdAndFarmAreaVos3 = new ArrayList<CountryIdAndFarmAreaVo>();
