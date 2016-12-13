@@ -196,6 +196,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into "a_MidAndDownStreamPercentPara"
 		values(#{projectId},#{watershedId},#{serfaceWater},#{midstreamPercent},#{downstreamPercent})
 	</insert>
+	
+	<!-- 获取中下游分水量 -->
+	<select id="getMidAndDownStreamPercentPara" parameterType="String" resultType="MidAndDownStreamPercentPara">
+		select * from "a_MidAndDownStreamPercentPara"
+	</select>
 
 	<!-- 删除 中下游水分配 -->
 	<delete id="deleteMidAndDownStreamPercentPara" parameterType="String">

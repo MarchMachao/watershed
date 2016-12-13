@@ -3,6 +3,7 @@ package com.smates.dbc2.mapper;
 import java.util.List;
 
 import com.smates.dbc2.po.Gisecharts;
+import com.smates.dbc2.vo.CountryIdAndFarmAreaVo;
 
 /**
  * gis相关Dao
@@ -32,4 +33,17 @@ public interface GisDao {
 	 * @param year
 	 */
 	public void deleteGisecharts(String year);
+	
+	/**
+	 * 更新上游耕地面积
+	 */
+	public void updateLandUseArea(CountryIdAndFarmAreaVo ountryIdAndFarmAreaVo);
+	
+	/**
+	 * 更新滴灌面积
+	 * @param ountryIdAndFarmAreaVo
+	 */
+	public void updateSprinkArea(CountryIdAndFarmAreaVo ountryIdAndFarmAreaVo);
+	
+	
 }
