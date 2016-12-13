@@ -58,7 +58,7 @@
             0%
         </div>
     </div>
-    <h4>模拟结果</h4>
+    <h4>模拟结果 <span style="margin-left:20px">(甘州县)</span></h4>
     <div class="table-responsive" style="margin-top: 20px;">
 	    <table id="resultTable" class="table table-hover">
 	      	<tr><th style="min-width: 200px;">年份/指标</th></tr>
@@ -151,8 +151,10 @@
 		            $(".progress-bar").attr({
 		                "aria-valuenow" : num
 		            }).width(num + "%").html(num + "%");
-	        	}else{
-	        		document.getElementById("startEvalModel").value="年份数据不足";
+	        	} 
+	        	if(data.length<2){
+	        		$("#startEvalModel").text("年份数据不足");
+	        		$("#startEvalModel").attr("disabled","disabled");
 	        		
 	        	}
 	        },
@@ -197,7 +199,6 @@
 			"years" : jsonData
 		}, function(data) {
 			var inputdata = JSON.stringify(data);
-			//因为传一年数据指标计算模型不工作，传入两年相同数据
 			$.ajax({
 				type:"post",
 				url:"http://210.77.79.201/EvalModel/startEvalModel.do",
