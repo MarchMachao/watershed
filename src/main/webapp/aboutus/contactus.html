@@ -9,10 +9,11 @@
 </head>
 <style>
 .pull-left {
-	width: 610px;
-	height: 300px;
+	width: 360px;
+	font-size: 1.2em;
 	padding: 10px 20px;
 	margin-right: 20px;
+	margin-bottom: 30px;
 	float: left;
 	background-color: #f6f6f6;
 	outline: none;
@@ -26,14 +27,18 @@
 	box-shadow: 0 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0 0 0 3px rgb(254, 254, 254), 3px 6px 4px 4px rgb(210, 210, 210);
 }
 
+.dl-horizontal dt{width: 90px;}
+.dl-horizontal dd{margin-left: 100px;}
+
 body {
 	padding: 30px 10%;
+	font-family: '微软雅黑';
 }
 </style>
-<body class="wrapper" style="font-family: '微软雅黑';">
-	<h1>联系我们</h1>
+<body class="wrapper">
+	<h2>联系我们</h2>
 	<hr />
-	<h2 class="pull-left">
+	<div class="pull-left">
 		<dl class="dl-horizontal">
 		  <dt>地址：</dt>
 		  <dd>兰州市东岗西路320号  <br>兰州  甘肃</dd>
@@ -46,8 +51,8 @@ body {
 		  <dt>邮编：</dt>
 		  <dd>730000</dd>
 		</dl>
-	</h2>
-	<h2 class="pull-left" style="margin-bottom: 30px;">
+	</div>
+	<div class="pull-left">
 		<dl class="dl-horizontal">
 		  <dt>addr：</dt>
 		  <dd>320 Donggang West Road,<br> Lanzhou,Gansu</dd>
@@ -60,6 +65,6 @@ body {
 		  <dt>zip：</dt>
 		  <dd>730000</dd>
 		</dl>
-	</h2>
+	</div>
 </body>
 </html>
