@@ -260,7 +260,8 @@
 												</div>
 											</div>
 											<div class="row-fluid">
-												<div class="span12" id="showArea-3" style="height:300px;width:800px">
+												<div class="span12" style="margin-left:7%">
+												<div id="showArea-3" style="height:300px;width:800px"></div>
 													<!-- ECharts图表显示 -->
 												</div>
 											</div>
@@ -322,7 +323,8 @@
 													</div>
 												</div>
 												<div class="row-fluid">
-													<div class="span12" id="showArea-4" style="height:300px;width:800px">
+													<div class="span12" style="margin-left:7%">
+													<div id="showArea-4" style="height:300px;width:800px"></div>
 														<!-- ECharts图表显示 -->
 													</div>
 												</div>
@@ -436,7 +438,7 @@
 
 								<div class="row-fluid">
 									<div class="span1"></div>
-									<div class="span10" style="margin-left:40px">
+									<div class="span12" style="margin-left:13%">
 										<div id="economy-showArea-1" style="height:300px;width:800px">
 											<!-- 显示人均GDP变化图表 -->
 										</div>
@@ -602,7 +604,7 @@
 
 								<div class="row-fluid">
 									<div class="span1"></div>
-									<div class="span10" style="margin-left:40px">
+									<div class="span12" style="margin-left:13%">
 										<div id="economy-showArea-2" style="height:300px;width:800px">
 											<!-- 显示各级渠道长度与水利用率变化图表 -->
 										</div>
@@ -789,7 +791,8 @@
 												</div>
 											</div>
 											<div class="row-fluid">
-												<div class="span12" id="land_show_1" style="height:300px;width:800px">
+												<div class="span12" style="margin-left:7%">
+												<div id="land_show_1" style="height:300px;width:800px"></div>
 													<!-- ECharts图表显示 -->
 												</div>
 											</div>
@@ -877,7 +880,8 @@
 										</div>
 
 										<div class="row-fluid">
-											<div class="span12" id="land_show_2" style="height:300px;width:800px">
+											<div class="span12" style="margin-left:7%">
+											<div id="land_show_2" style="height:300px;width:800px"></div>
 												<!-- ECharts图表显示 -->
 											</div>
 										</div>
@@ -925,7 +929,8 @@
 														</br>
 													</div>
 													<div class="row-fluid">
-														<div class="span12" id="land_show_3" style="height:300px;width:800px">
+														<div class="span12" style="margin-left:7%">
+														<div id="land_show_3" style="height:300px;width:800px"></div>
 														<!-- ECharts图表显示 -->
 													</div>
 										</div>

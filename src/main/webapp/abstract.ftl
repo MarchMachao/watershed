@@ -101,7 +101,7 @@
         <h4>土地利用情景</h4>
         <ul class="list-unstyled row">
             <li>
-                <span class="part2-title">耕地面积变化率</span><spanc id="land-1"></span>%
+                <span class="part2-title">耕地面积变化率</span><span id="land-1"></span>%
             </li>
             <li class="col-md-6">
                 <span class="part2-title">小麦种植面积变化率</span><span id="land-2"></span>%
@@ -248,7 +248,8 @@
 				$("#conomy-1").html(data.perCapGDPR);
 				$("#conomy-2").html(data.perCapGDP);
 			}else{
-				$("#conomy-1,#conomy-2").html('0');
+				$("#conomy-1").html('8');
+				$("#conomy-2").html('0.3')
 			}
 		});
 		
