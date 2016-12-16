@@ -89,10 +89,10 @@
         <h4>产业与城市发展情景</h4>
         <ul class="list-unstyled">
             <li>
-                <span class="part2-title">非农业人口比例变化率</span><span id="industry-1"></span>
+                <span class="part2-title">非农业人口比例变化率</span><span id="industry-1"></span>%
             </li>
             <li>
-                <span class="part2-title">旅游业产值变化率</span><span id="industry-2"></span>
+                <span class="part2-title">旅游业产值变化率</span><span id="industry-2"></span>%
             </li>
         </ul>
         <i class="line"></i>
@@ -101,25 +101,25 @@
         <h4>土地利用情景</h4>
         <ul class="list-unstyled row">
             <li>
-                <span class="part2-title">耕地面积变化率</span><spanc id="land-1"></span>
+                <span class="part2-title">耕地面积变化率</span><spanc id="land-1"></span>%
             </li>
             <li class="col-md-6">
-                <span class="part2-title">小麦种植面积变化率</span><span id="land-2"></span>
+                <span class="part2-title">小麦种植面积变化率</span><span id="land-2"></span>%
             </li>
             <li class="col-md-6">
-                <span class="part2-title">玉米种植面积变化率</span><span id="land-3"></span>
+                <span class="part2-title">玉米种植面积变化率</span><span id="land-3"></span>%
             </li>
             <li class="col-md-6">
-                <span class="part2-title">油料种植面积变化率</span><span id="land-4"></span>
+                <span class="part2-title">油料种植面积变化率</span><span id="land-4"></span>%
             </li>
             <li class="col-md-6">
-                <span class="part2-title">蔬菜种植面积变化率</span><span id="land-5"></span>
+                <span class="part2-title">蔬菜种植面积变化率</span><span id="land-5"></span>%
             </li>
             <li class="col-md-6">
-                <span class="part2-title">果园种植面积变化率</span><span id="land-6"></span>
+                <span class="part2-title">果园种植面积变化率</span><span id="land-6"></span>%
             </li>
             <li class="col-md-6">
-                <span class="part2-title">棉花种植面积变化率</span><span id="land-7"></span>
+                <span class="part2-title">棉花种植面积变化率</span><span id="land-7"></span>%
             </li>
         </ul>
         <i class="line"></i>
@@ -128,10 +128,10 @@
         <h4>社会经济发展情景</h4>
         <ul class="list-unstyled row">
             <li class="col-md-6">
-                <span class="part2-title">GDP增长率</span><span id="conomy-1"></span>
+                <span class="part2-title">GDP增长率</span><span id="conomy-1"></span>%
             </li>
             <li class="col-md-6">
-                <span class="part2-title">人均GDP增长率</span><span id="conomy-2"></span>
+                <span class="part2-title">人均GDP增长率</span><span id="conomy-2"></span>%
             </li>
         </ul>
     </div>
@@ -152,7 +152,7 @@
 		function(data){
 			$("#part1-1").html("黑河流域"),
 			$("#part1-2").html(data.baseYear+"~"+data.goalYear),
-			$("#part1-3").html("一年"),
+			$("#part1-3").html("年"),
 			$("#part1-4").html(data.name);
 			for(var i=parseInt(data.goalYear);i>=parseInt(data.baseYear);i--){
 				options=options+"<option>"+i.toString()+"</option>";
@@ -215,7 +215,7 @@
 				$("#industry-1").html(data.nonFarmPercent);
 				$("#industry-2").html(data.changeRateOfTourismIndustry)
 			}else{
-				$("#industry-1,#industry-2").html('无相关数据');
+				$("#industry-1,#industry-2").html('0');
 			}
 		});
 		
@@ -234,7 +234,7 @@
 				$("#land-6").html(data.orchardChgR);
 				$("#land-7").html(data.cottonChgR);
 			}else{
-				$("#land-1,#land-2,#land-3,#land-4,#land-5,#land-6,#land-7").html('无相关数据');
+				$("#land-1,#land-2,#land-3,#land-4,#land-5,#land-6,#land-7").html('0');
 			}
 		});
 		
@@ -248,7 +248,7 @@
 				$("#conomy-1").html(data.perCapGDPR);
 				$("#conomy-2").html(data.perCapGDP);
 			}else{
-				$("#conomy-1,#conomy-2").html('无相关数据');
+				$("#conomy-1,#conomy-2").html('0');
 			}
 		});
 		

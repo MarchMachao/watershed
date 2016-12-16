@@ -55,16 +55,16 @@
 								<a data-toggle="tab" href="#industry"><i class="blue icon-user bigger-110"></i>产业与城市发展情景</a>
 							</li>
 							<li>
-								<a data-toggle="tab" href="#land"><span class="badge badge-success badge-icon"><i
-									class="icon-caret-right"></i></span>土地利用情景</a>
+								<a data-toggle="tab" href="#land"><span class="badge badge-success badge-icon">
+									<i class="icon-caret-right"></i></span>土地利用情景</a>
 							</li>
 <!-- 		！！！！！！！！！！！！！！注意，这里“土地利用情景”和“社会经济发展情景”进行了标签的调换，代码没改变位置！！！！！！by 马超 -->
 							<li>
 								<a data-toggle="tab" href="#economy"><i class="blue icon-user bigger-110"></i>社会经济发展情景</a>
 							</li>
 							<li>
-								<a data-toggle="tab" href="#water"><span class="badge badge-success badge-icon"><i
-									class="icon-caret-right"></i></span>水资源管理情景</a>
+								<a data-toggle="tab" href="#water"><span class="badge badge-success badge-icon">
+									<i class="icon-caret-right"></i></span>水资源管理情景</a>
 							</li>
 
 						</ul>
@@ -489,54 +489,45 @@
 									<div class="span2"></div>
 									<div class="span8">
 										
-
 										<div class="row-fluid">
 											<div class="span8"></div>
-											<div class="span4" style="text-align:right;padding-top: 6px">
-												水利用率&nbsp;
+											<div class="span4" style="text-align:left;padding-top: 6px;padding-left: 8px;">
+												水利用率&nbsp;<span style="float: right;margin-right: 25px;">渠道长度</span>
 											</div>
 										</div>
-
+										
 										<div class="row-fluid">
-
 											<div class="span1">
 												<span>干渠</span>
 											</div>
 											<div class="span7" style="margin-top:4px">
-
 												<div class="progress progress-small progress-striped active">
 													<div id="ganQuBar" class="bar" style="width: 40%;"></div>
 												</div>
-
 											</div>
 											<div class="span4">
-												<input type="text" class="input" id="ganQu_text" value="943.08" style="width: 60px;"/>km
-												<span style="margin-bottom:8px;margin-top:0px;float:right">
 												<input type="spinner" class="input" id="ganQu_spinner" value="40"/>%
-											</span>
+												<span style="margin-bottom:8px;margin-top:0px;float:right">
+													<input type="text" class="input" id="ganQu_text" value="943.08" style="width: 60px;"/>km
+												</span>
 											</div>
-
 										</div>
 
 										<div class="row-fluid">
-
 											<div class="span1">
 												<span>支渠</span>
 											</div>
 											<div class="span7" style="margin-top:4px">
-
 												<div class="progress progress-small progress-striped active">
 													<div id="zhiQuBar" class="bar" style="width: 45%;"></div>
 												</div>
-
 											</div>
 											<div class="span4">
-												<input type="text" class="input" id="zhiQu_text" value="1033.63" style="width: 60px;"/>km
-												<span style="float:right">
 												<input type="spinner" class="input" id="zhiQu_spinner" value="45"/>%
-											</span>
+												<span style="float:right">
+													<input type="text" class="input" id="zhiQu_text" value="1033.63" style="width: 60px;"/>km
+												</span>
 											</div>
-
 										</div>
 
 										<div class="row-fluid">
@@ -552,10 +543,10 @@
 
 											</div>
 											<div class="span4">
-												<input type="text" class="input" id="douQu_text" value="2318.42" style="width: 60px;"/>km
-												<span style="float:right">
 												<input type="spinner" class="input" id="douQu_spinner" value="90"/>%
-											</span>
+												<span style="float:right">
+													<input type="text" class="input" id="douQu_text" value="2318.42" style="width: 60px;"/>km
+												</span>
 
 											</div>
 
@@ -574,9 +565,9 @@
 
 											</div>
 											<div class="span4">
-												<input type="text" class="input" id="nongQu_text" value="2.42" style="width: 60px;"/>km
+												<input type="spinner" class="input" id="nongQu_spinner" value="0"/>%
 												<span style="float:right">
-													<input type="spinner" class="input" id="nongQu_spinner" value="0"/>%
+													<input type="text" class="input" id="nongQu_text" value="2.42" style="width: 60px;"/>km
 												</span>
 											</div>
 
@@ -595,10 +586,11 @@
 
 											</div>
 											<div class="span4">
-												<input type="text" class="input" id="maoQu_text" value="0" style="width: 60px;"/>km
-												<span style="float:right">
 												<input type="spinner" class="input" id="maoQu_spinner" value="0"/>%
-											</span>
+												<span style="float:right">
+													<input type="text" class="input" id="maoQu_text" value="0" style="width: 60px;"/>km
+													
+												</span>
 											</div>
 
 										</div>
@@ -670,7 +662,7 @@
 												<div id="economy-slider-3" style="float:right;display:inline;"></div>
 											</div>
 											<div class="span2">
-												<input type="text" id="economy-industry" class="input-mini" value="50">元
+												<input type="text" id="economy-industry" class="input-mini" value="35">元&nbsp;(单位产值补贴金额)
 											</div>
 										</div>
 									</div>
@@ -685,7 +677,7 @@
 												<div id="economy-slider-4" style="float:right;display:inline;"></div>
 											</div>
 											<div class="span2">
-												<input type="text" id="economy-farm" class="input-mini" value="50">元
+												<input type="text" id="economy-farm" class="input-mini" value="20">元&nbsp;(每亩补贴金额，包括税收)
 											</div>
 										</div>
 									</div>
@@ -700,7 +692,7 @@
 												<div id="economy-slider-5" style="float:right;display:inline;"></div>
 											</div>
 											<div class="span2">
-												<input type="text" id="economy-service" class="input-mini" value="50">元
+												<input type="text" id="economy-service" class="input-mini" value="50">元&nbsp;(单位产值补贴金额，税收)
 											</div>
 										</div>
 									</div>

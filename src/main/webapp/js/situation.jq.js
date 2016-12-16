@@ -325,10 +325,10 @@
 				width: '100%',
 				margin: '5px 5px 15px 5px'
 			}).slider({
-				value: 50,
+				value: 35,
 				range: "min",
 				min: 0,
-				max: 100,
+				max: 200,
 				step: 1,
 				slide: function(event, ui) {
 					var val = parseInt(ui.value);
@@ -341,7 +341,7 @@
 				width: '100%',
 				margin: '5px 5px 15px 5px'
 			}).slider({
-				value: 50,
+				value: 20,
 				range: "min",
 				min: 0,
 				max: 100,
@@ -360,7 +360,7 @@
 				value: 50,
 				range: "min",
 				min: 0,
-				max: 100,
+				max: 200,
 				step: 1,
 				slide: function(event, ui) {
 					var val = parseInt(ui.value);
@@ -589,9 +589,9 @@
 			//设置水资源管理情景中流域中下游可供地表水设为固定
 			$('#water_province_total').spinner({
 					value: 15880,
-					min: 15880,
-					max: 15880,
-					step: 5,
+					min: 13880,
+					max: 17880,
+					step: 10,
 				})
 				.css({
 					height: '20px',
