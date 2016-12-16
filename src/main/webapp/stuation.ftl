@@ -658,47 +658,42 @@
 								<div class="row-fluid">
 									<div class="span2"></div>
 									<div class="span8">
-										<div class="row-fluid">
 											<div class="span2">工业</div>
 											<div class="span8">
 												<div id="economy-slider-3" style="float:right;display:inline;"></div>
 											</div>
 											<div class="span2">
-												<input type="text" id="economy-industry" class="input-mini" value="35">元&nbsp;(单位产值补贴金额)
+												<input type="text" id="economy-industry" class="input-mini" value="35">元<br />
+												<span style="margin-left:-25px" >(单位产值补贴金额)</span>
 											</div>
-										</div>
 									</div>
-									<div class="span2"></div>
 								</div>
 								<div class="row-fluid">
 									<div class="span2"></div>
 									<div class="span8">
-										<div class="row-fluid">
 											<div class="span2">农业</div>
 											<div class="span8">
 												<div id="economy-slider-4" style="float:right;display:inline;"></div>
 											</div>
 											<div class="span2">
-												<input type="text" id="economy-farm" class="input-mini" value="20">元&nbsp;(每亩补贴金额，包括税收)
+												<input type="text" id="economy-farm" class="input-mini" value="20">元<br />
+												<span style="margin-left:-25px" >(每亩补贴金额，包括税收)</span>
 											</div>
-										</div>
 									</div>
-									<div class="span2"></div>
+									
 								</div>
 								<div class="row-fluid">
 									<div class="span2"></div>
 									<div class="span8">
-										<div class="row-fluid">
 											<div class="span2">服务业</div>
 											<div class="span8">
 												<div id="economy-slider-5" style="float:right;display:inline;"></div>
 											</div>
 											<div class="span2">
-												<input type="text" id="economy-service" class="input-mini" value="50">元&nbsp;(单位产值补贴金额，税收)
+												<input type="text" id="economy-service" class="input-mini" value="50">元<br />
+												<span style="margin-left:-25px" >(单位产值补贴金额，税收)</span>
 											</div>
-										</div>
 									</div>
-									<div class="span2"></div>
 								</div>
 								<div class="row-fluid">
 									<div class="span1"></div>
