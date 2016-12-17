@@ -217,6 +217,9 @@ public class WatershedController extends BaseController {
 
 	@RequestMapping(value = "jumpToAbstract", method = RequestMethod.GET)
 	public String jumpToAbstract(ModelMap modelMap, String projectId) {
+		if(projectId == null){
+			projectId = userProjectRelationService.getUserProjectRelationByUserName(userService.getCurrentUserId()).getAutoProjectId();
+		}
 		modelMap.addAttribute("projectId", projectId);
 		return "abstract.ftl";
 	}

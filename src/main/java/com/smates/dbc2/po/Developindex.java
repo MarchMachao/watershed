@@ -10,23 +10,23 @@ public class Developindex {
 
 	private int oid;
 	private String countyname;
-	private float AQ;
-	private float EQ;
-	private float MGWD;
-	private float GDP;
-	private float IAGDP;
-	private float MIA;
-	private float Pop;
-	private float DFA;
-	private float DLA;
+	private double AQ;
+	private double EQ;
+	private double MGWD;
+	private double GDP;
+	private double IAGDP;
+	private double MIA;
+	private double Pop;
+	private double DFA;
+	private double DLA;
 	private int year;
 
 	public Developindex() {
 		super();
 	}
 
-	public Developindex(int oid, String countyname, float aQ, float eQ, float mGWD, float gDP, float iAGDP, float mIA,
-			float pop, float dFA, float dLA, int year) {
+	public Developindex(int oid, String countyname, double aQ, double eQ, double mGWD, double gDP, double iAGDP, double mIA,
+			double pop, double dFA, double dLA, int year) {
 		super();
 		this.oid = oid;
 		this.countyname = countyname;
@@ -58,75 +58,75 @@ public class Developindex {
 		this.countyname = countyname;
 	}
 
-	public float getAQ() {
+	public double getAQ() {
 		return AQ;
 	}
 
-	public void setAQ(float aQ) {
+	public void setAQ(double aQ) {
 		AQ = aQ;
 	}
 
-	public float getEQ() {
+	public double getEQ() {
 		return EQ;
 	}
 
-	public void setEQ(float eQ) {
+	public void setEQ(double eQ) {
 		EQ = eQ;
 	}
 
-	public float getMGWD() {
+	public double getMGWD() {
 		return MGWD;
 	}
 
-	public void setMGWD(float mGWD) {
+	public void setMGWD(double mGWD) {
 		MGWD = mGWD;
 	}
 
-	public float getGDP() {
+	public double getGDP() {
 		return GDP;
 	}
 
-	public void setGDP(float gDP) {
+	public void setGDP(double gDP) {
 		GDP = gDP;
 	}
 
-	public float getIAGDP() {
+	public double getIAGDP() {
 		return IAGDP;
 	}
 
-	public void setIAGDP(float iAGDP) {
+	public void setIAGDP(double iAGDP) {
 		IAGDP = iAGDP;
 	}
 
-	public float getMIA() {
+	public double getMIA() {
 		return MIA;
 	}
 
-	public void setMIA(float mIA) {
+	public void setMIA(double mIA) {
 		MIA = mIA;
 	}
 
-	public float getPop() {
+	public double getPop() {
 		return Pop;
 	}
 
-	public void setPop(float pop) {
+	public void setPop(double pop) {
 		Pop = pop;
 	}
 
-	public float getDFA() {
+	public double getDFA() {
 		return DFA;
 	}
 
-	public void setDFA(float dFA) {
+	public void setDFA(double dFA) {
 		DFA = dFA;
 	}
 
-	public float getDLA() {
+	public double getDLA() {
 		return DLA;
 	}
 
-	public void setDLA(float dLA) {
+	public void setDLA(double dLA) {
 		DLA = dLA;
 	}
 

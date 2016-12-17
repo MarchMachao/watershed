@@ -193,30 +193,17 @@
     });
     //绑定btn_eval按钮的点击事件
     $("#btn_eval").bind("click", function () {
-
-        var json = {};
-        json["#situation-1"] = $("#situation-1").val();
-        json["#situation-2-1"] = $("#situation-2-1").val();
-        json["#situation-2-1"] = $("#situation-2-1").val();
-        json["#situation-3"] = $("#situation-3").val();
-        json["#situation-4"] = $("#situation-4").val();
-        json["#situation-5"] = $("#situation-5").val();
-        json["#situation-6"] = $("#situation-6").val();
         //使用ajax将数据发送到服务端
-        $.ajax({
-            url: '<%=basePath%>admin/indexcompute.do',
-            type: "POST",
-            dataType: "json",
-            data: json,
-            /*error:function(){
-             alert("保存指标失败，请重试！");
-             },
-             success:function(){
-             alert("保存成功！");
-             //将显示目标体系的show按钮设置为可用状态
-             //$("#show").attr("disable",false);
-
-             }	*/
+        $.get("stuationControl.do",{
+        	 "upstreamCultivatedArea":document.getElementById("situation-1").value,
+        	 "midstreamWater":document.getElementById("situation-2-1").value,
+ 			 "downstreamWater":document.getElementById("situation-2-1").value,
+ 			 "midStreamCultivatedArea":document.getElementById("situation-3").value,
+ 			 "midStreamWetLandArea":document.getElementById("situation-4").value,
+ 			 "midStreamDripIrrigation":document.getElementById("situation-5").value,
+ 			 "downStreamCultivatedArea":document.getElementById("situation-6").value
+        },function(data){
+        	location.href = "jumpToAbstract.do";
         });
 
     });

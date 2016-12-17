@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.smates.dbc2.mapper.GisDao;
 import com.smates.dbc2.po.Gisecharts;
-import com.smates.dbc2.po.MidAndDownStreamPercentPara;
 import com.smates.dbc2.po.TbSocioEconomyScePara;
 import com.smates.dbc2.service.GisService;
 import com.smates.dbc2.vo.BaseMsg;
@@ -87,7 +86,7 @@ public class GisController extends BaseController {
 		//下游【耕地面积、湿地面积】
 		List<StreamLanUseSceVo> downstreamLanUseSceVos = streamLanUseSceVoDao.getStreamLanUseSceVo("downstream");
 		//中下游分水量
-		MidAndDownStreamPercentPara midAndDownStreamPercentPara = watershedParaDao.getMidAndDownStreamPercentPara(projectId);
+//		MidAndDownStreamPercentPara midAndDownStreamPercentPara = watershedParaDao.getMidAndDownStreamPercentPara(projectId);
 		//中游滴灌面积
 		List<TbSocioEconomyScePara> midStreamTbSocioEconomyScePara = watershedParaDao.getmidStreamSocioEconomyScePara(projectId);
 		
@@ -119,7 +118,7 @@ public class GisController extends BaseController {
 			double percentwet = (Double.parseDouble(midstreamLanUseSceVos.get(i).getFldFarmArea())/midStreamWetLand)*midStreamWetLand;
 			CountryIdAndFarmAreaVo countryIdAndFarmAreaVo = new CountryIdAndFarmAreaVo();
 			countryIdAndFarmAreaVo.setProjectId(projectId);
-			countryIdAndFarmAreaVo.setCountryId(upstreamLanUseSceVos.get(i).getCountryId());
+			countryIdAndFarmAreaVo.setCountryId(midstreamLanUseSceVos.get(i).getCountryId());
 			countryIdAndFarmAreaVo.setFarmArea(percentArea+"");
 			countryIdAndFarmAreaVo.setWetLand(percentwet+"");
 //			CountryIdAndFarmAreaVos1.add(countryIdAndFarmAreaVo);
@@ -137,7 +136,7 @@ public class GisController extends BaseController {
 			double percentArea = (Double.parseDouble(midStreamTbSocioEconomyScePara.get(i).getFldSprinkingArea())/midStreamsprink)*midStreamsprink;
 			CountryIdAndFarmAreaVo countryIdAndFarmAreaVo = new CountryIdAndFarmAreaVo();
 			countryIdAndFarmAreaVo.setProjectId(projectId);
-			countryIdAndFarmAreaVo.setCountryId(upstreamLanUseSceVos.get(i).getCountryId());
+			countryIdAndFarmAreaVo.setCountryId(midStreamTbSocioEconomyScePara.get(i).getCountryId());
 			countryIdAndFarmAreaVo.setSprinkArea(percentArea+"");
 			CountryIdAndFarmAreaVos2.add(countryIdAndFarmAreaVo);
 			gisDao.updateSprinkArea(countryIdAndFarmAreaVo);
@@ -152,9 +151,9 @@ public class GisController extends BaseController {
 		}
 //		List<CountryIdAndFarmAreaVo> CountryIdAndFarmAreaVos3 = new ArrayList<CountryIdAndFarmAreaVo>();
 		for(int i=0;i<downstreamLanUseSceVos.size();i++){
-			double percentArea = (Double.parseDouble(upstreamLanUseSceVos.get(i).getFldFarmArea())/upStramFarmArea)*upStramFarmArea;
+			double percentArea = (Double.parseDouble(downstreamLanUseSceVos.get(i).getFldFarmArea())/upStramFarmArea)*upStramFarmArea;
 			CountryIdAndFarmAreaVo countryIdAndFarmAreaVo = new CountryIdAndFarmAreaVo();
-			countryIdAndFarmAreaVo.setCountryId(upstreamLanUseSceVos.get(i).getCountryId());
+			countryIdAndFarmAreaVo.setCountryId(downstreamLanUseSceVos.get(i).getCountryId());
 			countryIdAndFarmAreaVo.setProjectId(projectId);
 			countryIdAndFarmAreaVo.setFarmArea(String.valueOf(percentArea));
 //			CountryIdAndFarmAreaVos3.add(countryIdAndFarmAreaVo);
@@ -164,10 +163,13 @@ public class GisController extends BaseController {
 		/**
 		 * 更新中下游分水量
 		 */
-		watershedParaDao.deleteMidAndDownStreamPercentPara(projectId);
-		watershedParaDao.addMidAndDownStreamPercentPara(midAndDownStreamPercentPara);
-		
+//		watershedParaDao.deleteMidAndDownStreamPercentPara(projectId);
+//		watershedParaDao.addMidAndDownStreamPercentPara(midAndDownStreamPercentPara);
+		gisService.updateDevelop();
+		gisService.updateGisIndex();
 		return new BaseMsg(true, "情景控制保存成功");
 	}
+	
+	
 
 }

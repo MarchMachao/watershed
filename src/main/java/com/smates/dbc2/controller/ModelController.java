@@ -482,11 +482,11 @@ public class ModelController {
 		return risDSSModelService.queryState();
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = ("saveFirstModelResult"), method = RequestMethod.GET)
-	public String saveFirstModelResult(String data){
-		developIndexService.updateDevelopIndex();
-		return "";
-	}
+//	@ResponseBody
+//	@RequestMapping(value = ("saveFirstModelResult"), method = RequestMethod.GET)
+//	public String saveFirstModelResult(String data){
+//		developIndexService.updateDevelopIndex();
+//		return "";
+//	}
 
 }
