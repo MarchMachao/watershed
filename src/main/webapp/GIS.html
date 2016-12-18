@@ -266,75 +266,80 @@
         console.log(clicknum1+"///"+clicknum2);
     });
 
-	function drawchart(){
-		var myChart = echarts.init(document.getElementById('gis-chart-1'));
-		$.get("getGisEcharts.do",
-				[],function(data){
-				var xdata=[], Overall=[],P1=[],P2=[],P3=[];
-				for(var i=0;i<data.length;i++){
-					xdata[i]=data[i].year,
-					Overall[i]=data[i].resultOverall,
-					P1[i]=data[i].resultP1,
-					P2[i]=data[i].resultP2,
-					P3[i]=data[i].resultP3;
-				}
-		
-				var option = {
-				    tooltip : {
-				        trigger: 'axis'
-				    },
-				    legend: {
-				        data:['resultOverall','resultP1','resultP2','resultP3',]
-				    },
-				    toolbox: {
-				        show : true,
-				        feature : {
-				            restore : {show: true},
-				            saveAsImage : {show: true}
-				        }
-				    },
-				    calculable : true,
-				    xAxis : [
-				        {
-				            type : 'category',
-				            boundaryGap : false,
-				            data : xdata
-				        }
-				    ],
-				    yAxis : [
-				        {
-				            type : 'value'
-				        }
-				    ],
-				    series : [
-				        {
-				            name:'resultOverall',
-				            type:'line',
-				            stack: '总量',
-				            data: Overall
-				        },
-				        {
-				            name:'resultP1',
-				            type:'line',
-				            stack: '总量',
-				            data: P1
-				        },
-				        {
-				            name:'resultP2',
-				            type:'line',
-				            stack: '总量',
-				            data:P2
-				        },
-				        {
-				            name:'resultP3',
-				            type:'line',
-				            stack: '总量',
-				            data:P3
-				        }
-				        
-				    ]
-				};
-				myChart.setOption(option); 
+    function drawchart(){
+        var myChart = echarts.init(document.getElementById('gis-chart-1'));
+        $.get("getGisEcharts.do",
+                [],function(data){
+                var xdata=[], Overall=[],P1=[],P2=[],P3=[];
+                for(var i=0;i<data.length;i++){
+                    xdata[i]=data[i].year,
+                    Overall[i]=data[i].resultOverall,
+                    P1[i]=data[i].resultP1,
+                    P2[i]=data[i].resultP2,
+                    P3[i]=data[i].resultP3;
+                }
+        
+                var option = {
+                    title : {
+                        text: '流域可持续发展目标评价',
+                        x:'center',
+                        y:'bottom'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['流域可持续发展','水资源发展','生态发展','经济发展',]
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : true,
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : false,
+                            data : xdata
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'流域可持续发展',
+                            type:'line',
+                            stack: '总量',
+                            data: Overall
+                        },
+                        {
+                            name:'水资源发展',
+                            type:'line',
+                            stack: '总量',
+                            data: P1
+                        },
+                        {
+                            name:'生态发展',
+                            type:'line',
+                            stack: '总量',
+                            data:P2
+                        },
+                        {
+                            name:'经济发展',
+                            type:'line',
+                            stack: '总量',
+                            data:P3
+                        }
+                        
+                    ]
+                };
+                myChart.setOption(option); 
 		});
                    
 	};
