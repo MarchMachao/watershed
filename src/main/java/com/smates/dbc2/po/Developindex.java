@@ -1,5 +1,7 @@
 package com.smates.dbc2.po;
 
+import java.text.DecimalFormat;
+
 /**
  * 发展指标po
  * 
@@ -20,7 +22,7 @@ public class Developindex {
 	private double DFA;
 	private double DLA;
 	private int year;
-
+	DecimalFormat df = new DecimalFormat("0.0");
 	public Developindex() {
 		super();
 	}
@@ -28,17 +30,18 @@ public class Developindex {
 	public Developindex(int oid, String countyname, double aQ, double eQ, double mGWD, double gDP, double iAGDP, double mIA,
 			double pop, double dFA, double dLA, int year) {
 		super();
+		
 		this.oid = oid;
 		this.countyname = countyname;
-		AQ = aQ;
-		EQ = eQ;
-		MGWD = mGWD;
-		GDP = gDP;
-		IAGDP = iAGDP;
-		MIA = mIA;
-		Pop = pop;
-		DFA = dFA;
-		DLA = dLA;
+		AQ = Double.parseDouble(df.format(aQ));
+		EQ = Double.parseDouble(df.format(eQ));
+		MGWD = Double.parseDouble(df.format(mGWD));
+		GDP = Double.parseDouble(df.format(gDP));
+		IAGDP = Double.parseDouble(df.format(iAGDP));
+		MIA = Double.parseDouble(df.format(mIA));
+		Pop = Double.parseDouble(df.format(pop));
+		DFA = Double.parseDouble(df.format(dFA));
+		DLA = Double.parseDouble(df.format(dLA));
 		this.year = year;
 	}
 
@@ -47,6 +50,7 @@ public class Developindex {
 	}
 
 	public void setOid(int oid) {
+		
 		this.oid = oid;
 	}
 
@@ -63,7 +67,7 @@ public class Developindex {
 	}
 
 	public void setAQ(double aQ) {
-		AQ = aQ;
+		AQ = Double.parseDouble(df.format(aQ));
 	}
 
 	public double getEQ() {
@@ -71,7 +75,7 @@ public class Developindex {
 	}
 
 	public void setEQ(double eQ) {
-		EQ = eQ;
+		EQ = Double.parseDouble(df.format(eQ));
 	}
 
 	public double getMGWD() {
@@ -79,7 +83,7 @@ public class Developindex {
 	}
 
 	public void setMGWD(double mGWD) {
-		MGWD = mGWD;
+		MGWD = Double.parseDouble(df.format(mGWD));
 	}
 
 	public double getGDP() {
@@ -87,7 +91,7 @@ public class Developindex {
 	}
 
 	public void setGDP(double gDP) {
-		GDP = gDP;
+		GDP = Double.parseDouble(df.format(gDP));
 	}
 
 	public double getIAGDP() {
@@ -95,7 +99,7 @@ public class Developindex {
 	}
 
 	public void setIAGDP(double iAGDP) {
-		IAGDP = iAGDP;
+		IAGDP = Double.parseDouble(df.format(iAGDP));
 	}
 
 	public double getMIA() {
@@ -103,7 +107,7 @@ public class Developindex {
 	}
 
 	public void setMIA(double mIA) {
-		MIA = mIA;
+		MIA = Double.parseDouble(df.format(mIA));
 	}
 
 	public double getPop() {
@@ -111,7 +115,7 @@ public class Developindex {
 	}
 
 	public void setPop(double pop) {
-		Pop = pop;
+		Pop = Double.parseDouble(df.format(pop));
 	}
 
 	public double getDFA() {
@@ -119,7 +123,7 @@ public class Developindex {
 	}
 
 	public void setDFA(double dFA) {
-		DFA = dFA;
+		DFA = Double.parseDouble(df.format(dFA));
 	}
 
 	public double getDLA() {
@@ -127,7 +131,7 @@ public class Developindex {
 	}
 
 	public void setDLA(double dLA) {
-		DLA = dLA;
+		DLA = Double.parseDouble(df.format(dLA));
 	}
 
 	public int getYear() {

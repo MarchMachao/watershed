@@ -66,7 +66,7 @@ public class GisServiceImpl implements GisService {
 		double random = Math.random();
 		for (int i = 0; i < Consts.countryNames.length; i++) {
 			for (int k = 2000; k < 2014; k++) {
-				random = Math.random();
+				random = Math.random()+0.7;
 				developIndexDao.addDevelopIndex(new Developindex(oid, Consts.countryNames[i], developindex[0]*random,
 						developindex[1]*random, developindex[2]*random, developindex[3]*random, developindex[4]*random, developindex[5]*random,
 						developindex[6]*random, developindex[7]*random, developindex[8]*random, k));
