@@ -1,7 +1,6 @@
 package com.smates.dbc2.service.impl;
 
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,16 +27,15 @@ public class DevelopIndexServiceImpl implements DevelopIndexService{
 		developIndexDao.deleteDevelopIndex();
 		System.out.println(developindexs.size());
 		for(int i=0;i<developindexs.size();i++){
-			System.out.println(i);
-			developindexs.get(i).setAQ((new Random()).nextInt(300));
-			developindexs.get(i).setDFA((new Random()).nextInt(300));
-			developindexs.get(i).setDLA((new Random()).nextInt(300));
-			developindexs.get(i).setEQ((new Random()).nextInt(300));
-			developindexs.get(i).setGDP((new Random()).nextInt(300));
-			developindexs.get(i).setIAGDP((new Random()).nextInt(300));
-			developindexs.get(i).setMGWD((new Random()).nextInt(300));
-			developindexs.get(i).setMIA((new Random()).nextInt(300));
-			developindexs.get(i).setPop((new Random()).nextInt(300));
+			developindexs.get(i).setAQ((Math.random()+0.7)*(developindexs.get(i).getAQ()));
+			developindexs.get(i).setDFA((Math.random()+0.7)*(developindexs.get(i).getDFA()));
+			developindexs.get(i).setDLA((Math.random()+0.7)*(developindexs.get(i).getDLA()));
+			developindexs.get(i).setEQ((Math.random()+0.7)*(developindexs.get(i).getEQ()));
+			developindexs.get(i).setGDP((Math.random()+0.7)*(developindexs.get(i).getGDP()));
+			developindexs.get(i).setIAGDP((Math.random()+0.7)*(developindexs.get(i).getIAGDP()));
+			developindexs.get(i).setMGWD((Math.random()+0.7)*(developindexs.get(i).getMGWD()));
+			developindexs.get(i).setMIA((Math.random()+0.7)*(developindexs.get(i).getMIA()));
+			developindexs.get(i).setPop((Math.random()+0.7)*(developindexs.get(i).getPop()));
 			developIndexDao.addDevelopIndex(developindexs.get(i));
 		}
 	}

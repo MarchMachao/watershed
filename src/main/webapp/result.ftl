@@ -173,8 +173,8 @@
 					
 					
 					//****************************************************
-					var inputdata = JSON.stringify(data);
-					$.get("saveFirstModelResult.do",{"data":inputdata},function(data){})
+// 					var inputdata = JSON.stringify(data);
+// 					$.get("saveFirstModelResult.do",{"data":inputdata},function(data){})
 					//****************************************************
 					
 					

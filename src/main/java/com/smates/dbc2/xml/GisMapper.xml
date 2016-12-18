@@ -26,10 +26,10 @@
 		update "a_tbLanduseScePara"
 		<set>
 			<if test="farmArea!=null">
-				"a_tbLanduseScePara"."fldFarmArea" = #{farmArea}
+				"fldFarmArea" = #{farmArea},
 			</if>
 			<if test="wetLand!=null">
-				"a_tbLanduseScePara"."WetlandArea" = #{wetLand}
+				"WetlandArea" = #{wetLand},
 			</if>
 		</set>
 		where "a_tbLanduseScePara"."countryId" = #{countryId} and
@@ -39,7 +39,7 @@
 	<!-- 更新滴灌面积 -->
 	<update id="updateSprinkArea" parameterType="CountryIdAndFarmAreaVo">
 		update "a_tbSocioEconomyScePara"
-		set "a_tbSocioEconomyScePara"."fldSprinkingArea" = #{sprinkArea}
+		set "fldSprinkingArea" = #{sprinkArea}
 		where "a_tbSocioEconomyScePara"."countryId" = #{countryId} and
 		"a_tbSocioEconomyScePara"."projectId" = #{projectId}
 	</update>

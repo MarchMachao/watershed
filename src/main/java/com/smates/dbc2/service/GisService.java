@@ -26,4 +26,15 @@ public interface GisService {
 	 * @param year
 	 */
 	public void deleteGisecharts(String year);
+	
+	/**
+	 * 更新Gis左下角指标数据
+	 * TODO
+	 */
+	public void updateGisIndex();
+	
+	/**
+	 * 更新右下角指标
+	 */
+	public void updateDevelop();
 }
