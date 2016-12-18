@@ -37,6 +37,9 @@ public class GisController extends BaseController {
 			gisService.addGisecharts(years2.get(i), result.get(i).getResultOverall(), result.get(i).getResultP1(),
 					result.get(i).getResultP2(), result.get(i).getResultP3());
 		}
+		gisService.updateDevelop();
+		gisService.updateGisIndex();
+		gisService.updateThreeindex();
 		return new BaseMsg(true, "指标计算成功！");
 	}
 
@@ -165,8 +168,6 @@ public class GisController extends BaseController {
 		 */
 //		watershedParaDao.deleteMidAndDownStreamPercentPara(projectId);
 //		watershedParaDao.addMidAndDownStreamPercentPara(midAndDownStreamPercentPara);
-		gisService.updateDevelop();
-		gisService.updateGisIndex();
 		return new BaseMsg(true, "情景控制保存成功");
 	}
 	

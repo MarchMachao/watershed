@@ -37,4 +37,9 @@ public interface GisService {
 	 * 更新右下角指标
 	 */
 	public void updateDevelop();
+	
+	/**
+	 * 更新GIS地图上的三个指标柱状图源数据
+	 */
+	public void updateThreeindex();
 }

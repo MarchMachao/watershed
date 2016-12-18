@@ -10,9 +10,11 @@ import com.smates.dbc2.consts.Consts;
 import com.smates.dbc2.mapper.DevelopIndexDao;
 import com.smates.dbc2.mapper.GisDao;
 import com.smates.dbc2.mapper.GisIndexDao;
+import com.smates.dbc2.mapper.ThreeIndexDao;
 import com.smates.dbc2.po.Developindex;
 import com.smates.dbc2.po.GisIndex;
 import com.smates.dbc2.po.Gisecharts;
+import com.smates.dbc2.po.ThreeIndex;
 import com.smates.dbc2.service.GisService;
 
 @Service
@@ -26,6 +28,9 @@ public class GisServiceImpl implements GisService {
 
 	@Autowired
 	private DevelopIndexDao developIndexDao;
+	
+	@Autowired
+	private ThreeIndexDao threeIndexDao;
 
 	@Override
 	public List<Gisecharts> getAllGisecharts() {
@@ -70,6 +75,18 @@ public class GisServiceImpl implements GisService {
 				developIndexDao.addDevelopIndex(new Developindex(oid, Consts.countryNames[i], developindex[0]*random,
 						developindex[1]*random, developindex[2]*random, developindex[3]*random, developindex[4]*random, developindex[5]*random,
 						developindex[6]*random, developindex[7]*random, developindex[8]*random, k));
+				oid++;
+			}
+		}
+	}
+
+	@Override
+	public void updateThreeindex() {
+		threeIndexDao.deleteAll();
+		int oid = 0;
+		for (int i = 0; i < Consts.countryNames.length; i++) {
+			for (int k = 2000; k < 2017; k++) {
+				threeIndexDao.insertIndex(new ThreeIndex(oid, Consts.countryNames[i], k, Math.random()+0.7, Math.random()+0.7, Math.random()+0.7));
 				oid++;
 			}
 		}

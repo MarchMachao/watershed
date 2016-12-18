@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.smates.dbc2.po.Indicators;
-import com.smates.dbc2.service.DevelopIndexService;
 import com.smates.dbc2.service.GetWebServiceParaService;
 import com.smates.dbc2.service.IndexCalculateService;
 import com.smates.dbc2.ws.DoubleArray;
@@ -28,9 +27,6 @@ public class ModelController {
 	@Autowired
 	private IndexCalculateService indexCalculateService;
 	
-	@Autowired
-	private DevelopIndexService developIndexService;
-
 	private RisDSSModelService risDSSModelService = new RisDSSModelServiceImplService().getRisDSSModelServiceImplPort();
 
 	@ResponseBody
