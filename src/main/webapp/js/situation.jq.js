@@ -98,7 +98,6 @@
 				margin: '5px 1px 15px 5px'
 			}).slider({
 				value: 26.8,
-				value2: 33.17,
 				range: "min",
 				min: 0,
 				max: 100,
@@ -108,13 +107,13 @@
 					var val2 = val3 = (100 - val) / 2;
 
 					$("#situation-1").val(val);
-					$("#situation-1-2").val(val * 123.81 / 100).fix(3);
+					$("#situation-1-2").val((val * 123.81 / 100).toFixed(3));
 
 					$("#situation-2").val(val2);
-					$("#situation-2-2").val(val2 * 123.81 / 100).fix(3);
+					$("#situation-2-2").val((val2 * 123.81 / 100).toFixed(3));
 
 					$("#situation-3").val(val3);
-					$("#situation-3-2").val(val3 * 123.81 / 100).fix(3);
+					$("#situation-3-2").val((val3 * 123.81 / 100).toFixed(3));
 				}
 			});
 
@@ -133,9 +132,9 @@
 					var val1 = $("#situation-1").val();
 					var val3 = 100 - val1 - val2;
 					$("#situation-2").val(val2);
-					$("#situation-2-2").val(val2 * 123.81 / 100);
+					$("#situation-2-2").val((val2 * 123.81 / 100).toFixed(3));
 					$("#situation-3").val(val3);
-					$("#situation-3-2").val(val3 * 123.81 / 100);
+					$("#situation-3-2").val((val3 * 123.81 / 100).toFixed(3));
 				}
 			});
 
@@ -152,7 +151,7 @@
 				slide: function(event, ui) {
 					var val = parseInt(ui.value);
 					$("#situation-3").val(val);
-					$("#situation-3-2").val(val * 123.81 / 100);
+					$("#situation-3-2").val((val * 123.81 / 100).toFixed(3));
 				}
 			});
 

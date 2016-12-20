@@ -1208,15 +1208,17 @@
 							"tab":"2"
 						},function(data){
 							if(data.isEmpty!="1"){
-							document.getElementById("population_proportation_spinner").value=data.nonFarmPercent,
-							document.getElementById("situation-1").value=data.fldIndOutput,
-							document.getElementById("situation-1-2").value=data.fldIndOutputPercent,
-							document.getElementById("situation-2").value=data.fldAgrOutput,
-							document.getElementById("situation-2-2").value=data.fldAgrOutputPercent,
-							document.getElementById("situation-3").value=data.fldSerOutput,
-							document.getElementById("situation-3-2").value=data.fldSerOutputPercent,
-							document.getElementById("situation-4").value=data.industryProgressRate,
-							document.getElementById("situation-5").value=data.changeRateOfTourismIndustry
+								document.getElementById("text-farmpop-1").value=data.fldFarmPop,
+								document.getElementById("text-farmpop-2").value=data.fldNonFarmPop,
+								document.getElementById("population_proportation_spinner").value=data.nonFarmPercent,
+								document.getElementById("situation-1-2").value=data.fldIndOutput,
+								document.getElementById("situation-1").value=data.fldIndOutputPercent,
+								document.getElementById("situation-2-2").value=data.fldAgrOutput,
+								document.getElementById("situation-2").value=data.fldAgrOutputPercent,
+								document.getElementById("situation-3-2").value=data.fldSerOutput,
+								document.getElementById("situation-3").value=data.fldSerOutputPercent,
+								document.getElementById("situation-4").value=data.industryProgressRate,
+								document.getElementById("situation-5").value=data.changeRateOfTourismIndustry
 							}
 						});
 			});
@@ -1274,23 +1276,24 @@
 							"tab":"4"
 						},function(data){
 							if(data.isEmpty!="1"){
-							document.getElementById("area_rateofchange_spinner").value=data.fldFarmAreaChgR,
-							document.getElementById("land_situation_1").value=data.wheatChgR,
-							document.getElementById("land_situation_2").value=data.cornChgR,
-							document.getElementById("land_situation_3").value=data.oilPlantsChgR,
-							document.getElementById("land_situation_4").value=data.vegetablesChgR,
-							document.getElementById("land_situation_5").value=data.orchardChgR,
-							document.getElementById("land_situation_6").value=data.cottonChgR,
-							document.getElementById("land_situation_1_2").value=data.wheatArea,
-							document.getElementById("land_situation_2_2").value=data.cornArea,
-							document.getElementById("land_situation_3_2").value=data.oilPlantsArea,
-							document.getElementById("land_situation_4_2").value=data.vegetablesArea,
-							document.getElementById("land_situation_5_2").value=data.orchardArea,
-							document.getElementById("land_situation_6_2").value=data.cottonArea,
-							document.getElementById("landuse_situation_1").value=data.wetlandArea,
-							document.getElementById("landuse_situation_2").value=data.forestArea,
-							document.getElementById("landuse_situation_3").value=data.grassArea,
-							document.getElementById("landuse_situation_4").value=data.waterArea
+								document.getElementById("gengdi_situation_1").value=data.fldFarmArea,
+								document.getElementById("area_rateofchange_spinner").value=data.fldFarmAreaChgR,
+								document.getElementById("land_situation_1").value=data.wheatChgR,
+								document.getElementById("land_situation_2").value=data.cornChgR,
+								document.getElementById("land_situation_3").value=data.oilPlantsChgR,
+								document.getElementById("land_situation_4").value=data.vegetablesChgR,
+								document.getElementById("land_situation_5").value=data.orchardChgR,
+								document.getElementById("land_situation_6").value=data.cottonChgR,
+								document.getElementById("land_situation_1_2").value=data.wheatArea,
+								document.getElementById("land_situation_2_2").value=data.cornArea,
+								document.getElementById("land_situation_3_2").value=data.oilPlantsArea,
+								document.getElementById("land_situation_4_2").value=data.vegetablesArea,
+								document.getElementById("land_situation_5_2").value=data.orchardArea,
+								document.getElementById("land_situation_6_2").value=data.cottonArea,
+								document.getElementById("landuse_situation_1").value=data.wetlandArea,
+								document.getElementById("landuse_situation_2").value=data.forestArea,
+								document.getElementById("landuse_situation_3").value=data.grassArea,
+								document.getElementById("landuse_situation_4").value=data.waterArea
 							}
 						});
 			});
