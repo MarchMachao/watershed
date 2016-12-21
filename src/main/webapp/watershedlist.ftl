@@ -24,7 +24,7 @@
                 <tr>
                     <th data-options="field:'id',width:200">流域ID</th>
                     <th data-options="field:'name',width:200">流域名称</th>
-                    <th data-options="field:'describe',width:200">流域描述</th>
+                    <th data-options="field:'describe',width:700">流域描述</th>
                 </tr>
             </thead>
         </table>
