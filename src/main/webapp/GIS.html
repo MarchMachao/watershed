@@ -30,7 +30,7 @@
 <iframe id="mapframe" src="http://210.77.79.201:19001/map/index.jsp" scrolling="no"></iframe>
 <div id="right_flash">
     <div class="widget-header situation-toggle" id="situation-toggle1" style="cursor: pointer; font-family: '微软雅黑';">
-        	情景控制<
+        	情景控制<br /><
     </div>
     <div id="situation1" class="widget-box situation">
         <div class="widget-body">
@@ -83,7 +83,7 @@
 
 <div id="right_flash2" style="top:12%">
     <div class="widget-header situation-toggle" id="situation-toggle2" style="cursor: pointer; font-family: '微软雅黑';">
-        	评价结果<
+        	评价结果<br /><
     </div>
     <div id="situation2" class="widget-box situation" style="width: 600px;">
         <div class="widget-body">
@@ -216,17 +216,17 @@
             if(!clicknum1){
                 $("#right_flash").animate({right: "0"});
                 $("#right_flash2").addClass("down");
-                $(this).html('情景控制>')
+                $(this).html('情景控制<br />>')
             }else {
                 $("#right_flash").animate({right: "-400px"});
-                $(this).html('情景控制<')
+                $(this).html('情景控制<br /><')
                 $("#right_flash2").removeClass("down");
             }
         }else{
             $("#right_flash2").animate({right: "-600px"}).addClass("down");
-            $("#situation-toggle2").html('评价结果<')
+            $("#situation-toggle2").html('评价结果<br /><')
             $("#right_flash").animate({right: "0"});
-            $(this).html('情景控制>')
+            $(this).html('情景控制<br />>')
             
             clicknum2 = !clicknum2;
         }
@@ -237,16 +237,16 @@
         if(!clicknum1){
             if(!clicknum2){
                 $("#right_flash2").animate({right: "0px"});
-                $(this).html('评价结果>')
+                $(this).html('评价结果<br />>')
             }else {
                 $("#right_flash2").animate({right: "-600px"});
-                $(this).html('评价结果<')
+                $(this).html('评价结果<br /><')
             }
         }else{
             $("#right_flash").animate({right: "-400px"});
-            $("#situation-toggle1").html('情景控制<')
+            $("#situation-toggle1").html('情景控制<br /><')
             $("#right_flash2").animate({right: "0px"}).removeClass("down");
-            $(this).html('评价结果>');
+            $(this).html('评价结果<br />>');
             clicknum1 = !clicknum1;
         }
         clicknum2 = !clicknum2;

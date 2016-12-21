@@ -1160,37 +1160,144 @@
 			}
 		)
 		
+// 		控制跳转按钮的函数
 		$("#nextStep").on("click",function(){
 			location.href = 'jumpToAbstract.do?projectId='+document.getElementById("projectId").value;
 		})
 		
-		
+// 		控制spinner按钮触发联动的函数
 		$("span").on("click",function(){
 			$("input").trigger("change");
 		});
-			
+		
+// 根据选择的气候情景画折线图
 		$("#IPCC").on("change",function(){
 			$("#IPCC-selectCounty").trigger("change");
 		});
+		
+		function getSceParaByProjectIdAndCountryId1(){
+			$.get(
+				"getSceParaByProjectIdAndCountryId.do",
+				{
+					"projectId" : "${projectId}",
+					"countryId" : document.getElementById("IPCC-selectCounty").value,
+					"year": document.getElementById("IPCC-selectYears").value,
+					"tab":"1"
+				},function(data){
+					if(data.isEmpty!="1"){
+						document.getElementById("rain_inc_ratio").value=data.rainInc,
+						document.getElementById("temp_inc_ratio").value=data.tempInc
+					} 
+				});
+		};
+		
+		function getSceParaByProjectIdAndCountryId2(){
+			$.get(
+					"getSceParaByProjectIdAndCountryId.do",
+					{
+						"projectId" : "${projectId}",
+						"countryId" : document.getElementById("industry-selectCounty").value,
+						"year": document.getElementById("industry-selectYears").value,
+						"tab":"2"
+					},function(data){
+						if(data.isEmpty!="1"){
+							document.getElementById("text-farmpop-1").value=data.fldFarmPop,
+							document.getElementById("text-farmpop-2").value=data.fldNonFarmPop,
+							document.getElementById("population_proportation_spinner").value=data.nonFarmPercent,
+							document.getElementById("situation-1-2").value=data.fldIndOutput,
+							document.getElementById("situation-1").value=data.fldIndOutputPercent,
+							document.getElementById("situation-2-2").value=data.fldAgrOutput,
+							document.getElementById("situation-2").value=data.fldAgrOutputPercent,
+							document.getElementById("situation-3-2").value=data.fldSerOutput,
+							document.getElementById("situation-3").value=data.fldSerOutputPercent,
+							document.getElementById("situation-4").value=data.industryProgressRate,
+							document.getElementById("situation-5").value=data.changeRateOfTourismIndustry
+						}
+				});
+		};
+			
+		function getSceParaByProjectIdAndCountryId3(){
+			$.get(
+					"getSceParaByProjectIdAndCountryId.do",
+					{
+						"projectId" : "${projectId}",
+						"countryId" : document.getElementById("water-selectCounty").value,
+						"year": document.getElementById("water-selectYears").value,
+						"tab":"3"
+					},function(data){
+						if(data.isEmpty!="1"){
+						document.getElementById("GDPInc_spinner1").value=data.perCapGDPR,
+						document.getElementById("GDPInc_spinner2").value=data.perCapGDP,
+						document.getElementById("ganQu_spinner").value=data.fldMainCanWUE,
+						document.getElementById("ganQu_text").value=data.fldMainCannelLeng,
+						document.getElementById("zhiQu_spinner").value=data.fldBranCanWUE,
+						document.getElementById("zhiQu_text").value=data.fldBranCannelLeng,
+						document.getElementById("douQu_spinner").value=data.fldDouWUE,
+						document.getElementById("douQu_text").value=data.fldDouLeng,
+						document.getElementById("nongQu_spinner").value=data.fldNongWUE,
+						document.getElementById("nongQu_text").value=data.fldNongLeng,
+						document.getElementById("maoQu_spinner").value=data.fldMaoWUE,
+						document.getElementById("maoQu_text").value=data.fldMaoLeng,
+						document.getElementById("economy-diGuanArea").value=data.fldSprinkingArea,
+						document.getElementById("economy-penGuanArea").value=data.fldDropIrrArea,
+						document.getElementById("economy-industry").value=data.fldIndustryAllowance,
+						document.getElementById("economy-farm").value=data.fldFarmAllowance,
+						document.getElementById("economy-service").value=data.fldServiceAllowance
+						}
+					});
+			}
+		
+		function getSceParaByProjectIdAndCountryId4(){
+			$.get(
+					"getSceParaByProjectIdAndCountryId.do",
+					{
+						"projectId" : "${projectId}",
+						"countryId" : document.getElementById("land_selectCounty").value,
+						"year": document.getElementById("land-selectYears").value,
+						"tab":"4"
+					},function(data){
+						if(data.isEmpty!="1"){
+							document.getElementById("gengdi_situation_1").value=data.fldFarmArea,
+							document.getElementById("area_rateofchange_spinner").value=data.fldFarmAreaChgR,
+							document.getElementById("land_situation_1").value=data.wheatChgR,
+							document.getElementById("land_situation_2").value=data.cornChgR,
+							document.getElementById("land_situation_3").value=data.oilPlantsChgR,
+							document.getElementById("land_situation_4").value=data.vegetablesChgR,
+							document.getElementById("land_situation_5").value=data.orchardChgR,
+							document.getElementById("land_situation_6").value=data.cottonChgR,
+							document.getElementById("land_situation_1_2").value=data.wheatArea,
+							document.getElementById("land_situation_2_2").value=data.cornArea,
+							document.getElementById("land_situation_3_2").value=data.oilPlantsArea,
+							document.getElementById("land_situation_4_2").value=data.vegetablesArea,
+							document.getElementById("land_situation_5_2").value=data.orchardArea,
+							document.getElementById("land_situation_6_2").value=data.cottonArea,
+							document.getElementById("landuse_situation_1").value=data.wetlandArea,
+							document.getElementById("landuse_situation_2").value=data.forestArea,
+							document.getElementById("landuse_situation_3").value=data.grassArea,
+							document.getElementById("landuse_situation_4").value=data.waterArea
+						}
+					});
+			}
 			$("#IPCC-selectCounty").on("change", function() {
 				//气候情景温度变化图
 				showFigure_1();
 				//气候情景：降水变化图
 				showFigure_2();
 				//从数据库取初值放上页面
-				$.get(
-						"getSceParaByProjectIdAndCountryId.do",
-						{
-							"projectId" : "${projectId}",
-							"countryId" : document.getElementById("IPCC-selectCounty").value,
-							"year": document.getElementById("IPCC-selectYears").value,
-							"tab":"1"
-						},function(data){
-							if(data.isEmpty!="1"){
-								document.getElementById("rain_inc_ratio").value=data.rainInc,
-								document.getElementById("temp_inc_ratio").value=data.tempInc
-							  } 
-					});
+				getSceParaByProjectIdAndCountryId1();
+			});
+			
+			$("#IPCC-selectYears").on("change",function(){
+				getSceParaByProjectIdAndCountryId1();
+			});
+			$("#industry-selectYears").on("change",function(){
+				getSceParaByProjectIdAndCountryId2();
+			});
+			$("#land-selectYears").on("change",function(){
+				getSceParaByProjectIdAndCountryId3();
+			});
+			$("#water-selectYears").on("change",function(){
+				getSceParaByProjectIdAndCountryId4();
 			});
 			
 			$("#industry-selectCounty").on("change",function(){
@@ -1198,29 +1305,8 @@
 				showFigure_3();
 				//三产产值变化
 				showFigure_4();
-				
-				$.get(
-						"getSceParaByProjectIdAndCountryId.do",
-						{
-							"projectId" : "${projectId}",
-							"countryId" : document.getElementById("industry-selectCounty").value,
-							"year": document.getElementById("industry-selectYears").value,
-							"tab":"2"
-						},function(data){
-							if(data.isEmpty!="1"){
-								document.getElementById("text-farmpop-1").value=data.fldFarmPop,
-								document.getElementById("text-farmpop-2").value=data.fldNonFarmPop,
-								document.getElementById("population_proportation_spinner").value=data.nonFarmPercent,
-								document.getElementById("situation-1-2").value=data.fldIndOutput,
-								document.getElementById("situation-1").value=data.fldIndOutputPercent,
-								document.getElementById("situation-2-2").value=data.fldAgrOutput,
-								document.getElementById("situation-2").value=data.fldAgrOutputPercent,
-								document.getElementById("situation-3-2").value=data.fldSerOutput,
-								document.getElementById("situation-3").value=data.fldSerOutputPercent,
-								document.getElementById("situation-4").value=data.industryProgressRate,
-								document.getElementById("situation-5").value=data.changeRateOfTourismIndustry
-							}
-						});
+				//从数据库取初值放上页面
+				getSceParaByProjectIdAndCountryId2();
 			});
 			
 			$("#water-selectCounty").on("change", function(){
@@ -1229,34 +1315,7 @@
 				//各级渠道长度与水利用率变化
 				showFigure_6();
 				
-				$.get(
-						"getSceParaByProjectIdAndCountryId.do",
-						{
-							"projectId" : "${projectId}",
-							"countryId" : document.getElementById("water-selectCounty").value,
-							"year": document.getElementById("water-selectYears").value,
-							"tab":"3"
-						},function(data){
-							if(data.isEmpty!="1"){
-							document.getElementById("GDPInc_spinner1").value=data.perCapGDPR,
-							document.getElementById("GDPInc_spinner2").value=data.perCapGDP,
-							document.getElementById("ganQu_spinner").value=data.fldMainCanWUE,
-							document.getElementById("ganQu_text").value=data.fldMainCannelLeng,
-							document.getElementById("zhiQu_spinner").value=data.fldBranCanWUE,
-							document.getElementById("zhiQu_text").value=data.fldBranCannelLeng,
-							document.getElementById("douQu_spinner").value=data.fldDouWUE,
-							document.getElementById("douQu_text").value=data.fldDouLeng,
-							document.getElementById("nongQu_spinner").value=data.fldNongWUE,
-							document.getElementById("nongQu_text").value=data.fldNongLeng,
-							document.getElementById("maoQu_spinner").value=data.fldMaoWUE,
-							document.getElementById("maoQu_text").value=data.fldMaoLeng,
-							document.getElementById("economy-diGuanArea").value=data.fldSprinkingArea,
-							document.getElementById("economy-penGuanArea").value=data.fldDropIrrArea,
-							document.getElementById("economy-industry").value=data.fldIndustryAllowance,
-							document.getElementById("economy-farm").value=data.fldFarmAllowance,
-							document.getElementById("economy-service").value=data.fldServiceAllowance
-							}
-						});
+				getSceParaByProjectIdAndCountryId3();
 			})
 			
 			$("#land_selectCounty").on("change",function(){
@@ -1266,58 +1325,33 @@
 				land_show_2();
 				//土地利用情景中的不同土地类型面积变化
 				land_show_3();
+				getSceParaByProjectIdAndCountryId4();
 				
-				$.get(
-						"getSceParaByProjectIdAndCountryId.do",
-						{
-							"projectId" : "${projectId}",
-							"countryId" : document.getElementById("land_selectCounty").value,
-							"year": document.getElementById("land-selectYears").value,
-							"tab":"4"
-						},function(data){
-							if(data.isEmpty!="1"){
-								document.getElementById("gengdi_situation_1").value=data.fldFarmArea,
-								document.getElementById("area_rateofchange_spinner").value=data.fldFarmAreaChgR,
-								document.getElementById("land_situation_1").value=data.wheatChgR,
-								document.getElementById("land_situation_2").value=data.cornChgR,
-								document.getElementById("land_situation_3").value=data.oilPlantsChgR,
-								document.getElementById("land_situation_4").value=data.vegetablesChgR,
-								document.getElementById("land_situation_5").value=data.orchardChgR,
-								document.getElementById("land_situation_6").value=data.cottonChgR,
-								document.getElementById("land_situation_1_2").value=data.wheatArea,
-								document.getElementById("land_situation_2_2").value=data.cornArea,
-								document.getElementById("land_situation_3_2").value=data.oilPlantsArea,
-								document.getElementById("land_situation_4_2").value=data.vegetablesArea,
-								document.getElementById("land_situation_5_2").value=data.orchardArea,
-								document.getElementById("land_situation_6_2").value=data.cottonArea,
-								document.getElementById("landuse_situation_1").value=data.wetlandArea,
-								document.getElementById("landuse_situation_2").value=data.forestArea,
-								document.getElementById("landuse_situation_3").value=data.grassArea,
-								document.getElementById("landuse_situation_4").value=data.waterArea
-							}
-						});
 			});
 			
 			$(function() {
-				$("select").trigger("change");
+				getSceParaByProjectIdAndCountryId1();
+				getSceParaByProjectIdAndCountryId2();
+				getSceParaByProjectIdAndCountryId3();
+				getSceParaByProjectIdAndCountryId4();
 				//页面初始化以后加载图表：气候情景温度变化图
-// 				showFigure_1();
+				showFigure_1();
 // 				//气候情景：降水变化图
-// 				showFigure_2();
+				showFigure_2();
 // 				//非农业人口比例变化
-// 				showFigure_3();
+				showFigure_3();
 // 				//三产产值变化
-// 				showFigure_4();
+				showFigure_4();
 // 				//人均GDP变化
-// 				showFigure_5();
+				showFigure_5();
 // 				//各级渠道长度与水利用率变化
-// 				showFigure_6();
+				showFigure_6();
 // 				//土地利用情景中的耕地面积变化图表
-// 				land_show_1();
+				land_show_1();
 // 				//土地利用情景中的不同作物种植面积变化
-// 				land_show_2();
+				land_show_2();
 // 				//土地利用情景中的不同土地类型面积变化
-// 				land_show_3();
+				land_show_3();
 				//水资源管理情景中的用水量变化
 				showArea_usingng_water()
 			});
@@ -2088,6 +2122,8 @@
 					"projectId" : "${projectId}",
 					"countryId" : document.getElementById("industry-selectCounty").value,
 					"year" : document.getElementById("industry-selectYears").value,
+					"fldFarmPop": document.getElementById("text-farmpop-1").value,
+					"fldNonFarmPop" : document.getElementById("text-farmpop-2").value,
 					"nonFarmPercent" : document.getElementById("population_proportation_spinner").value,
 					"fldIndOutput" : document.getElementById("situation-1").value,
 					"fldIndOutputPercent" : document.getElementById("situation-1-2").value,
