@@ -127,6 +127,7 @@
 					break;
 				case(4):
 					$("#state").html("成功，模型状态为4-finished");
+					queryAvailable();
 					break;
 				default:
 					$("#state").html("失败，请检查!");
