@@ -199,7 +199,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 获取中下游分水量 -->
 	<select id="getMidAndDownStreamPercentPara" parameterType="String" resultType="MidAndDownStreamPercentPara">
-		select * from "a_MidAndDownStreamPercentPara"
+		select * from "a_MidAndDownStreamPercentPara" where "projectId" = #{value}
 	</select>
 
 	<!-- 删除 中下游水分配 -->

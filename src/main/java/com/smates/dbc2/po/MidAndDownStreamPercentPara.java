@@ -12,6 +12,10 @@ public class MidAndDownStreamPercentPara {
 	private double serfaceWater;
 	private double midstreamPercent;
 	private double downstreamPercent;
+	
+	public MidAndDownStreamPercentPara() {
+		super();
+	}
 
 	public MidAndDownStreamPercentPara(String projectId, String watershedId, double serfaceWater,
 			double midstreamPercent, double downstreamPercent) {
@@ -61,5 +65,14 @@ public class MidAndDownStreamPercentPara {
 	public void setDownstreamPercent(double downstreamPercent) {
 		this.downstreamPercent = downstreamPercent;
 	}
+
+	@Override
+	public String toString() {
+		return "MidAndDownStreamPercentPara [projectId=" + projectId + ", watershedId=" + watershedId
+				+ ", serfaceWater=" + serfaceWater + ", midstreamPercent=" + midstreamPercent + ", downstreamPercent="
+				+ downstreamPercent + "]";
+	}
+	
+	
 
 }

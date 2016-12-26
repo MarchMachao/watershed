@@ -117,7 +117,7 @@
 				<!-- /.sidebar -->
 			</aside>
 			<div class="content-wrapper">
-				<iframe id="webcontent" name="webcontent" src="GIS.html"></iframe>
+				<iframe id="webcontent" name="webcontent" src="gis.do"></iframe>
 			</div>
 			<!-- Main Footer -->
 			<footer class="main-footer">

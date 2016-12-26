@@ -37,7 +37,7 @@
             <div class="widget-main">
                 <div class="row-fluid">
                     	上游耕地面积：
-                    <input type="text" id="situation-1" value="10" style="width:30px;height:10px">万亩
+                    <input type="text" id="situation-1" value="${value1}" style="width:30px;height:10px">万亩
                     <div id="slider-1" style="float:right;display:inline;"></div>
                     <hr style="margin:0px;height:4px">
                 </div>
@@ -46,29 +46,29 @@
                 </div>
                 <div class="row-fluid">
                     	中下游分水：
-                    <input type="text" id="situation-2-1" value="9" style="width:25px;height:10px">
-                    <input type="text" id="situation-2-2" value="7" style="width:25px;height:10px">亿m^3
+                    <input type="text" id="situation-2-1" value="${value6}" style="width:25px;height:10px">
+                    <input type="text" id="situation-2-2" value="${value7}" style="width:25px;height:10px">亿m^3
                     <div id="slider-2" style="float:right;display:inline;"></div>
                 </div>
                 <div class="row-fluid">
                     	中游耕地面积：
-                    <input type="text" id="situation-3" value="568" style="width:30px;height:10px">万亩
+                    <input type="text" id="situation-3" value="${value2}" style="width:30px;height:10px">万亩
                     <div id="slider-3" style="float:right;display:inline;"></div>
                 </div>
                 <div class="row-fluid">
                     	中游湿地面积：
-                    <input type="text" id="situation-4" value="24.4" style="width:30px;height:10px">万亩
+                    <input type="text" id="situation-4" value="${value3}" style="width:30px;height:10px">万亩
                     <div id="slider-4" style="float:right;display:inline;"></div>
                 </div>
                 <div class="row-fluid">
                     	中游滴灌面积：
-                    <input type="text" id="situation-5" value="10" style="width:30px;height:10px">万亩
+                    <input type="text" id="situation-5" value="${value4}" style="width:30px;height:10px">万亩
                     <div id="slider-5" style="float:right;display:inline;"></div>
                     <hr style="margin:0px;height:4px">
                 </div>
                 <div class="row-fluid">
                     	下游耕地面积：
-                    <input type="text" id="situation-6" value="10" style="width:30px;height:10px">万亩
+                    <input type="text" id="situation-6" value="${value5}" style="width:30px;height:10px">万亩
                     <div id="slider-6" style="float:right;display:inline;"></div>
                     <hr style="margin:0px;height:4px">
                 </div>
@@ -103,10 +103,10 @@
             width: '42%',
             margin: '5px 5px 15px 5px'
         }).slider({
-            value: 10,
+            value: ${value1},
             range: "min",
             min: 0,
-            max: 50,
+            max: 500,
             step: 1,
             slide: function (event, ui) {
                 var val = parseInt(ui.value);
@@ -118,15 +118,15 @@
             width: '42%',
             margin: '5px 5px 15px 5px'
         }).slider({
-            value: 9,
+            value: ${value6},
             range: "min",
             min: 0,
-            max: 16,
+            max: 500,
             step: 1,
             slide: function (event, ui) {
                 var val = parseInt(ui.value);
                 $("#situation-2-1").val(val);
-                $("#situation-2-2").val(16 - val);
+                $("#situation-2-2").val(500 - val);
             }
         });
 
@@ -134,10 +134,10 @@
             width: '42%',
             margin: '5px 5px 15px 5px'
         }).slider({
-            value: 568,
+            value: ${value2},
             range: "min",
             min: 0,
-            max: 700,
+            max: 500,
             step: 10,
             slide: function (event, ui) {
                 var val = parseInt(ui.value);
@@ -149,10 +149,10 @@
             width: '42%',
             margin: '5px 5px 15px 5px'
         }).slider({
-            value: 24.4,
+            value: ${value3},
             range: "min",
             min: 0,
-            max: 60,
+            max: 500,
             step: 1,
             slide: function (event, ui) {
                 var val = parseInt(ui.value);
@@ -164,10 +164,10 @@
             width: '42%',
             margin: '5px 5px 15px 5px'
         }).slider({
-            value: 10,
+            value: ${value4},
             range: "min",
             min: 0,
-            max: 100,
+            max: 500,
             step: 5,
             slide: function (event, ui) {
                 var val = parseInt(ui.value);
@@ -179,10 +179,10 @@
             width: '42%',
             margin: '5px 5px 15px 5px'
         }).slider({
-            value: 10,
+            value: ${value5},
             range: "min",
             min: 0,
-            max: 100,
+            max: 500,
             step: 5,
             slide: function (event, ui) {
                 var val = parseInt(ui.value);
