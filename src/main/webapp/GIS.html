@@ -17,10 +17,10 @@
     <style>
         body{overflow: hidden; position: relative; width: 100%;}
         #mapframe{width:100%;border: 0;}
-        #right_flash,#right_flash2{width: 433px; height: auto; position: absolute; right: -400px; top: 10%; margin-top: 0;}
+        #right_flash,#right_flash2{width: 433px; height: auto; position: absolute; right: -400px; top: 5%; margin-top: 0;}
         .situation-toggle{font-size: 14px; text-align:left;width:20px; position: absolute; left: 0px;top: 40px;z-index: 110;}
         .situation{width:400px; position: relative; right:-33px; top:0px; z-index:10;}
-        #right_flash2{right: -600px; margin-top: 125px; height: 300px; z-index: 20; width: 633px;}
+        #right_flash2{right: -600px; margin-top: 100px; height: 300px; z-index: 20; width: 633px;}
         #right_flash2.down{margin-top: 278px;}
         .widget-body{border-top: 1px solid #CCCCCC;}
     </style>
@@ -270,12 +270,18 @@
                     title : {
                         text: '流域可持续发展目标评价',
                         x:'center',
-                        y:'bottom'
                     },
                     tooltip : {
                         trigger: 'axis'
                     },
+                    dataZoom: {
+                        show: true,
+                        start : 0,
+                        height: 15
+                    },
                     legend: {
+                    	x : 'left',
+                    	y : '32',
                         data:['流域可持续发展','水资源发展','生态发展','经济发展',]
                     },
                     toolbox: {
@@ -332,5 +338,3 @@
 	};
 </script>
 </body>
-
-</html>

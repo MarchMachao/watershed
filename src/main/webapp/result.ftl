@@ -51,13 +51,18 @@
     </h2>
     <h4>模型模拟状态</h4>
     <h5>模型当前状态：<span id="state"></span></h5>
-    <h4>模拟进度</h4>
+    <h4>模拟进度
+    	<span>
+        	<button type="button" class="btn btn-default" onclick="location.reload();">进度查询</button>
+        </span>
+    </h4>
     <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" 
         		style="width: 0%;">
             0%
         </div>
     </div>
+    
     <h4>模拟结果 <span style="margin-left:20px">(甘州县)</span></h4>
     <div class="table-responsive" style="margin-top: 20px;">
 	    <table id="resultTable" class="table table-hover">
@@ -215,10 +220,6 @@
 						}
 					);
 				},
-				error:function(msg){
-					alert("出错！ 错误代码："+JSON.stringify(msg));
-					$("#loading").hide();
-				}
 			});
 		})
 	});

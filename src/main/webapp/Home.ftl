@@ -29,6 +29,14 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 	</head>
+	<style>
+		.skin-blue .main-header .navbar {
+		    background-color: #2e84d2;
+		}
+		.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+		    background-color: #222d32;
+		}
+	</style>
 
 	<body class="hold-transition skin-blue sidebar-mini" style="overflow-y: hidden">
 		<div class="wrapper">
