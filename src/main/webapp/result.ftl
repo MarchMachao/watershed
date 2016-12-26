@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>可持续性评价</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/loaders.css"/>
 <style>
 .wrapper {
 	padding: 0 20px;
