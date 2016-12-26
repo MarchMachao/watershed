@@ -34,7 +34,23 @@
 		    background-color: #2e84d2;
 		}
 		.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
-		    background-color: #222d32;
+		    background-color: #00284d;
+		}
+		.skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
+		    color: #fff;
+		    background: #1c4587;
+		    border-left-color: #3c8dbc;
+		}
+		.skin-blue .sidebar-menu>li>.treeview-menu {
+		    margin: 0 1px;
+		    background: #345ea3;
+		}
+		.skin-blue .treeview-menu>li>a {
+		    color: #bdc6ca;
+		}
+		.skin-blue .treeview-menu>li.active>a, .skin-blue .treeview-menu>li>a:hover {
+		    color: #fff;
+		    font-weight: 600;
 		}
 	</style>
 
