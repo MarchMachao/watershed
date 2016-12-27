@@ -216,7 +216,7 @@
 						},function(data){
 							$("#loading").hide();
 							alert(data.content+'\n单击确定后跳转');
-							window.location.href='GIS.html';
+							window.location.href='GIS.ftl';
 						}
 					);
 				},
