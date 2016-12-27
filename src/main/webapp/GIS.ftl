@@ -203,7 +203,13 @@
  			 "midStreamDripIrrigation":document.getElementById("situation-5").value,
  			 "downStreamCultivatedArea":document.getElementById("situation-6").value
         },function(data){
-        	location.href = "jumpToAbstract.do";
+        	if(data.success){
+        		location.href = "jumpToAbstract.do";
+        	}else{
+        		alert(data.content);
+        	}
+        	
+        	
         });
 
     });
