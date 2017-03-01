@@ -3,6 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
+		<meta name="renderer" content="webkit" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>流域可持续发展决策支持系统</title>
 		<!-- Tell the browser to be responsive to screen width -->

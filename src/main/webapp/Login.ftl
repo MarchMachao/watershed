@@ -4,6 +4,7 @@
 <head>
 <title>流域可持续发展决策支持系统</title>
 <meta charset="UTF-8" />
+<meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  
 <link rel="stylesheet" href="static/login/bootstrap.min.css" />
