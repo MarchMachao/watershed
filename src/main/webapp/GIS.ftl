@@ -91,11 +91,13 @@
     </div>
     <div id="situation2" class="widget-box situation" style="width: 600px;">
         <div class="widget-body">
-        	<button id="switch" class="btn btn-info" style="border: 3px;padding: 0 8px;margin-bottom: -10px;">切换视图</button>
-            <div id="echarts" class="widget-main" style="margin-top: -10px;">
+        	<button id="switch" class="btn btn-info" style="border: 3px;padding: 0 8px;margin-bottom: -10px;z-index: 9999;">切换视图</button>
+        	<button id="downexcel" class="btn btn-info" style="border: 3px;padding: 0 8px;margin-bottom: -10px;z-index: 9999;">导出数据</button>
+            <div id="echarts" class="widget-main" style="margin-top: -22px;">
+            	
             	<div id="gis-chart-1" style="width:100%; height: 300px;"></div>
             </div>
-            <div id="scatter" class="widget-main" style="display: none; height: 338px; padding: 0;">
+            <div id="scatter" class="widget-main" style="display: none; height: 338px; padding: 0;margin-top: -22px;">
             	<canvas id='canvas2' width='600' height='340'></canvas>
             </div>
         </div>
