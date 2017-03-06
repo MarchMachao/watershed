@@ -63,7 +63,7 @@ public class ExcelUtils {
 		}
 		// // 第六步，将文件存到指定位置
 		try {
-			FileOutputStream fout = new FileOutputStream("E:/students.xls");
+			FileOutputStream fout = new FileOutputStream("/home/page/excel/result.xls");
 			wb.write(fout);
 			fout.close();
 		} catch (Exception e) {
