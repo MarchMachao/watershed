@@ -25,7 +25,7 @@ public class ExcelControlle {
 	@Autowired
 	private ExcelUtils excelUtils;
 
-	@RequestMapping("downExcel")
+	@RequestMapping("downexcel1")
 	public void downExcel(HttpServletResponse response) throws FileNotFoundException, IOException {
 		excelUtils.outputExcel();
 		File file = new File("/home/page/excel/result.xls");
