@@ -22,7 +22,7 @@ import com.smates.dbc2.ws.RisDSSModelServiceImplService;
 public class ModelController {
 
 	@Autowired
-	private GetWebServiceParaService getWebServiceParaService;
+	private GetWebServiceParaService getWebServiceParaService;  
 
 	@Autowired
 	private IndexCalculateService indexCalculateService;
