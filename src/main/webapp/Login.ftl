@@ -44,8 +44,8 @@
                                 name="userpwd" id="password" placeholder="请输入密码"
                                 value=""/>
                         </div>
-                        	请选择语言:<button id="language" type="button">汉语</button>
-							<input type="hidden" id="languageText" value="chinese" name="languageText" />
+                        	<button id="language" type="button"><#if language=="chinese">汉语<#else>English</#if></button>
+							<input type="hidden" id="languageText" value="${language}" name="languageText" />
                         <div class="danger-error" style="display: none;">
                            	 账号或密码错误
                         </div>
@@ -60,7 +60,7 @@
                             <a class="flip-link btn btn-info" id="to-recover" onclick="submit();">${save}</a>
                         </span>
                         <div style="margin-top:7px ;">
-                            <a href="#" id="login-guest" class="pull-left lip-link btn btn-info" style="font-size: 15px;">游客登录</a>
+                            <a href="javascript:void(0)" id="login-guest" class="pull-left lip-link btn btn-info" style="font-size: 15px;">游客登录</a>
                         </div>
                     </div>
                     
@@ -116,7 +116,7 @@
         $.ajax({
             type:"post",
             url:"login.do",
-            data:{accountNumber:'guest356246547',userpwd:'123456'},
+            data:{accountNumber:'guest356246547',userpwd:'123456', language:document.getElementById("languageText").value},
             success:function(){window.location.href='home.do'}
         });
     });
@@ -134,11 +134,9 @@
 			$("#language").click(function(){
 				var ttt = $(this).html();
 				if(ttt=="English"){
-					$("#language").html("汉语");
-					$("#languageText").val("chinese");
+					location.href="login.do?language=chinese";
 				}else{
-					$("#language").html("English");
-					$("#languageText").val("english");
+					location.href="login.do?language=english";
 				}
 			})
 		</script>

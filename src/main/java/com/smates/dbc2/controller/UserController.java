@@ -31,6 +31,10 @@ public class UserController extends BaseController {
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String login(ModelMap modelMap,String language) {
+		if(language==null){
+			language = "chinese";
+		}
+		modelMap.addAttribute("language", language);
 		modelMap.addAttribute("title", chineseAndEnglishService.getPhraseByIndexAndLanguage(1, language));
 		modelMap.addAttribute("save", chineseAndEnglishService.getPhraseByIndexAndLanguage(10, language));
 		modelMap.addAttribute("reset", chineseAndEnglishService.getPhraseByIndexAndLanguage(11, language));
