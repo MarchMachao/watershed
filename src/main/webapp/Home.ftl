@@ -98,7 +98,7 @@
 							<li class="treeview">
 								<a href="#">
 									<i class="fa fa-link"></i> 
-									<span class="menuUrl" menuUrl="${item.menuUrl}">${item.menuName}</span>
+									<span class="menuUrl" menuUrl="${item.menuUrl}"><#if userLanguage=="english">${item.englishName}<#else>${item.menuName}</#if></span>
 									<span class="pull-right-container">
               							<i class="fa fa-angle-left pull-right"></i>
             						</span>
@@ -106,7 +106,7 @@
 								<ul class="treeview-menu">
 									<#list item.submenus as record>
 										<li>
-											<a href="javascript:void(0)" class="menuUrl" menuUrl="${record.menuUrl}">${record.menuName}</a>
+											<a href="javascript:void(0)" class="menuUrl" menuUrl="${record.menuUrl}"><#if userLanguage=="english">${record.englishName}<#else>${record.menuName}</#if></a>
 										</li>
 									</#list>
 								</ul>

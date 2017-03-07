@@ -15,6 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="parent_id" property="parentId" />
 		<result column="menu_url" property="menuUrl" />
 		<result column="order_no" property="order" />
+		<result column="englishName" property="englishName" />
 		<result column="permition" property="permition" />
 
 
@@ -25,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="sub_parent_id" property="parentId" />
 			<result column="sub_menu_url" property="menuUrl" />
 			<result column="sub_order_no" property="order" />
+			<result column="sub_enlishName" property="englishName" />
 		</collection>
 	</resultMap>
 
@@ -56,12 +58,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getMenuByRole" resultMap="getAllmenuQueryMap"
 		parameterType="String">
 		SELECT
-		A."MENU_ID",A."MENU_NAME",A."MENU_URL",A."ORDER_NO",A."PARENT_ID",A."PERMITION",
+		A."MENU_ID",A."MENU_NAME",A."MENU_URL",A."ORDER_NO",A."PARENT_ID",A."PERMITION",A."englishName",
 		b."MENU_ID" sub_menu_id,
 		b."MENU_NAME" sub_menu_name,
 		b."MENU_URL" sub_menu_url,
 		b."ORDER_NO" sub_menu_order,
-		b."PARENT_ID" sub_menu_parent_id
+		b."PARENT_ID" sub_menu_parent_id,
+		b."englishName" sub_enlishName
 		FROM
 		s_menu A
 		LEFT JOIN s_menu b ON A ."MENU_ID" = b."PARENT_ID"

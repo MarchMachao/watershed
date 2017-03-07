@@ -1,5 +1,7 @@
 package com.smates.dbc2.mapper;
 
+import java.util.Map;
+
 import com.smates.dbc2.po.UserAndLanuage;
 
 /**
@@ -18,5 +20,11 @@ public interface UserAndLanguageDao {
 	 * @return
 	 */
 	public UserAndLanuage getUserAndLanuageByAccountNumber(String accountNumber);
+	
+	/**
+	 * 修改用户默认语言
+	 * @param paraMap
+	 */
+	public void updateUserAndLanguage(Map<String, String> paraMap);
 	
 }

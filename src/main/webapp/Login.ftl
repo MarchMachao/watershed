@@ -44,6 +44,8 @@
                                 name="userpwd" id="password" placeholder="请输入密码"
                                 value=""/>
                         </div>
+                        	请选择语言:<button id="language" type="button">汉语</button>
+							<input type="hidden" id="languageText" value="chinese" name="languageText" />
                         <div class="danger-error" style="display: none;">
                            	 账号或密码错误
                         </div>
@@ -91,7 +93,8 @@
                 url: "login.do",
                 data: {
                     accountNumber: document.getElementById("loginname").value,
-                    userpwd: document.getElementById("password").value
+                    userpwd: document.getElementById("password").value,
+                    language:document.getElementById("languageText").value
                 },
                 success:function(data){
                     if(data=='0'){
@@ -127,6 +130,18 @@
     <script src="static/login/js/templatemo_script.js"></script>
     <script type="text/javascript" src="static/js/jquery.tips.js"></script>
     <script type="text/javascript" src="static/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+			$("#language").click(function(){
+				var ttt = $(this).html();
+				if(ttt=="English"){
+					$("#language").html("汉语");
+					$("#languageText").val("chinese");
+				}else{
+					$("#language").html("English");
+					$("#languageText").val("english");
+				}
+			})
+		</script>
 </body>
  
 </html>

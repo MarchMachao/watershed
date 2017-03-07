@@ -48,7 +48,7 @@ public class UserController extends BaseController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String submit(ModelMap modelMap, String accountNumber, String userpwd) {
+	public String submit(ModelMap modelMap, String accountNumber, String userpwd,String language) {
 		Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(accountNumber, userpwd);
 		try {
@@ -59,6 +59,7 @@ public class UserController extends BaseController {
 			return "0";
 		}
 		logger.info("登录成功");
+		userAndLanguageService.updateUserAndLanguage(accountNumber, language);
 		return "1";
 	}
 
@@ -87,6 +88,7 @@ public class UserController extends BaseController {
 		User user = userService.getUserByAccountNumber(userService.getCurrentUserId());
 		user.setImage(SysConst.QNIUYUNURL + user.getImage());
 		modelMap.addAttribute("user", user);
+		modelMap.addAttribute("userLanguage", userLanguage);
 		modelMap.addAttribute("title", chineseAndEnglishService.getPhraseByIndexAndLanguage(1, userLanguage));
 		modelMap.addAttribute("role", chineseAndEnglishService.getPhraseByIndexAndLanguage(2, userLanguage));
 		return "Home.ftl";

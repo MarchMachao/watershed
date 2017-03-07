@@ -3,7 +3,7 @@ package com.smates.dbc2.po;
 import java.io.Serializable;
 import java.util.List;
 
-public class Menu implements Serializable{
+public class Menu implements Serializable {
 	/**
 	 * 
 	 */
@@ -14,19 +14,21 @@ public class Menu implements Serializable{
 	private String menuUrl;
 	private Integer order;
 	private String permition;
+	private String englishName;
 	private List<Menu> submenus;
 
 	public Menu() {
 	}
 
 	public Menu(String menuId, String menuName, String parentId, String menuUrl, Integer order, String permition,
-			List<Menu> submenus) {
+			String englishName, List<Menu> submenus) {
 		this.menuId = menuId;
 		this.menuName = menuName;
 		this.parentId = parentId;
 		this.menuUrl = menuUrl;
 		this.order = order;
 		this.permition = permition;
+		this.englishName = englishName;
 		this.submenus = submenus;
 	}
 
@@ -76,6 +78,14 @@ public class Menu implements Serializable{
 
 	public void setSubmenus(List<Menu> submenus) {
 		this.submenus = submenus;
+	}
+
+	public String getEnglishName() {
+		return englishName;
+	}
+
+	public void setEnglishName(String englishName) {
+		this.englishName = englishName;
 	}
 
 	public String getPermition() {

@@ -2,8 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.smates.dbc2.mapper.UserAndLanguageDao">
 
-	<select id="getUserAndLanuageByAccountNumber" parameterType="String" resultType="UserAndLanuage">
-		select * from "a_userAndLanuage" where "a_userAndLanuage"."accountNumber" = #{value}
+	<select id="getUserAndLanuageByAccountNumber" parameterType="String"
+		resultType="UserAndLanuage">
+		select * from "a_userAndLanuage" where
+		"a_userAndLanuage"."accountNumber" = #{value}
 	</select>
+
+	<!-- 修改用户默认语言 -->
+	<update id="updateUserAndLanguage" parameterType="hashmap">
+		UPDATE
+		"a_userAndLanuage"
+		set "language" = #{language}
+		where "accountNumber" = #{accountNumber}
+	</update>
 
 </mapper>
