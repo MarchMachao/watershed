@@ -62,7 +62,7 @@
         </div>
     </div>
     
-    <h4>模拟结果 <span style="margin-left:20px">(甘州县)</span></h4>
+    <h4>模拟结果 <span style="margin-left:20px">(甘州区)</span></h4>
     <div class="table-responsive" style="margin-top: 20px;">
 	    <table id="resultTable" class="table table-hover">
 	      	<tr><th style="min-width: 200px;">年份/指标</th></tr>
