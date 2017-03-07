@@ -6,35 +6,33 @@ package com.smates.dbc2.po;
  * @author baijw
  *
  */
-public class UserAndLanuage {   
+public class UserAndLanuage {
 
-	private String acountNumber;    
-	private String lanuage;
+	private String accountNumber;
+	private String language;
 
 	public UserAndLanuage() {
-		super();
 	}
 
-	public UserAndLanuage(String acountNumber, String lanuage) {
-		super();
-		this.acountNumber = acountNumber;
-		this.lanuage = lanuage;
+	public UserAndLanuage(String accountNumber, String language) {
+		this.accountNumber = accountNumber;
+		this.language = language;
 	}
 
-	public String getAcountNumber() {
-		return acountNumber;
+	public String getAccountNumber() {
+		return accountNumber;
 	}
 
-	public void setAcountNumber(String acountNumber) {
-		this.acountNumber = acountNumber;
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 
-	public String getLanuage() {
-		return lanuage;
+	public String getLanguage() {
+		return language;
 	}
 
-	public void setLanuage(String lanuage) {
-		this.lanuage = lanuage;
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 }

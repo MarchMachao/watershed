@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.smates.dbc2.mapper.StreamLanUseSceVoDao;
+import com.smates.dbc2.mapper.UserAndLanguageDao;
 import com.smates.dbc2.mapper.WatershedDao;
 import com.smates.dbc2.mapper.WatershedParaDao;
 import com.smates.dbc2.po.TblClimateScenarioMonth;
@@ -24,15 +25,23 @@ import com.smates.dbc2.po.TblWaterResManSce;
 import com.smates.dbc2.po.TblWaterRightCounty;
 import com.smates.dbc2.po.TblWaterUseCounty;
 import com.smates.dbc2.qniu.QniuHelper;
+import com.smates.dbc2.service.ChineseAndEnglishService;
 import com.smates.dbc2.service.JxlService;
 import com.smates.dbc2.service.MenuService;
 import com.smates.dbc2.service.RoleService;
+import com.smates.dbc2.service.UserAndLanguageService;
 import com.smates.dbc2.service.UserProjectRelationService;
 import com.smates.dbc2.service.UserService;
 import com.smates.dbc2.service.WatershedService;
 import com.smates.dbc2.utils.StringUtils;
 
 public class BaseController {
+	
+	@Autowired
+	public ChineseAndEnglishService chineseAndEnglishService;
+	
+	@Autowired
+	public UserAndLanguageService userAndLanguageService;
 	
 	@Autowired
 	public StreamLanUseSceVoDao streamLanUseSceVoDao;
@@ -63,6 +72,8 @@ public class BaseController {
 	
 	@Autowired
 	public UserProjectRelationService userProjectRelationService;
+	
+	public String userLanguage;
 
 	public Logger logger = Logger.getLogger(BaseController.class);
 

@@ -11,4 +11,6 @@ public class SysConst {
 	//七牛云图片处理样式
 	public static final String QNIUYUNSTYLE = "?imageView2/2/w/100/h/100/interlace/0/q/50";
 	
+	public static final String LANGUAGE = "english";
+	
 }

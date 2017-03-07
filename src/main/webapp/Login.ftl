@@ -2,7 +2,7 @@
 <html lang="en">
  
 <head>
-<title>流域可持续发展决策支持系统</title>
+<title>${title}</title>
 <meta charset="UTF-8" />
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,10 +52,10 @@
                 <div class="form-actions">
                     <div style="width:86%;padding-left:8%;">
                         <span class="pull-right" style="padding-right:3%;">
-                            <a href="javascript:quxiao();" class="btn btn-success">取消</a>
+                            <a href="javascript:quxiao();" class="btn btn-success">${reset}</a>
                         </span> 
                         <span class="pull-right">
-                            <a class="flip-link btn btn-info" id="to-recover" onclick="submit();">登录</a>
+                            <a class="flip-link btn btn-info" id="to-recover" onclick="submit();">${save}</a>
                         </span>
                         <div style="margin-top:7px ;">
                             <a href="#" id="login-guest" class="pull-left lip-link btn btn-info" style="font-size: 15px;">游客登录</a>

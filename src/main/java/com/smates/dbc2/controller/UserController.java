@@ -30,7 +30,10 @@ public class UserController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.GET)
-	public String login() {
+	public String login(ModelMap modelMap,String language) {
+		modelMap.addAttribute("title", chineseAndEnglishService.getPhraseByIndexAndLanguage(1, language));
+		modelMap.addAttribute("save", chineseAndEnglishService.getPhraseByIndexAndLanguage(10, language));
+		modelMap.addAttribute("reset", chineseAndEnglishService.getPhraseByIndexAndLanguage(11, language));
 		return "Login.ftl";
 	}
 
@@ -67,7 +70,7 @@ public class UserController extends BaseController {
 	@RequestMapping("logout")
 	public String logout() {
 		SecurityUtils.getSubject().logout();
-		return "Login.ftl";
+		return "redirect:login.do";
 	}
 
 	/**
@@ -78,11 +81,14 @@ public class UserController extends BaseController {
 	 */
 	@RequestMapping("home")
 	public String home(ModelMap modelMap) {
+		userLanguage = userAndLanguageService.getUserAndLanuage(userService.getCurrentUserId());
 		modelMap.addAttribute("menulist", menuService
 				.getMenuByRoles(userService.getUserByAccountNumber(userService.getCurrentUserId()).getRole()));
 		User user = userService.getUserByAccountNumber(userService.getCurrentUserId());
 		user.setImage(SysConst.QNIUYUNURL + user.getImage());
 		modelMap.addAttribute("user", user);
+		modelMap.addAttribute("title", chineseAndEnglishService.getPhraseByIndexAndLanguage(1, userLanguage));
+		modelMap.addAttribute("role", chineseAndEnglishService.getPhraseByIndexAndLanguage(2, userLanguage));
 		return "Home.ftl";
 	}
 
