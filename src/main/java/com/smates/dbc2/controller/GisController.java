@@ -23,7 +23,7 @@ import com.smates.dbc2.vo.StreamLanUseSceVo;
 public class GisController extends BaseController {
 
 	@Autowired
-	private GisService gisService;
+	private GisService gisService; 
 
 	@Autowired
 	private GisDao gisDao;

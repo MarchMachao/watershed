@@ -93,6 +93,7 @@
         <div class="widget-body">
         	<button id="switch" class="btn btn-info" style="border: 3px;padding: 0 8px;margin-bottom: -10px;z-index: 9999;">切换视图</button>
         	<button id="downexcel" class="btn btn-info" style="border: 3px;padding: 0 8px;margin-bottom: -10px;z-index: 9999;" onclick="window.location.href= 'downexcel1.do'">导出数据</button>
+        	<button id="downpdf" class="btn btn-info" style="border: 3px;padding: 0 8px;margin-bottom: -10px;z-index: 9999;" onclick="window.location.href= 'downPDF.do'">下载评价结果</button>
             <div id="echarts" class="widget-main" style="margin-top: -22px;">
             	
             	<div id="gis-chart-1" style="width:100%; height: 300px;"></div>
