@@ -49,22 +49,22 @@
 					<div class="tabbable">
 						<ul class="nav nav-tabs" id="situation">
 							<li class="active">
-								<a data-toggle="tab" href="#climate"><i class="pink icon-dashboard bigger-110"></i>气候情景</a>
+								<a data-toggle="tab" href="#climate"><i class="pink icon-dashboard bigger-110"></i>${tab1}</a>
 							</li>
 							<li>
-								<a data-toggle="tab" href="#industry"><i class="blue icon-user bigger-110"></i>产业与城市发展情景</a>
+								<a data-toggle="tab" href="#industry"><i class="blue icon-user bigger-110"></i>${tab4}</a>
 							</li>
 							<li>
 								<a data-toggle="tab" href="#land"><span class="badge badge-success badge-icon">
-									<i class="icon-caret-right"></i></span>土地利用情景</a>
+									<i class="icon-caret-right"></i></span>${tab2}</a>
 							</li>
 <!-- 		！！！！！！！！！！！！！！注意，这里“土地利用情景”和“社会经济发展情景”进行了标签的调换，代码没改变位置！！！！！！by 马超 -->
 							<li>
-								<a data-toggle="tab" href="#economy"><i class="blue icon-user bigger-110"></i>社会经济发展情景</a>
+								<a data-toggle="tab" href="#economy"><i class="blue icon-user bigger-110"></i>${tab3}</a>
 							</li>
 							<li>
 								<a data-toggle="tab" href="#water"><span class="badge badge-success badge-icon">
-									<i class="icon-caret-right"></i></span>水资源管理情景</a>
+									<i class="icon-caret-right"></i></span>${tab5}</a>
 							</li>
 
 						</ul>
@@ -75,7 +75,7 @@
 								<div class="row-fluid">
 									<div class="span2"></div>
 										<label style="margin-top: 10px;">
-											<span>选择区县</span>
+											<span>${selectCountry}</span>
 											<select id="IPCC-selectCounty">
 												<option value="620702">甘州</option>
 												<option value="620723">临泽</option>
@@ -88,7 +88,7 @@
 												<option value="620200">嘉峪关市</option>
 												<option value="632222">祁连</option>
 											</select>
-											<span>选择年份</span>
+											<span>${selectYear}</span>
 											<select id="IPCC-selectYears">
 												<option value="2013">2013</option>
 												<option value="2012">2012</option>
@@ -110,7 +110,7 @@
 									<div class="span10">
 										<h4 class="header smaller lighter blue">
 										<i class="icon-certificate"></i>
-										<span>选择气候情景(IPCC)</span>
+										<span>${ClimateScenarios}</span>
 									</h4>
 									</div>
 									<div class="span1"></div>
@@ -120,7 +120,7 @@
 									<div class="span2"></div>
 									<div class="span6">
 									<label>
-									<span>选择气候情景(IPCC)</span>
+									<span>${ClimateScenarios}</span>
 									<select id="IPCC" name="IPCC" style="margin:0px; width:430px">
 										<option value="8.5">高排放情景，2100年地表接收稳定辐射强度大于8.5 W/m2</option>
 										<option value="6">较高排放情景，2100年地表接收稳定辐射强度控制在6 W/m2</option>
@@ -145,7 +145,7 @@
 										<hr style="height:1px" color="#c2daee">
 										<h4 class="header smaller lighter blue">
 										<i class="icon-bolt"></i>
-										<span >自定义气候情景</span>
+										<span >${climatmyself}</span>
 									</h4>
 									</div>
 									<div class="span1"></div>
@@ -155,7 +155,7 @@
 									<div class="span2"></div>
 									<div class="span2">
 										<label>
-										<span >降雨增加比例</span>
+										<span >${rainup}</span>
 									</label>
 									</div>
 									<div class="span6">
@@ -169,7 +169,7 @@
 									<div class="span2"></div>
 									<div class="span2">
 										<label>
-										<span >温度增加比例</span>
+										<span >${temup}</span>
 									</label>
 									</div>
 									<div class="span6">
@@ -181,8 +181,8 @@
 								</div>
 									<div class="form-actions" align="center" style="background-color: #FFFFFF;">
 											<!-- 如果设置为type="submit"点击以后会触发页面刷新 -->
-											<button class="btn btn-small btn-success" type="button" id="climate_submit">确定</button> &nbsp;
-											<button class="btn btn-small btn-warning" type="reset" id="climate_reset">重置</button>
+											<button class="btn btn-small btn-success" type="button" id="climate_submit">${save}</button> &nbsp;
+											<button class="btn btn-small btn-warning" type="reset" id="climate_reset">${reset}</button>
 									</div>
 							</div>
 
@@ -1372,7 +1372,7 @@
 					minTemp[i]=data[i].fldMinTemp;
 					}
 				if (data.length>=1){
-				var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年温度变化';
+				var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+' ${temcurve}';
 				}
 				var Chart = echarts.init(document.getElementById('showArea-1'));
 				var option = {
@@ -1385,7 +1385,7 @@
 					trigger : 'axis',
 				},
 				legend : {
-					data : [ '平均温度', '最高温度', '最低温度' ],
+					data : [ '${avgtem}', '${toptem}', '${bottomtem}' ],
 					x: 'right',
 					padding: [25,5,5,5]
 				},
@@ -1404,14 +1404,14 @@
 					type : 'category',
 					boundaryGap : false,
 					data : xdata,
-					name : '年份'
+					name : '${year}'
 				},
 				yAxis : {
 					type : 'value',
 //					axisLabel : {
 //              		formatter: '{value} °C'
 //          	},
-					name : '温度(℃)'
+					name : '${tem}(℃)'
 				},
 				series : [ {
 					name : '平均温度',
@@ -1445,7 +1445,7 @@
 						averagePrecip[i]=data[i].fldPrecipitation;
 						}
 					if (data.length>=1){
-					var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+'年降水变化';
+					var titletext=data[0].fldDate+'~'+data[data.length-1].fldDate+' ${Curveofprecipitation}';
 					}
 				var Chart = echarts.init(document.getElementById('showArea-2'));
 				var option = {
@@ -1458,7 +1458,7 @@
 					trigger : 'axis'
 				},
 				legend : {
-					data : [ '平均降水', 
+					data : [ '${AveragePrecipitation}', 
 					         ],
 					x: 'right',
 					padding: [25,5,5,5]
@@ -1477,15 +1477,15 @@
 				xAxis : {
 					type : 'category',
 					boundaryGap : false,
-					name : '年份',
+					name : '${year}',
 					data : xdata
 				},
 				yAxis : {
 					type : 'value',
-					name : '降水量(mm)'
+					name : '${Precipitation}(mm)'
 				},
 				series : [ {
-					name : '平均降水',
+					name : '${AveragePrecipitation}',
 					type : 'line',
 					data : averagePrecip
 // 				

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.smates.dbc2.mapper.StreamLanUseSceVoDao;
-import com.smates.dbc2.mapper.UserAndLanguageDao;
 import com.smates.dbc2.mapper.WatershedDao;
 import com.smates.dbc2.mapper.WatershedParaDao;
 import com.smates.dbc2.po.TblClimateScenarioMonth;
@@ -24,7 +23,6 @@ import com.smates.dbc2.po.TblWaterAlloCounty;
 import com.smates.dbc2.po.TblWaterResManSce;
 import com.smates.dbc2.po.TblWaterRightCounty;
 import com.smates.dbc2.po.TblWaterUseCounty;
-import com.smates.dbc2.qniu.QniuHelper;
 import com.smates.dbc2.service.ChineseAndEnglishService;
 import com.smates.dbc2.service.JxlService;
 import com.smates.dbc2.service.MenuService;
@@ -48,9 +46,6 @@ public class BaseController {
 	
 	@Autowired
 	public WatershedParaDao watershedParaDao;
-
-	@Autowired
-	public QniuHelper qniuHelper;
 
 	@Autowired
 	public UserService userService;

@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smates.dbc2.po.Goal;
 import com.smates.dbc2.po.UserProjectRelation;
+import com.smates.dbc2.service.ChineseAndEnglishService;
 import com.smates.dbc2.service.GoalService;
+import com.smates.dbc2.service.UserAndLanguageService;
 import com.smates.dbc2.service.UserProjectRelationService;
 import com.smates.dbc2.service.UserService;
 import com.smates.dbc2.vo.BaseMsg;
@@ -30,7 +32,13 @@ public class GoalController {
 	private UserService userService;
 	
 	@Autowired
+	private UserAndLanguageService userAndLanguageService;
+	
+	@Autowired
 	private UserProjectRelationService userProjectRelationService;
+	
+	@Autowired
+	private ChineseAndEnglishService chineseAndEnglishService;
 	
 	/**
 	 * 保存目标体系接口（参数和界面标号对应）
@@ -92,6 +100,7 @@ public class GoalController {
 	
 	@RequestMapping(value="toStuation.do",method=RequestMethod.GET)
 	public String toStuation(ModelMap modelMap){
+		String userLanguage = userAndLanguageService.getUserAndLanuage(userService.getCurrentUserId());
 		String userName = userService.getCurrentUserId();//获取当前登录的用户账号
 		UserProjectRelation userProjectRelation = userProjectRelationService.getUserProjectRelationByUserName(userName);
 		//判断该用户是否设置了默认项目
@@ -99,6 +108,29 @@ public class GoalController {
 			return "none.ftl";
 		}else{
 			modelMap.addAttribute("projectId", userProjectRelation.getAutoProjectId());
+			modelMap.addAttribute("tab1", chineseAndEnglishService.getPhraseByIndexAndLanguage(16, userLanguage));
+			modelMap.addAttribute("tab2", chineseAndEnglishService.getPhraseByIndexAndLanguage(54, userLanguage));
+			modelMap.addAttribute("tab3", chineseAndEnglishService.getPhraseByIndexAndLanguage(76, userLanguage));
+			modelMap.addAttribute("tab4", chineseAndEnglishService.getPhraseByIndexAndLanguage(31, userLanguage));
+			modelMap.addAttribute("tab5", chineseAndEnglishService.getPhraseByIndexAndLanguage(100, userLanguage));
+			modelMap.addAttribute("selectCountry", chineseAndEnglishService.getPhraseByIndexAndLanguage(17, userLanguage));
+			modelMap.addAttribute("selectYear", chineseAndEnglishService.getPhraseByIndexAndLanguage(18, userLanguage));
+			modelMap.addAttribute("ClimateScenarios", chineseAndEnglishService.getPhraseByIndexAndLanguage(19, userLanguage));
+			modelMap.addAttribute("climatmyself", chineseAndEnglishService.getPhraseByIndexAndLanguage(28, userLanguage));
+			modelMap.addAttribute("rainup", chineseAndEnglishService.getPhraseByIndexAndLanguage(29, userLanguage));
+			modelMap.addAttribute("temup", chineseAndEnglishService.getPhraseByIndexAndLanguage(30, userLanguage));
+			modelMap.addAttribute("avgtem", chineseAndEnglishService.getPhraseByIndexAndLanguage(21, userLanguage));
+			modelMap.addAttribute("toptem", chineseAndEnglishService.getPhraseByIndexAndLanguage(22, userLanguage));
+			modelMap.addAttribute("bottomtem", chineseAndEnglishService.getPhraseByIndexAndLanguage(23, userLanguage));
+			modelMap.addAttribute("temcurve", chineseAndEnglishService.getPhraseByIndexAndLanguage(24, userLanguage));
+			modelMap.addAttribute("tem", chineseAndEnglishService.getPhraseByIndexAndLanguage(20, userLanguage));
+			modelMap.addAttribute("year", chineseAndEnglishService.getPhraseByIndexAndLanguage(152, userLanguage));
+			modelMap.addAttribute("Precipitation", chineseAndEnglishService.getPhraseByIndexAndLanguage(25, userLanguage));
+			modelMap.addAttribute("AveragePrecipitation", chineseAndEnglishService.getPhraseByIndexAndLanguage(26, userLanguage));
+			modelMap.addAttribute("save", chineseAndEnglishService.getPhraseByIndexAndLanguage(10, userLanguage));
+			modelMap.addAttribute("reset", chineseAndEnglishService.getPhraseByIndexAndLanguage(11, userLanguage));
+			modelMap.addAttribute("Curveofprecipitation", chineseAndEnglishService.getPhraseByIndexAndLanguage(27, userLanguage));
+			modelMap.addAttribute("AveragePrecipitation", chineseAndEnglishService.getPhraseByIndexAndLanguage(26, userLanguage));
 			return "stuation.ftl";
 		}
 	}

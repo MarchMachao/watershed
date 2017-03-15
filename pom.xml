@@ -264,13 +264,6 @@
 			<version>3.1</version>
 		</dependency>
 
-		<!-- 七牛云文件存储 -->
-		<dependency>
-			<groupId>com.qiniu</groupId>
-			<artifactId>qiniu-java-sdk</artifactId>
-			<version>[7.0.0, 7.0.99]</version>
-		</dependency>
-
 		<!-- 上传文件组件 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
