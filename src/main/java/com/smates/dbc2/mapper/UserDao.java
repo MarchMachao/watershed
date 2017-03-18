@@ -10,5 +10,10 @@ public interface UserDao {
 	 */
 	public User selectByAccountNumber(String accountNumber);
 
-	
+	/**
+	 * 根据用户id更新用户信息
+	 * 
+	 * @param user2
+	 */
+	public void updateUser(User user2);
 }

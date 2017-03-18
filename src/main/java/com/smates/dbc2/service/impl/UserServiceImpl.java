@@ -24,4 +24,8 @@ public class UserServiceImpl implements UserService {
 		return userMapper.selectByAccountNumber(accountNumber);
 	}
 
+	@Override
+	public void updateUser(User user) {
+		userMapper.updateUser(user);
+	}
 }

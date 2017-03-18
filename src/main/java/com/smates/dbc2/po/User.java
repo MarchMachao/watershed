@@ -34,7 +34,7 @@ public class User implements Serializable {
 		this.role = role;
 		this.createDate = createDate;
 		this.eMail = eMail;
-		this.image = "000.jpg";
+		this.image = "d8552f13-0fcb-48b7-b419-b2567bc0cdd4.jpg?imageView2/2/w/100/h/100/interlace/0/q/50";
 	}
 
 	public Date getCreateDate() {

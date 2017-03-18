@@ -25,4 +25,11 @@ public interface UserService {
 	 */
 	public User getUserByAccountNumber(String accountNumber);
 
+	/**
+	 * 根据用户id更新用户信息
+	 * 
+	 * @param user2
+	 *            用户信息
+	 */
+	public void updateUser(User user2);
 }

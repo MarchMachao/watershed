@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="author" content="March" />
 		<title>用户信息</title>
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 		<!--导入iCheck插件蓝色主题-->
@@ -27,34 +28,35 @@
 	</style>
 	<body>
 		<form class="form-horizontal">
+			<input type="text" class="form-control" id="userid" value="" name="id" style="display:none;">
 			<div class="form-group">
 			    <label for="userAccount" class="col-sm-2 control-label">用户名</label>
 			    <div class="col-sm-10">
-			    	<input type="text" class="form-control" id="userAccount" value="admin" disabled>
+			    	<input type="text" class="form-control" id="accountNumber" name="accountNumber" disabled>
 			    </div>
 			</div>
 			<div class="form-group">
 			    <label for="nickName" class="col-sm-2 control-label">昵称</label>
 			    <div class="col-sm-10">
-			    	<input type="text" class="form-control" id="nickName" value="管理员" placeholder="昵称">
+			    	<input type="text" class="form-control" id="nickName" name="nickName" placeholder="昵称">
 			    </div>
 			</div>
 			<div class="form-group">
 			    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 			    <div class="col-sm-10">
-			    	<input type="email" class="form-control" id="inputEmail3" value="" placeholder="example@xx.com">
+			    	<input type="email" class="form-control" id="Email" value="" placeholder="example@xx.com">
 			    </div>
 			</div>
 			<div class="form-group">
 			    <label for="inputPassword1" class="col-sm-2 control-label">密码</label>
 			    <div class="col-sm-10">
-			    	<input type="password" class="form-control" id="inputPassword1" value="" placeholder="若需要修改密码，请输入密码">
+			    	<input type="password" class="form-control" id="password" name="password" value="" placeholder="若需要修改密码，请输入密码">
 			    </div>
 			</div>
 			<div class="form-group">
 			    <label for="inputPassword3" class="col-sm-2 control-label">确认密码</label>
 			    <div class="col-sm-10">
-			    	<input type="password" class="form-control" id="inputPassword3"  value="" placeholder="请再输一次">
+			    	<input type="password" class="form-control" id="repwd" name="repwd" value="" placeholder="请再输一次">
 			    </div>
 			</div>
 			<hr />
@@ -62,102 +64,17 @@
 				<label class="col-sm-2 control-label">语言选项</label>
 			    <div class="col-sm-10">
 			    	<label class="radio-inline">
-			    		 <input type="radio" name="language" checked>中文
+			    		 <input type="radio" name="language" value="chinese">中文
 			    	</label>
 			    	<label class="radio-inline">
-			    		 <input type="radio" name="language">English
+			    		 <input type="radio" name="language" value="english">English
 			    	</label>
-			    </div>
-			</div>
-			<div class="form-group">
-			    <label class="col-sm-2 control-label">所属流域</label>
-			    <div class="col-sm-10">
-			    	<select class="form-control">
-						<option>黑河流域</option>
-						<option>石羊河流域</option>
-						<option>疏勒河流域</option>
-					</select>
-			    </div>
-			</div>
-			<div class="form-group">
-				 <label class="col-sm-2 control-label">流域预览</label>
-				 <div class="col-sm-10">
-					<table class="table table-hover">
-						<tr>
-							<th>流域ID</th>
-							<th>流域名称</th>
-							<th>流域描述</th>
-						</tr>
-						<tr>
-							<td>AKH10002</td>
-							<td>疏勒河</td>
-							<td>疏勒河是甘肃省河西走廊内流水系的第二大河，发源于祁连山脉西段托来南山与疏勒南山之间。</td>
-						</tr>
-					</table>
-			    </div>
-			</div>
-			<div class="form-group">
-			    <label class="col-sm-2 control-label">所属项目</label>
-			    <div class="col-sm-10">
-			    	<select class="form-control">
-						<option>项目1</option>
-						<option>项目2</option>
-						<option>项目3</option>
-					</select>
-			    </div>
-			</div>
-			<div class="form-group">
-				 <label class="col-sm-2 control-label">项目预览</label>
-				 <div class="col-sm-10">
-					<table class="table table-hover">
-						<tr>
-							<th>项目名称</th>
-							<th>流域ID</th>
-							<th>项目描述</th>
-							<th>创建时间</th>
-							<th>基准年</th>
-							<th>目标年</th>
-							<th>步长</th>
-						</tr>
-						<tr>
-							<td>黑河流域可持续发展决策支持</td>
-							<td>AKH13002</td>
-							<td>黑河可持续发展决策</td>
-							<td>Sun Oct 09 21:12:10 CST 2016</td>
-							<td>2000</td>
-							<td>2013</td>
-							<td>1</td>
-						</tr>
-					</table>
-			    </div>
-			</div>
-			<div class="form-group">
-				 <label class="col-sm-2 control-label">目标定制</label>
-				 <div class="col-sm-10">
-					<select class="form-control">
-						<option>请选择</option>
-						<option>目标1</option>
-						<option>目标2</option>
-						<option>目标3</option>
-					</select>
-					<select class="form-control goal">
-						<option>请选择</option>
-						<option>目标1</option>
-						<option>目标2</option>
-						<option>目标3</option>
-					</select>
-					<select class="form-control goal">
-						<option>请选择</option>
-						<option>目标1</option>
-						<option>目标2</option>
-						<option>目标3</option>
-					</select>
 			    </div>
 			</div>
 			<hr/>
 			<div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
-			    	<button type="submit" class="btn btn-info">保存</button>
+			    	<button type="button" onclick="updateUser();" class="btn btn-info">保存</button>
 			    	<button type="reset" class="btn btn-info">重置</button>
 			    </div>
 			</div>
@@ -171,5 +88,38 @@
 			    increaseArea: '20%' // optional
 			});
 		});
+		
+		$.get(
+			"getCurrentUser.do",
+			[],
+			function(data){
+				if(data.isEmpty!="1"){
+					$("#userid").val(data.id),
+					$("#accountNumber").val(data.accountNumber),
+					$("#nickName").val(data.nickName),
+					$("#Email").val(data.eMail)
+				} else{
+					alert("出错，请重新登录!")
+				}
+			}
+		);
+		function updateUser(){
+			$.post(
+				"updateUser.do",
+				{
+					id:$("#userid").val(),
+					accountNumber:$("#accountNumber").val(),
+					nickName:$("#nickName").val(),
+					password:$("#password").val(),
+					repwd:$("#repwd").val(),
+					eMail:$("#Email").val()
+				},
+				function(data){
+					alert(data.content);
+				}
+			);
+		}
+		$("input[name='radio']:checked").val();
+		$("input:radio[value='chinese']").attr("checked","checked"); 
 	</script>
 </html>
