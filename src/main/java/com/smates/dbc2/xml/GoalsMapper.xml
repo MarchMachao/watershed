@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smates.dbc2.mapper.GoalsDao">
+
+	<resultMap type="goals" id="getAllGoalsQueryMap">
+		<id column="goal_id" property="goalId" />
+		<result column="goal_name" property="goalName" />
+		<result column="parent_id" property="parentId" />
+		<result column="order_no" property="order" />
+		<result column="value" property="value" />
+		<result column="englishName" property="englishName" />
+
+		<!-- 映射到对象集合中 -->
+		<collection property="subGoals" ofType="goals">
+			<id column="sub_goal_id" property="goalId" />
+			<result column="sub_goal_name" property="goalName" />
+			<result column="sub_parent_id" property="parentId" />
+			<result column="sub_order_no" property="order" />
+			<result column="sub_value" property="value" />
+			<result column="sub_enlishName" property="englishName" />
+			
+			<collection property="subGoals" ofType="goals">
+				<id column="ssub_goal_id" property="goalId" />
+				<result column="ssub_goal_name" property="goalName" />
+				<result column="ssub_parent_id" property="parentId" />
+				<result column="ssub_order_no" property="order" />
+				<result column="ssub_value" property="value" />
+				<result column="ssub_enlishName" property="englishName" />
+			</collection>
+		</collection>
+	</resultMap>
+
+	<!-- 
+	des:查找到所有的一级菜单和一级菜单下的二级菜单,若一级菜单无权限查看,则此一级菜单下所有的二级菜单都无权限查看.当二级菜单为空时,一级菜单可以显示.但是 
+		二级菜单都没有权限查看时,一级菜单不显示
+	 example sql: 
+	 SELECT
+		A."MENU_ID",A."MENU_NAME",A."MENU_URL",A."ORDER_NO",A."PARENT_ID",A."PERMITION",
+		b."MENU_ID" sub_menu_id,
+		b."MENU_NAME" sub_menu_name,
+		b."MENU_URL" sub_menu_url,
+		b."ORDER_NO" sub_menu_order,
+		b."PARENT_ID" sub_menu_parent_id
+		FROM
+		s_menu A
+		LEFT JOIN s_menu b ON A ."MENU_ID" = b."PARENT_ID"
+		WHERE
+		A ."PARENT_ID" = '0'
+		AND A ."PERMITION" LIKE '%1%'
+		AND (
+		b."PERMITION" IS NULL
+		OR (b."PERMITION" LIKE '%1%')
+		)
+		ORDER BY
+		A ."ORDER_NO",
+		b."ORDER_NO"
+	  -->
+	<select id="getGoalsByProjectid" resultMap="getAllGoalsQueryMap"
+		parameterType="String">
+		SELECT
+			A ."GOAL_ID",
+			A ."GOAL_NAME",
+			A ."PARENT_ID",
+			A ."ORDER_NO",
+			A ."VALUE",
+			A ."englishName",
+			b."GOAL_ID" sub_goal_id,
+			b."GOAL_NAME" sub_goal_name,
+			b."PARENT_ID" sub_parent_id,
+			b."ORDER_NO" sub_order_no,
+			b."VALUE" sub_value,
+			C ."GOAL_ID" ssub_goal_id,
+			C ."GOAL_NAME" ssub_goal_name,
+			C ."PARENT_ID" ssub_parent_id,
+			C ."ORDER_NO" ssub_order_no,
+			C ."VALUE" ssub_value
+		FROM
+			a_goals A
+		LEFT JOIN a_goals b ON A ."GOAL_ID" = b."PARENT_ID"
+		LEFT JOIN a_goals C ON b."GOAL_ID" = C ."PARENT_ID"
+		WHERE
+			A ."PARENT_ID" = '0'
+		AND A ."projectID" = '${value}'
+		ORDER BY
+			A ."ORDER_NO",
+			b."ORDER_NO",
+			C ."ORDER_NO"
+	</select>
+
+</mapper>
