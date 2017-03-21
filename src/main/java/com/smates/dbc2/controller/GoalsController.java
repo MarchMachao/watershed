@@ -1,14 +1,12 @@
 package com.smates.dbc2.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.smates.dbc2.po.Goals;
 import com.smates.dbc2.service.GoalsService;
+import com.smates.dbc2.service.UserService;
 
 @Controller
 public class GoalsController {
@@ -16,9 +14,13 @@ public class GoalsController {
 	@Autowired
 	private GoalsService goalsService;
 
-	@ResponseBody
+	@Autowired
+	private UserService userService;
+
 	@RequestMapping("getGoalsByProjectid")
-	public List<Goals> getGoalsByProjectid(String projectID){
-		return goalsService.getGoalsByProjectid(projectID);
+	public String getGoalsByProjectid(Model model) {
+		model.addAttribute("goalslist", goalsService.getGoalsByProjectid("default"));
+//		model.addAttribute("goalslist", goalsService.getGoalsByProjectid(userService.getCurrentUserId()));
+		return "goals.ftl";
 	}
 }
