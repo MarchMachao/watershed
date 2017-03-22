@@ -27,4 +27,11 @@ public interface GoalsService {
 	 * @param goals
 	 */
 	public void addOneGoal(Goals goals);
+
+	/**
+	 * 批量插入目标
+	 * 
+	 * @param goals
+	 */
+	public void addGoals(List<Goals> goals);
 }

@@ -30,4 +30,9 @@ public class GoalsServiceImpl implements GoalsService {
 		goalsDao.addOneGoal(goals);
 	}
 
+	@Override
+	public void addGoals(List<Goals> goals) {
+		goalsDao.addGoals(goals);
+	}
+
 }

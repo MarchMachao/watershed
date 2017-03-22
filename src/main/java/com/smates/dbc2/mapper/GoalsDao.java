@@ -22,9 +22,16 @@ public interface GoalsDao {
 	public List<Goals> getDefaultGoals();
 
 	/**
-	 * 添加目标
+	 * 添加一个目标
 	 * 
 	 * @param goals
 	 */
-	public void addOneGoal(Goals goals);
+	public void addOneGoal(Goals goal);
+
+	/**
+	 * 批量插入目标
+	 * 
+	 * @param goals
+	 */
+	public void addGoals(List<Goals> goals);
 }

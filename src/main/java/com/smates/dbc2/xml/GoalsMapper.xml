@@ -30,7 +30,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</collection>
 		</collection>
 	</resultMap>
+	
+	<resultMap type="goals" id="goalsResultMap">
+		<id column="goal_id" property="goalId" />
+		<result column="goal_name" property="goalName" />
+		<result column="parent_id" property="parentId" />
+		<result column="order_no" property="order" />
+		<result column="value" property="value" />
+		<result column="englishName" property="englishName" />
+		<result column="projectID" property="projectID" />
+	</resultMap>
 
+<!-- 	<parameterMap type="goals" id="goalsParameterMap"> -->
+<!-- 		<parameter property=""/> -->
+<!-- 		<id column="goal_id" property="goalId" /> -->
+<!-- 		<result column="goal_name" property="goalName" /> -->
+<!-- 		<result column="parent_id" property="parentId" /> -->
+<!-- 		<result column="order_no" property="order" /> -->
+<!-- 		<result column="value" property="value" /> -->
+<!-- 		<result column="englishName" property="englishName" /> -->
+<!-- 		<result column="projectID" property="projectID" /> -->
+<!-- 	</parameterMap> -->
+	
 	<select id="getGoalsByProjectid" resultMap="getAllGoalsQueryMap"
 		parameterType="String">
 		SELECT
@@ -45,11 +66,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			b."PARENT_ID" sub_parent_id,
 			b."ORDER_NO" sub_order_no,
 			b."VALUE" sub_value,
+			b ."englishName" sub_englishName,
 			C ."GOAL_ID" ssub_goal_id,
 			C ."GOAL_NAME" ssub_goal_name,
 			C ."PARENT_ID" ssub_parent_id,
 			C ."ORDER_NO" ssub_order_no,
-			C ."VALUE" ssub_value
+			C ."VALUE" ssub_value,
+			C ."englishName" ssub_englishName
 		FROM
 			a_goals A
 		LEFT JOIN a_goals b ON A ."GOAL_ID" = b."PARENT_ID"
@@ -63,11 +86,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			C ."ORDER_NO"
 	</select>
 
-	<select id="getDefaultGoals" resultType="Goals">
+	<select id="getDefaultGoals" resultMap="goalsResultMap">
 		SELECT * FROM a_goals WHERE a_goals."projectID" = 'default'
 	</select>
 	
-	<insert id="addOneGoal" parameterType="Goals">
+	<insert id="addOneGoal" parameterType="goals">
 		INSERT INTO a_goals VALUES(#{goalId},#{goalName},#{parentId},#{order},#{value},#{englishName},#{projectID})
+	</insert>
+	
+	<insert id="addGoals" parameterType="java.util.List">
+		INSERT INTO a_goals (
+			"GOAL_ID",
+			"GOAL_NAME",
+			"PARENT_ID",
+			"ORDER_NO",
+			"VALUE",
+			"englishName",
+			"projectID"
+		)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+			#{item.goalId},
+			#{item.goalName},
+			#{item.parentId},
+			#{item.order},
+			#{item.value},
+			#{item.englishName},
+			#{item.projectID}
+			)
+		</foreach>
 	</insert>
 </mapper>

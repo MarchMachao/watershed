@@ -36,10 +36,11 @@ public class GoalsController {
 			goalslist = goalsService.getDefaultGoals();
 			for (int i = 0; i < goalslist.size(); i++) {
 				goalslist.get(i).setProjectID(projectId);
-				goalsService.addOneGoal(goalslist.get(i));
+				// goalsService.addOneGoal(goalslist.get(i));
 			}
+			goalsService.addGoals(goalslist);
 		}
-		model.addAttribute("goalslist", goalslist);
+		model.addAttribute("goalslist", goalsService.getGoalsByProjectid(projectId));
 		System.out.println(projectId);
 		return "goals.ftl";
 	}

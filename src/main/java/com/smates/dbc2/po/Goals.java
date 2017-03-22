@@ -19,6 +19,13 @@ public class Goals {
 	private String projectID;
 	private List<Goals> subGoals;
 
+	@Override
+	public String toString() {
+		return "Goals [goalId=" + goalId + ", goalName=" + goalName + ", parentId=" + parentId + ", order=" + order
+				+ ", value=" + value + ", englishName=" + englishName + ", projectID=" + projectID + ", subGoals="
+				+ subGoals + "]";
+	}
+
 	public Goals() {
 	}
 
