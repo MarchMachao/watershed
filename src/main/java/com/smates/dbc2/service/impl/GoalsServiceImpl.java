@@ -20,4 +20,14 @@ public class GoalsServiceImpl implements GoalsService {
 		return goalsDao.getGoalsByProjectid(projectId);
 	}
 
+	@Override
+	public List<Goals> getDefaultGoals() {
+		return goalsDao.getDefaultGoals();
+	}
+
+	@Override
+	public void addOneGoal(Goals goals) {
+		goalsDao.addOneGoal(goals);
+	}
+
 }

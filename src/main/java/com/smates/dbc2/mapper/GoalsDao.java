@@ -13,4 +13,18 @@ public interface GoalsDao {
 	 * @return
 	 */
 	public List<Goals> getGoalsByProjectid(String projectId);
+
+	/**
+	 * 获取默认目标
+	 * 
+	 * @return
+	 */
+	public List<Goals> getDefaultGoals();
+
+	/**
+	 * 添加目标
+	 * 
+	 * @param goals
+	 */
+	public void addOneGoal(Goals goals);
 }

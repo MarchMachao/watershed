@@ -16,9 +16,21 @@ public class Goals {
 	private Integer order;
 	private Integer value;
 	private String englishName;
+	private String projectID;
 	private List<Goals> subGoals;
 
 	public Goals() {
+	}
+
+	public Goals(String goalId, String goalName, String parentId, Integer order, Integer value, String englishName,
+			String projectID) {
+		this.goalId = goalId;
+		this.goalName = goalName;
+		this.parentId = parentId;
+		this.order = order;
+		this.value = value;
+		this.englishName = englishName;
+		this.projectID = projectID;
 	}
 
 	public Goals(String goalId, String goalName, String parentId, Integer order, Integer value, String englishName,
@@ -78,6 +90,14 @@ public class Goals {
 
 	public void setEnglishName(String englishName) {
 		this.englishName = englishName;
+	}
+
+	public String getProjectID() {
+		return projectID;
+	}
+
+	public void setProjectID(String projectID) {
+		this.projectID = projectID;
 	}
 
 	public List<Goals> getSubGoals() {
