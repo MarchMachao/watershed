@@ -39,8 +39,10 @@ public class GoalsController {
 				// goalsService.addOneGoal(goalslist.get(i));
 			}
 			goalsService.addGoals(goalslist);
+			goalslist = goalsService.getGoalsByProjectid(projectId);
 		}
-		model.addAttribute("goalslist", goalsService.getGoalsByProjectid(projectId));
+		model.addAttribute("goalslist", goalslist);
+		model.addAttribute("projectId", projectId);
 		System.out.println(projectId);
 		return "goals.ftl";
 	}
