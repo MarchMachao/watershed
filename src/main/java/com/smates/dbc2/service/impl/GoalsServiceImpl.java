@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.smates.dbc2.mapper.GoalsDao;
 import com.smates.dbc2.po.Goals;
+import com.smates.dbc2.po.GoalsIDAndProjectID;
 import com.smates.dbc2.service.GoalsService;
 
 @Service
@@ -16,8 +17,8 @@ public class GoalsServiceImpl implements GoalsService {
 	private GoalsDao goalsDao;
 
 	@Override
-	public List<Goals> getGoalsByProjectid(String projectId) {
-		return goalsDao.getGoalsByProjectid(projectId);
+	public List<Goals> getGoalsByProjectidTree(String projectId) {
+		return goalsDao.getGoalsByProjectidTree(projectId);
 	}
 
 	@Override
@@ -33,6 +34,21 @@ public class GoalsServiceImpl implements GoalsService {
 	@Override
 	public void addGoals(List<Goals> goals) {
 		goalsDao.addGoals(goals);
+	}
+
+	@Override
+	public List<Goals> getGoalsByProjectIDList(String projectId) {
+		return goalsDao.getGoalsByProjectIDList(projectId);
+	}
+
+	@Override
+	public void deleteGoal(GoalsIDAndProjectID goalsIDAndProjectID) {
+		deleteGoal(goalsIDAndProjectID);
+	}
+
+	@Override
+	public int countSum(String projectId) {
+		return goalsDao.countSum(projectId);
 	}
 
 }
