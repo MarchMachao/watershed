@@ -90,7 +90,7 @@ public class ProjectController {
 			return "none.ftl";
 		}else{
 			modelMap.addAttribute("projectId", userProjectRelation.getAutoProjectId());
-			return "goal.ftl";
+			return "goals.ftl";
 		}
 	}
 

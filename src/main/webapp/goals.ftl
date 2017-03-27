@@ -71,6 +71,7 @@
 			 <div class="col-md-offset-2 col-sm-10" style="margin-top: 5px">
 			  	<button type="submit" class="btn btn-info">提交</button>
 			  	<button type="reset" class="btn btn-info">重置</button>
+			  	<button type="button" class="btn btn-info" onclick="location.href = 'goalsEdit.html'">目标定制</button>
 			  	<button type="button" class="btn btn-info" id="nextStep" onclick="javascript:location.href = 'toStuation.do?id=${projectId}'">下一步</button>
 			 </div>
 		</form>

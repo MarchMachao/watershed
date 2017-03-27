@@ -43,7 +43,7 @@ public class GoalsServiceImpl implements GoalsService {
 
 	@Override
 	public void deleteGoal(GoalsIDAndProjectID goalsIDAndProjectID) {
-		deleteGoal(goalsIDAndProjectID);
+		goalsDao.deleteGoal(goalsIDAndProjectID);
 	}
 
 	@Override

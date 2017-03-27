@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smates.dbc2.po.Goals;
 import com.smates.dbc2.po.GoalsIDAndProjectID;
+import com.smates.dbc2.po.UserProjectRelation;
 import com.smates.dbc2.service.GoalsService;
 import com.smates.dbc2.service.UserProjectRelationService;
 import com.smates.dbc2.service.UserService;
@@ -47,8 +47,12 @@ public class GoalsController {
 	public String getGoalsByProjectid(Model model) {
 		// model.addAttribute("goalslist",
 		// goalsService.getGoalsByProjectid("default"));
-		String projectId = userProjectRelationService.getUserProjectRelationByUserName(userService.getCurrentUserId())
-				.getAutoProjectId();
+		UserProjectRelation userProjectRelation = userProjectRelationService
+				.getUserProjectRelationByUserName(userService.getCurrentUserId());
+		if (userProjectRelation == null) {
+			return "none.ftl";
+		}
+		String projectId = userProjectRelation.getAutoProjectId();
 		List<Goals> goalslist = new ArrayList<Goals>(goalsService.getGoalsByProjectidTree(projectId));// 查询项目下的目标树形结构
 		if (goalslist.isEmpty()) {// 判断该项目下是否有已定制的目标，若为空
 			goalslist = goalsService.getDefaultGoals();// 查询默认目标的表结构
@@ -78,13 +82,15 @@ public class GoalsController {
 	@ResponseBody
 	@RequestMapping("addGoal")
 	public BaseMsg addGoal(String goalId, String goalName, String parentId, Integer order, Integer value,
-			String englishName, String projectId) {
+			String englishName) {
+		String projectId = userProjectRelationService.getUserProjectRelationByUserName(userService.getCurrentUserId())
+				.getAutoProjectId();
 		goalsService.addOneGoal(new Goals(goalId, goalName, parentId, order, value, englishName, projectId));
 		return new BaseMsg(true, "目标添加成功！");
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "getGolasbyProjectIdList", method = RequestMethod.GET)
+	@RequestMapping("getGolasbyProjectIdList")
 	public DataGrideRow<Goals> getGolasbyProjectIdList(@RequestParam(defaultValue = "1") int page, int rows) {
 		String projectId = userProjectRelationService.getUserProjectRelationByUserName(userService.getCurrentUserId())
 				.getAutoProjectId();
@@ -92,8 +98,12 @@ public class GoalsController {
 		return new DataGrideRow<Goals>(goalsService.countSum(projectId), goals);
 	}
 
-	public BaseMsg deleteGoal(String goalsId,String projectId){
-		goalsService.deleteGoal(new GoalsIDAndProjectID(goalsId, projectId));
+	@ResponseBody
+	@RequestMapping("deleteGoal")
+	public BaseMsg deleteGoal(String goalId) {
+		String projectId = userProjectRelationService.getUserProjectRelationByUserName(userService.getCurrentUserId())
+				.getAutoProjectId();
+		goalsService.deleteGoal(new GoalsIDAndProjectID(goalId, projectId));
 		return new BaseMsg(true, "目标删除成功！");
 	}
 }

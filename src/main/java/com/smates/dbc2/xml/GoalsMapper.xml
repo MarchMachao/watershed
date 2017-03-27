@@ -112,8 +112,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 <!-- 	获取某项目下所有目标  list结构-->
-	<select id="getGoalsByProjectIDList" parameterType="String">
+	<select id="getGoalsByProjectIDList" parameterType="String" resultMap="goalsResultMap">
 		SELECT * FROM a_goals WHERE a_goals."projectID"='${value}'
+		order by a_goals."GOAL_ID"
 	</select>
 	
 <!-- 	删除目标 -->
@@ -122,8 +123,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM
 			a_goals
 		WHERE
-			a_goals."GOAL_ID" = ${goalsId}
-		AND a_goals."projectID" = ${projectId}
+			a_goals."GOAL_ID" = '${goalsId}'
+		AND a_goals."projectID" = '${projectId}'
 	</delete>
 	<!-- 查询出共多少条数据 -->
     <select id="countSum" parameterType="String" resultType="int">
