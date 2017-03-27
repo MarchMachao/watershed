@@ -35,12 +35,18 @@ public interface UserAndLanguageDao {
 	public void updateUserLanguageAndGuide(Map<String, String> paraMap);
 
 	/**
-	 * 增加用户默认语言和新手引导
+	 * 增加用户语言和新手引导
 	 * 
 	 * @param accountNumber
 	 */
-	public void addUserLanguageAndGuide(String accountNumber);
+	public void addUserLanguageAndGuide(UserAndLanuage userAndLanuage);
 
+	/**
+	 * 删除用户语言和新手引导
+	 * 
+	 * @param accountNumber
+	 */
+	public void deleteUserLanguageAndGuide(String accountNumber);
 	/**
 	 * 获取用户的语言和指引设置
 	 * 

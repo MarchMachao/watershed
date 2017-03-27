@@ -39,13 +39,19 @@ public class UserAndLanguageServiceImpl implements UserAndLanguageService{
 	}
 
 	@Override
-	public void addUserLanguageAndGuide(String accountNumber) {
-		userAndLanguageDao.addUserLanguageAndGuide(accountNumber);
+	public UserAndLanuage getUserLanguageAndGuide(String accountNumber) {
+		return userAndLanguageDao.getUserLanguageAndGuide(accountNumber);
 	}
 
 	@Override
-	public UserAndLanuage getUserLanguageAndGuide(String accountNumber) {
-		return userAndLanguageDao.getUserLanguageAndGuide(accountNumber);
+	public void deleteUserLanguageAndGuide(String accountNumber) {
+		userAndLanguageDao.deleteUserLanguageAndGuide(accountNumber);
+
+	}
+
+	@Override
+	public void addUserLanguageAndGuide(String accountNumber, String language, String guide) {
+		userAndLanguageDao.addUserLanguageAndGuide(new UserAndLanuage(accountNumber, language, guide));
 	}
 
 }

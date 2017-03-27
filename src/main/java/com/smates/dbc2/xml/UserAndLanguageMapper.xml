@@ -25,9 +25,13 @@
 	</update>
 	
 <!-- 	新增用户的语言和新手引导选项 -->
-	<insert id="addUserLanguageAndGuide" parameterType="String">
-		INSERT INTO "a_userAndLanuage" VALUES ('${value}','chinese','y')
+	<insert id="addUserLanguageAndGuide" parameterType="UserAndLanuage">
+		INSERT INTO "a_userAndLanuage" VALUES (${accountNumber},${language},${guide})
 	</insert>
+	
+	<delete id="deleteUserLanguageAndGuide" parameterType="String">
+		DELETE FROM "a_userAndLanuage" WHERE "a_userAndLanuage"."accountNumber"='${value}'
+	</delete>
 	
 	<select id="getUserLanguageAndGuide" parameterType="String" resultType="UserAndLanuage">
 		SELECT * FROM "a_userAndLanuage" WHERE "accountNumber"='${value}'

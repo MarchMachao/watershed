@@ -39,7 +39,14 @@ public interface UserAndLanguageService {
 	 * 
 	 * @param accountNumber
 	 */
-	public void addUserLanguageAndGuide(String accountNumber);
+	public void addUserLanguageAndGuide(String accountNumber, String language, String guide);
+
+	/**
+	 * 删除用户语言和新手引导
+	 * 
+	 * @param accountNumber
+	 */
+	public void deleteUserLanguageAndGuide(String accountNumber);
 
 	/**
 	 * 获取用户的语言和指引设置

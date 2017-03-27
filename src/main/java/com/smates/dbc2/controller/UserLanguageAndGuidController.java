@@ -10,6 +10,12 @@ import com.smates.dbc2.service.UserAndLanguageService;
 import com.smates.dbc2.service.UserService;
 import com.smates.dbc2.vo.BaseMsg;
 
+/**
+ * 用户设置页面的controller
+ * 
+ * @author March
+ *
+ */
 @Controller
 public class UserLanguageAndGuidController {
 
@@ -19,6 +25,11 @@ public class UserLanguageAndGuidController {
 	@Autowired
 	private UserService userService;
 
+	/**
+	 * 获取用户的语言和新手指引选项
+	 * 
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("getUserLanguageAndGuid")
 	public UserAndLanuage getUserLanguageAndGuid() {
@@ -26,10 +37,20 @@ public class UserLanguageAndGuidController {
 		return userAndLanuage;
 	}
 
+	/**
+	 * 修改用户的语言和新手指引选项
+	 * 
+	 * @param language
+	 * @param guide
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("updateUserLanguageAndGuide")
 	public BaseMsg updateUserLanguageAndGuide(String language, String guide) {
 		userAndLanguageService.updateUserLanguageAndGuide(userService.getCurrentUserId(), language, guide);
+		// userAndLanguageService.deleteUserLanguageAndGuide(userService.getCurrentUserId());
+		// userAndLanguageService.addUserLanguageAndGuide(userService.getCurrentUserId(),
+		// language, guide);
 		return new BaseMsg(true, "修改成功");
 	}
 }
