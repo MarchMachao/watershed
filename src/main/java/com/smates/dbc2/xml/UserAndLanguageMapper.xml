@@ -15,5 +15,21 @@
 		set "language" = #{language}
 		where "accountNumber" = #{accountNumber}
 	</update>
-
+	
+<!-- 修改用户默认语言和新手引导 -->
+	<update id="updateUserLanguageAndGuide" parameterType="hashmap">
+		UPDATE
+		"a_userAndLanuage"
+		set "language" = #{language},"guide" = #{guide}
+		where "accountNumber" = #{accountNumber}
+	</update>
+	
+<!-- 	新增用户的语言和新手引导选项 -->
+	<insert id="addUserLanguageAndGuide" parameterType="String">
+		INSERT INTO "a_userAndLanuage" VALUES ('${value}','chinese','y')
+	</insert>
+	
+	<select id="getUserLanguageAndGuide" parameterType="String" resultType="UserAndLanuage">
+		SELECT * FROM "a_userAndLanuage" WHERE "accountNumber"='${value}'
+	</select>
 </mapper>

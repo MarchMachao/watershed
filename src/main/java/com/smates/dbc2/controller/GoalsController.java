@@ -22,7 +22,7 @@ import com.smates.dbc2.vo.DataGrideRow;
 /**
  * 动态加载评价目标的controller
  * 
- * @author 马超MC
+ * @author March
  *
  */
 @Controller
@@ -89,6 +89,13 @@ public class GoalsController {
 		return new BaseMsg(true, "目标添加成功！");
 	}
 
+	/**
+	 * 获取某项目下所有目标List结构
+	 * 
+	 * @param page
+	 * @param rows
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("getGolasbyProjectIdList")
 	public DataGrideRow<Goals> getGolasbyProjectIdList(@RequestParam(defaultValue = "1") int page, int rows) {
@@ -98,6 +105,12 @@ public class GoalsController {
 		return new DataGrideRow<Goals>(goalsService.countSum(projectId), goals);
 	}
 
+	/**
+	 * 删除一个目标
+	 * 
+	 * @param goalId
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("deleteGoal")
 	public BaseMsg deleteGoal(String goalId) {

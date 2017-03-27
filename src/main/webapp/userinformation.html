@@ -64,17 +64,28 @@
 				<label class="col-sm-2 control-label">语言选项</label>
 			    <div class="col-sm-10">
 			    	<label class="radio-inline">
-			    		 <input type="radio" name="language" value="chinese">中文
+			    		 <input id="radio_1_1" type="radio" name="language" value="chinese">中文
 			    	</label>
 			    	<label class="radio-inline">
-			    		 <input type="radio" name="language" value="english">English
+			    		 <input id="radio_1_2" type="radio" name="language" value="english">English
+			    	</label>
+			    </div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">新手指引选项</label>
+			    <div class="col-sm-10">
+			    	<label class="radio-inline">
+			    		 <input id="radio_2_1" type="radio" name="guide" value="y">需要
+			    	</label>
+			    	<label class="radio-inline">
+			    		 <input id="radio_2_2" type="radio" name="guide" value="n">不需要
 			    	</label>
 			    </div>
 			</div>
 			<hr/>
 			<div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
-			    	<button type="button" onclick="updateUser();" class="btn btn-info">保存</button>
+			    	<button type="button" id="savebtn" onclick="savechanges();" class="btn btn-info">保存</button>
 			    	<button type="reset" class="btn btn-info">重置</button>
 			    </div>
 			</div>
@@ -119,7 +130,38 @@
 				}
 			);
 		}
-		$("input[name='radio']:checked").val();
-		$("input:radio[value='chinese']").attr("checked","checked"); 
+// 		$("input[name='language']:checked").val();
+// 		$("input:radio[value='chinese']").attr("checked","checked"); 
+// $("#radio_2_1").parent().parent().click();
+
+
+		$.get(
+				"getUserLanguageAndGuid.do",
+				[],
+				function(data){
+					var str1 = "input:radio[value="+data.language+"]";
+					var str2 = "input:radio[value="+data.guide+"]";
+					$(str1).parent().parent().click();
+					$(str2).parent().parent().click();
+				}
+			);
+		
+		function saveUserLanguageAndGuide(){
+			$.post(
+					"updateUserLanguageAndGuide.do",
+					{
+						language:$("input[name='language']:checked").val(),
+						guide:$("input[name='guide']:checked").val()
+					},
+					function(data){
+						
+					}
+					);
+		}
+		
+		function savechanges(){
+			updateUser();
+			saveUserLanguageAndGuide();
+		}
 	</script>
 </html>

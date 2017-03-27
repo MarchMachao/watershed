@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smates.dbc2.mapper.UserAndLanguageDao;
+import com.smates.dbc2.po.UserAndLanuage;
 import com.smates.dbc2.service.UserAndLanguageService;
 
 @Service
@@ -26,6 +27,25 @@ public class UserAndLanguageServiceImpl implements UserAndLanguageService{
 		paraMap.put("accountNumber", accountNumber);
 		paraMap.put("language", language);
 		userAndLanguageDao.updateUserAndLanguage(paraMap);
+	}
+
+	@Override
+	public void updateUserLanguageAndGuide(String accountNumber, String language, String guide) {
+		Map<String, String> paraMap = new HashMap<String, String>();
+		paraMap.put("accountNumber", accountNumber);
+		paraMap.put("language", language);
+		paraMap.put("guide", guide);
+		userAndLanguageDao.updateUserLanguageAndGuide(paraMap);
+	}
+
+	@Override
+	public void addUserLanguageAndGuide(String accountNumber) {
+		userAndLanguageDao.addUserLanguageAndGuide(accountNumber);
+	}
+
+	@Override
+	public UserAndLanuage getUserLanguageAndGuide(String accountNumber) {
+		return userAndLanguageDao.getUserLanguageAndGuide(accountNumber);
 	}
 
 }
