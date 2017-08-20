@@ -1,7 +1,7 @@
-#watershed
-###项目介绍
+# watershed
+### 项目介绍
 本项目为本人与某研究所合作开发的系统V1.0，主要是（1）数据展示和（2）计算模型交互
-###项目实现简介
+### 项目实现简介
 1. spring做容器
 1. springMVC做MVC控制
 1. shiro实现项目的安全管理,拦截器,角色管理等
@@ -10,8 +10,8 @@
 1. EasyUI、Bootstrap作为前台框架
 1. log4j做日志输出
 
-###MyBatis
-####MyBatis配置
+### MyBatis
+#### MyBatis配置
 ```xml
 <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -27,8 +27,8 @@
 	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 </bean>
 ```
-###FreeMarker
-####FreeMarker配置
+### FreeMarker
+#### FreeMarker配置
 ```xml
 <!-- 配置freeMarker的模板路径 -->
 <bean id="freemarkerConfig"
@@ -75,8 +75,8 @@
 	<property name="requestContextAttribute" value="rc" />
 </bean>
 ```
-###Apache CXF
-####CXF配置
+### Apache CXF
+#### CXF配置
 ```xml
 <!-- 引入CXF核心配置 -->
 <import resource="classpath:META-INF/cxf/cxf.xml"/>
@@ -89,8 +89,8 @@
 </jaxws:client>
 ```
 
-###shiro
-####shiro配置
+### shiro
+#### shiro配置
 ```xml
 <!-- 配置缓存管理器 -->
 <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
@@ -121,13 +121,13 @@
     </property>
 </bean>
 ```
-####项目目前权限说明
+#### 项目目前权限说明
 |权限值|权限名|
 |----|----|
 |0|普通用户|
 |1|管理员|
 
-####接口说明
+#### 接口说明
 
 1.根据用户输入的气候情景排放类型返回List<TblClimateScenarioYear>
 + 接口名      geTblClimateScenarioYearsByfldCRPType.do
