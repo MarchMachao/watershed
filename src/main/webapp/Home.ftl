@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="renderer" content="webkit" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>${title}</title>
+		<title>XXXXXXXX</title>
 		<!-- Tell the browser to be responsive to screen width -->
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<!-- Bootstrap 3.3.6 -->
@@ -63,7 +63,7 @@
 
 				<!-- Header Navbar -->
 				<nav class="navbar navbar-static-top" role="navigation">
-					<img src="image/brand_cas_1.png" />
+					<img src="" />
 					<!-- Navbar Right Menu -->
 					<div class="navbar-custom-menu">
 						<ul class="nav navbar-nav">
@@ -127,7 +127,7 @@
       Anything you want
     </div>-->
 				<!-- Default to the left -->
-				<strong>Copyright &copy; 2016 <a href="#">中国科学院寒区旱区环境与工程研究所.</a></strong> All rights reserved.
+				<strong>Copyright &copy; 2016 <a href="#">XXXXXXXXXXXXXXXXXX</a></strong> All rights reserved.
 			</footer>
 
 			<!-- REQUIRED JS SCRIPTS -->

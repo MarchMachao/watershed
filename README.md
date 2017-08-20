@@ -1,91 +1,94 @@
-#dbc2
+#watershed
 ###项目介绍
-本项目为一个控制台程序模板,可以对数据库中的内容进行基本的维护
+本项目为本人与某研究所合作开发的系统V1.0，主要是（1）数据展示和（2）计算模型交互
 ###项目实现简介
 1. spring做容器
 1. springMVC做MVC控制
 1. shiro实现项目的安全管理,拦截器,角色管理等
 1. mybatis作为orm对数据库进行操作
-1. memcache做缓存管理,加快查询较多的操作,从而提高并发,aop实现
-1. mongo和morphia用来收集用户的行为数据并记录,aop实现
-1. easyUI作为前台框架
-1. 使用七牛云作为文件服务器来存储项目中的图片,文本等文件
+1. Apache CXF 作为WebService框架
+1. EasyUI、Bootstrap作为前台框架
 1. log4j做日志输出
-###memcache使用(在service层使用)
-####配置缓存,缓存服务器的ip和端口
+
+###MyBatis
+####MyBatis配置
 ```xml
-<aop:aspectj-autoproxy proxy-target-class="true" />
-<bean class="com.smates.dbc2.memcache.config.MemcacheConfig" id="memcachedConfig">
-    <property name="ips">
-        <list>
-            <value>xxx.xxx.xxx.xxx</value>
-        </list>
-    </property>
-    <property name="ports">
-        <list>
-            <value>xxxxx</value>
-        </list>
-    </property>
-    <property name="connectionPoolSize" value="10">
-    </property>
+<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+	<!-- 自动扫描mapping.xml文件 -->
+	<property name="mapperLocations" value="classpath:com/smates/dbc2/xml/*.xml"></property>
+	<property name="typeAliasesPackage" value="com.smates.dbc2.po,com.smates.dbc2.vo" />
 </bean>
-<bean class="com.smates.dbc2.memcache.CacheManager" init-method="init">
-    <property name="cacheConfig" ref="memcachedConfig"></property>
+
+<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<property name="basePackage" value="com.smates.dbc2.mapper" />
+	<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 </bean>
 ```
-####读缓存
-先去内存读缓存,若缓存中存在则从缓存中取到直接返回不再访问数据库,若缓存中不存在,则先去数据中读取,读到后在缓存中存放一份,然后返回给用户
-#####主键生成策略
-cachePrefix_para_para_para
-#####demo
-```java
-@Override
-@CacheRead(nameSpace="menu",cachePrefix="getAll")
-public List<Menu> getAllMenu(@CacheKey int pageNo, @CacheKey String menuName, @CacheKey String permition, @CacheKey int pageSize) {
-    CostumMenu costumMenu = new CostumMenu();
-    costumMenu.setStartCount((pageNo-1)*pageSize);
-    costumMenu.setMenuName(menuName);
-    costumMenu.setPermition(permition);
-    costumMenu.setPageSize(pageSize);
-    return menuDao.getAllMenu(costumMenu);
-}
-```
-####清缓存
-清除掉namespace下对应的缓存空间
-#####demo
-```java
-@Override
-@CacheClear(nameSpace="menu")
-public void deleteMenuById(String menuId) {
-    menuDao.deleteMenuById(menuId);
-}
-```
-###用户行为记录的使用（controller层使用）
-####mongo数据库配置
+###FreeMarker
+####FreeMarker配置
 ```xml
-db_ip=xxx.xxx.xxx.xxx
-db_port=xxxxx
-db_maper_package=com.smates.dbc2.po.UserLog
-db_dbname=smatefamily
+<!-- 配置freeMarker的模板路径 -->
+<bean id="freemarkerConfig"
+	class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+	<property name="templateLoaderPath">
+		<value>/</value>
+	</property>
+	<property name="freemarkerVariables">
+		<map>
+			<entry key="xml_escape" value-ref="fmXmlEscape" />
+		</map>
+	</property>
+	<property name="freemarkerSettings">
+		<props>
+			<prop key="tag_syntax">auto_detect</prop>
+			<prop key="template_update_delay">100000000</prop>
+			<prop key="default_encoding">UTF-8</prop>
+			<prop key="output_encoding">UTF-8</prop>
+			<prop key="url_escaping_charset">UTF-8</prop>
+			<prop key="locale">zh_CN</prop>
+			<prop key="date_format">yyyy-MM-dd</prop>
+			<prop key="time_format">HH:mm:ss</prop>
+			<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+			<prop key="number_format">0.###############</prop>
+			<prop key="classic_compatible">true</prop>
+			<!--  
+			<prop key="auto_include">templates/Page.ftl</prop>
+			-->
+		</props>
+	</property>
+</bean>
+
+<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
+
+<!-- 配置freeMarker视图解析器 -->
+<bean id="freeMarkerViewResolver"
+	class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+	<property name="viewNames" value="*.ftl" />
+	<property name="contentType" value="text/html; charset=utf-8" />
+	<property name="cache" value="true" />
+	<property name="prefix" value="" />
+	<property name="suffix" value="" />
+	<property name="order" value="2" />
+	<property name="requestContextAttribute" value="rc" />
+</bean>
 ```
-####demo @PersonalLog("addMenu")
-```java
-@RequestMapping(value = "saveMenu", method = RequestMethod.POST)
-@ResponseBody
-@PersonalLog("addMenu")
-public BaseMsg addMenu(String menuId, String menuName, String menuUrl, String parentId, Integer order, String permition) {
-    if(StringUtils.isEmpty(menuId)){
-        logger.info("添加菜单项");
-        menuService.addMenu(menuName, parentId, menuUrl, order, permition);
-        return new BaseMsg(true, "菜单添加成功");
-    }else{
-        logger.info("更新菜单项");
-        menuService.updateMenu(menuId, menuName, menuUrl, parentId, order, permition);
-        return new BaseMsg(true, "菜单更新成功");
-    }
-    
-}
+###Apache CXF
+####CXF配置
+```xml
+<!-- 引入CXF核心配置 -->
+<import resource="classpath:META-INF/cxf/cxf.xml"/>
+<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
+	
+<!--  声明远端服务 -->
+<jaxws:client id="RisDSSModelServiceImplService"
+	serviceClass="com.smates.dbc2.ws.RisDSSModelService"
+	address="http://localhost:8080/Webservice-Demo/RisDSSModelServiceWS">
+</jaxws:client>
 ```
+
 ###shiro
 ####shiro配置
 ```xml
@@ -123,61 +126,7 @@ public BaseMsg addMenu(String menuId, String menuName, String menuUrl, String pa
 |----|----|
 |0|普通用户|
 |1|管理员|
-###七牛云文件服务器
-####配置(pom.xml)
-```xml
-<!-- 七牛云文件存储 -->
-<dependency>
-    <groupId>com.qiniu</groupId>
-    <artifactId>qiniu-java-sdk</artifactId>
-    <version>[7.0.0, 7.0.99]</version>
-</dependency>
-<!-- 上传文件组件 -->
-<dependency>
-    <groupId>javax.servlet</groupId>
-    <artifactId>servlet-api</artifactId>
-    <version>3.0-alpha-1</version>
-    <scope>provided</scope>
-</dependency>
-<dependency>
-    <groupId>commons-fileupload</groupId>
-    <artifactId>commons-fileupload</artifactId>
-    <version>1.2.2</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.commons</groupId>
-    <artifactId>commons-io</artifactId>
-    <version>1.3.2</version>
-</dependency>
-```
-####demo
-#####前台html
-```html
-<form action="qniu.do" method="post" enctype="multipart/form-data">
-    <input type="file" name="image"/>
-    <input type="submit" />
-</form>
-```
-#####上传图片
-```java
-@RequestMapping(value = "admin/saveUser", method = RequestMethod.POST)
-@ResponseBody
-public BaseMsg createUser(MultipartFile image) {
-    if (!StringUtils.isEmpty(image.getOriginalFilename())) {
-        qniuHelper.uploadFile(image, "imageName");
-    }
-}
-```
-#####删除图片
-```java
-@RequestMapping(value = "admin/saveUser", method = RequestMethod.POST)
-@ResponseBody
-public BaseMsg createUser(MultipartFile image) {
-    if (!StringUtils.isEmpty(image.getOriginalFilename())) {
-        qniuHelper.deleteFile("imageName");
-    }
-}
-```
+
 ####接口说明
 
 1.根据用户输入的气候情景排放类型返回List<TblClimateScenarioYear>

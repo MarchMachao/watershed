@@ -2,7 +2,7 @@
 <html lang="en">
  
 <head>
-<title>${title}</title>
+<title>XXXXXXXXX</title>
 <meta charset="UTF-8" />
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -71,7 +71,7 @@
  
             <div class="controls">
                 <div class="main_input_box">
-                    <font color="white"><span id="nameerr">Copyright © 2015 中国科学院寒区旱区环境与工程研究所</span></font>
+                    <font color="white"><span id="nameerr">Copyright © 2016 XXXXXXXXXXXX</span></font>
                 </div>
             </div>
         </div>

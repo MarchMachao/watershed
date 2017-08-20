@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>流域可持续发展决策支持系统</title>
+    <title>XXXXXXXXXXX</title>
     <meta name="description" content="overview & stats"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="static/css/bootstrap.min.css"/>
@@ -40,7 +40,7 @@
         <div class="widget-body">
             <div class="widget-main">
                 <div class="row-fluid">
-                    	上游耕地面积：
+                    	XXXXXX：
                     <input type="text" id="situation-1" value="${value1}" style="width:30px;height:10px">万亩
                     <div id="slider-1" style="float:right;display:inline;"></div>
                     <hr style="margin:0px;height:4px">
@@ -49,29 +49,29 @@
                     <span style="visibility:hidden">中下游分水：</span> 中游&nbsp;下游
                 </div>
                 <div class="row-fluid">
-                    	中下游分水：
+                    	XXXXXX：
                     <input type="text" id="situation-2-1" value="${value6}" style="width:25px;height:10px">
                     <input type="text" id="situation-2-2" value="${value7}" style="width:25px;height:10px">亿m^3
                     <div id="slider-2" style="float:right;display:inline;"></div>
                 </div>
                 <div class="row-fluid">
-                    	中游耕地面积：
+                    	XXXXXX：
                     <input type="text" id="situation-3" value="${value2}" style="width:30px;height:10px">万亩
                     <div id="slider-3" style="float:right;display:inline;"></div>
                 </div>
                 <div class="row-fluid">
-                    	中游湿地面积：
+                    	XXXXXX：
                     <input type="text" id="situation-4" value="${value3}" style="width:30px;height:10px">万亩
                     <div id="slider-4" style="float:right;display:inline;"></div>
                 </div>
                 <div class="row-fluid">
-                    	中游滴灌面积：
+                    	XXXXXX：
                     <input type="text" id="situation-5" value="${value4}" style="width:30px;height:10px">万亩
                     <div id="slider-5" style="float:right;display:inline;"></div>
                     <hr style="margin:0px;height:4px">
                 </div>
                 <div class="row-fluid">
-                    	下游耕地面积：
+                    	XXXXXX：
                     <input type="text" id="situation-6" value="${value5}" style="width:30px;height:10px">万亩
                     <div id="slider-6" style="float:right;display:inline;"></div>
                     <hr style="margin:0px;height:4px">
